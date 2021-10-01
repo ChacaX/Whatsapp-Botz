@@ -295,6 +295,8 @@ const soal = mat[Math.floor(Math.random() * mat.length)]
 	client.on('open', () => {
 		 success('2', ` [ × ] LOADING....\n   [ × ] VERSION 2, 2119, 6\n   [ × ] BLOCK ${blocked.length}\n   [ × ] ${cap}\n   [ × ] CONNECTED`)
 	})
+
+   client.sendMessage(`${owner}@s.whatsapp.net`, `Successfully connected by Mitsuha`, MessageType.text) // By Aine
    await client.connect({timeoutMs: 1000*1000})
    fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
 
