@@ -25,3 +25,5 @@
 <p> ¥ bash install.sh </p>
 <p> ¥ pkg install ffmpeg </p>
 <p> ¥ npm start </p>
+
+<center><marquee scrollamount="10" behavior="alternate" width="100%"><font size="6"><font color="black">________________________________________________</font></marquee></font></center></font size="1" color="red"></marquee width="100%">
