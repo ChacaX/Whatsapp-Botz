@@ -1,3 +1,5 @@
+# HEI IM MITSUHA 👋
+===================================
 <p align="center">
 <a href="#"><img title="Whatsapp-Botz" src="https://img.shields.io/badge/Termux Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
@@ -10,6 +12,7 @@
 <a href="https://github.com/MITSUHA-OFC/Whatsapp-Botz/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/MITSUHA-OFC/Whatsapp-Botz?label=Watchers&color=blue&style=flat-square"></a>
 
 # GIT CLONE
+===================================
 <p> ¥ pkg install git </p>
 <p> ¥ git clone https://github.com/MITSUHA-OFC/Whatsapp-Botz </p>
 <p> ¥ cd Whatsapp-Botz </p>
@@ -18,6 +21,7 @@
 <p> ¥ npm start/node index.js </p>
 
 # INSTALL FILE
+===================================
 <p> ¥ pkg install bash </p>
 <p> ¥ cd /sdcard </p>
 <p> ¥ cp -r Whatsapp-Botz-main /$HOME </p>
@@ -26,4 +30,3 @@
 <p> ¥ pkg install ffmpeg </p>
 <p> ¥ npm start </p>
 
-<center><marquee scrollamount="10" behavior="alternate" width="100%"><font size="6"><font color="black">________________________________________________</font></marquee></font></center></font size="1" color="red"></marquee width="100%">
