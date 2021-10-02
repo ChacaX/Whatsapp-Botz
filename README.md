@@ -1,4 +1,4 @@
-<center><img src ="https://g.top4top.io/p_1970y0zmn1.png"width="350px"height="300px"></center>
+<center><img src ="https://g.top4top.io/p_1970y0zmn1.png"width="300px"height="300px"></center>
 
 <p align="center">
 <a href="#"><img title="Whatsapp-Botz" src="https://img.shields.io/badge/Termux Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
