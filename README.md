@@ -1,4 +1,4 @@
-# HELO VISITOR 👋
+# HI VISITOR 👋
 =============================
 <p align="center">
 <a href="#"><img title="Whatsapp-Botz" src="https://img.shields.io/badge/Termux Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
