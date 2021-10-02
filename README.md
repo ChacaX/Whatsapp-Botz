@@ -9,7 +9,7 @@
 <a href="https://github.com/MITSUHA-OFC/Whatsapp-Botz/network/members"><img title="Forks" src="https://img.shields.io/github/forks/MITSUHA-OFC/Whatsapp-Botz?color=red&style=flat-square"></a>
 <a href="https://github.com/MITSUHA-OFC/Whatsapp-Botz/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/MITSUHA-OFC/Whatsapp-Botz?label=Watchers&color=blue&style=flat-square"></a>
 
-# GIT CLONE SCRIPT
+# GIT CLONE
 <p> ¥ pkg install git </p>
 <p> ¥ git clone https://github.com/MITSUHA-OFC/Whatsapp-Botz </p>
 <p> ¥ cd Whatsapp-Botz </p>
@@ -17,7 +17,7 @@
 <p> ¥ pkg install ffmpeg </p>
 <p> ¥ npm start/node index.js </p>
 
-# INSTALL VIA FILE
+# INSTALL FILE
 <p> ¥ pkg install bash </p>
 <p> ¥ cd /sdcard </p>
 <p> ¥ cp -r Whatsapp-Botz-main /$HOME </p>
