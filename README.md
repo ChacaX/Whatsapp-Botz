@@ -9,8 +9,8 @@
 </p>
 <p align="center">
 <a href="https://github.com/MITSUHA-OFC/followers"><img title="Followers" src="https://img.shields.io/github/followers/MITSUHA-OFC?color=blue&style=flat-square"></a>
-<a href="https://github.com/MITSUHA-OFC/Whatsapp-Botz/network/members"><img title="Forks" src="https://img.shields.io/github/forks/mhankbarbar/termux-wabot?color=red&style=flat-square"></a>
-<a href="https://github.com/MITSUHA-OFC/Whatsapp-Botz/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/mhankbarbar/termux-wabot?label=Watchers&color=blue&style=flat-square"></a>
-<a href="https://www.codefactor.io/repository/github/mhankbarbar/termux-wabot"><img src="https://www.codefactor.io/repository/github/mhankbarbar/termux-wabot/badge" alt="CodeFactor" /></a>
+<a href="https://github.com/MITSUHA-OFC/Whatsapp-Botz/network/members"><img title="Forks" src="https://img.shields.io/github/forks/MITSUHA-OFC/Whatsapp-Botz?color=red&style=flat-square"></a>
+<a href="https://github.com/MITSUHA-OFC/Whatsapp-Botz/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/MITSUHA-OFC/Whatsapp-Botz?label=Watchers&color=blue&style=flat-square"></a>
+<a href="https://www.codefactor.io/repository/github/MITSUHA-OFC/Whatsapp-Botz"><img src="https://www.codefactor.io/repository/github/MITSUHA-OFC/Whatsapp-Botz/badge" alt="CodeFactor" /></a>
 <a href="#"><img title="MAINTENED" src="https://img.shields.io/badge/MAINTENED-YES-blue.svg"</a>
 </p>
