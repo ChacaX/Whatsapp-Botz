@@ -1,4 +1,4 @@
-<center><img src ="https://g.top4top.io/p_1970y0zmn1.png"width="500px"height="500px"></center>
+<center><img src ="https://g.top4top.io/p_1970y0zmn1.png"width="300px"height="300px"></center>
 # HI VISITOR 👋
 =============================
 <p align="center">
