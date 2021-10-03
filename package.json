@@ -1,6 +1,6 @@
 {
   "name": "BOTZ10",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "Wabot",
   "main": "index.js",
   "directories": {
@@ -56,15 +56,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeeoneofc"
+    "url": "git+https://github.com/MITSUHA-OFC"
   },
   "keywords": [
     "botwea"
   ],
-  "author": "ZEEONE & NAYLA",
+  "author": "Mitsuha & Aine",
   "license": "LGPL",
   "bugs": {
-    "url": "https://github.com/zeeoneofc"
+    "url": "https://github.com/MITSUHA-OFC"
   },
-  "homepage": "https://github.com/zeeoneofc"
+  "homepage": "https://github.com/MITSUHA-OFC"
 }
