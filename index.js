@@ -60,6 +60,9 @@ const loli = new lolis()*/
 CONST JSON & JS
 ___________________*/
 
+const hadist = JSON.parse(fs.readFileSync('./lib/hadist.js'))
+const bacaharian = JSON.parse(fs.readFileSync('./lib/bacasehari.js'))
+const bacasholat = JSON.parse(fs.readFileSync('./lib/bacasholat.json'))
 const usercmd = JSON.parse(fs.readFileSync('./src/usercmd.json'))
 const cmd = JSON.parse(fs.readFileSync('./src/cmd.json'))
 const draft = JSON.parse(fs.readFileSync('./src/draft.json'))
@@ -108,7 +111,7 @@ owner = setting.ownerNumber
 namaowner = setting.nama
 namabot = setting.bot
 nobot = setting.nobot
-thumb = fs.readFileSync(`./lib/odc.jpeg`)
+thumb = fs.readFileSync(`./lib/fake.jpeg`)
 thumb2 = fs.readFileSync(`./lib/odc.jpeg`)
 fakeimage = fs.readFileSync(`./lib/odc.jpeg`)
 namo = ``
@@ -120,11 +123,6 @@ on = false
 cap = 'DONT BULLY ME PLEASE'
 blocked = []
 hit_today = []
-kode = [`1`,`2`,`3`,`4`,`5`,`6`,`7`,`8`,`9`,`0`]
-const otp1 = kode[Math.floor(Math.random() * kode.length)]
-const otp2 = kode[Math.floor(Math.random() * kode.length)]
-const otp3 = kode[Math.floor(Math.random() * kode.length)]
-const otp4 = kode[Math.floor(Math.random() * kode.length)]
 
 /*_________________
 BAGIAN FUNCTION
@@ -291,8 +289,8 @@ const soal = mat[Math.floor(Math.random() * mat.length)]
 	})
 	
 	client.on('open', () => {
-		 success('2', ` Berhasil Tersambung, Menunggu Pesan Masuk...`)
-	})
+		 success('2', ` BOT BERHASIL TERSAMBUNG KE WHATSAPP, BOT INI DIBANGUN MENGGUNAKAM NODEJS HAVE FUN. MENUNGGU PESAN WHATSAPP TERBARU MASUK KEDALAM COMMAND PROMPT\n\n\n`, 'yellow')
+})
    await client.connect({timeoutMs: 1000*1000})
    fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
 
@@ -616,7 +614,7 @@ teks = `*PROMOTE TERDETEKSI*
             
             
 		   const reply = (teks) => {
-				client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 			}
 			
 			
@@ -1323,9 +1321,9 @@ console.log(color('[COMMAND]', 'blue'), color('Kick', 'yellow'), color(time, 'wh
 if (budy == '.add'
 || (budy == '#add')) {
 try {
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 quotedis = mek.message.extendedTextMessage.contextInfo.participant
 await client.groupAdd(from, [quotedis])
 } catch (e) {
@@ -1381,159 +1379,177 @@ quoted:
 fkatalok})
 break*/
 
+/*case 'menu':
+getLevel3 = getLevelingLevel(sender)
+let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
+fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/Img.jpg'))
+buttons = [{buttonId:`ALL MENU`,buttonText:{displayText:`ALL MENU`},type:1},{buttonId:`ISLAMIC [ BETA ]`,buttonText:{displayText:`ISLAMIC [ BETA ]`},type:1},{buttonId:`IKLAN BOT`,buttonText:{displayText:`IKLAN BOT`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
+buttonsMessage = {footerText:'𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦𝘮𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu', imageMessage: imageMsg,
+contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶? `,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: fkatalok})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+break*/
+
 case 'menu':
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks = `╭─「 *PROFILE KAMU* 」
-├  nama ${pushname}
-├ setatus ${premi}
-├ pangkat ${role}
-├ level ${getLevel3}
-├ xp ${getLevelingXp(sender)}
-╰────────────
-
-╭─「 *INFORMASI MENU* 」
-├ ${prefix2}info
-├ ${prefix2}iklan
-├ ${prefix2}donasi
-├ ${prefix2}request
-╰────────────
-
-╭─「 *PRODUK & VOTING* 」
-├ ${prefix2}produk
-├ ${prefix2}tambah
-├ ${prefix2}votting
-├ ${prefix2}vote
-├ ${prefix2}dellvote
-╰────────────
-
-╭─「 *ULASAN & MUTUAL* 」
-├ ${prefix2}ulasan
-├ ${prefix2}komentar
-├ ${prefix2}mutual
-├ ${prefix2}save
-╰────────────
-
-╭─「 *PRESENSI & MESSAGES* 」
-├ ${prefix2}absen
-├ ${prefix2}absensi
-├ ${prefix2}svmess
-├ ${prefix2}listmess
-╰────────────
-
-╭─「 *GROUP MENU* 」
-├ ${prefix2}cmd
-├ ${prefix2}sider
-├ ${prefix2}hidetag
-├ ${prefix2}fitnah
-├ ${prefix2}change
-├ ${prefix2}revoke
-├ ${prefix2}add
-├ ${prefix2}kick
-├ ${prefix2}promote
-├ ${prefix2}demote
-├ ${prefix2}tagall
-├ ${prefix2}antilink
-├ ${prefix2}antitoxic
-├ ${prefix2}leveling
-├ ${prefix2}welcome
-╰────────────
-
-╭─「 *ANIME MENU* 」
-├ ${prefix2}neko
-├ ${prefix2}waifu
-╰────────────
-
-╭─「 *GAMES MENU* 」
-├ ${prefix2}dungeon
-├ ${prefix2}slot
-├ ${prefix2}truth
-├ ${prefix2}dare
-├ ${prefix2}tebakgambar
-╰────────────
-
-╭─「 *IMAGE MENU* 」
-├ ${prefix2}cogan
-├ ${prefix2}cecan
-├ ${prefix2}pinterest
-├ ${prefix2}ocr
-╰────────────
-
-╭─「 *RANDOM MENU* 」
-├ ${prefix2}cerpen
-├ ${prefix2}ceritahoror
-├ ${prefix2}film
-├ ${prefix2}fakedata
-├ ${prefix2}news
-├ ${prefix2}beasiswa
-├ ${prefix2}ppcouple
-╰────────────
-
-╭─「 *STICKER MENU* 」
-├ ${prefix2}sticker
-├ ${prefix2}wasted
-├ ${prefix2}comrade
-├ ${prefix2}jail
-├ ${prefix2}passed
-├ ${prefix2}trigger
-├ ${prefix2}toimg
-╰────────────
-
-╭─「 *EDUCATION MENU* 」
-├ ${prefix2}quiz
-╰────────────
-
-╭─「 *PREMIUM MENU* 」
-├ ${prefix2}fast
-├ ${prefix2}tupai
-├ ${prefix2}gemuk
-├ ${prefix2}slow
-├ ${prefix2}tomp3
-├ ${prefix2}mining
-├ ${prefix2}asupan
-╰────────────
-
-╭─「 *SOSIAL MENU* 」
-├ ${prefix2}upload
-├ ${prefix2}posting
-├ ${prefix2}draft
-├ ${prefix2}blogger
-╰────────────
-
-╭─「 *OTHER MENU* 」
-├ ${prefix2}sharelock
-├ ${prefix2}delete
-├ ${prefix2}pesan
-├ ${prefix2}owner
-├ ${prefix2}report
-├ ${prefix2}timer
-╰────────────
-
-╭─「 *OWNER MENU* 」
-├ $
-├ >
-├ =>
-├ ${prefix2}makegroup
-├ ${prefix2}kudet
-├ ${prefix2}leave
-├ ${prefix2}clone
-├ ${prefix2}bc
-├ ${prefix2}addprem
-├ ${prefix2}dellprem
-├ ${prefix2}setbudy
-├ ${prefix2}bug
-╰────────────
-
-╭─「 *THANKS TO* 」
-├ mhankbarbar
-├ rimurubotz
-├ dimxbotz
-├ rurichan
-├ zak06cheat
-├ ridwan
-├ hafizh
-╰────────────`
-sendButLocation(from, `${teks}`, `MADE WITH ❤ BY MITSUHA`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+uptime = process.uptime()
+teks =`𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n`
+sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
+╭────────────────────
+•├❏  nama ${pushname}
+•├❏ setatus ${premi}
+•├❏ pangkat ${role}
+•├❏ level ${getLevel3}
+•├❏ xp ${getLevelingXp(sender)}
+╰────────────────────
+「 *INFORMASI MENU* 」
+╭────────────────────
+•├❏ ${prefix2}info
+•├❏ ${prefix2}iklan
+•├❏ ${prefix2}donasi
+•├❏ ${prefix2}request
+╰────────────────────
+「 *PRODUK & VOTING* 」
+╭────────────────────
+•├❏ ${prefix2}produk
+•├❏ ${prefix2}tambah
+•├❏ ${prefix2}votting
+•├❏ ${prefix2}vote
+•├❏ ${prefix2}dellvote
+╰────────────────────
+「 *ULASAN & MUTUAL* 」
+╭────────────────────
+•├❏ ${prefix2}ulasan
+•├❏ ${prefix2}komentar
+•├❏ ${prefix2}mutual
+•├❏ ${prefix2}save
+╰────────────────────
+「 *ABSEN & MESSAGES* 」
+╭────────────────────
+•├❏ ${prefix2}absen
+•├❏ ${prefix2}absensi
+•├❏ ${prefix2}svmess
+•├❏ ${prefix2}listmess
+╰────────────────────
+「 *GROUP MENU* 」
+╭────────────────────
+•├❏ ${prefix2}cmd
+•├❏ ${prefix2}sider
+•├❏ ${prefix2}hidetag
+•├❏ ${prefix2}fitnah
+•├❏ ${prefix2}change
+•├❏ ${prefix2}revoke
+•├❏ ${prefix2}add
+•├❏ ${prefix2}kick
+•├❏ ${prefix2}promote
+•├❏ ${prefix2}demote
+•├❏ ${prefix2}tagall
+•├❏ ${prefix2}antilink
+•├❏ ${prefix2}antitoxic
+•├❏ ${prefix2}leveling
+•├❏ ${prefix2}welcome
+╰────────────────────
+「 *ANIME MENU* 」
+╭────────────────────
+•├❏ ${prefix2}neko
+•├❏ ${prefix2}waifu
+╰────────────────────
+「 *GAMES MENU* 」
+╭────────────────────
+•├❏ ${prefix2}dungeon
+•├❏ ${prefix2}slot
+•├❏ ${prefix2}truth
+•├❏ ${prefix2}dare
+•├❏ ${prefix2}tebakgambar
+╰────────────────────
+「 *IMAGE MENU* 」
+╭────────────────────
+•├❏ ${prefix2}cogan
+•├❏ ${prefix2}cecan
+•├❏ ${prefix2}pinterest
+•├❏ ${prefix2}ocr
+╰────────────────────
+「 *RANDOM MENU* 」
+╭────────────────────
+•├❏ ${prefix2}cerpen
+•├❏ ${prefix2}ceritahoror
+•├❏ ${prefix2}film
+•├❏ ${prefix2}fakedata
+•├❏ ${prefix2}news
+•├❏ ${prefix2}beasiswa
+•├❏ ${prefix2}ppcouple
+╰────────────────────
+「 *STICKER MENU* 」
+╭────────────────────
+•├❏ ${prefix2}sticker
+•├❏ ${prefix2}wasted
+•├❏ ${prefix2}comrade
+•├❏ ${prefix2}jail
+•├❏ ${prefix2}passed
+•├❏ ${prefix2}trigger
+•├❏ ${prefix2}toimg
+╰────────────────────
+「 *EDUCATION MENU* 」
+╭────────────────────
+•├❏ ${prefix2}quiz
+•├❏ ${prefix2}niatsholat
+•├❏ ${prefix2}niatsehari2
+•├❏ ${prefix2}hadist
+╰────────────────────
+「 *PREMIUM MENU* 」
+╭────────────────────
+•├❏ ${prefix2}fast
+•├❏ ${prefix2}tupai
+•├❏ ${prefix2}gemuk
+•├❏ ${prefix2}slow
+•├❏ ${prefix2}tomp3
+•├❏ ${prefix2}mining
+•├❏ ${prefix2}asupan
+╰────────────────────
+「 *SOSIAL MENU* 」
+╭────────────────────
+•├❏ ${prefix2}upload
+•├❏ ${prefix2}posting
+•├❏ ${prefix2}draft
+•├❏ ${prefix2}blogger
+╰────────────────────
+「 *OTHER MENU* 」
+╭────────────────────
+•├❏ ${prefix2}sharelock
+•├❏ ${prefix2}delete
+•├❏ ${prefix2}pesan
+•├❏ ${prefix2}owner
+•├❏ ${prefix2}report
+•├❏ ${prefix2}timer
+╰────────────────────
+「 *OWNER MENU* 」
+╭────────────────────
+•├❏ $
+•├❏ >
+•├❏ =>
+•├❏ ${prefix2}makegroup
+•├❏ ${prefix2}kudet
+•├❏ ${prefix2}leave
+•├❏ ${prefix2}clone
+•├❏ ${prefix2}bc
+•├❏ ${prefix2}addprem
+•├❏ ${prefix2}dellprem
+•├❏ ${prefix2}setbudy
+•├❏ ${prefix2}bug
+╰────────────────────
+「 *THANKS TO* 」
+╭────────────────────
+•├❏ mhankbarbar
+•├❏ rimurubotz
+•├❏ dimxbotz
+•├❏ rurichan
+•├❏ zak06cheat
+•├❏ ridwan
+•├❏ hafizh
+╰────────────────────`, {jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*_________________
@@ -1543,7 +1559,7 @@ ___________________*/
 case 'kudet':
 if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
 if (!isRegistered) return reply(ind.noregis())     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 ppp = `${args.join(' ')}`
 send = ppp.split("|")[0];
 lok = ppp.split("|")[1];
@@ -1570,9 +1586,9 @@ break
 
 case 'revoke':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.revokeInvite(from)
 break
 
@@ -1583,10 +1599,10 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{buttonId:`TAMBAH 📦`,buttonText:{displayText:'TAMBAH 📦'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.relayWAMessage(prep)
 break
 
@@ -1635,7 +1651,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`BLOGGER`,buttonText:{displayText:'BLOGGER'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/draft.jpg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/draft.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`view ${view.length}`, imageMessage: imageMsg,
 contentText:`*${randKey.pengguna}*\n\n${randKey.teks}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
@@ -1650,7 +1666,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`LIKE`,buttonText:{displayText:'LIKE'},type:1},{buttonId:`SCROL`,buttonText:{displayText:'SCROL'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`SOSMED INSTAN`, imageMessage: imageMsg,
 contentText:`❤ *${love.length}*\n*${randKey.nama}* ${randKey.cap}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
@@ -1693,7 +1709,7 @@ case 'quiz':
 if (!isRegistered) return reply(ind.noregis())
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(Soalnya.gambar))
 buttons = [{buttonId:`BENAR`,buttonText:{displayText:`BENAR`},type:1},{buttonId:`SALAH`,buttonText:{displayText:`SALAH`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`JAWABAN BENAR ${benar.length}\nJAWABAN SALAH ${salah.length}\n\n${materi}`, imageMessage: imageMsg,
 contentText:`*QUIZ HARIAN BERHADIAH*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -1704,7 +1720,7 @@ break
 case 'hidetag':                 
 if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 var value = body.slice(9)
 var group = await client.groupMetadata(from)
 var member = group['participants']
@@ -1723,9 +1739,9 @@ break
 case 'close-grup':
 case 'close-grub':      
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 var nomor = mek.participant
 const close = {
 text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
@@ -1738,14 +1754,14 @@ break
 case 'open-grup':
 case 'open-grub':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 open = {
 text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,             
 }
 client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 break
 
 case 'grub':
@@ -1755,9 +1771,9 @@ case 'change':
 case 'setclose':
 case 'setopen':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -1788,9 +1804,9 @@ break
       
 case 'welcome-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (isWelkom) return reply('「 SUDAH ON KAWAN 」')
 welkom.push(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -1799,9 +1815,9 @@ break
 						
 case 'welcome-disable':
 if (!isRegistered) return reply(ind.noregis())    
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 var ini = welkom.indexOf(from)
 welkom.splice(ini, 1)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -1812,9 +1828,9 @@ case 'welcome':
 case 'welcome 1':
 case 'welcome 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻𝑺𝑼???? ??𝑶𝑻??`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻𝑺𝑼???? ??𝑶𝑻??`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 let gwekkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -1833,9 +1849,9 @@ case 'antilink':
 case 'antilink 1':
 case 'antilink 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 let gwekkkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -1870,9 +1886,9 @@ case 'antitoxic':
 case 'antitoxic 1':
 case 'antitoxic 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 let gwekkkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -1891,9 +1907,9 @@ case 'leveling':
 case 'leveling 1':
 case 'leveling 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 let gwekkkjiie = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -1911,7 +1927,7 @@ break
 case 'tagall':
 case 'tagall1':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
 teks += '\n\n'
@@ -1924,9 +1940,9 @@ break
           
 case 'antilink-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (isAntiLink) return reply('Sudah Aktif Kak')
 antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
@@ -1935,9 +1951,9 @@ break
 					
 case 'antilink-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})    
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})    
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (!isAntiLink) return reply('Sudah Mati Kak')
 var ini = antilink.indexOf(from)
 antilink.splice(ini, 1)
@@ -1947,9 +1963,9 @@ break
 
 case 'antitoxic-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 var ini = antitoxic.indexOf(from)
 antitoxic.splice(ini, 1)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -1958,9 +1974,9 @@ break
 						
 case 'antitoxic-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
 antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -1969,9 +1985,9 @@ break
 
 case 'leveling-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
 _leveling.push(from)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
@@ -1980,9 +1996,9 @@ break
 
 case 'leveling-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 var ini = _leveling.indexOf(from)
 _leveling.splice(ini, 1)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
@@ -2004,9 +2020,9 @@ break
                                 
 case 'promote':                                   
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
@@ -2024,9 +2040,9 @@ break
 
 case 'demote':   
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
@@ -2044,9 +2060,9 @@ break
 					
 //case 'add':\\   
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (args.length < 1) return reply('Yang mau di add jin ya?')
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
 try {
@@ -2060,18 +2076,18 @@ break
 
 case 'add':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 reply(`_untuk menggunakan fitur add silahkan tag pesan sesorang yang sudah keluar grup lali ketik #add, cara guna seperti kick reply_`)
 break
 
 case 'kick':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - ??𝑰𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - ??𝑰𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (args.length > 15) return ('Hanya Bisa Ngekick 1 Nomor') 
 if (mentioned.length > 1) {
@@ -2095,8 +2111,8 @@ break*/
 /*case 'simih':
 if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
 if (args.length < 1) return reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 if (Number(args[0]) === 1) {
 if (isSimi) return reply('Mode simi sudah aktif')
@@ -2144,7 +2160,7 @@ break
 				
 case 'leave':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
 gwetkkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -2162,8 +2178,8 @@ break
                     
 case 'clone':
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
 if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
 if (args.length < 1) return reply('Tag target yang ingin di clone')
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
@@ -2237,14 +2253,14 @@ break
 case 'ppcouple':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 data = fs.readFileSync('./lib/couple.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.male))
 buttons = [{buttonId:`NIH COWOK`,buttonText:{displayText:`NIH COWOK`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'© Mitsuhabot', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2252,7 +2268,7 @@ client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.female))
 buttons = [{buttonId:`NIH CEWEK`,buttonText:{displayText:`NIH CEWEK`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'© Mitsuhabot', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2387,7 +2403,7 @@ randKey = jsonData[randIndex];
 /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
 buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2404,7 +2420,7 @@ randKey = jsonData[randIndex];
 /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
 buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2421,7 +2437,7 @@ randKey = jsonData[randIndex];
 /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
 buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2452,7 +2468,7 @@ randKey = jsonData[randIndex];
 /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
 buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2473,7 +2489,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2498,7 +2514,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2523,7 +2539,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2548,7 +2564,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2573,7 +2589,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2596,7 +2612,7 @@ break
 case 'makegroup':
 if (!isRegistered) return reply(ind.noregis())
 if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 const aineloh = body.slice(11)
 const ainenihh = aineloh.split("|")[0]
 const okelahh = aineloh.split("|")[1].replace("@","")
@@ -2611,7 +2627,7 @@ if (args.length < 1) return reply(`[❗] Cara mengirim pesan kepada pengguna wha
 var FG = body.slice(8)
 var F1 = FG.split("|")[0];
 var F2 = FG.split("|")[1];
-client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 reply('Berhasil mengirim pesan...')
 break
 				
@@ -2656,7 +2672,7 @@ break
 case 'dungeon':
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId:`START`,buttonText:{displayText:'START'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
 contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2669,10 +2685,10 @@ const p = hewan[Math.floor(Math.random() * hewan.length)]
 const p2 = hewan[Math.floor(Math.random() * hewan.length)]
 const p3 = hewan[Math.floor(Math.random() * hewan.length)]
 buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1},{buttonId:`GET`,buttonText:{displayText:'GET'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Tanggal ${date}\n©Mitsuhabot`, imageMessage: imageMsg,
 contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  ?? | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : ??<=====`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.relayWAMessage(prep)
 break
               
@@ -2680,10 +2696,10 @@ case 'author':
 case 'owner':
 case 'creator':
 if (!isRegistered) return reply(ind.noregis())    
-await client.sendMessage(from, ``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `INI OWNER SAYA ><`,"body": `${time}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": `https://wa.me/6285731261728`}},quoted: mek})
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
 let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `Butuh Info Dari Owner Ku?`,
+"contentText": `Apakah Kamu Butuh Info Dari Owner Ku?`,
 "description": `.`,
 "footerText": "Jangan Spam Kontak Ownerku",
 "buttons": [
@@ -2716,7 +2732,7 @@ case 'donasi':
 if (!isRegistered) return reply(ind.noregis())
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -2736,7 +2752,7 @@ addRegisteredUser(sender, seriTod)
 getLevel3 = getLevelingLevel(sender)    
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId:`⋮☰ PANDUAN`,buttonText:{displayText:'⋮☰ PANDUAN'},type:1},{buttonId:`HOME BACK`,buttonText:{displayText:'HOME BACK'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Peringatan : Silahkan Gunakan Bot Sebaik Mungkin Dan Jangan Spam Command Ke Bot.`, imageMessage: imageMsg,
 contentText:`「 \`\`\`SUKSES REGISTRASI\`\`\` 」\n\n
 \`\`\`❏ Nama: ${pushname}\`\`\`
@@ -2744,7 +2760,7 @@ contentText:`「 \`\`\`SUKSES REGISTRASI\`\`\` 」\n\n
 \`\`\`❏ Ns: ${seriTod}\`\`\`
 \`\`\`❏ Total Pengguna: ${_registered.length}\`\`\`
 `,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.relayWAMessage(prep)
 break*/
 
@@ -2754,12 +2770,19 @@ case 'regist':
 case 'verify':
 case 'erify':
 case 'ogin':
-/*if (isRegistered) return reply(`\`\`\`YOU ALLREADY VERIFY\`\`\``)
-client.sendMessage(from, ``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `KLIK DISINI UNTUK VERIFY`,"body": `${time}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": `https://wa.me/62857312617285?text=${otp1}${otp2}${otp3}${otp4}`}}})
-break*/
-me = client.user
-if (isRegistered) return reply(`\`\`\`YOU ALLREADY VERIFY\`\`\``)
-client.sendMessage(from, ``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `KLIK DISINI UNTUK VERIFY`,"body": `${time}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": `https://wa.me/${me.jid.split('@')[0]}?text=${otp1}${otp2}${otp3}${otp4}`}}})
+if (isRegistered) return reply(`_kamu telah verify sebelumnya_`) 
+addLevelingId(sender)
+serinya = createSerial(15)
+_registered.push(serinya)
+fs.writeFileSync('./src/pengguna.json', JSON.stringify(_registered))
+getLevel3 = getLevelingLevel(sender)
+addLevelingLevel(sender, 5)
+addLevelingXp(sender, 5)
+addRegisteredUser(sender, serinya)
+uptime = process.uptime()
+creator = "6285731261728@s.whatsapp.net"
+teks =`🐧 *SUCCESS VERIFY* 🐧`
+sendButLocation(from, `${teks}`, `_kamu telah terverifikasi √_\n_runtime : ${kyun(uptime)}_`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ALL MENU`,buttonText:{displayText:'ALL MENU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*case 'wait':
@@ -2772,7 +2795,7 @@ await wait(media).then(res => {
 client.sendMessage(from, res.video, video, {quoted: freply, caption: res.teks.trim()})
 }).catch(err => {
 reply(err)
-})0
+})
 } else {
 reply('Foto aja mas')
 }
@@ -2780,8 +2803,8 @@ break*/
 
 case 'info':
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 linkgc = await client.groupInviteCode (from)
 me = client.user
 uptime = process.uptime()
@@ -2845,14 +2868,14 @@ case 'neko':
 if (!isRegistered) return reply(ind.noregis())
 E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
 E2 = E1[Math.floor(Math.random() * E1.length)]
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek}) 
+client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek}) 
 B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek, thumbnail: Buffer.alloc(0)})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek, thumbnail: thumb})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -2878,7 +2901,7 @@ if (!isRegistered) return reply(ind.noregis())
 let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'© Mitsuhabot', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -3061,7 +3084,7 @@ var options = {
 text: teks1,
 contextInfo: {mentionedJid: [nomor]},
 }
-client.sendMessage('62857312617281@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+client.sendMessage('62857312617281@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 reply('Maaf ketidak nyamanan nya, kami akan memperbaikin nya secepatnya.\n\n-> Laporan main main akan dibanned dan ditegur Owner bot')
 break 
                   
@@ -3075,7 +3098,7 @@ randIndex2 = Math.floor(Math.random() * jsonData.length);
 randKey2 = jsonData[randIndex2];
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `👎`,buttonText:{displayText: `👎`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -3112,7 +3135,7 @@ break
 case 'voting':
 case 'votting':
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
 if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)
 ppp = `${args.join(' ')}`
 tem = ppp.split("|")[0];
@@ -3146,7 +3169,7 @@ break
 					
 case 'vote':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 gwekkhkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `VOTE - BOT\n\n${vote}`,
@@ -3164,7 +3187,7 @@ break
 case 'dellvote':
 case 'delvote':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
 yes.splice(ini, 1)
@@ -3177,7 +3200,7 @@ break
 case 'absensi':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `?? LIVE!! JANGAN LUPA SUBSCRIBE CHANEL Mitsuha_Chan YA!!`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `?? LIVE!! JANGAN LUPA SUBSCRIBE CHANEL Mitsuha_Chan YA!!`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
 absen.push(sender)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 teks = `*LIST DAFTAR HADIR ABSEN*:\n`
@@ -3277,7 +3300,7 @@ var options = {
 text: teks2,
 contextInfo: {mentionedJid: [nomor2]},
 }
-client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 break
 
 case 'tebakgambar':
@@ -3292,6 +3315,26 @@ client.sendMessage(from, gambar, image, { caption: `Jawablah pertanyaan dengan w
 setTimeout( () => {
 client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text, { quoted: mek })
 }, 30000)
+break
+
+case 'niatsholat':
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *#1*`)
+break
+
+case 'niatsehari2':
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n_silahkan ketik #selanjutnya untuk melihat list lanjutan_\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *~1*`)
+break
+
+case 'hadist':
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n\n_silahkan ketik #lanjut untuk melihat list lanjutan_\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *&1*`)
+break
+
+case 'selanjutnya':
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *?10*`) 
+break
+
+case 'lanjut':
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *$11*`)
 break
 
 /*_________________
@@ -3320,7 +3363,7 @@ if (!isRegistered) return reply(ind.noregis())
 uptime = process.uptime()
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -3329,10 +3372,10 @@ break
 }
 	
 if (buttonsR === 'OWNER') {
-await client.sendMessage(from, ``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `INI OWNER SAYA ><`,"body": `${time}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": `https://wa.me/6285731261728`}},quoted: mek})
-let huot = await client.prepareMessageFromContent(from, {
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
+let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `Butuh Info Dari Owner Ku?`,
+"contentText": `Apakah Kamu Butuh Info Dari Owner Ku?`,
 "description": `.`,
 "footerText": "Jangan Spam Kontak Ownerku",
 "buttons": [
@@ -3342,15 +3385,15 @@ let huot = await client.prepareMessageFromContent(from, {
 headerType: 1
 },
 }, {quoted: mek}) 
-await client.relayWAMessage(huot)
+await client.relayWAMessage(hot)
 break
 }
 
 if (buttonsR === 'OWNER BOT') {
-await client.sendMessage(from, ``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `INI OWNER SAYA ><`,"body": `${time}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": `https://wa.me/6285731261728`}},quoted: mek})
-let huot = await client.prepareMessageFromContent(from, {
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
+let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `Butuh Info Dari Owner Ku?`,
+"contentText": `Apakah Kamu Butuh Info Dari Owner Ku?`,
 "description": `.`,
 "footerText": "Jangan Spam Kontak Ownerku",
 "buttons": [
@@ -3360,10 +3403,10 @@ let huot = await client.prepareMessageFromContent(from, {
 headerType: 1
 },
 }, {quoted: mek}) 
-await client.relayWAMessage(huot)
+await client.relayWAMessage(hot)
 break
 }
-            
+	
 if (budy.includes(`bot`)) {      	
 let gwkee = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -3437,159 +3480,163 @@ break
 if (buttonsR === 'HOME BACK') {
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks = `╭─「 *PROFILE KAMU* 」
-├  nama ${pushname}
-├ setatus ${premi}
-├ pangkat ${role}
-├ level ${getLevel3}
-├ xp ${getLevelingXp(sender)}
-╰────────────
-
-╭─「 *INFORMASI MENU* 」
-├ ${prefix2}info
-├ ${prefix2}iklan
-├ ${prefix2}donasi
-├ ${prefix2}request
-╰────────────
-
-╭─「 *PRODUK & VOTING* 」
-├ ${prefix2}produk
-├ ${prefix2}tambah
-├ ${prefix2}votting
-├ ${prefix2}vote
-├ ${prefix2}dellvote
-╰────────────
-
-╭─「 *ULASAN & MUTUAL* 」
-├ ${prefix2}ulasan
-├ ${prefix2}komentar
-├ ${prefix2}mutual
-├ ${prefix2}save
-╰────────────
-
-╭─「 *PRESENSI & MESSAGES* 」
-├ ${prefix2}absen
-├ ${prefix2}absensi
-├ ${prefix2}svmess
-├ ${prefix2}listmess
-╰────────────
-
-╭─「 *GROUP MENU* 」
-├ ${prefix2}cmd
-├ ${prefix2}sider
-├ ${prefix2}hidetag
-├ ${prefix2}fitnah
-├ ${prefix2}change
-├ ${prefix2}revoke
-├ ${prefix2}add
-├ ${prefix2}kick
-├ ${prefix2}promote
-├ ${prefix2}demote
-├ ${prefix2}tagall
-├ ${prefix2}antilink
-├ ${prefix2}antitoxic
-├ ${prefix2}leveling
-├ ${prefix2}welcome
-╰────────────
-
-╭─「 *ANIME MENU* 」
-├ ${prefix2}neko
-├ ${prefix2}waifu
-╰────────────
-
-╭─「 *GAMES MENU* 」
-├ ${prefix2}dungeon
-├ ${prefix2}slot
-├ ${prefix2}truth
-├ ${prefix2}dare
-├ ${prefix2}tebakgambar
-╰────────────
-
-╭─「 *IMAGE MENU* 」
-├ ${prefix2}cogan
-├ ${prefix2}cecan
-├ ${prefix2}pinterest
-├ ${prefix2}ocr
-╰────────────
-
-╭─「 *RANDOM MENU* 」
-├ ${prefix2}cerpen
-├ ${prefix2}ceritahoror
-├ ${prefix2}film
-├ ${prefix2}fakedata
-├ ${prefix2}news
-├ ${prefix2}beasiswa
-├ ${prefix2}ppcouple
-╰────────────
-
-╭─「 *STICKER MENU* 」
-├ ${prefix2}sticker
-├ ${prefix2}wasted
-├ ${prefix2}comrade
-├ ${prefix2}jail
-├ ${prefix2}passed
-├ ${prefix2}trigger
-├ ${prefix2}toimg
-╰────────────
-
-╭─「 *EDUCATION MENU* 」
-├ ${prefix2}quiz
-╰────────────
-
-╭─「 *PREMIUM MENU* 」
-├ ${prefix2}fast
-├ ${prefix2}tupai
-├ ${prefix2}gemuk
-├ ${prefix2}slow
-├ ${prefix2}tomp3
-├ ${prefix2}mining
-├ ${prefix2}asupan
-╰────────────
-
-╭─「 *SOSIAL MENU* 」
-├ ${prefix2}upload
-├ ${prefix2}posting
-├ ${prefix2}draft
-├ ${prefix2}blogger
-╰────────────
-
-╭─「 *OTHER MENU* 」
-├ ${prefix2}sharelock
-├ ${prefix2}delete
-├ ${prefix2}pesan
-├ ${prefix2}owner
-├ ${prefix2}report
-├ ${prefix2}timer
-╰────────────
-
-╭─「 *OWNER MENU* 」
-├ $
-├ >
-├ =>
-├ ${prefix2}makegroup
-├ ${prefix2}kudet
-├ ${prefix2}leave
-├ ${prefix2}clone
-├ ${prefix2}bc
-├ ${prefix2}addprem
-├ ${prefix2}dellprem
-├ ${prefix2}setbudy
-├ ${prefix2}bug
-╰────────────
-
-╭─「 *THANKS TO* 」
-├ mhankbarbar
-├ rimurubotz
-├ dimxbotz
-├ rurichan
-├ zak06cheat
-├ ridwan
-├ hafizh
-╰────────────`
-sendButLocation(from, `${teks}`, `MADE WITH ❤ BY MITSUHA`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+uptime = process.uptime()
+teks =`𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n`
+sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
+╭────────────────────
+•├❏  nama ${pushname}
+•├❏ setatus ${premi}
+•├❏ pangkat ${role}
+•├❏ level ${getLevel3}
+•├❏ xp ${getLevelingXp(sender)}
+╰────────────────────
+「 *INFORMASI MENU* 」
+╭────────────────────
+•├❏ ${prefix2}info
+•├❏ ${prefix2}iklan
+•├❏ ${prefix2}donasi
+•├❏ ${prefix2}request
+╰────────────────────
+「 *PRODUK & VOTING* 」
+╭────────────────────
+•├❏ ${prefix2}produk
+•├❏ ${prefix2}tambah
+•├❏ ${prefix2}votting
+•├❏ ${prefix2}vote
+•├❏ ${prefix2}dellvote
+╰────────────────────
+「 *ULASAN & MUTUAL* 」
+╭────────────────────
+•├❏ ${prefix2}ulasan
+•├❏ ${prefix2}komentar
+•├❏ ${prefix2}mutual
+•├❏ ${prefix2}save
+╰────────────────────
+「 *ABSEN & MESSAGES* 」
+╭────────────────────
+•├❏ ${prefix2}absen
+•├❏ ${prefix2}absensi
+•├❏ ${prefix2}svmess
+•├❏ ${prefix2}listmess
+╰────────────────────
+「 *GROUP MENU* 」
+╭────────────────────
+•├❏ ${prefix2}cmd
+•├❏ ${prefix2}sider
+•├❏ ${prefix2}hidetag
+•├❏ ${prefix2}fitnah
+•├❏ ${prefix2}change
+•├❏ ${prefix2}revoke
+•├❏ ${prefix2}add
+•├❏ ${prefix2}kick
+•├❏ ${prefix2}promote
+•├❏ ${prefix2}demote
+•├❏ ${prefix2}tagall
+•├❏ ${prefix2}antilink
+•├❏ ${prefix2}antitoxic
+•├❏ ${prefix2}leveling
+•├❏ ${prefix2}welcome
+╰────────────────────
+「 *ANIME MENU* 」
+╭────────────────────
+•├❏ ${prefix2}neko
+•├❏ ${prefix2}waifu
+╰────────────────────
+「 *GAMES MENU* 」
+╭────────────────────
+•├❏ ${prefix2}dungeon
+•├❏ ${prefix2}slot
+•├❏ ${prefix2}truth
+•├❏ ${prefix2}dare
+•├❏ ${prefix2}tebakgambar
+╰────────────────────
+「 *IMAGE MENU* 」
+╭────────────────────
+•├❏ ${prefix2}cogan
+•├❏ ${prefix2}cecan
+•├❏ ${prefix2}pinterest
+•├❏ ${prefix2}ocr
+╰────────────────────
+「 *RANDOM MENU* 」
+╭────────────────────
+•├❏ ${prefix2}cerpen
+•├❏ ${prefix2}ceritahoror
+•├❏ ${prefix2}film
+•├❏ ${prefix2}fakedata
+•├❏ ${prefix2}news
+•├❏ ${prefix2}beasiswa
+•├❏ ${prefix2}ppcouple
+╰────────────────────
+「 *STICKER MENU* 」
+╭────────────────────
+•├❏ ${prefix2}sticker
+•├❏ ${prefix2}wasted
+•├❏ ${prefix2}comrade
+•├❏ ${prefix2}jail
+•├❏ ${prefix2}passed
+•├❏ ${prefix2}trigger
+•├❏ ${prefix2}toimg
+╰────────────────────
+「 *EDUCATION MENU* 」
+╭────────────────────
+•├❏ ${prefix2}quiz
+•├❏ ${prefix2}niatsholat
+•├❏ ${prefix2}niatsehari2
+•├❏ ${prefix2}hadist
+╰────────────────────
+「 *PREMIUM MENU* 」
+╭────────────────────
+•├❏ ${prefix2}fast
+•├❏ ${prefix2}tupai
+•├❏ ${prefix2}gemuk
+•├❏ ${prefix2}slow
+•├❏ ${prefix2}tomp3
+•├❏ ${prefix2}mining
+•├❏ ${prefix2}asupan
+╰────────────────────
+「 *SOSIAL MENU* 」
+╭────────────────────
+•├❏ ${prefix2}upload
+•├❏ ${prefix2}posting
+•├❏ ${prefix2}draft
+•├❏ ${prefix2}blogger
+╰────────────────────
+「 *OTHER MENU* 」
+╭────────────────────
+•├❏ ${prefix2}sharelock
+•├❏ ${prefix2}delete
+•├❏ ${prefix2}pesan
+•├❏ ${prefix2}owner
+•├❏ ${prefix2}report
+•├❏ ${prefix2}timer
+╰────────────────────
+「 *OWNER MENU* 」
+╭────────────────────
+•├❏ $
+•├❏ >
+•├❏ =>
+•├❏ ${prefix2}makegroup
+•├❏ ${prefix2}kudet
+•├❏ ${prefix2}leave
+•├❏ ${prefix2}clone
+•├❏ ${prefix2}bc
+•├❏ ${prefix2}addprem
+•├❏ ${prefix2}dellprem
+•├❏ ${prefix2}setbudy
+•├❏ ${prefix2}bug
+╰────────────────────
+「 *THANKS TO* 」
+╭────────────────────
+•├❏ mhankbarbar
+•├❏ rimurubotz
+•├❏ dimxbotz
+•├❏ rurichan
+•├❏ zak06cheat
+•├❏ ridwan
+•├❏ hafizh
+╰────────────────────`, {jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
-
 
 if (buttonsR === 'IKLAN BOT') {
 if (!isRegistered) return reply(ind.noregis())
@@ -3632,105 +3679,478 @@ break
                 
 /*if (body.startsWith(`.${command}`)) 
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek2})  
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek2})  
 break
 }*/
 
 /*if (body.startsWith(`X${command}`)) {
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek2})  
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek2})  
 break
 }*/
+                  
+if (buttonsR === 'ISLAM BETA') {
+reply(`_hallo kaka ingin memilih query?_\n\n1. bacaan niat shalat\n2. bacaan niat sehari hari\n3. hadist riwayat bukhari\n\n_silahkan pilih salah satu dibawah ya lalu ketik angka dan simbolnya saja contoh_ *!1*`) 
+}
+
+if (budy.includes(`!1`)) {
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *#1*`)
+}
+
+if (budy.includes(`!2`)) {
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n_silahkan ketik #selanjutnya untuk melihat list lanjutan_\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *~1*`)
+}
+
+if (budy.includes(`!3`)) {
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n\n_silahkan ketik #lanjut untuk melihat list lanjutan_\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *&1*`)
+}
+
+if (budy.includes(`&1`)) {
+for (let i of hadist) {
+reply(`${i.result1.message}\n\n*${i.result1.arabic}*\n\n${i.result1.id}`) 
+break
+}
+}
+
+if (budy.includes(`&2`)) {
+for (let i of hadist) {
+reply(`${i.result2.message}\n\n*${i.result2.arabic}*\n\n${i.result2.id}`) 
+break
+}
+}
+
+if (budy.includes(`&3`)) {
+for (let i of hadist) {
+reply(`${i.result3.message}\n\n*${i.result3.arabic}*\n\n${i.result3.id}`) 
+break
+}
+}
+
+if (budy.includes(`&4`)) {
+for (let i of hadist) {
+reply(`${i.result4.message}\n\n*${i.result4.arabic}*\n\n${i.result4.id}`) 
+break
+}
+}
+
+if (budy.includes(`&5`)) {
+for (let i of hadist) {
+reply(`${i.result5.message}\n\n*${i.result5.arabic}*\n\n${i.result5.id}`) 
+break
+}
+}
+
+if (budy.includes(`&6`)) {
+for (let i of hadist) {
+reply(`${i.result6.message}\n\n*${i.result6.arabic}*\n\n${i.result6.id}`) 
+break
+}
+}
+
+if (budy.includes(`>7`)) {
+for (let i of hadist) {
+reply(`${i.result7.message}\n\n*${i.result7.arabic}*\n\n${i.result7.id}`) 
+break
+}
+}
+
+if (budy.includes(`&8`)) {
+for (let i of hadist) {
+reply(`${i.result8.message}\n\n*${i.result8.arabic}*\n\n${i.result8.id}`) 
+break
+}
+}
+
+if (budy.includes(`&9`)) {
+for (let i of hadist) {
+reply(`${i.result9.message}\n\n*${i.result9.arabic}*\n\n${i.result9.id}`) 
+break
+}
+}
+
+if (budy.includes(`$10`)) {
+for (let i of hadist) {
+reply(`${i.result10.message}\n\n*${i.result10.arabic}*\n\n${i.result10.id}`) 
+break
+}
+}
+
+if (budy.includes(`$11`)) {
+for (let i of hadist) {
+reply(`${i.result11.message}\n\n*${i.result11.arabic}*\n\n${i.result11.id}`) 
+break
+}
+}
+
+if (budy.includes(`$12`)) {
+for (let i of hadist) {
+reply(`${i.result12.message}\n\n*${i.result12.arabic}*\n\n${i.result12.id}`) 
+break
+}
+}
+
+if (budy.includes(`$13`)) {
+for (let i of hadist) {
+reply(`${i.result13.message}\n\n*${i.result13.arabic}*\n\n${i.result13.id}`) 
+break
+}
+}
+
+if (budy.includes(`$14`)) {
+for (let i of hadist) {
+reply(`${i.result14.message}\n\n*${i.result14.arabic}*\n\n${i.result14.id}`) 
+break
+}
+}
+
+if (budy.includes(`$15`)) {
+for (let i of hadist) {
+reply(`${i.result15.message}\n\n*${i.result15.arabic}*\n\n${i.result15.id}`) 
+break
+}
+}
+
+if (budy.includes(`$16`)) {
+for (let i of hadist) {
+reply(`${i.result16.message}\n\n*${i.result16.arabic}*\n\n${i.result16.id}`) 
+break
+}
+}
+
+if (budy.includes(`$17`)) {
+for (let i of hadist) {
+reply(`${i.result17.message}\n\n*${i.result17.arabic}*\n\n${i.result17.id}`) 
+break
+}
+}
+
+if (budy.includes(`$18`)) {
+for (let i of hadist) {
+reply(`${i.result18.message}\n\n*${i.result18.arabic}*\n\n${i.result18.id}`) 
+break
+}
+}
+
+if (budy.includes(`$19`)) {
+for (let i of hadist) {
+reply(`${i.result19.message}\n\n*${i.result19.arabic}*\n\n${i.result19.id}`) 
+break
+}
+}
+
+if (budy.includes(`$20`)) {
+for (let i of hadist) {
+reply(`${i.result20.message}\n\n*${i.result20.arabic}*\n\n${i.result20.id}`) 
+break
+}
+}
+
+if (budy.includes(`#1`)) {
+for (let i of bacasholat) {
+reply(`${i.result1.name}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`#2`)) {
+for (let i of bacasholat) {
+reply(`${i.result2.name}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`#3`)) {
+for (let i of bacasholat) {
+reply(`${i.result3.name}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`#4`)) {
+for (let i of bacasholat) {
+reply(`${i.result4.name}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`#5`)) {
+for (let i of bacasholat) {
+reply(`${i.result5.name}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`#6`)) {
+for (let i of bacasholat) {
+reply(`${i.result6.name}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`#7`)) {
+for (let i of bacasholat) {
+reply(`${i.result7.name}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`#8`)) {
+for (let i of bacasholat) {
+reply(`${i.result8.name}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
+break
+}
+}
 
 
-                             if (budy.startsWith(`.${command}`)) {
-                  	let gwee = await client.prepareMessageFromContent(from, {
-					
+if (budy.includes(`~1`)) {
+for (let i of bacaharian) {
+reply(`${i.result1.title}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
+break
+}
+}
 
-"buttonsMessage": {
-					
+if (budy.includes(`~2`)) {
+for (let i of bacaharian) {
+reply(`${i.result2.title}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
+break
+}
+}
 
-"contentText": `*COMMAND WAS NOT FOUND*`,
-					
-					
-"description": `Donasinya Kak 😃??\nhttps://www.saweria.co/MitsuhaBot,`,
+if (budy.includes(`~3`)) {
+for (let i of bacaharian) {
+reply(`${i.result3.title}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
+break
+}
+}
 
-"footerText": "perintah tidak ditemukan ❌",
+if (budy.includes(`~4`)) {
+for (let i of bacaharian) {
+reply(`${i.result4.title}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
+break
+}
+}
 
-"buttons": [
-						
-{buttonId: '⋮☰ PANDUAN', buttonText: {displayText: '⋮☰ PANDUAN'}, type: 1}
+if (budy.includes(`~5`)) {
+for (let i of bacaharian) {
+reply(`${i.result5.title}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
+break
+}
+}
 
-],
-					
+if (budy.includes(`~6`)) {
+for (let i of bacaharian) {
+reply(`${i.result6.title}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
+break
+}
+}
 
-headerType: 1
-					
+if (budy.includes(`~7`)) {
+for (let i of bacaharian) {
+reply(`${i.result7.title}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
+break
+}
+}
 
-},
-					
+if (budy.includes(`~8`)) {
+for (let i of bacaharian) {
+reply(`${i.result8.title}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
+break
+}
+}
 
-}, {quoted: mek})
-					
- 
-await client.relayWAMessage(gwee)
+if (budy.includes(`~9`)) {
+for (let i of bacaharian) {
+reply(`${i.result9.title}\n\n*${i.result9.arabic}*\n\n${i.result9.latin}\n\n${i.result9.terjemahan}`) 
+break
+}
+}
 
-                  break
-                  }
-                  if (budy.startsWith(`#${command}`)) {
-                  	let gwee = await client.prepareMessageFromContent(from, {
-					
+if (budy.includes(`?10`)) {
+for (let i of bacaharian) {
+reply(`${i.result10.title}\n\n*${i.result10.arabic}*\n\n${i.result10.latin}\n\n${i.result10.terjemahan}`) 
+break
+}
+}
 
-"buttonsMessage": {
-					
+if (budy.includes(`?11`)) {
+for (let i of bacaharian) {
+reply(`${i.result11.title}\n\n*${i.result11.arabic}*\n\n${i.result11.latin}\n\n${i.result11.terjemahan}`) 
+break
+}
+}
 
-"contentText": `*COMMAND WAS NOT FOUND*`,
-					
-					
-"description": `Donasinya Kak 😃😁\nhttps://www.saweria.co/MitsuhaBot,`,
+if (budy.includes(`?12`)) {
+for (let i of bacaharian) {
+reply(`${i.result12.title}\n\n*${i.result12.arabic}*\n\n${i.result12.latin}\n\n${i.result12.terjemahan}`) 
+break
+}
+}
 
-"footerText": "perintah tidak ditemukan ❌",
+if (budy.includes(`?13`)) {
+for (let i of bacaharian) {
+reply(`${i.result13.title}\n\n*${i.result13.arabic}*\n\n${i.result13.latin}\n\n${i.result13.terjemahan}`) 
+break
+}
+}
 
-"buttons": [
-						
-{buttonId: '⋮☰ PANDUAN', buttonText: {displayText: '⋮☰ PANDUAN'}, type: 1}
+if (budy.includes(`?14`)) {
+for (let i of bacaharian) {
+reply(`${i.result14.title}\n\n*${i.result14.arabic}*\n\n${i.result14.latin}\n\n${i.result14.terjemahan}`) 
+break
+}
+}
 
-],
-					
+if (budy.includes(`?15`)) {
+for (let i of bacaharian) {
+reply(`${i.result15.title}\n\n*${i.result15.arabic}*\n\n${i.result15.latin}\n\n${i.result15.terjemahan}`) 
+break
+}
+}
 
-headerType: 1
-					
+if (budy.includes(`?16`)) {
+for (let i of bacaharian) {
+reply(`${i.result16.title}\n\n*${i.result16.arabic}*\n\n${i.result16.latin}\n\n${i.result16.terjemahan}`) 
+break
+}
+}
 
-},
-					
+if (budy.includes(`?17`)) {
+for (let i of bacaharian) {
+reply(`${i.result17.title}\n\n*${i.result17.arabic}*\n\n${i.result17.latin}\n\n${i.result17.terjemahan}`) 
+break
+}
+}
 
-}, {quoted: mek})
-					
- 
-await client.relayWAMessage(gwee)
+if (budy.includes(`?18`)) {
+for (let i of bacaharian) {
+reply(`${i.result18.title}\n\n*${i.result18.arabic}*\n\n${i.result18.latin}\n\n${i.result18.terjemahan}`) 
+break
+}
+}
 
-                  break
-                  }
+if (budy.includes(`?19`)) {
+for (let i of bacaharian) {
+reply(`${i.result19.title}\n\n*${i.result19.arabic}*\n\n${i.result19.latin}\n\n${i.result19.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?20`)) {
+for (let i of bacaharian) {
+reply(`${i.result20.title}\n\n*${i.result20.arabic}*\n\n${i.result20.latin}\n\n${i.result20.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?21`)) {
+for (let i of bacaharian) {
+reply(`${i.result21.title}\n\n*${i.result21.arabic}*\n\n${i.result21.latin}\n\n${i.result21.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?22`)) {
+for (let i of bacaharian) {
+reply(`${i.result22.title}\n\n*${i.result22.arabic}*\n\n${i.result22.latin}\n\n${i.result22.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?23`)) {
+for (let i of bacaharian) {
+reply(`${i.result23.title}\n\n*${i.result23.arabic}*\n\n${i.result23.latin}\n\n${i.result23.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?24`)) {
+for (let i of bacaharian) {
+reply(`${i.result24.title}\n\n*${i.result24.arabic}*\n\n${i.result24.latin}\n\n${i.result24.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?25`)) {
+for (let i of bacaharian) {
+reply(`${i.result25.title}\n\n*${i.result25.arabic}*\n\n${i.result25.latin}\n\n${i.result25.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?26`)) {
+for (let i of bacaharian) {
+reply(`${i.result26.title}\n\n*${i.result26.arabic}*\n\n${i.result26.latin}\n\n${i.result26.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?27`)) {
+for (let i of bacaharian) {
+reply(`${i.result27.title}\n\n*${i.result27.arabic}*\n\n${i.result27.latin}\n\n${i.result27.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?28`)) {
+for (let i of bacaharian) {
+reply(`${i.result28.title}\n\n*${i.result28.arabic}*\n\n${i.result28.latin}\n\n${i.result28.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?29`)) {
+for (let i of bacaharian) {
+reply(`${i.result29.title}\n\n*${i.result29.arabic}*\n\n${i.result29.latin}\n\n${i.result29.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?30`)) {
+for (let i of bacaharian) {
+reply(`${i.result30.title}\n\n*${i.result30.arabic}*\n\n${i.result30.latin}\n\n${i.result30.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?31`)) {
+for (let i of bacaharian) {
+reply(`${i.result31.title}\n\n*${i.result31.arabic}*\n\n${i.result31.latin}\n\n${i.result31.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?32`)) {
+for (let i of bacaharian) {
+reply(`${i.result32.title}\n\n*${i.result32.arabic}*\n\n${i.result32.latin}\n\n${i.result32.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?33`)) {
+for (let i of bacaharian) {
+reply(`${i.result33.title}\n\n*${i.result33.arabic}*\n\n${i.result33.latin}\n\n${i.result33.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?34`)) {
+for (let i of bacaharian) {
+reply(`${i.result34.title}\n\n*${i.result34.arabic}*\n\n${i.result34.latin}\n\n${i.result34.terjemahan}`) 
+break
+}
+}
+
+if (budy.includes(`?35`)) {
+for (let i of bacaharian) {
+reply(`${i.result35.title}\n\n*${i.result35.arabic}*\n\n${i.result35.latin}\n\n${i.result35.terjemahan}`) 
+break
+}
+}
 
 if (budy.includes(`Test`)) {
-num = `RICK ROLE MOMENTS`
-hai = `${groupName}`
-client.sendMessage(from, `${groupName}`, text, {
-thumbnail: fs.readFileSync('./lib/odc.jpeg'),
-caption: `AKTIF...`,
-"contextInfo": {
-mentionedJid: [hai, num],
-"externalAdReply": {
-"title": `${groupName}`,
-"body": `RICK ROLE MOMENTS`,
-"mediaType": 2,
-"previewType": `https://chat.whatsapp.com/Hqk0PWVynuv7iKUbXyQCek`,
-"thumbnail": fs.readFileSync('./lib/odc.jpeg'),
-"mediaUrl": `https://chat.whatsapp.com/Hqk0PWVynuv7iKUbXyQCek`,
-"sourceUrl": "https://chat.whatsapp.com/Hqk0PWVynuv7iKUbXyQCek"
-}}, quoted: fkatalok })
-                  break
-                  }
+client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+break
+}
    
                   
                    if (budy.includes(`⌚`)) {
@@ -3824,10 +4244,10 @@ break
 
 if (buttonsR === 'Tutup') {
 	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩?? - 𝑴??𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩?? - 𝑴??𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 	var nomor = mek.participant
               const close = {
               text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
@@ -3839,24 +4259,24 @@ if (buttonsR === 'Tutup') {
               }
               if (buttonsR === 'Buka') {
               	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 open = {
               text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,
               contextInfo: { mentionedJid: [sender] }
 }
               client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
               break
               }
               if (buttonsR === 'Enable W1') {
               	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
               	if (isWelkom) return reply('「 SUDAH ON KAWAN 」')
 						welkom.push(from)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -3865,10 +4285,10 @@ open = {
 						}
 						if (buttonsR === 'Disable W0') {
 							  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 							var ini = welkom.indexOf(from)
 						welkom.splice(ini, 1)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -3877,10 +4297,10 @@ open = {
 						}
 						if (buttonsR === 'Enable A1') {
 							  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 							if (isAntiLink) return reply('Sudah Aktif Kak')
 						antilink.push(from)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
@@ -3890,10 +4310,10 @@ open = {
 						
 						if (buttonsR === 'Disable A0') {
 							  if (!isRegistered) return reply(ind.noregis())
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 							if (!isAntiLink) return reply('Sudah Mati Kak')
 						var ini = antilink.indexOf(from)
 						antilink.splice(ini, 1)
@@ -3931,10 +4351,10 @@ var ini = cmd.indexOf(from)
 						
 						if (buttonsR === 'Disable T0') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 							var ini = antitoxic.indexOf(from)
 						antitoxic.splice(ini, 1)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -3943,10 +4363,10 @@ var ini = cmd.indexOf(from)
 						}
 						if (buttonsR === 'Enable T1') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 							if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
 						antitoxic.push(from)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -3955,10 +4375,10 @@ var ini = cmd.indexOf(from)
 						}
 						if (buttonsR === 'Enable L1') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
                     _leveling.push(from)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
@@ -3968,10 +4388,10 @@ var ini = cmd.indexOf(from)
                      
                      if (buttonsR === 'Disable L0') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					var ini = _leveling.indexOf(from)
 						_leveling.splice(ini, 1)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
@@ -3990,10 +4410,10 @@ var ini = cmd.indexOf(from)
               const p2 = hewan[Math.floor(Math.random() * hewan.length)]
               const p3 = hewan[Math.floor(Math.random() * hewan.length)]
 		      buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1},{buttonId:`GET`,buttonText:{displayText:'GET'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Tanggal ${date}\n©Mitsuhabot`, imageMessage: imageMsg,
               contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
               client.relayWAMessage(prep)
               
               break
@@ -4012,14 +4432,14 @@ if (buttonsR === 'GET') {
 
 if (buttonsR === '10 menit') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𖥻˖ֹMITSUHA BOTx || OFCʾ˖??`,"body": `Official Mitsuhabot Whatsapp`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𖥻˖ֹMITSUHA BOTx || OFCʾ˖??`,"body": `Official Mitsuhabot Whatsapp`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
+			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 				}, 2500)
 				setTimeout( () => {
 				client.sendMessage(from, `Grup akan ditutup dalam 10 menit`, MessageType.text, { quoted: mek })
@@ -4028,14 +4448,14 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '5 menit') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 300000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 				}, 2500)
 				setTimeout( () => {
 				client.sendMessage(from, `Grup akan ditutup dalam 5 menit`, MessageType.text, { quoted: mek })
@@ -4044,14 +4464,14 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '5 menit >') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 300000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 				}, 2500)
 				setTimeout( () => {
 				client.sendMessage(from, `Grup akan dibuka dalam 5 menit`, MessageType.text, { quoted: mek })
@@ -4060,14 +4480,14 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '10 menit >') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 				}, 2500)
 				setTimeout( () => {
 				client.sendMessage(from, `Grup akan dibuka dalam 10 menit`, MessageType.text, { quoted: mek })
@@ -4076,13 +4496,13 @@ if (buttonsR === '10 menit') {
 }
 if (buttonsR === '10 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 				}, 500000)
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text, { quoted: mek })
@@ -4091,13 +4511,13 @@ setTimeout( () => {
 }
 if (buttonsR === '14 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,200,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 				}, 1,100,000)
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text, { quoted: mek })
@@ -4106,13 +4526,13 @@ setTimeout( () => {
 }
 if (buttonsR === '30 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,800,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 				}, 1,700,000)
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text, { quoted: mek })
@@ -4123,7 +4543,7 @@ setTimeout( () => {
 				if (buttonsR === 'PLAY GAME') {
               youke = fs.readFileSync('./lib/odc.jpeg')
 		      buttons = [{buttonId:`START`,buttonText:{displayText:'START'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
               contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4138,7 +4558,7 @@ setTimeout( () => {
 				
 			   youke = fs.readFileSync('./lib/odc.jpeg')
 		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1},{buttonId:`LANTAI 2`,buttonText:{displayText:'LANTAI 2'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Skull.jpg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Skull.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Monster Tipe Pengguna Pedang Yang Ahli, Konon Pada Tahun 1567 Di Amerika Serikat Seorang Kesatria Berjuang Sendiri Melawan Penjajahan`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4152,7 +4572,7 @@ setTimeout( () => {
 				
 			   youke = fs.readFileSync('./lib/odc.jpeg')
 		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Slime.jpg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Slime.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Slime Atau Sering Disebut Juga Lendir Memiliki Skill Hebat Ia Mampu Membelah Dirinya Menjadi Banyak Hingga Membuat Lawan Kuwalahan Menghadapinya`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4162,7 +4582,7 @@ setTimeout( () => {
 
 if (buttonsR === 'SERANG ⚔') {
 buttons = [{buttonId:`BUY`,buttonText:{displayText:'BUY'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`HARGA 1 PERALATAN DI BANDROL DENGAN HARGA 1000 XP`, imageMessage: imageMsg,
               contentText:`*PERALATAN PERANG*`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4203,10 +4623,10 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{buttonId:`TAMBAH 📦`,buttonText:{displayText:'TAMBAH 📦'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.relayWAMessage(prep)
              break
              }
@@ -4219,7 +4639,7 @@ client.relayWAMessage(prep)
               /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
 		      buttons = [{buttonId:`⫹⫺ cecan ⫹⫺`,buttonText:{displayText:`⫹⫺ cecan ⫹⫺`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4236,7 +4656,7 @@ client.relayWAMessage(prep)
               /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
 		      buttons = [{buttonId:`⫹⫺ cogan ⫹⫺`,buttonText:{displayText:`⫹⫺ cogan ⫹⫺`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4251,7 +4671,7 @@ client.relayWAMessage(prep)
               let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 		      buttons = [{buttonId:`⫹⫺ waifu ⫹⫺`,buttonText:{displayText:`⫹⫺ waifu ⫹⫺`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:'©Mitsuhabot', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4283,14 +4703,14 @@ if (buttonsR === '⫹⫺ neko ⫹⫺') {
 if (!isRegistered) return reply(ind.noregis())
 			  E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
-			  client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek}) 
+			  client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek}) 
 			  B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 		      buttons = [{buttonId:`⫹⫺ neko ⫹⫺`,buttonText:{displayText:`⫹⫺ neko ⫹⫺`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek, thumbnail: Buffer.alloc(0)})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek, thumbnail: thumb})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
 			break
@@ -4322,17 +4742,17 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{buttonId:`TAMBAH 📦`,buttonText:{displayText:'TAMBAH 📦'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.relayWAMessage(prep)
               break
               }
               
               if (buttonsR === 'LEAVE NOW') {
               	    if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
                     if (isGroupAdmins || isOwner) {
                     	client.groupLeave(from)
                     } else {
@@ -4343,7 +4763,7 @@ break
 
 if (buttonsR === 'LEAVE TIME') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
 gwetkhhkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -4370,7 +4790,7 @@ randKey = jsonData[randIndex];
 /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
 buttons = [{buttonId:`⫹⫺ cerita_horor ⫹⫺`,buttonText:{displayText:`⫹⫺ cerita_horor ⫹⫺`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4389,7 +4809,7 @@ randIndex2 = Math.floor(Math.random() * jsonData.length);
 randKey2 = jsonData[randIndex2];
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `👎`,buttonText:{displayText: `👎`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4406,7 +4826,7 @@ randKey = jsonData[randIndex];
 /*let b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
 buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
@@ -4457,28 +4877,6 @@ await client.relayWAMessage(ot)
 break
 }
 
-if (buttonsR === 'LOGIN') {
-me = client.user
-if (isRegistered) return reply(`\`\`\`YOU ALLREADY VERIFY\`\`\``)
-client.sendMessage(from, ``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `KLIK DISINI UNTUK VERIFY`,"body": `${time}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": `https://wa.me/${me.jid.split('@')[0]}?text=${otp1}${otp2}${otp3}${otp4}`}}})
-break
-}
-
-if (budy.includes(`${otp1}${otp2}${otp3}${otp4}`)) {
-if (isRegistered) return reply(`\`\`\`YOU ALLREADY VERIFY\`\`\``)
-if (isGroup) return client.sendMessage(from, `\`\`\`input code privat only\`\`\``, text, { quoted: mek })
-addLevelingId(sender)
-serinya = createSerial(15)
-_registered.push(serinya)
-fs.writeFileSync('./src/pengguna.json', JSON.stringify(_registered))
-getLevel3 = getLevelingLevel(sender)
-addLevelingLevel(sender, 5)
-addLevelingXp(sender, 5)
-client.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, `\`\`\`success verify\`\`\``, text)
-addRegisteredUser(sender, serinya)
-break
-}
-
 if (buttonsR === 'MY INFO') {
 creator = "6285731261728@s.whatsapp.net"
 teks =`*HELLO ${pushname} ${ucapanWaktu} BERIKUT INFO DARI OWNERKU*`
@@ -4488,9 +4886,9 @@ break
 
 if (buttonsR === 'CHANGE NOW') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 let gwekke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -4508,9 +4906,9 @@ break
 
 if (buttonsR === 'CHANGE TIME') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -4528,9 +4926,9 @@ break
 
 if (buttonsR === 'SET CLOSE') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 gwekyyke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -4548,9 +4946,9 @@ break
 
 if (buttonsR === 'SET OPEN') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
@@ -4624,7 +5022,7 @@ break
 }
 
 if (buttonsR === '❎') {
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
 if (isDepot) return reply('Kamu Sudah Melakukan Vote')
 no.push(sender)
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
@@ -4635,7 +5033,7 @@ break
 }
 
 if (buttonsR === '✅') {
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://c.top4top.io/p_2098htu7c0.jpeg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `${ucapanWaktu} ☁`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
 if (isPote) return reply('Kamu Sudah Melakukan Vote')
 yes.push(sender)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
@@ -4670,7 +5068,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`LIKE`,buttonText:{displayText:'LIKE'},type:1},{buttonId:`SCROL`,buttonText:{displayText:'SCROL'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`SOSMED INSTAN`, imageMessage: imageMsg,
 contentText:`❤ *${love.length}*\n*${randKey.nama}* ${randKey.cap}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
@@ -4691,7 +5089,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`LIKE`,buttonText:{displayText:'LIKE'},type:1},{buttonId:`SCROL`,buttonText:{displayText:'SCROL'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`SOSMED INSTAN`, imageMessage: imageMsg,
 contentText:`❤ *${love.length}*\n*${randKey.nama}* ${randKey.cap}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
@@ -4897,7 +5295,7 @@ setTimeout( () => {
 client.setStatus(`Runtime ${kyun(uptime)}`)
 }, 1000)
 }
-	
+
 if (hoour_now >= '11:37' && hour_now <= '11:37') {
 var ini = benar.indexOf(from)
 benar.splice(ini, 1)
@@ -4967,7 +5365,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buttons = [{buttonId:`BLOGGER`,buttonText:{displayText:'BLOGGER'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/draft.jpg`),'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/draft.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`view ${view.length}`, imageMessage: imageMsg,
 contentText:`*${randKey.pengguna}*\n\n${randKey.teks}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
@@ -4975,7 +5373,6 @@ client.relayWAMessage(prep)
 break
 }
 
-	
 		if (isGroup && isSimi && budy != undefined) {
 						console.log(budy)
 						muehe = await simih(budy)
