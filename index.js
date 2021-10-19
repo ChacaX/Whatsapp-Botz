@@ -96,7 +96,7 @@ const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
 
               vcard = 'BEGIN:VCARD\n' 
               + 'VERSION:3.0\n' 
-              + 'FN: Lord Mitsuha ツ\n' 
+              + 'FN: sosial credit +15 ツ\n' 
               + 'ORG: CREATOR/OWNER BOT;\n' 
               + 'TEL;type=CELL;type=VOICE;waid=6285731261728:+62 85731261728\n'  
               + 'END:VCARD'
@@ -105,6 +105,17 @@ const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
 CONST SETTINGS
 ___________________*/
 
+         lotry1 = "1⃣"
+		 lotry2 = "2⃣"
+		 lotry3 = "3⃣"
+		 lotry4 = "4⃣"
+		 lotry5 = "5⃣"
+	     lotry6 = "6⃣"
+	     lotry7 = "7⃣"
+	     lotry8 = "8⃣"
+	     lotry9 = "9⃣"
+	     lotry10 = "🔟"
+	
 prefix = setting.prefix
 prefix2 = `#`
 vote = setting.vote
@@ -494,7 +505,7 @@ teks = `*PROMOTE TERDETEKSI*
 ❏ *USER* = @${num.split('@')[0]}
 ❏ *TANGGAL* = ${date}
 `
-			client.sendMessage(mdata.id, teks, MessageType.text, {quoted: fkatalog2, contextInfo: {mentionedJid: [num]}})
+			client.sendMessage(mdata.id, teks, MessageType.text, {quoted: fkatalog1, contextInfo: {mentionedJid: [num]}})
 		    } else if (anu.action == 'demote') {
 			num = anu.participants[0]
 			const mdata = await client.groupMetadata(anu.jid)
@@ -717,6 +728,9 @@ teks = `*PROMOTE TERDETEKSI*
 				})	
 
 			}
+		
+		
+	
         const pencapaian = tingkatan.length
       var tingkat ='🏚️           🌳              🚗'
         if (pencapaian <= 1) {
@@ -1337,7 +1351,7 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
-if (budy.includes("https://chat.whatsapp.com")){
+if (budy.includes("https://chat.whatsapp.com/")){
 if (!isGroup) return
 if (!isAntiLink) return
 if (isGroupAdmins) return reply('「 ADMIN BEBAS HEHE 」')
@@ -1455,6 +1469,7 @@ jo = await client.prepareMessageFromContent(from, {
 「 *EVENT GAMES BOT* 」
 ╭────────────────────
 •├❏ ${prefix2}carspeed
+•├❏ ${prefix2}lotry
 ╰────────────────────
 「 *PRODUK & VOTING* 」
 ╭────────────────────
@@ -1543,13 +1558,16 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}niatsehari2
 •├❏ ${prefix2}hadist
 ╰────────────────────
-「 *PREMIUM MENU* 」
+「 *AUDIO/VN MENU* 」
 ╭────────────────────
 •├❏ ${prefix2}fast
 •├❏ ${prefix2}tupai
 •├❏ ${prefix2}gemuk
 •├❏ ${prefix2}slow
 •├❏ ${prefix2}tomp3
+╰────────────────────
+「 *PREMIUM MENU* 」
+╭────────────────────
 •├❏ ${prefix2}mining
 •├❏ ${prefix2}asupan
 ╰────────────────────
@@ -1604,8 +1622,14 @@ await client.relayWAMessage(jo)
 break
 
 /*_________________
-ALL FITUR BOT
+ALL FEATURE BOT
 ___________________*/
+
+case 'lotry':
+if (!isRegistered) return reply(ind.noregis())     
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+reply(`${lotry1}  ${lotry2}  ${lotry3}  ${lotry4}\n\n${lotry5}  ${lotry6}  ${lotry7}  ${lotry8}\n\n${lotry9}  ${lotry10}\n\n_jika ingin mengambil undian silahkan ketik -undian(angka)- contoh :_\n\n*-undian 1-*`)
+break
 
 case 'kudet':
 if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
@@ -2153,9 +2177,7 @@ client.groupRemove(from, mentioned)
 }
 break
             
-/*case 'invit':
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
-if (!isRegistered) return reply(ind.noregis())     
+/*case 'join':
 await client.query({json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]})
 reply(`Suzes Gabung Ke Gerup`)
 break*/
@@ -2834,7 +2856,7 @@ addRegisteredUser(sender, serinya)
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`🐧 *SUCCESS VERIFY* 🐧`
-sendButLocation(from, `${teks}`, `_kamu telah terverifikasi √_\n_runtime : ${kyun(uptime)}_`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ALL MENU`,buttonText:{displayText:'ALL MENU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `_kamu telah terverifikasi √_\n_runtime : ${kyun(uptime)}_`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*case 'wait':
@@ -2976,7 +2998,6 @@ break
 					
 case 'slow':
 if (!isRegistered) return reply(ind.noregis())
-if (!isPrem) return reply(`\`\`\`▢ KHUSUS PENGGUNA VIP ▢\`\`\``)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -2991,7 +3012,6 @@ break
 				
 case 'gemuk':
 if (!isRegistered) return reply(ind.noregis())
-if (!isPrem) return reply(`\`\`\`▢ KHUSUS PENGGUNA VIP ▢\`\`\``) 
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -3006,7 +3026,6 @@ break
 				
 case 'tomp3':              
 if (!isRegistered) return reply(ind.noregis())              
-if (!isPrem) return reply(`\`\`\`▢ KHUSUS PENGGUNA VIP ▢\`\`\``) 
 if (isQuotedVideo || isQuotedAudio){
 reply(mess.wait)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
@@ -3026,7 +3045,6 @@ break
 
 case 'tupai':
 if (!isRegistered) return reply(ind.noregis())
-if (!isPrem) return reply(`\`\`\`▢ KHUSUS PENGGUNA VIP ▢\`\`\``) 
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -3041,7 +3059,6 @@ break
 
 case 'fast':
 if (!isRegistered) return reply(ind.noregis())
-if (!isPrem) return reply(`\`\`\`▢ KHUSUS PENGGUNA VIP ▢\`\`\``) 
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -3136,7 +3153,7 @@ var options = {
 text: teks1,
 contextInfo: {mentionedJid: [nomor]},
 }
-client.sendMessage('62857312617281@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 reply('Maaf ketidak nyamanan nya, kami akan memperbaikin nya secepatnya.\n\n-> Laporan main main akan dibanned dan ditegur Owner bot')
 break 
                   
@@ -3390,7 +3407,7 @@ BATAS DEFAULT
 ___________________*/
 
 default:             
-
+	
 if (buttonsR === 'Pulsa') {
 reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM SALDO ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
 break
@@ -3441,7 +3458,121 @@ if (buttonsR === 'OWNER BOT') {
 await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
 break
 }
-	
+
+if (budy.includes(`-undian 1-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = ``
+lotry1 = ini
+reply(`_slot nomor 1 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+break
+}
+
+if (budy.includes(`-undian 2-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = ``
+lotry2 = ini
+reply(`_slot nomor 2 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+break
+}
+
+if (budy.includes(`-undian 3-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = ``
+lotry3 = ini
+reply(`_slot nomor 3 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+break
+}
+
+if (budy.includes(`-undian 4-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = ``
+lotry4 = ini
+reply(`_slot nomor 4 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+break
+}
+
+if (budy.includes(`-undian 5-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+tingkatan.splice(sender)
+fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
+reply(`_yah ticket kamu hangus, mainkan carspeed untuk memperoleh ticket!_`)
+ini = ``
+lotry5 = ini
+break
+}
+
+if (budy.includes(`-undian 6-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+premium.push(sender)
+fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
+reply(`_horeee! kamu mendapatkan akses fitur premiums_`)
+ini = ``
+lotry6 = ini
+break
+}
+
+if (budy.includes(`-undian 7-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = ``
+lotry7 = ini
+reply(`_slot nomor 7 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+break
+}
+
+if (budy.includes(`-undian 8-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = ``
+lotry8 = ini
+reply(`_slot nomor 8 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+break
+}
+
+if (budy.includes(`-undian 9-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = ``
+lotry9 = ini
+reply(`_slot nomor 9 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+break
+} 
+
+if (budy.includes(`-undian 10-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+premium.splice(sender)
+fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
+reply(`yaaah! akses premium kamu hilang`)
+ini = ``
+lotry10 = ini
+break
+}
+
 if (budy.includes(`-CRSP-`)) {
 if (isCar) return reply(`_kamu telah meng claim daily ini mohon untuk menyelasaikan event lain dahulu dan dapatkan hadiah_`)
 tingkatan.push(sender)
@@ -3449,7 +3580,16 @@ fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
 reply(`_berhasil claim ticket!_`)
 }
 	
-if (budy.includes(`bot`)) {      	
+if (budy.includes(`-EVENT 1-`)) {
+reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-CRSP-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
+}
+
+if (budy.includes(`-EVENT 2-`)) {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+reply(`${lotry1}  ${lotry2}  ${lotry3}  ${lotry4}\n\n${lotry5}  ${lotry6}  ${lotry7}  ${lotry8}\n\n${lotry9}  ${lotry10}\n\n_jika ingin mengambil undian silahkan ketik -undian(angka)- contoh :_\n\n*-undian 1-*`)
+}
+
+if (budy.includes(`BOT`)) {      	
 let gwkee = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `Ya saya bot ada yang bisa dibantu?`,
@@ -3558,6 +3698,7 @@ jo = await client.prepareMessageFromContent(from, {
 「 *EVENT GAMES BOT* 」
 ╭────────────────────
 •├❏ ${prefix2}carspeed
+•├❏ ${prefix2}lotry
 ╰────────────────────
 「 *PRODUK & VOTING* 」
 ╭────────────────────
@@ -3646,13 +3787,16 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}niatsehari2
 •├❏ ${prefix2}hadist
 ╰────────────────────
-「 *PREMIUM MENU* 」
+「 *AUDIO/VN MENU* 」
 ╭────────────────────
 •├❏ ${prefix2}fast
 •├❏ ${prefix2}tupai
 •├❏ ${prefix2}gemuk
 •├❏ ${prefix2}slow
 •├❏ ${prefix2}tomp3
+╰────────────────────
+「 *PREMIUM MENU* 」
+╭────────────────────
 •├❏ ${prefix2}mining
 •├❏ ${prefix2}asupan
 ╰────────────────────
@@ -3708,7 +3852,7 @@ break
 }
 
 if (buttonsR === 'DAILY EVENT') {
-reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-CRSP-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
+reply(`_hei welkom tu my event!_\n\n1. car speed\n2. lotry berhadiah\n\n_untuk memilih salah satu event silahkan ketik -EVENT (angka)- contoh:_\n\n*-EVENT 1-*`)
 }
 
 if (buttonsR === 'IKLAN BOT') {
@@ -4349,7 +4493,7 @@ open = {
                     if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 					
 					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `??𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
               	if (isWelkom) return reply('「 SUDAH ON KAWAN 」')
 						welkom.push(from)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -4699,7 +4843,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{b
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.relayWAMessage(prep)
              break
              }
@@ -5416,7 +5560,8 @@ if (budy.includes(``)) {
 if (!isCemd) return
 if (!isGroup) return 
 for (let sensi of usercmd) {
-client.sendMessage(`${sensi}`, `> *time* ${time} *command* ${command} *from* ${groupName}`, text)
+/*client.sendMessage(`${sensi}`, `> *time* ${time} *command* ${command} *from* ${groupName}`, text)*/
+client.sendMessage(`${sensi}`,`{\n"from": "${sender}",\n"command": "${command}",\n"time": "${time}"\n}`, text)
 break
 }
 }
