@@ -60,6 +60,7 @@ const loli = new lolis()*/
 CONST JSON & JS
 ___________________*/
 
+const clem = JSON.parse(fs.readFileSync('./src/clem.json'))
 const tingkatan = JSON.parse(fs.readFileSync('./src/tingkatan.json'))
 const hadist = JSON.parse(fs.readFileSync('./lib/hadist.js'))
 const bacaharian = JSON.parse(fs.readFileSync('./lib/bacasehari.js'))
@@ -131,10 +132,11 @@ ator = ``
 numbernye = '0'
 kunci = setting.kunci
 respon = setting.respon
-on = false 
-cap = 'DONT BULLY ME PLEASE'
 blocked = []
 hit_today = []
+perintah_help = `help`
+perintah_info = `info`
+perintah_owner = `owner`
 
 /*_________________
 BAGIAN FUNCTION
@@ -619,6 +621,7 @@ teks = `*PROMOTE TERDETEKSI*
 			const isSalah = isGroup ? salah.includes(sender) : false
 			const isCar = isGroup ? tingkatan.includes(sender) : false
 			const isCemd = isGroup ? cmd.includes(from) : false
+			const isClem = isGroup ? clem.includes(sender) : false
 			
             pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
 
@@ -1431,6 +1434,19 @@ quoted:
 fkatalok})
 break*/
 
+case perintah_help:
+getLevel3 = getLevelingLevel(sender)
+b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
+fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/Img.jpg'))
+buttons = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
+buttonsMessage = {footerText:'𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu', imageMessage: imageMsg,
+contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶? `,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: fkatalok})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+break
+
 case 'menu':
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
@@ -1586,6 +1602,7 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}owner
 •├❏ ${prefix2}report
 •├❏ ${prefix2}timer
+•├❏ ${prefix2}setperintah
 ╰────────────────────
 「 *OWNER MENU* 」
 ╭────────────────────
@@ -1791,7 +1808,7 @@ prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
-
+					
 case 'hidetag':                 
 if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
@@ -2164,8 +2181,8 @@ if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY 
 if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - ??𝑰𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 if (mek.message.extendedTextMessage.contextInfo.participant) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
-mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (args.length > 15) return ('Hanya Bisa Ngekick 1 Nomor') 
+mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
 for (let _ of mentioned) {
 teks = `@${_.split('@')[0]}\n`
@@ -2767,7 +2784,7 @@ client.relayWAMessage(prep)
 break
               
 case 'author':
-case 'owner':
+case perintah_owner:
 case 'creator':
 if (!isRegistered) return reply(ind.noregis())    
 await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
@@ -2875,7 +2892,7 @@ reply('Foto aja mas')
 }
 break*/
 
-case 'info':
+case perintah_info:
 if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
@@ -3402,6 +3419,31 @@ case 'hadist':
 reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HR1-*`)
 break
 
+case 'set-help':
+if(!q) return reply(`teksnya mana kak? contoh:\n\n#set-help ayonima`)
+perintah_help = args.join(" ")
+perintah_help = perintah_help
+reply(`Perintah Help Berhasil Di Ubah Menjadi = ${perintah_help}\n\nSilahkan Kakak Bisa Ketik #${perintah_help}`)
+break
+
+case 'set-info':
+if(!q) return reply(`teksnya mana kak? contoh:\n\n#set-info ayonima`)
+perintah_info = args.join(" ")
+perintah_info = perintah_info
+reply(`Perintah Info Berhasil Di Ubah Menjadi = ${perintah_info}\n\nSilahkan Kakak Bisa Ketik #${perintah_info}`)
+break
+
+case 'set-owner':
+if(!q) return reply(`teksnya mana kak? contoh:\n\n#set-owner ayonima`)
+perintah_owner = args.join(" ")
+perintah_owner = perintah_owner
+reply(`Perintah Owner Berhasil Di Ubah Menjadi = ${perintah_owner}\n\nSilahkan Kakak Bisa Ketik #${perintah_owner}`)
+break
+
+case 'setperintah':
+if(!q) return reply(`pilih query nya kak \n\nketik *#set-help* untuk mengubah nama fitur help\n\nketik *#set-info* untuk mengubah nama fitur info\n\nketik *#set-owner* untuk mengubah nama fitur owner`)
+break
+
 /*_________________
 BATAS DEFAULT
 ___________________*/
@@ -3461,6 +3503,9 @@ break
 
 if (budy.includes(`-undian 1-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
@@ -3473,6 +3518,9 @@ break
 
 if (budy.includes(`-undian 2-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
@@ -3485,6 +3533,9 @@ break
 
 if (budy.includes(`-undian 3-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
@@ -3497,6 +3548,9 @@ break
 
 if (budy.includes(`-undian 4-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
@@ -3509,6 +3563,9 @@ break
 
 if (budy.includes(`-undian 5-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 tingkatan.splice(sender)
 fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
 reply(`_yah ticket kamu hangus, mainkan carspeed untuk memperoleh ticket!_`)
@@ -3519,6 +3576,9 @@ break
 
 if (budy.includes(`-undian 6-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 premium.push(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 reply(`_horeee! kamu mendapatkan akses fitur premiums_`)
@@ -3529,6 +3589,9 @@ break
 
 if (budy.includes(`-undian 7-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
@@ -3541,6 +3604,9 @@ break
 
 if (budy.includes(`-undian 8-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
@@ -3553,6 +3619,9 @@ break
 
 if (budy.includes(`-undian 9-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
@@ -3565,6 +3634,9 @@ break
 
 if (budy.includes(`-undian 10-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 premium.splice(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 reply(`yaaah! akses premium kamu hilang`)
@@ -3815,6 +3887,7 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}owner
 •├❏ ${prefix2}report
 •├❏ ${prefix2}timer
+•├❏ ${prefix2}setperintah
 ╰────────────────────
 「 *OWNER MENU* 」
 ╭────────────────────
@@ -5520,6 +5593,9 @@ fs.writeFileSync('./src/benar.json', JSON.stringify(benar))
 var inii = salah.indexOf(from)
 salah.splice(inii, 1)
 fs.writeFileSync('./src/salah.json', JSON.stringify(salah))
+var iniii = clem.indexOf(from)
+clem.splice(iniii, 1)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 }
 
 if (budy.startsWith('$')){
