@@ -46,6 +46,7 @@ const { ind } = require('./bahasa')
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const { fetchJson, fetchText } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
+const axios = require('axios')
 const fs = require('fs')
 const crypto = require('crypto')
 const moment = require('moment-timezone')
@@ -97,7 +98,7 @@ const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
 
               vcard = 'BEGIN:VCARD\n' 
               + 'VERSION:3.0\n' 
-              + 'FN: sosial credit +15 ツ\n' 
+              + 'FN: ℓσя∂ мιтѕυнα ツ\n' 
               + 'ORG: CREATOR/OWNER BOT;\n' 
               + 'TEL;type=CELL;type=VOICE;waid=6285731261728:+62 85731261728\n'  
               + 'END:VCARD'
@@ -106,16 +107,15 @@ const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
 CONST SETTINGS
 ___________________*/
 
-         lotry1 = "1⃣"
-		 lotry2 = "2⃣"
-		 lotry3 = "3⃣"
-		 lotry4 = "4⃣"
-		 lotry5 = "5⃣"
-	     lotry6 = "6⃣"
-	     lotry7 = "7⃣"
-	     lotry8 = "8⃣"
-	     lotry9 = "9⃣"
-	     lotry10 = "🔟"
+         lotre1 = "1⃣"
+		 lotre2 = "2⃣"
+		 lotre3 = "3⃣"
+		 lotre4 = "4⃣"
+		 lotre5 = "5⃣"
+	     lotre6 = "6⃣"
+	     lotre7 = "7⃣"
+	     lotre8 = "8⃣"
+	     lotre9 = "9⃣"
 	
 prefix = setting.prefix
 prefix2 = `#`
@@ -124,7 +124,7 @@ owner = setting.ownerNumber
 namaowner = setting.nama
 namabot = setting.bot
 nobot = setting.nobot
-thumb = fs.readFileSync(`./lib/fake.jpeg`)
+thumb = fs.readFileSync(`./lib/odc.jpeg`)
 thumb2 = fs.readFileSync(`./lib/odc.jpeg`)
 fakeimage = fs.readFileSync(`./lib/odc.jpeg`)
 namo = ``
@@ -241,52 +241,6 @@ const addLevelingId = (sender) => {
             fs.writeFileSync('./src/level.json', JSON.stringify(_level))
         }
 
-mat = [
-  "Ilmu tentang perkembangan apel disebut Pomology.",
-  "Massa berat bumi didominasi debu-debu antariksa dan dapat berkurang akibat gas seperti hidrogen yang berkurang tiga kilogram setiap detiknya. Fakta unik ini menunjukkan bahwa bumi akan kehilangan 95 ribu ton massa setiap tahunnya.",
-  "Pada 2018 populasi manusia diperkirakan mencapai 7,6 miliar orang. Meskipun bumi dipenuhi manusia, fakta unik mengungkapkan bahwa manusia tidak memengaruhi massa bumi. Hal ini dikarenakan manusia terbentuk dari atom dalam bentuk oksigen 65 persen, karbon 18,5 persen, dan hidrogen 9,5 persen.",
-  "bumi dipenuhi oleh 70 persen air sehingga kerap wajar jika bumi disebut dengan nama planet air. Lautan bumi yang paling dalam adalah Palung Mariana dengan kedalaman 10.994 meter di bawah air. Fakta unik dibalik Palung Mariana adalah jika kamu meletakkan Gunung Everest di sana, puncak tertingginya bahkan masih berada di bawah permukaan laut sejauh 1,6 kilometer!",
-  "Faktanya bumi yang manusia tinggali hanya satu persen bagian dari keseluruhan planet bumi. Fakta unik ini menunjukkan bahwa masih banyak bagian bumi yang memiliki misteri kehidupan. Tertarik melakukan penjelajahan untuk menguak misteri sekaligus fakta unik di bagian bumi lainnya.",
-  "Terdapat sebuah kota di Rusia yang jalanannya tertata rapi dengan sebuah istana yang didesain seperti catur yang megah. Pembuatan pemukiman tersebut didalangi oleh presiden yang terobsesi dengan catur bernama Kirsan Ilyumzhinov.",
-  "Apakah kamu tahu fakta unik mengenai mozzarella yang dibuat dari susu kerbau dan bukan susu sapi? Sekitar 500 tahun yang lalu di Campania, Italia, mozzarella dibuat pertama kali menggunakan susu kerbau. Fakta unik dibalik penggunaan susu kerbau ini karena kandungan protein susu kerbau 10-11% lebih banyak daripada susu sapi.",
-  "Bali memiliki fakta unik karena memliki banyak hari libur yang disumbangkan oleh sejumlah hari raya besar keagamaan. Hampir setiap hari besar keagamaan ini setiap orang akan mendapatkan libur. Beberapa hai libur diantaranya adalah hari raya galungan, kuningan, nyepi, pagerwesi, saraswati, dan sejumlah upacara besar lainnya seperti piodalan (pujawali).",
-  "Ibukota Jakarta memiliki banyak pesona juga fakta unik yang mungkin belum kamu ketahui. Sebelum diberi nama Jakarta, Ibukota Indonesia ini telah memiliki beberapa kali perubahan nama. Nama Ibukota Indonesia sesuai urutan perubahannya diantaranya adalah Sunda Kelapa, Jayakarta, Batavia, Betawi, Jacatra, Jayakarta, dan Jakarta.",
-  "Pada tahun 1952 jendela pesawat didesain dalam bentuk persegi namun penggunaannya dinilai cacat sehingga tidak  diterapkan kembali. Jendela yang bulat dirancang untuk menyiasati perbedaan tekanan udara dalam dan luar pesawat untuk menghindari kegagalan struktural yang dapat menyebabkan kecelakaan pesawat.",
-  "Makanan utama dari nyamuk jantan dan betina pada umumnya adalah nektar dan zat manis yang sebagian besar diperoleh dari tanaman. Namun nyamuk membutuhkan protein tambahan unuk bertelur yang bisa didapatkan dari manusia sedangkan nyamuk jantan tidak membutuhkan zat protein tambahan untuk bertelur.",
-  "Jembatan suramadu (surabaya-madura) adalah jembatan terpanjang di Asia Tenggara (5438 m).",
-  "Tertawa dan bahagia meningkatkan imun, terutama produksi sel-sel pembunuh alamiah yang membantu melindungi tubuh dari penyakit.",
-  "Orang sherpa di Nepal menganjurkan orang memakan bawang putih untuk mencegah dan mengobati rasa tidak nyaman yg disebabkan ketinggian gunung.",
-  "Mengoleskan jeruk nipis dapat mencerahkan bagian lutut / siku yang hitam.",
-  "Energi yang dihasilkan oleh angin ribut (topan) selama 10 menit lebih besar dibandingkan energi dari bom saat perang.",
-  "Satu-satunya indera manusia yang tidak berfungsi saat tidur adalah indera penciuman.",
-  "Para astronot dilarang makan makanan berjenis kacang-kacangan sebelum pergi ke luar angkasa. Karena bisa menyebabkan mereka mudah kentut. Dan gas kentut sangat membahayakan bagi baju luar angkasa mereka.",
-  "Di AS saja, kucing membunuh miliaran hewan dalam kurun waktu setahun. Mereka bertanggung jawab atas kematian 1,4 - 73,7 miliar burung dan 6,9 - 20,7 miliar mamalia setiap tahun. Bukan hanya itu, sejauh ini mereka benar-benar memusnahkan total 33 spesies dari dunia.",
-  "Jika kita terkunci diruang yang kedap udara, kita akan lebih dulu mati keracunan co2 dari pada kekerangan o2.",
-  "Semut dapat mengangkat Beban 50 kali tubuhnya.",
-  "Mulut menghasilkan 1 liter ludah setiap hari.",
-  "Siput bisa tidur selama 3 tahun",
-  "Kecoak bisa hidup 9 hari tanpa kepala, dan akan mati karena kelaparan.",
-  "Mata burung unta lebih besar dari otaknya.",
-  "Pada Usia 3 bulan janin manusia mulai terbentuk sidik jari.",
-  "Pohon kelapa membunuh 150 orang tiap tahun. Lebih banyak daripada hiu.",
-  "Bagian dalam kulit pisang bisa untuk menyemir sepatu kulit.",
-  "Kira-kira 100 orang tersedak ballpoint tiap tahun.",
-  "Air laut di samudra Atlantik lebih asin dari pada di samudra Pasifik.",
-  "Hedenophobic berarti takut akan kesenangan.",
-  "Kucing bisa membuat lebih dari 100 bunyi vokal, anjing hanya bisa sekitar 10.",
-  "Botol aqua dan tempat makan plastik baru bisa terurai dengan sempurna dalam tanah setelah 50.000 tahun.",
-  "Di Italia, dalam aturannya minuman Cappuccino hanya boleh di minum sebelum waktu siang.",
-  "Kita berulang tahun bersama 9 juta orang dari seluruh dunia.",
-  "Hanya 3 malaikat, Gabriel, Michael dan Lucifer yang disebut dalam injil.",
-  "Rata-rata orang di dunia jatuh cinta sebanyak 7 kali dulu sebelum ditakdirkan menikah.",
-  "Jembatan suramadu (surabaya-madura) adalah jembatan terpanjang di Asia Tenggara (5438 m).",
-  "Gazzarella adalah keju mozzarella yang terbuat dari susu kucing.",
-  "Rata-rata orang melihat / mengecek ponselnya sekitar 150 kali sehari.",
-  "Ganymede adalah bulan planet Jupiter, merupakan bulan terbesar di tata surya kita, lebih besar dari planet Merkurius.",
-  "Kuda Nil kentut lewat mulut."
-]
-const soal = mat[Math.floor(Math.random() * mat.length)]
-
     async function starts() {
 	const client = new WAConnection()
 	//WWEB 
@@ -396,7 +350,7 @@ remoteJid :"6289523258649-1604595598@g.us" }: {})
                     },message:{"orderMessage":{"orderId":"174238614569481","thumbnail":fs.readFileSync(`./lib/odc.jpeg`),"itemCount":10,"status":"INQUIRY","surface":"CATALOG","message":`©Mitsuhabot`,"token":"AR6xBKbXZn0Xwmu76Ksyd7rnxI+Rx87HfinVlW4lwXa6JA=="}}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true})}
 const acaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
 const bulan = acaBulan[moment().format('MM') - 1]        
-const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
+const { text, extendedText, contact, location, liveLocation, image, video, gif, sticker, document, audio, product } = MessageType
 
            client.on('group-participants-update', async (anu) => {
 		    if (!welkom.includes(anu.jid)) return
@@ -575,18 +529,18 @@ teks = `*PROMOTE TERDETEKSI*
 
 			mess = {
 				
-				wait: '「 SEDANG DI PROSES 」',
-				success: '*「 SUKSES 」 KAYAK MIE SUKSES *',
+				wait: '_「⏳」 wait sedang proses_',
+				success: '_success bro_',
 				error: {
-			    stick: '*「 GAGAL 」 ULANGI LAGI*',
-				Iv: '*「 GA VALID 」 LINK GA VALID*'
+			    stick: '_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_',
+				Iv: '_link tersebut tidak valid_'
 				},
 				only: {
-			    group: '「 KHUSUS GRUP 」',
-			    ownerG: '「 KHUSUS OWNER GRUP 」',
-			    ownerB: '「 KHUSUS OWNER BOT 」',
-				admin: '「 KHUSUS ADMIN GRUP 」',
-				Badmin: '「 BOT HARUS JADI ADMIN 」'
+			    group: '_perintah ini hanya bisa digunakan dalam grup saja_',
+			    ownerG: '_perintah ini hanya bisa digunakan oleh owner grup saja_',
+			    ownerB: '_perintah ini hanya bisa digunakan oleh owner bot saja_',
+				admin: '_perintah ini hanya bisa digunakan oleh admin grup saja_',
+				Badmin: '_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_'
 				}
 			}
             hit_today.push(command)
@@ -622,6 +576,7 @@ teks = `*PROMOTE TERDETEKSI*
 			const isCar = isGroup ? tingkatan.includes(sender) : false
 			const isCemd = isGroup ? cmd.includes(from) : false
 			const isClem = isGroup ? clem.includes(sender) : false
+			const isAbsen = isGroup ? absen.includes(sender) : false
 			
             pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
 
@@ -654,11 +609,15 @@ teks = `*PROMOTE TERDETEKSI*
             res = client.sendMessage(from,{ "orderMessage": { "itemCount": 321, "message": cap, "footerText": "*_© Mitsuha Official_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:fkatalok})
         }       
         
-            const listmsg = (from, title, desc, list) => { //List Buttonnya ~Riu
+            /*const listmsg = (from, title, desc, list) => { //List Buttonnya ~Riu
             let pio = client.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "CLICK HERE","footerText": "Jangan Lupa Donasi Ya Kak ☕","listType": "SINGLE_SELECT","sections": list}}, {})
             return client.relayWAMessage(pio, {waitForAck: true})
-        }
+        }*/
         
+        const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
+            let po = client.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Choose in Here","listType": "SINGLE_SELECT","sections": list}}, {})
+            return client.relayWAMessage(po, {waitForAck: true})
+        }
 			colors = ['red','gray','white','black','blue','yellow','green']
 			const isMedia = (type === 'imageMessage' || type === 'videoMessage')
 			const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
@@ -1130,7 +1089,25 @@ teks = `*PROMOTE TERDETEKSI*
         }
 
                     
-		
+		async function sendFileFromUrl(from, url, caption, miku, mek, men) {
+            let mime = '';
+            let res = await axios.head(url)
+            mime = res.headers['content-type']
+            let type = mime.split("/")[0]+"Message"
+            if(mime === "image/gif"){
+                type = MessageType.video
+                mime = Mimetype.gif
+            }
+            if(mime === "application/pdf"){
+                type = MessageType.document
+                mime = Mimetype.pdf
+            }
+            if(mime.split("/")[0] === "audio"){
+                mime = Mimetype.mp4Audio
+            }
+            return client.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: mek, thumbnail: miku, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
+        }
+        
 /*_________________
 BAGIAN FAKE PESAN
 ___________________*/
@@ -1357,10 +1334,10 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 if (budy.includes("https://chat.whatsapp.com/")){
 if (!isGroup) return
 if (!isAntiLink) return
-if (isGroupAdmins) return reply('「 ADMIN BEBAS HEHE 」')
+if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`「 BOT HARUS JADI ADMIN 」`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 }
 
 /*if (budy == '.kick'
@@ -1376,9 +1353,9 @@ console.log(color('[COMMAND]', 'blue'), color('Kick', 'yellow'), color(time, 'wh
 if (budy == '.add'
 || (budy == '#add')) {
 try {
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 quotedis = mek.message.extendedTextMessage.contextInfo.participant
 await client.groupAdd(from, [quotedis])
 } catch (e) {
@@ -1435,19 +1412,21 @@ fkatalok})
 break*/
 
 case perintah_help:
-getLevel3 = getLevelingLevel(sender)
-b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
-fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/Img.jpg'))
-buttons = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:'𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu', imageMessage: imageMsg,
-contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶? `,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: fkatalok})
-client.relayWAMessage(prep)
-fs.unlinkSync(`./${sender}.jpeg`)
-break
-
 case 'menu':
+menu2 = fs.readFileSync('./lib/odc.jpeg') 
+menu3 = await client.prepareMessage(from, menu2, MessageType.image) 
+menu4 = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}] 
+menu5 = {
+contentText: "𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶?",
+footerText: `𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu`,
+buttons: menu4,
+headerType: 4,
+imageMessage: menu3.message.imageMessage
+}
+client.sendMessage(from, menu5, MessageType.buttonsMessage, {quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
+break
+ 
+/*case 'menu':
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/Img.jpg'))
@@ -1458,59 +1437,68 @@ contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: fkatalok})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
-break
+break*/
 
 case 'allmenu':
 getLevel3 = getLevelingLevel(sender)
 uptime = process.uptime()
 jo = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n`,
-"description": `.`,
-"footerText": `「 *PROFILE KAMU* 」
-╭────────────────────
+"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
+•╭────────────────────
 •├❏  nama ${pushname}
 •├❏ setatus ${premi}
 •├❏ pangkat ${role}
 •├❏ level ${getLevel3}
 •├❏ xp ${getLevelingXp(sender)}
-╰────────────────────
-「 *INFORMASI MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *INFORMASI MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}info
 •├❏ ${prefix2}iklan
 •├❏ ${prefix2}donasi
 •├❏ ${prefix2}request
-╰────────────────────
-「 *EVENT GAMES BOT* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *EVENT GAMES BOT* 」
+•╭────────────────────
 •├❏ ${prefix2}carspeed
-•├❏ ${prefix2}lotry
-╰────────────────────
-「 *PRODUK & VOTING* 」
-╭────────────────────
+•├❏ ${prefix2}lotre
+•╰────────────────────
+
+•「 *URL TO MEDIA TYPE* 」
+•╭────────────────────
+•├❏ ${prefix2}urltoimg
+•╰────────────────────
+
+•「 *PRODUK & VOTING* 」
+•╭────────────────────
 •├❏ ${prefix2}produk
 •├❏ ${prefix2}tambah
 •├❏ ${prefix2}votting
 •├❏ ${prefix2}vote
 •├❏ ${prefix2}dellvote
-╰────────────────────
-「 *ULASAN & MUTUAL* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *ULASAN & MUTUAL* 」
+•╭────────────────────
 •├❏ ${prefix2}ulasan
 •├❏ ${prefix2}komentar
 •├❏ ${prefix2}mutual
 •├❏ ${prefix2}save
-╰────────────────────
-「 *ABSEN & MESSAGES* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *ABSEN & MESSAGES* 」
+•╭────────────────────
 •├❏ ${prefix2}absen
 •├❏ ${prefix2}absensi
 •├❏ ${prefix2}svmess
 •├❏ ${prefix2}listmess
-╰────────────────────
-「 *GROUP MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *GROUP MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}cmd
 •├❏ ${prefix2}sider
 •├❏ ${prefix2}hidetag
@@ -1526,29 +1514,33 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}antitoxic
 •├❏ ${prefix2}leveling
 •├❏ ${prefix2}welcome
-╰────────────────────
-「 *ANIME MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *ANIME MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}neko
 •├❏ ${prefix2}waifu
-╰────────────────────
-「 *GAMES MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *GAMES MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}dungeon
 •├❏ ${prefix2}slot
 •├❏ ${prefix2}truth
 •├❏ ${prefix2}dare
 •├❏ ${prefix2}tebakgambar
-╰────────────────────
-「 *IMAGE MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *IMAGE MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}cogan
 •├❏ ${prefix2}cecan
 •├❏ ${prefix2}pinterest
 •├❏ ${prefix2}ocr
-╰────────────────────
-「 *RANDOM MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *RANDOM MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}cerpen
 •├❏ ${prefix2}ceritahoror
 •├❏ ${prefix2}film
@@ -1556,9 +1548,10 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}news
 •├❏ ${prefix2}beasiswa
 •├❏ ${prefix2}ppcouple
-╰────────────────────
-「 *STICKER MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *STICKER MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}sticker
 •├❏ ${prefix2}wasted
 •├❏ ${prefix2}comrade
@@ -1566,36 +1559,43 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}passed
 •├❏ ${prefix2}trigger
 •├❏ ${prefix2}toimg
-╰────────────────────
-「 *EDUCATION MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *EDUCATION MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}quiz
 •├❏ ${prefix2}niatsholat
 •├❏ ${prefix2}niatsehari2
 •├❏ ${prefix2}hadist
-╰────────────────────
-「 *AUDIO/VN MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *AUDIO/VN MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}fast
 •├❏ ${prefix2}tupai
 •├❏ ${prefix2}gemuk
 •├❏ ${prefix2}slow
 •├❏ ${prefix2}tomp3
-╰────────────────────
-「 *PREMIUM MENU* 」
-╭────────────────────
-•├❏ ${prefix2}mining
+•╰────────────────────
+
+•「 *PREMIUM MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}asupan
-╰────────────────────
-「 *SOSIAL MENU* 」
-╭────────────────────
+•├❏ ${prefix2}upswtext
+•├❏ ${prefix2}upswimg
+•├❏ ${prefix2}upswvideo
+•╰────────────────────
+
+•「 *SOSIAL MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}upload
 •├❏ ${prefix2}posting
 •├❏ ${prefix2}draft
 •├❏ ${prefix2}blogger
-╰────────────────────
-「 *OTHER MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *OTHER MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}sharelock
 •├❏ ${prefix2}delete
 •├❏ ${prefix2}pesan
@@ -1603,9 +1603,10 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}report
 •├❏ ${prefix2}timer
 •├❏ ${prefix2}setperintah
-╰────────────────────
-「 *OWNER MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *OWNER MENU* 」
+•╭────────────────────
 •├❏ $
 •├❏ >
 •├❏ =>
@@ -1618,17 +1619,22 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}dellprem
 •├❏ ${prefix2}setbudy
 •├❏ ${prefix2}bug
-╰────────────────────
-「 *THANKS TO* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *THANKS TO* 」
+•╭────────────────────
 •├❏ mhankbarbar
+•├❏ mitsuhabotz
 •├❏ rimurubotz
 •├❏ dimxbotz
 •├❏ rurichan
 •├❏ zak06cheat
 •├❏ ridwan
 •├❏ hafizh
-╰────────────────────`,
+•╰────────────────────`,
+"description": `.`,
+"footerText": `© *Copyright By Mitsuha Or Caca*
+Created Language Nodejs`,
 "buttons": [
 {buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}
 ],
@@ -1642,16 +1648,16 @@ break
 ALL FEATURE BOT
 ___________________*/
 
-case 'lotry':
+case 'lotre':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-reply(`${lotry1}  ${lotry2}  ${lotry3}  ${lotry4}\n\n${lotry5}  ${lotry6}  ${lotry7}  ${lotry8}\n\n${lotry9}  ${lotry10}\n\n_jika ingin mengambil undian silahkan ketik -undian(angka)- contoh :_\n\n*-undian 1-*`)
+reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan ketik -LOTRE(angka)- contoh :_\n\n*-LOTRE1-*`)
 break
 
 case 'kudet':
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
 if (!isRegistered) return reply(ind.noregis())     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 ppp = `${args.join(' ')}`
 send = ppp.split("|")[0];
 lok = ppp.split("|")[1];
@@ -1678,9 +1684,9 @@ break
 
 case 'revoke':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 client.revokeInvite(from)
 break
 
@@ -1767,7 +1773,7 @@ break
 
 case 'upload':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 if (!isQuotedImage) return reply(`tag foto kamu lalu ketik\n#upload caption`)
 if(!q) return reply(`tag foto kamu lalu ketik\n#upload caption`)
 caption = args.join(" ")
@@ -1812,7 +1818,7 @@ break
 case 'hidetag':                 
 if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)
 var value = body.slice(9)
 var group = await client.groupMetadata(from)
 var member = group['participants']
@@ -1831,9 +1837,9 @@ break
 case 'close-grup':
 case 'close-grub':      
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 var nomor = mek.participant
 const close = {
 text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
@@ -1846,9 +1852,9 @@ break
 case 'open-grup':
 case 'open-grub':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 open = {
 text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,             
 }
@@ -1863,12 +1869,12 @@ case 'change':
 case 'setclose':
 case 'setopen':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Pilih Satu Aja Ya Njg`,
 "buttons": [
 {buttonId: 'CHANGE NOW', buttonText: {displayText: 'CHANGE NOW'}, type: 1},
@@ -1896,9 +1902,9 @@ break
       
 case 'welcome-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (isWelkom) return reply('「 SUDAH ON KAWAN 」')
 welkom.push(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -1907,9 +1913,9 @@ break
 						
 case 'welcome-disable':
 if (!isRegistered) return reply(ind.noregis())    
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 var ini = welkom.indexOf(from)
 welkom.splice(ini, 1)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -1920,12 +1926,12 @@ case 'welcome':
 case 'welcome 1':
 case 'welcome 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
 if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻𝑺𝑼???? ??𝑶𝑻??`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 let gwekkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
 "buttons": [
 {buttonId: 'Enable W1', buttonText: {displayText: 'Enable W1'}, type: 1},
@@ -1941,12 +1947,12 @@ case 'antilink':
 case 'antilink 1':
 case 'antilink 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 let gwekkkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
 "buttons": [
 {buttonId: 'Enable A1', buttonText: {displayText: 'Enable A1'}, type: 1},
@@ -1962,7 +1968,7 @@ case 'cmd':
 if (!isRegistered) return reply(ind.noregis())     
 let gwekkhkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `CMD IS COMMAND PROMPT`,
 "buttons": [
 {buttonId: 'Enable C1', buttonText: {displayText: 'Enable C1'}, type: 1},
@@ -1978,12 +1984,12 @@ case 'antitoxic':
 case 'antitoxic 1':
 case 'antitoxic 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 let gwekkkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
@@ -1999,12 +2005,12 @@ case 'leveling':
 case 'leveling 1':
 case 'leveling 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 let gwekkkjiie = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
 "buttons": [
 {buttonId: 'Enable L1', buttonText: {displayText: 'Enable L1'}, type: 1},
@@ -2019,7 +2025,7 @@ break
 case 'tagall':
 case 'tagall1':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
 teks += '\n\n'
@@ -2032,9 +2038,9 @@ break
           
 case 'antilink-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (isAntiLink) return reply('Sudah Aktif Kak')
 antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
@@ -2043,9 +2049,9 @@ break
 					
 case 'antilink-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})    
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)    
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (!isAntiLink) return reply('Sudah Mati Kak')
 var ini = antilink.indexOf(from)
 antilink.splice(ini, 1)
@@ -2055,9 +2061,9 @@ break
 
 case 'antitoxic-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 var ini = antitoxic.indexOf(from)
 antitoxic.splice(ini, 1)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -2066,9 +2072,9 @@ break
 						
 case 'antitoxic-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
 antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -2077,9 +2083,9 @@ break
 
 case 'leveling-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
 _leveling.push(from)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
@@ -2088,9 +2094,9 @@ break
 
 case 'leveling-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 var ini = _leveling.indexOf(from)
 _leveling.splice(ini, 1)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
@@ -2112,9 +2118,9 @@ break
                                 
 case 'promote':                                   
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
@@ -2132,9 +2138,9 @@ break
 
 case 'demote':   
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
@@ -2149,12 +2155,12 @@ mentions(`Berhasil Demote @${mentioned[0].split('@')[0]} Menjadi Member Group!`,
 client.groupDemoteAdmin(from, mentioned)
 }
 break
-					
+				
 //case 'add':\\   
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (args.length < 1) return reply('Yang mau di add jin ya?')
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
 try {
@@ -2168,16 +2174,16 @@ break
 
 case 'add':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 reply(`_untuk menggunakan fitur add silahkan tag pesan sesorang yang sudah keluar grup lali ketik #add, cara guna seperti kick reply_`)
 break
 
 case 'kick':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
 if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - ??𝑰𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 if (mek.message.extendedTextMessage.contextInfo.participant) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
@@ -2200,10 +2206,10 @@ reply(`Suzes Gabung Ke Gerup`)
 break*/
 
 /*case 'simih':
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
 if (args.length < 1) return reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 if (Number(args[0]) === 1) {
 if (isSimi) return reply('Mode simi sudah aktif')
@@ -2218,20 +2224,10 @@ reply('Sukes menonaktifkan mode simi di group ini ✔️')
 reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 }
 break*/
-			
-case 'mining':
-if (!isRegistered) return reply(ind.noregis())     
-if (!isPrem) return reply(`\`\`\`▢ KHUSUS PENGGUNA VIP ▢\`\`\``) 
-wan = 99999
-addLevelingLevel(sender, 500) 
-addLevelingXp(sender, wan)
-getLevel = getLevelingLevel(sender)
-reply(`Usaha Yg Bagus Level Mu Naik Menjadi ${getLevel}🍷Dan Xp Mu Bertambah Menjadi ${getLevelingXp(sender)}🔥`)
-break
-              
+		
 case 'addprem':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)    
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)    
 if (args.length < 1) return reply(`contoh ${prefix + command} 6285298595430\n\natau bisa juga dengan ${prefix + command} tag target`)
 adpr = body.slice(10)
 premium.push(`${adpr}@s.whatsapp.net`)
@@ -2241,7 +2237,7 @@ break
 					
 case 'dellprem':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(ind.ownerb())
+if (!isOwner) return reply(ind.ownerB())
 din02 = body.slice(11)
 delp = premium.indexOf(din02)
 premium.splice(delp, 1)
@@ -2251,11 +2247,11 @@ break
 				
 case 'leave':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 gwetkkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Pilih Satu Aja Ya Njg`,
 "buttons": [
 {buttonId: 'LEAVE NOW', buttonText: {displayText: 'LEAVE NOW'}, type: 1},
@@ -2269,9 +2265,9 @@ break
                     
 case 'clone':
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
 if (args.length < 1) return reply('Tag target yang ingin di clone')
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
@@ -2288,7 +2284,7 @@ break
 
 /*case 'bc':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
 if (args.length < 1) return reply('.......')
 anu = await client.chats.all()
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
@@ -2308,7 +2304,7 @@ break*/
 
 case 'bc':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
 bc = body.slice(3)
 if (args.length < 1) return reply('.......')
 anu = await client.chats.all()
@@ -2331,7 +2327,7 @@ break
 
 case 'setbudy':   
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 if (args.length < 1) return
 kunci = args[0]
 respon = args[1]
@@ -2344,7 +2340,7 @@ break
 case 'ppcouple':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 data = fs.readFileSync('./lib/couple.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2539,7 +2535,7 @@ break
 case 'asupan':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
-if (!isPrem) return reply(`\`\`\`▢ KHUSUS PENGGUNA VIP ▢\`\`\``) 
+if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 reply(`_Butuh Beberapa Menit Untuk Mengirim, Harap Menunggu_`)
 data = fs.readFileSync('./lib/asupan.js');
 jsonData = JSON.parse(data);
@@ -2580,7 +2576,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+reply(`_「⏳」 wait sedang proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2605,7 +2601,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+reply(`_「⏳」 wait sedang proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2630,7 +2626,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+reply(`_「⏳」 wait sedang proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2655,7 +2651,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+reply(`_「⏳」 wait sedang proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2680,7 +2676,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+reply(`_「⏳」 wait sedang proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2702,8 +2698,8 @@ break
 		
 case 'makegroup':
 if (!isRegistered) return reply(ind.noregis())
-if (!isOwner) return reply(`\`\`\`▢ KHUSUS OWNER BOT ▢\`\`\``)     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 const aineloh = body.slice(11)
 const ainenihh = aineloh.split("|")[0]
 const okelahh = aineloh.split("|")[1].replace("@","")
@@ -2851,7 +2847,7 @@ contentText:`「 \`\`\`SUKSES REGISTRASI\`\`\` 」\n\n
 \`\`\`❏ Ns: ${seriTod}\`\`\`
 \`\`\`❏ Total Pengguna: ${_registered.length}\`\`\`
 `,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 ??𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
 client.relayWAMessage(prep)
 break*/
 
@@ -2894,8 +2890,8 @@ break*/
 
 case perintah_info:
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 linkgc = await client.groupInviteCode (from)
 me = client.user
 uptime = process.uptime()
@@ -2959,7 +2955,7 @@ case 'neko':
 if (!isRegistered) return reply(ind.noregis())
 E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
 E2 = E1[Math.floor(Math.random() * E1.length)]
-client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek}) 
+reply(`_「⏳」 wait sedang proses_`)
 B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
@@ -3003,7 +2999,7 @@ break
 case 'pinterest':
 if (!isRegistered) return reply(ind.noregis())
 client.updatePresence(from, Presence.composing)
-if (args.length < 1) return reply(`\`\`\`▢ TEKS NYA MANA KAK ▢\`\`\``)
+if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 data = await fetchJson(`https://api.zeks.xyz/api/pinimg?apikey=n3zxghJzUiPwdTKWGkP96eiv16M&q=${body.slice(10)}`, { method: 'get' })
 ahu = data.data
 reply(ind.wait())
@@ -3012,6 +3008,62 @@ nimek = n[Math.floor(Math.random() * n.length)];
 pok = await getBuffer(nimek)
 client.sendMessage(from, pok, image, { quoted: mek, caption: `*PINTEREST*` })
 break
+
+/*case 'pinterest':
+            
+                if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
+
+                async function pinterestSearch(query) {
+                    return new Promise((resolve, reject) => {
+                        fetch(`https://www.pinterest.com/resource/BaseSearchResource/get/?source_url=%2Fsearch%2Fpins%2F%3Fq%3D${query}&data=%7B%22options%22%3A%7B%22isPrefetch%22%3Afalse%2C%22query%22%3A%22${query}%22%2C%22scope%22%3A%22pins%22%2C%22no_fetch_context_on_resource%22%3Afalse%7D%2C%22context%22%3A%7B%7D%7D&_=1619980301559`, {
+                            "headers": {*/
+                                //"accept": "application/json, text/javascript, */*, q=0.01",//
+                                /*"accept-language": "en-US,en;q=0.9",
+                                "cache-control": "no-cache",
+                                "pragma": "no-cache",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin",
+                                "sec-gpc": "1",
+                                "x-app-version": "9a236a4",
+                                "x-pinterest-appstate": "active",
+                                "x-requested-with": "XMLHttpRequest"
+                            },
+                            "referrer": "https://www.pinterest.com/",
+                            "referrerPolicy": "origin",
+                            "body": null,
+                            "method": "GET",
+                            "mode": "cors"
+                        }).then((res) => res.json())
+                            .then((json) => {
+                                const generatepin = json.resource_response.data.results[Math.floor(Math.random() * (json.resource_response.data.results.length))]
+                                var result = [];
+                                result.push({
+                                    link: generatepin.images.orig.url
+                                })
+                                resolve(result)
+                            }).catch(reject)
+                    })
+                }
+
+                const pinterest = (query) => new Promise((resolve, reject) => {
+                    pinterestSearch(query).then((data) => {
+                        resolve({
+                            status: 200,
+                            image: data[0].link
+                        })
+                    }).catch(reject)
+                })
+
+                pinterest(q).then(async(res) => {
+                    await reply(mess.wait)
+                    await sendFileFromUrl(from, res.image, `Hasil Pencarian: ${q}`, mek)
+                }).catch(async(err) => {
+                    sendMess(ownerNumber, 'Pinterest Error : ' + err)
+                    console.log(color('[Pinterest]', 'red'), err)
+                    reply(mess.error.api)
+                })
+                break*/
 					
 case 'slow':
 if (!isRegistered) return reply(ind.noregis())
@@ -3105,7 +3157,7 @@ console.log(`Started : ${cmd}`)
 .on('error', function (err) {
 console.log(`Error : ${err}`)
 fs.unlinkSync(media)
-reply(`*「 GAGAL 」 ULANGI LAGI*`)
+reply(`_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_`)
 })
 .on('end', function () {
 console.log('Finish')
@@ -3137,7 +3189,7 @@ console.log(`Started : ${cmd}`)
 console.log(`Error : ${err}`)
 fs.unlinkSync(media)
 tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-reply(`*「 GAGAL 」 ULANGI LAGI*`)
+reply(`_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_`)
 })
 .on('end', function () {
 console.log('Finish')
@@ -3209,7 +3261,7 @@ break
 
 case 'bug':
 if (!isOwner) return reply(mess.only.ownerB)
-if (args.length < 1) return reply('Jumlahnya?')
+if (args.length < 1) return reply(`_jumlahnya?_`)
 for (let i = 0; i < args[0]; i++) {
 client.relayWAMessage(global.mm=client.
 prepareMessageFromContent(from, client.
@@ -3221,7 +3273,7 @@ break
 case 'voting':
 case 'votting':
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
 if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)
 ppp = `${args.join(' ')}`
 tem = ppp.split("|")[0];
@@ -3255,7 +3307,7 @@ break
 					
 case 'vote':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 gwekkhkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `VOTE - BOT\n\n${vote}`,
@@ -3273,7 +3325,7 @@ break
 case 'dellvote':
 case 'delvote':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
 yes.splice(ini, 1)
@@ -3286,12 +3338,13 @@ break
 case 'absensi':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `?? LIVE!! JANGAN LUPA SUBSCRIBE CHANEL Mitsuha_Chan YA!!`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
+if (isAbsen) return reply(`_kamu sudah absensi tadi_`)
 absen.push(sender)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 teks = `*LIST DAFTAR HADIR ABSEN*:\n`
 for (let sensi of absen) {
-teks += `=-> @${sensi.split('@')[0]} ( SUDAH ABSENSI )\n`
+teks += `=-> @${sensi.split('@')[0]} ✅\n`
 }
 teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
 client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": absen}})
@@ -3300,14 +3353,14 @@ break
 case 'absen':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())   
-if (args.length < 1) return reply(`Cara Memulai Absen Silahkan Ketik\n\n.absen waktu\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .absen 600000`)
+if (args.length < 1) return reply(`Cara Memulai Absen Silahkan Ketik\n\n.absen (waktu)\n\nlist waktu yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .absen 600000`)
 tem = args.join(" ")
 ini = absen.indexOf(from)
 absen.splice(ini, 1)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 teks = `*LIST DAFTAR HADIR ABSEN*:\n`
 for (let sensi of absen) {
-teks += `=-> @${sensi.split('@')[0]} ( SUDAH ABSENSI )\n`
+teks += `=-> @${sensi.split('@')[0]} ✅\n`
 }
 teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
 reply(`List Presentasi Hadir Telah Siap\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`)
@@ -3324,7 +3377,7 @@ break
 
 case 'svmess':
 if (!isRegistered) return reply(ind.noregis())   
-if (args.length < 1) return reply(`\`\`\`▢ TEKS NYA MANA KAK ▢\`\`\``)
+if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
 st = { 
 target : sender,
@@ -3370,7 +3423,7 @@ teks += `⬡ *${i.name} > ${i.waktu}*\nPesan : ${i.teks}\n\n--------------------
 }
 teks += `Total : ${req.length}`
 client.sendMessage(from, teks.trim(), extendedText, {quoted: mek})
-if (args.length < 1) return reply(`\`\`\`▢ TEKS NYA MANA KAK ▢\`\`\``)
+if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
 st = { 
 name : pushname,
@@ -3386,7 +3439,7 @@ var options = {
 text: teks2,
 contextInfo: {mentionedJid: [nomor2]},
 }
-client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩??????`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
 break
 
 case 'tebakgambar':
@@ -3408,15 +3461,15 @@ reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-CRS
 break
 
 case 'niatsholat':
- reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NS1-*`)
+ reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NIAT1-*`)
 break
 
 case 'niatsehari2':
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NH1-*`)
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-DOA1-*`)
 break
 
 case 'hadist':
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HR1-*`)
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HADIST1-*`)
 break
 
 case 'set-help':
@@ -3441,7 +3494,45 @@ reply(`Perintah Owner Berhasil Di Ubah Menjadi = ${perintah_owner}\n\nSilahkan K
 break
 
 case 'setperintah':
-if(!q) return reply(`pilih query nya kak \n\nketik *#set-help* untuk mengubah nama fitur help\n\nketik *#set-info* untuk mengubah nama fitur info\n\nketik *#set-owner* untuk mengubah nama fitur owner`)
+if(!q) return reply(`pilih query nya kak 😃\n\nketik *#set-help* untuk mengubah nama fitur help\n\nketik *#set-info* untuk mengubah nama fitur info\n\nketik *#set-owner* untuk mengubah nama fitur owner`)
+break
+
+case 'urltoimg':
+if (args.length < 1) return reply(`_tambahkan link pada perintah_`)
+linknya = await getBuffer(`${args.join(" ")}`)
+client.sendMessage(from, linknya, image)
+break
+
+case 'upswtext':
+if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
+if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
+client.updatePresence(from, Presence.composing)
+client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedText)
+reply(`Berhasil Membuat Status`)
+break
+
+case 'upswimg':
+if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
+if (!isQuotedImage) return reply(`_tag foto lalu ketik #${command} dengan caption_`)
+client.updatePresence(from, Presence.composing)
+if (isQuotedImage) {
+swew = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+sweb = await client.downloadMediaMessage(swew)
+client.sendMessage('status@broadcast', sweb, image, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
+}
+reply(`Berhasil Membuat Status`)
+break
+
+case 'upswvideo':
+if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
+if (!isQuotedVideo) return reply(`_tag foto lalu ketik #${command} dengan caption_`)
+client.updatePresence(from, Presence.composing)
+if (isQuotedVideo) {
+swew = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+sweb = await client.downloadMediaMessage(swew)
+client.sendMessage('status@broadcast', sweb, video, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
+}
+reply(`Berhasil Membuat Status`)
 break
 
 /*_________________
@@ -3501,7 +3592,7 @@ await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.
 break
 }
 
-if (budy.includes(`-undian 1-`)) {
+if (budy.includes(`-LOTRE1-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3510,13 +3601,13 @@ vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
 addLevelingXp(sender, mk)
-ini = ``
-lotry1 = ini
+ini = `❌`
+lotre1 = ini
 reply(`_slot nomor 1 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 }
 
-if (budy.includes(`-undian 2-`)) {
+if (budy.includes(`-LOTRE2-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3525,13 +3616,13 @@ vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
 addLevelingXp(sender, mk)
-ini = ``
-lotry2 = ini
+ini = `❌`
+lotre2 = ini
 reply(`_slot nomor 2 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 }
 
-if (budy.includes(`-undian 3-`)) {
+if (budy.includes(`-LOTRE3-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3540,13 +3631,13 @@ vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
 addLevelingXp(sender, mk)
-ini = ``
-lotry3 = ini
+ini = `❌`
+lotre3 = ini
 reply(`_slot nomor 3 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 }
 
-if (budy.includes(`-undian 4-`)) {
+if (budy.includes(`-LOTRE4-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3555,13 +3646,13 @@ vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
 addLevelingXp(sender, mk)
-ini = ``
-lotry4 = ini
+ini = `❌`
+lotre4 = ini
 reply(`_slot nomor 4 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 }
 
-if (budy.includes(`-undian 5-`)) {
+if (budy.includes(`-LOTRE5-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3569,12 +3660,12 @@ fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 tingkatan.splice(sender)
 fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
 reply(`_yah ticket kamu hangus, mainkan carspeed untuk memperoleh ticket!_`)
-ini = ``
-lotry5 = ini
+ini = `❌`
+lotre5 = ini
 break
 }
 
-if (budy.includes(`-undian 6-`)) {
+if (budy.includes(`-LOTRE6-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3582,12 +3673,12 @@ fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 premium.push(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 reply(`_horeee! kamu mendapatkan akses fitur premiums_`)
-ini = ``
-lotry6 = ini
+ini = `❌`
+lotre6 = ini
 break
 }
 
-if (budy.includes(`-undian 7-`)) {
+if (budy.includes(`-LOTRE7-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3596,13 +3687,13 @@ vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
 addLevelingXp(sender, mk)
-ini = ``
-lotry7 = ini
+ini = `❌`
+lotre7 = ini
 reply(`_slot nomor 7 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 }
 
-if (budy.includes(`-undian 8-`)) {
+if (budy.includes(`-LOTRE8-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3611,13 +3702,13 @@ vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
 addLevelingXp(sender, mk)
-ini = ``
-lotry8 = ini
+ini = `❌`
+lotre8 = ini
 reply(`_slot nomor 8 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 }
 
-if (budy.includes(`-undian 9-`)) {
+if (budy.includes(`-LOTRE9-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
@@ -3626,24 +3717,11 @@ vs = ["1","10","100"]
 mk = vs[Math.floor(Math.random() * vs.length)]
 addLevelingLevel(sender, mk)
 addLevelingXp(sender, mk)
-ini = ``
-lotry9 = ini
+ini = `❌`
+lotre9 = ini
 reply(`_slot nomor 9 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 } 
-
-if (budy.includes(`-undian 10-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-premium.splice(sender)
-fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
-reply(`yaaah! akses premium kamu hilang`)
-ini = ``
-lotry10 = ini
-break
-}
 
 if (budy.includes(`-CRSP-`)) {
 if (isCar) return reply(`_kamu telah meng claim daily ini mohon untuk menyelasaikan event lain dahulu dan dapatkan hadiah_`)
@@ -3658,7 +3736,7 @@ reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-CRS
 
 if (budy.includes(`-EVENT 2-`)) {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-reply(`${lotry1}  ${lotry2}  ${lotry3}  ${lotry4}\n\n${lotry5}  ${lotry6}  ${lotry7}  ${lotry8}\n\n${lotry9}  ${lotry10}\n\n_jika ingin mengambil undian silahkan ketik -undian(angka)- contoh :_\n\n*-undian 1-*`)
+reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan ketik -LOTRE(angka)- contoh :_\n\n*-LOTRE1-*`)
 }
 
 if (budy.includes(`BOT`)) {      	
@@ -3732,70 +3810,77 @@ break
 }
   
 if (buttonsR === 'HOME BACK') {
-getLevel3 = getLevelingLevel(sender)
-b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
-fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/Img.jpg'))
-buttons = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:'𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu', imageMessage: imageMsg,
-contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸??𝘢𝘵??𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶? `,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: fkatalok})
-client.relayWAMessage(prep)
-fs.unlinkSync(`./${sender}.jpeg`)
-break
+menu2 = fs.readFileSync('./lib/odc.jpeg') 
+menu3 = await client.prepareMessage(from, menu2, MessageType.image) 
+menu4 = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}] 
+menu5 = {
+contentText: "𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶?",
+footerText: `𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu`,
+buttons: menu4,
+headerType: 4,
+imageMessage: menu3.message.imageMessage
 }
+client.sendMessage(from, menu5, MessageType.buttonsMessage, {quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
 
-if (buttonsR === 'ALL FEATURE') {
-getLevel3 = getLevelingLevel(sender)
+/*getLevel3 = getLevelingLevel(sender)
 uptime = process.uptime()
 jo = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n`,
-"description": `.`,
-"footerText": `「 *PROFILE KAMU* 」
-╭────────────────────
+"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
+•╭────────────────────
 •├❏  nama ${pushname}
 •├❏ setatus ${premi}
 •├❏ pangkat ${role}
 •├❏ level ${getLevel3}
 •├❏ xp ${getLevelingXp(sender)}
-╰────────────────────
-「 *INFORMASI MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *INFORMASI MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}info
 •├❏ ${prefix2}iklan
 •├❏ ${prefix2}donasi
 •├❏ ${prefix2}request
-╰────────────────────
-「 *EVENT GAMES BOT* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *EVENT GAMES BOT* 」
+•╭────────────────────
 •├❏ ${prefix2}carspeed
-•├❏ ${prefix2}lotry
-╰────────────────────
-「 *PRODUK & VOTING* 」
-╭────────────────────
+•├❏ ${prefix2}lotre
+•╰────────────────────
+
+•「 *URL TO MEDIA TYPE* 」
+•╭────────────────────
+•├❏ ${prefix2}urltoimg
+•╰────────────────────
+
+•「 *PRODUK & VOTING* 」
+•╭────────────────────
 •├❏ ${prefix2}produk
 •├❏ ${prefix2}tambah
 •├❏ ${prefix2}votting
 •├❏ ${prefix2}vote
 •├❏ ${prefix2}dellvote
-╰────────────────────
-「 *ULASAN & MUTUAL* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *ULASAN & MUTUAL* 」
+•╭────────────────────
 •├❏ ${prefix2}ulasan
 •├❏ ${prefix2}komentar
 •├❏ ${prefix2}mutual
 •├❏ ${prefix2}save
-╰────────────────────
-「 *ABSEN & MESSAGES* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *ABSEN & MESSAGES* 」
+•╭────────────────────
 •├❏ ${prefix2}absen
 •├❏ ${prefix2}absensi
 •├❏ ${prefix2}svmess
 •├❏ ${prefix2}listmess
-╰────────────────────
-「 *GROUP MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *GROUP MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}cmd
 •├❏ ${prefix2}sider
 •├❏ ${prefix2}hidetag
@@ -3811,29 +3896,33 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}antitoxic
 •├❏ ${prefix2}leveling
 •├❏ ${prefix2}welcome
-╰────────────────────
-「 *ANIME MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *ANIME MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}neko
 •├❏ ${prefix2}waifu
-╰────────────────────
-「 *GAMES MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *GAMES MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}dungeon
 •├❏ ${prefix2}slot
 •├❏ ${prefix2}truth
 •├❏ ${prefix2}dare
 •├❏ ${prefix2}tebakgambar
-╰────────────────────
-「 *IMAGE MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *IMAGE MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}cogan
 •├❏ ${prefix2}cecan
 •├❏ ${prefix2}pinterest
 •├❏ ${prefix2}ocr
-╰────────────────────
-「 *RANDOM MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *RANDOM MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}cerpen
 •├❏ ${prefix2}ceritahoror
 •├❏ ${prefix2}film
@@ -3841,9 +3930,10 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}news
 •├❏ ${prefix2}beasiswa
 •├❏ ${prefix2}ppcouple
-╰────────────────────
-「 *STICKER MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *STICKER MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}sticker
 •├❏ ${prefix2}wasted
 •├❏ ${prefix2}comrade
@@ -3851,36 +3941,43 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}passed
 •├❏ ${prefix2}trigger
 •├❏ ${prefix2}toimg
-╰────────────────────
-「 *EDUCATION MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *EDUCATION MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}quiz
 •├❏ ${prefix2}niatsholat
 •├❏ ${prefix2}niatsehari2
 •├❏ ${prefix2}hadist
-╰────────────────────
-「 *AUDIO/VN MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *AUDIO/VN MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}fast
 •├❏ ${prefix2}tupai
 •├❏ ${prefix2}gemuk
 •├❏ ${prefix2}slow
 •├❏ ${prefix2}tomp3
-╰────────────────────
-「 *PREMIUM MENU* 」
-╭────────────────────
-•├❏ ${prefix2}mining
+•╰────────────────────
+
+•「 *PREMIUM MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}asupan
-╰────────────────────
-「 *SOSIAL MENU* 」
-╭────────────────────
+•├❏ ${prefix2}upswtext
+•├❏ ${prefix2}upswimg
+•├❏ ${prefix2}upswvideo
+•╰────────────────────
+
+•「 *SOSIAL MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}upload
 •├❏ ${prefix2}posting
 •├❏ ${prefix2}draft
 •├❏ ${prefix2}blogger
-╰────────────────────
-「 *OTHER MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *OTHER MENU* 」
+•╭────────────────────
 •├❏ ${prefix2}sharelock
 •├❏ ${prefix2}delete
 •├❏ ${prefix2}pesan
@@ -3888,9 +3985,10 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}report
 •├❏ ${prefix2}timer
 •├❏ ${prefix2}setperintah
-╰────────────────────
-「 *OWNER MENU* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *OWNER MENU* 」
+•╭────────────────────
 •├❏ $
 •├❏ >
 •├❏ =>
@@ -3903,29 +4001,240 @@ jo = await client.prepareMessageFromContent(from, {
 •├❏ ${prefix2}dellprem
 •├❏ ${prefix2}setbudy
 •├❏ ${prefix2}bug
-╰────────────────────
-「 *THANKS TO* 」
-╭────────────────────
+•╰────────────────────
+
+•「 *THANKS TO* 」
+•╭────────────────────
 •├❏ mhankbarbar
+•├❏ mitsuhabotz
 •├❏ rimurubotz
 •├❏ dimxbotz
 •├❏ rurichan
 •├❏ zak06cheat
 •├❏ ridwan
 •├❏ hafizh
-╰────────────────────`,
+•╰────────────────────`,
+"description": `.`,
+"footerText": `© *Copyright By Mitsuha Or Caca*
+Created Language Nodejs`,
 "buttons": [
 {buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}
 ],
 headerType: 1
 },
-}, {quoted: fkatalok}) 
+}, {quoted: fkatalok})
+await client.relayWAMessage(jo)*/
+break
+}
+
+if (buttonsR === 'ALL FEATURE') {
+getLevel3 = getLevelingLevel(sender)
+uptime = process.uptime()
+jo = await client.prepareMessageFromContent(from, {
+"buttonsMessage": {
+"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
+•╭────────────────────
+•├❏  nama ${pushname}
+•├❏ setatus ${premi}
+•├❏ pangkat ${role}
+•├❏ level ${getLevel3}
+•├❏ xp ${getLevelingXp(sender)}
+•╰────────────────────
+
+•「 *INFORMASI MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}info
+•├❏ ${prefix2}iklan
+•├❏ ${prefix2}donasi
+•├❏ ${prefix2}request
+•╰────────────────────
+
+•「 *EVENT GAMES BOT* 」
+•╭────────────────────
+•├❏ ${prefix2}carspeed
+•├❏ ${prefix2}lotre
+•╰────────────────────
+
+•「 *URL TO MEDIA TYPE* 」
+•╭────────────────────
+•├❏ ${prefix2}urltoimg
+•╰────────────────────
+
+•「 *PRODUK & VOTING* 」
+•╭────────────────────
+•├❏ ${prefix2}produk
+•├❏ ${prefix2}tambah
+•├❏ ${prefix2}votting
+•├❏ ${prefix2}vote
+•├❏ ${prefix2}dellvote
+•╰────────────────────
+
+•「 *ULASAN & MUTUAL* 」
+•╭────────────────────
+•├❏ ${prefix2}ulasan
+•├❏ ${prefix2}komentar
+•├❏ ${prefix2}mutual
+•├❏ ${prefix2}save
+•╰────────────────────
+
+•「 *ABSEN & MESSAGES* 」
+•╭────────────────────
+•├❏ ${prefix2}absen
+•├❏ ${prefix2}absensi
+•├❏ ${prefix2}svmess
+•├❏ ${prefix2}listmess
+•╰────────────────────
+
+•「 *GROUP MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}cmd
+•├❏ ${prefix2}sider
+•├❏ ${prefix2}hidetag
+•├❏ ${prefix2}fitnah
+•├❏ ${prefix2}change
+•├❏ ${prefix2}revoke
+•├❏ ${prefix2}add
+•├❏ ${prefix2}kick
+•├❏ ${prefix2}promote
+•├❏ ${prefix2}demote
+•├❏ ${prefix2}tagall
+•├❏ ${prefix2}antilink
+•├❏ ${prefix2}antitoxic
+•├❏ ${prefix2}leveling
+•├❏ ${prefix2}welcome
+•╰────────────────────
+
+•「 *ANIME MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}neko
+•├❏ ${prefix2}waifu
+•╰────────────────────
+
+•「 *GAMES MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}dungeon
+•├❏ ${prefix2}slot
+•├❏ ${prefix2}truth
+•├❏ ${prefix2}dare
+•├❏ ${prefix2}tebakgambar
+•╰────────────────────
+
+•「 *IMAGE MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}cogan
+•├❏ ${prefix2}cecan
+•├❏ ${prefix2}pinterest
+•├❏ ${prefix2}ocr
+•╰────────────────────
+
+•「 *RANDOM MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}cerpen
+•├❏ ${prefix2}ceritahoror
+•├❏ ${prefix2}film
+•├❏ ${prefix2}fakedata
+•├❏ ${prefix2}news
+•├❏ ${prefix2}beasiswa
+•├❏ ${prefix2}ppcouple
+•╰────────────────────
+
+•「 *STICKER MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}sticker
+•├❏ ${prefix2}wasted
+•├❏ ${prefix2}comrade
+•├❏ ${prefix2}jail
+•├❏ ${prefix2}passed
+•├❏ ${prefix2}trigger
+•├❏ ${prefix2}toimg
+•╰────────────────────
+
+•「 *EDUCATION MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}quiz
+•├❏ ${prefix2}niatsholat
+•├❏ ${prefix2}niatsehari2
+•├❏ ${prefix2}hadist
+•╰────────────────────
+
+•「 *AUDIO/VN MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}fast
+•├❏ ${prefix2}tupai
+•├❏ ${prefix2}gemuk
+•├❏ ${prefix2}slow
+•├❏ ${prefix2}tomp3
+•╰────────────────────
+
+•「 *PREMIUM MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}asupan
+•├❏ ${prefix2}upswtext
+•├❏ ${prefix2}upswimg
+•├❏ ${prefix2}upswvideo
+•╰────────────────────
+
+•「 *SOSIAL MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}upload
+•├❏ ${prefix2}posting
+•├❏ ${prefix2}draft
+•├❏ ${prefix2}blogger
+•╰────────────────────
+
+•「 *OTHER MENU* 」
+•╭────────────────────
+•├❏ ${prefix2}sharelock
+•├❏ ${prefix2}delete
+•├❏ ${prefix2}pesan
+•├❏ ${prefix2}owner
+•├❏ ${prefix2}report
+•├❏ ${prefix2}timer
+•├❏ ${prefix2}setperintah
+•╰────────────────────
+
+•「 *OWNER MENU* 」
+•╭────────────────────
+•├❏ $
+•├❏ >
+•├❏ =>
+•├❏ ${prefix2}makegroup
+•├❏ ${prefix2}kudet
+•├❏ ${prefix2}leave
+•├❏ ${prefix2}clone
+•├❏ ${prefix2}bc
+•├❏ ${prefix2}addprem
+•├❏ ${prefix2}dellprem
+•├❏ ${prefix2}setbudy
+•├❏ ${prefix2}bug
+•╰────────────────────
+
+•「 *THANKS TO* 」
+•╭────────────────────
+•├❏ mhankbarbar
+•├❏ mitsuhabotz
+•├❏ rimurubotz
+•├❏ dimxbotz
+•├❏ rurichan
+•├❏ zak06cheat
+•├❏ ridwan
+•├❏ hafizh
+•╰────────────────────`,
+"description": `.`,
+"footerText": `© *Copyright By Mitsuha Or Caca*
+Created Language Nodejs`,
+"buttons": [
+{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}
+],
+headerType: 1
+},
+}, {quoted: fkatalok})
 await client.relayWAMessage(jo)
 break
 }
 
 if (buttonsR === 'DAILY EVENT') {
-reply(`_hei welkom tu my event!_\n\n1. car speed\n2. lotry berhadiah\n\n_untuk memilih salah satu event silahkan ketik -EVENT (angka)- contoh:_\n\n*-EVENT 1-*`)
+reply(`_hei welkom tu my event!_\n\n1. car speed\n2. lotre berhadiah\n\n_untuk memilih salah satu event silahkan ketik -EVENT (angka)- contoh:_\n\n*-EVENT 1-*`)
 }
 
 if (buttonsR === 'IKLAN BOT') {
@@ -3980,211 +4289,211 @@ break
 }*/
                   
 if (buttonsR === 'ISLAM BETA') {
-reply(`_hallo kaka ingin memilih query?_\n\n1. bacaan niat shalat\n2. bacaan niat sehari hari\n3. hadist riwayat bukhari\n\n_silahkan pilih salah satu dibawah ya lalu ketik angka dan simbolnya saja contoh_ *-Q1*`) 
+reply(`_hallo kaka ingin memilih query?_\n\n1. bacaan niat shalat\n2. bacaan niat sehari hari\n3. hadist riwayat bukhari\n\n_silahkan pilih salah satu dibawah ya lalu ketik angka dan simbolnya saja contoh_ *-QUERY1*`) 
 }
 
-if (budy.includes(`-Q1`)) {
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NS1-*`)
+if (budy.includes(`-QUERY1`)) {
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NIAT1-*`)
 }
 
-if (budy.includes(`-Q2`)) {
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NH1-*`)
+if (budy.includes(`-QUERY2`)) {
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-DOA1-*`)
 }
 
-if (budy.includes(`-Q3`)) {
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HR1-*`)
+if (budy.includes(`-QUERY3`)) {
+reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HADIST1-*`)
 }
 
-if (budy.includes(`-HR1-`)) {
+if (budy.includes(`-HADIST1-`)) {
 for (let i of hadist) {
 reply(`${i.result1.message}\n\n*${i.result1.arabic}*\n\n${i.result1.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR2-`)) {
+if (budy.includes(`-HADIST2-`)) {
 for (let i of hadist) {
 reply(`${i.result2.message}\n\n*${i.result2.arabic}*\n\n${i.result2.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR3-`)) {
+if (budy.includes(`-HADIST3-`)) {
 for (let i of hadist) {
 reply(`${i.result3.message}\n\n*${i.result3.arabic}*\n\n${i.result3.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR4-`)) {
+if (budy.includes(`-HADIST4-`)) {
 for (let i of hadist) {
 reply(`${i.result4.message}\n\n*${i.result4.arabic}*\n\n${i.result4.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR5-`)) {
+if (budy.includes(`-HADIST5-`)) {
 for (let i of hadist) {
 reply(`${i.result5.message}\n\n*${i.result5.arabic}*\n\n${i.result5.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR6-`)) {
+if (budy.includes(`-HADIST6-`)) {
 for (let i of hadist) {
 reply(`${i.result6.message}\n\n*${i.result6.arabic}*\n\n${i.result6.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR7-`)) {
+if (budy.includes(`-HADIST7-`)) {
 for (let i of hadist) {
 reply(`${i.result7.message}\n\n*${i.result7.arabic}*\n\n${i.result7.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR8-`)) {
+if (budy.includes(`-HADIST8-`)) {
 for (let i of hadist) {
 reply(`${i.result8.message}\n\n*${i.result8.arabic}*\n\n${i.result8.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR9-`)) {
+if (budy.includes(`-HADIST9-`)) {
 for (let i of hadist) {
 reply(`${i.result9.message}\n\n*${i.result9.arabic}*\n\n${i.result9.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR10-`)) {
+if (budy.includes(`-HADIST10-`)) {
 for (let i of hadist) {
 reply(`${i.result10.message}\n\n*${i.result10.arabic}*\n\n${i.result10.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR11-`)) {
+if (budy.includes(`-HADIST11-`)) {
 for (let i of hadist) {
 reply(`${i.result11.message}\n\n*${i.result11.arabic}*\n\n${i.result11.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR12-`)) {
+if (budy.includes(`-HADIST12-`)) {
 for (let i of hadist) {
 reply(`${i.result12.message}\n\n*${i.result12.arabic}*\n\n${i.result12.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR13-`)) {
+if (budy.includes(`-HADIST13-`)) {
 for (let i of hadist) {
 reply(`${i.result13.message}\n\n*${i.result13.arabic}*\n\n${i.result13.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR14-`)) {
+if (budy.includes(`-HADIST14-`)) {
 for (let i of hadist) {
 reply(`${i.result14.message}\n\n*${i.result14.arabic}*\n\n${i.result14.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR15-`)) {
+if (budy.includes(`-HADIST15-`)) {
 for (let i of hadist) {
 reply(`${i.result15.message}\n\n*${i.result15.arabic}*\n\n${i.result15.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR16-`)) {
+if (budy.includes(`-HADIST16-`)) {
 for (let i of hadist) {
 reply(`${i.result16.message}\n\n*${i.result16.arabic}*\n\n${i.result16.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR17-`)) {
+if (budy.includes(`-HADIST17-`)) {
 for (let i of hadist) {
 reply(`${i.result17.message}\n\n*${i.result17.arabic}*\n\n${i.result17.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR18-`)) {
+if (budy.includes(`-HADIST18-`)) {
 for (let i of hadist) {
 reply(`${i.result18.message}\n\n*${i.result18.arabic}*\n\n${i.result18.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR19-`)) {
+if (budy.includes(`-HADIST19-`)) {
 for (let i of hadist) {
 reply(`${i.result19.message}\n\n*${i.result19.arabic}*\n\n${i.result19.id}`) 
 break
 }
 }
 
-if (budy.includes(`-HR20-`)) {
+if (budy.includes(`-HADIST20-`)) {
 for (let i of hadist) {
 reply(`${i.result20.message}\n\n*${i.result20.arabic}*\n\n${i.result20.id}`) 
 break
 }
 }
 
-if (budy.includes(`-NS1-`)) {
+if (budy.includes(`-NIAT1-`)) {
 for (let i of bacasholat) {
 reply(`${i.result1.name}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NS2-`)) {
+if (budy.includes(`-NIAT2-`)) {
 for (let i of bacasholat) {
 reply(`${i.result2.name}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NS3-`)) {
+if (budy.includes(`-NIAT3-`)) {
 for (let i of bacasholat) {
 reply(`${i.result3.name}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NS4-`)) {
+if (budy.includes(`-NIAT4-`)) {
 for (let i of bacasholat) {
 reply(`${i.result4.name}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NS5-`)) {
+if (budy.includes(`-NIAT5-`)) {
 for (let i of bacasholat) {
 reply(`${i.result5.name}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NS6-`)) {
+if (budy.includes(`-NIAT6-`)) {
 for (let i of bacasholat) {
 reply(`${i.result6.name}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NS7-`)) {
+if (budy.includes(`-NIAT7-`)) {
 for (let i of bacasholat) {
 reply(`${i.result7.name}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NS8-`)) {
+if (budy.includes(`-NIAT8-`)) {
 for (let i of bacasholat) {
 reply(`${i.result8.name}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
 break
@@ -4192,245 +4501,245 @@ break
 }
 
 
-if (budy.includes(`-NH1-`)) {
+if (budy.includes(`-DOA1-`)) {
 for (let i of bacaharian) {
 reply(`${i.result1.title}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH2-`)) {
+if (budy.includes(`-DOA2-`)) {
 for (let i of bacaharian) {
 reply(`${i.result2.title}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH3-`)) {
+if (budy.includes(`-DOA3-`)) {
 for (let i of bacaharian) {
 reply(`${i.result3.title}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH4-`)) {
+if (budy.includes(`-DOA4-`)) {
 for (let i of bacaharian) {
 reply(`${i.result4.title}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH5-`)) {
+if (budy.includes(`-DOA5-`)) {
 for (let i of bacaharian) {
 reply(`${i.result5.title}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH6-`)) {
+if (budy.includes(`-DOA6-`)) {
 for (let i of bacaharian) {
 reply(`${i.result6.title}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH7-`)) {
+if (budy.includes(`-DOA7-`)) {
 for (let i of bacaharian) {
 reply(`${i.result7.title}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH8-`)) {
+if (budy.includes(`-DOA8-`)) {
 for (let i of bacaharian) {
 reply(`${i.result8.title}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH9-`)) {
+if (budy.includes(`-DOA9-`)) {
 for (let i of bacaharian) {
 reply(`${i.result9.title}\n\n*${i.result9.arabic}*\n\n${i.result9.latin}\n\n${i.result9.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH10-`)) {
+if (budy.includes(`-DOA10-`)) {
 for (let i of bacaharian) {
 reply(`${i.result10.title}\n\n*${i.result10.arabic}*\n\n${i.result10.latin}\n\n${i.result10.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH11-`)) {
+if (budy.includes(`-DOA11-`)) {
 for (let i of bacaharian) {
 reply(`${i.result11.title}\n\n*${i.result11.arabic}*\n\n${i.result11.latin}\n\n${i.result11.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH12-`)) {
+if (budy.includes(`-DOA12-`)) {
 for (let i of bacaharian) {
 reply(`${i.result12.title}\n\n*${i.result12.arabic}*\n\n${i.result12.latin}\n\n${i.result12.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH13-`)) {
+if (budy.includes(`-DOA13-`)) {
 for (let i of bacaharian) {
 reply(`${i.result13.title}\n\n*${i.result13.arabic}*\n\n${i.result13.latin}\n\n${i.result13.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH14-`)) {
+if (budy.includes(`-DOA14-`)) {
 for (let i of bacaharian) {
 reply(`${i.result14.title}\n\n*${i.result14.arabic}*\n\n${i.result14.latin}\n\n${i.result14.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH15-`)) {
+if (budy.includes(`-DOA15-`)) {
 for (let i of bacaharian) {
 reply(`${i.result15.title}\n\n*${i.result15.arabic}*\n\n${i.result15.latin}\n\n${i.result15.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH16-`)) {
+if (budy.includes(`-DOA16-`)) {
 for (let i of bacaharian) {
 reply(`${i.result16.title}\n\n*${i.result16.arabic}*\n\n${i.result16.latin}\n\n${i.result16.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH17-`)) {
+if (budy.includes(`-DOA17-`)) {
 for (let i of bacaharian) {
 reply(`${i.result17.title}\n\n*${i.result17.arabic}*\n\n${i.result17.latin}\n\n${i.result17.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH18-`)) {
+if (budy.includes(`-DOA18-`)) {
 for (let i of bacaharian) {
 reply(`${i.result18.title}\n\n*${i.result18.arabic}*\n\n${i.result18.latin}\n\n${i.result18.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH19-`)) {
+if (budy.includes(`-DOA19-`)) {
 for (let i of bacaharian) {
 reply(`${i.result19.title}\n\n*${i.result19.arabic}*\n\n${i.result19.latin}\n\n${i.result19.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH20-`)) {
+if (budy.includes(`-DOA20-`)) {
 for (let i of bacaharian) {
 reply(`${i.result20.title}\n\n*${i.result20.arabic}*\n\n${i.result20.latin}\n\n${i.result20.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH21-`)) {
+if (budy.includes(`-DOA21-`)) {
 for (let i of bacaharian) {
 reply(`${i.result21.title}\n\n*${i.result21.arabic}*\n\n${i.result21.latin}\n\n${i.result21.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH22-`)) {
+if (budy.includes(`-DOA22-`)) {
 for (let i of bacaharian) {
 reply(`${i.result22.title}\n\n*${i.result22.arabic}*\n\n${i.result22.latin}\n\n${i.result22.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH23-`)) {
+if (budy.includes(`-DOA23-`)) {
 for (let i of bacaharian) {
 reply(`${i.result23.title}\n\n*${i.result23.arabic}*\n\n${i.result23.latin}\n\n${i.result23.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH24-`)) {
+if (budy.includes(`-DOA24-`)) {
 for (let i of bacaharian) {
 reply(`${i.result24.title}\n\n*${i.result24.arabic}*\n\n${i.result24.latin}\n\n${i.result24.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH25-`)) {
+if (budy.includes(`-DOA25-`)) {
 for (let i of bacaharian) {
 reply(`${i.result25.title}\n\n*${i.result25.arabic}*\n\n${i.result25.latin}\n\n${i.result25.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH26-`)) {
+if (budy.includes(`-DOA26-`)) {
 for (let i of bacaharian) {
 reply(`${i.result26.title}\n\n*${i.result26.arabic}*\n\n${i.result26.latin}\n\n${i.result26.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH27-`)) {
+if (budy.includes(`-DOA27-`)) {
 for (let i of bacaharian) {
 reply(`${i.result27.title}\n\n*${i.result27.arabic}*\n\n${i.result27.latin}\n\n${i.result27.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH28-`)) {
+if (budy.includes(`-DOA28-`)) {
 for (let i of bacaharian) {
 reply(`${i.result28.title}\n\n*${i.result28.arabic}*\n\n${i.result28.latin}\n\n${i.result28.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH29-`)) {
+if (budy.includes(`-DOA29-`)) {
 for (let i of bacaharian) {
 reply(`${i.result29.title}\n\n*${i.result29.arabic}*\n\n${i.result29.latin}\n\n${i.result29.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH30-`)) {
+if (budy.includes(`-DOA30-`)) {
 for (let i of bacaharian) {
 reply(`${i.result30.title}\n\n*${i.result30.arabic}*\n\n${i.result30.latin}\n\n${i.result30.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH31-`)) {
+if (budy.includes(`-DOA31-`)) {
 for (let i of bacaharian) {
 reply(`${i.result31.title}\n\n*${i.result31.arabic}*\n\n${i.result31.latin}\n\n${i.result31.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH32-`)) {
+if (budy.includes(`-DOA32-`)) {
 for (let i of bacaharian) {
 reply(`${i.result32.title}\n\n*${i.result32.arabic}*\n\n${i.result32.latin}\n\n${i.result32.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH33-`)) {
+if (budy.includes(`-DOA33-`)) {
 for (let i of bacaharian) {
 reply(`${i.result33.title}\n\n*${i.result33.arabic}*\n\n${i.result33.latin}\n\n${i.result33.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH34-`)) {
+if (budy.includes(`-DOA34-`)) {
 for (let i of bacaharian) {
 reply(`${i.result34.title}\n\n*${i.result34.arabic}*\n\n${i.result34.latin}\n\n${i.result34.terjemahan}`) 
 break
 }
 }
 
-if (budy.includes(`-NH35-`)) {
+if (budy.includes(`-DOA35-`)) {
 for (let i of bacaharian) {
 reply(`${i.result35.title}\n\n*${i.result35.arabic}*\n\n${i.result35.latin}\n\n${i.result35.terjemahan}`) 
 break
@@ -4444,7 +4753,7 @@ break
    
                   
                    if (budy.includes(`⌚`)) {
-                   	if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+                   	if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 			  uptime = process.uptime()
 					client.setStatus(`Runtime ${kyun(uptime)}`)
 					reply(`Sukses mengganti bio`)
@@ -4534,10 +4843,10 @@ break
 
 if (buttonsR === 'Tutup') {
 	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩?? - 𝑴??𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 	var nomor = mek.participant
               const close = {
               text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
@@ -4549,10 +4858,10 @@ if (buttonsR === 'Tutup') {
               }
               if (buttonsR === 'Buka') {
               	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 ??𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 open = {
               text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,
               contextInfo: { mentionedJid: [sender] }
@@ -4563,10 +4872,10 @@ open = {
               }
               if (buttonsR === 'Enable W1') {
               	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `??𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
               	if (isWelkom) return reply('「 SUDAH ON KAWAN 」')
 						welkom.push(from)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -4575,10 +4884,10 @@ open = {
 						}
 						if (buttonsR === 'Disable W0') {
 							  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 							var ini = welkom.indexOf(from)
 						welkom.splice(ini, 1)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -4587,10 +4896,10 @@ open = {
 						}
 						if (buttonsR === 'Enable A1') {
 							  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 							if (isAntiLink) return reply('Sudah Aktif Kak')
 						antilink.push(from)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
@@ -4600,10 +4909,10 @@ open = {
 						
 						if (buttonsR === 'Disable A0') {
 							  if (!isRegistered) return reply(ind.noregis())
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 							if (!isAntiLink) return reply('Sudah Mati Kak')
 						var ini = antilink.indexOf(from)
 						antilink.splice(ini, 1)
@@ -4641,10 +4950,10 @@ var ini = cmd.indexOf(from)
 						
 						if (buttonsR === 'Disable T0') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 							var ini = antitoxic.indexOf(from)
 						antitoxic.splice(ini, 1)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -4653,10 +4962,10 @@ var ini = cmd.indexOf(from)
 						}
 						if (buttonsR === 'Enable T1') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 							if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
 						antitoxic.push(from)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
@@ -4665,10 +4974,10 @@ var ini = cmd.indexOf(from)
 						}
 						if (buttonsR === 'Enable L1') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 					if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
                     _leveling.push(from)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
@@ -4678,10 +4987,10 @@ var ini = cmd.indexOf(from)
                      
                      if (buttonsR === 'Disable L0') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 					
-					if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-					if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 					var ini = _leveling.indexOf(from)
 						_leveling.splice(ini, 1)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
@@ -4722,9 +5031,9 @@ if (buttonsR === 'GET') {
 
 if (buttonsR === '10 menit') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𖥻˖ֹMITSUHA BOTx || OFCʾ˖??`,"body": `Official Mitsuhabot Whatsapp`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+              if (!isGroupAdmins) reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)    
+			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 600000)
@@ -4738,9 +5047,9 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '5 menit') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+              if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 300000)
@@ -4754,9 +5063,9 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '5 menit >') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+              if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 300000)
@@ -4770,9 +5079,9 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '10 menit >') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-              if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-			  if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+              if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 600000)
@@ -4786,8 +5095,8 @@ if (buttonsR === '10 menit') {
 }
 if (buttonsR === '10 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 600000)
@@ -4801,8 +5110,8 @@ setTimeout( () => {
 }
 if (buttonsR === '14 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,200,000)
@@ -4816,8 +5125,8 @@ setTimeout( () => {
 }
 if (buttonsR === '30 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,800,000)
@@ -4993,7 +5302,7 @@ if (buttonsR === '⫹⫺ neko ⫹⫺') {
 if (!isRegistered) return reply(ind.noregis())
 			  E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
-			  client.sendMessage(from, `\`\`\`▢ SEDANG DI PROSES ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek}) 
+			  reply(`_「⏳」 wait sedang proses_`)
 			  B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 		      buttons = [{buttonId:`⫹⫺ neko ⫹⫺`,buttonText:{displayText:`⫹⫺ neko ⫹⫺`},type:1}]
@@ -5042,7 +5351,7 @@ client.relayWAMessage(prep)
               
               if (buttonsR === 'LEAVE NOW') {
               	    if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
                     if (isGroupAdmins || isOwner) {
                     	client.groupLeave(from)
                     } else {
@@ -5053,11 +5362,11 @@ break
 
 if (buttonsR === 'LEAVE TIME') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-if (!isOwner) return reply(`\`\`\`▢ FITUR KHUSUS OWNER BOT ▢\`\`\``)
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
 gwetkhhkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Pilih Satu Aja Ya Njg`,
 "buttons": [
 {buttonId: '10 Menit <', buttonText: {displayText: '10 Menit <'}, type: 1},
@@ -5176,12 +5485,12 @@ break
 
 if (buttonsR === 'CHANGE NOW') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 let gwekke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .open-grup atau .close-grup`,
 "buttons": [
 {buttonId: 'Buka', buttonText: {displayText: 'Buka'}, type: 1},
@@ -5196,12 +5505,12 @@ break
 
 if (buttonsR === 'CHANGE TIME') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Pilih Satu Aja Ya Njg`,
 "buttons": [
 {buttonId: 'SET OPEN', buttonText: {displayText: 'SET OPEN'}, type: 1},
@@ -5216,12 +5525,12 @@ break
 
 if (buttonsR === 'SET CLOSE') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 gwekyyke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Pilih Satu Aja Ya Njg`,
 "buttons": [
 {buttonId: '5 menit', buttonText: {displayText: '5 menit'}, type: 1},
@@ -5236,12 +5545,12 @@ break
 
 if (buttonsR === 'SET OPEN') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻??𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SALAH SATU YA\`\`\``,
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Pilih Satu Aja Ya Njg`,
 "buttons": [
 {buttonId: '5 menit >', buttonText: {displayText: '5 menit >'}, type: 1},
@@ -5312,7 +5621,7 @@ break
 }
 
 if (buttonsR === '❎') {
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
 if (isDepot) return reply('Kamu Sudah Melakukan Vote')
 no.push(sender)
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
@@ -5323,7 +5632,7 @@ break
 }
 
 if (buttonsR === '✅') {
-if (!isGroup) return client.sendMessage(from, `\`\`\`▢ FITUR GROUP ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})  
+if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
 if (isPote) return reply('Kamu Sudah Melakukan Vote')
 yes.push(sender)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
@@ -5373,20 +5682,6 @@ reply(`SIP 1 FOLOWERS BUAT MITSUHA`)
 break
 }
 
-if (budy.includes(`SOSMED`)) {
-data = fs.readFileSync('./lib/sosmed.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-buttons = [{buttonId:`LIKE`,buttonText:{displayText:'LIKE'},type:1},{buttonId:`SCROL`,buttonText:{displayText:'SCROL'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`SOSMED INSTAN`, imageMessage: imageMsg,
-contentText:`❤ *${love.length}*\n*${randKey.nama}* ${randKey.cap}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
-client.relayWAMessage(prep)
-break
-}
-
 if (budy.includes(`Asu`)) {
 kasar.push(sender)
 fs.writeFileSync('./src/kasar.json', JSON.stringify(kasar))
@@ -5407,7 +5702,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 break
 }
 
@@ -5431,7 +5726,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 break
 }
 
@@ -5455,7 +5750,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 break
 }
 
@@ -5479,7 +5774,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 break
 }
 
@@ -5503,7 +5798,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 break
 }
 
@@ -5527,7 +5822,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 break
 }
 
@@ -5551,14 +5846,14 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 break
 }
 		 
 if (buttonsR === `${Soalnya.jawaban}`) {
 if (!isRegistered) return reply(ind.noregis())  
-if (isBenar) return reply(`\`\`\`KAMU SUDAH MENJAWAB QUIZ INI SEBELUMNYA\`\`\``)
-if (isSalah) return reply(`\`\`\`KAMU SUDAH MENJAWAB QUIZ INI SEBELUMNYA\`\`\``)
+if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
+if (isSalah) return reply(`_kamu sudah menjawab sebelumnya_`)
 benar.push(sender)
 fs.writeFileSync('./src/benar.json', JSON.stringify(benar))
 reply('Jawaban Anda Benar ✔️')
@@ -5571,8 +5866,8 @@ break
 						
 if (buttonsR === `${Soalnya.salahnya}`) {
 if (!isRegistered) return reply(ind.noregis())     
-if (isBenar) return reply(`\`\`\`KAMU SUDAH MENJAWAB QUIZ INI SEBELUMNYA\`\`\``)
-if (isSalah) return reply(`\`\`\`KAMU SUDAH MENJAWAB QUIZ INI SEBELUMNYA\`\`\``)
+if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
+if (isSalah) return reply(`_kamu sudah menjawab sebelumnya_`)
 salah.push(sender)
 fs.writeFileSync('./src/salah.json', JSON.stringify(sender))
 reply('Jawaban Anda Salah ❌')
@@ -5647,7 +5942,7 @@ if (!isGroup) return
 if (isGroupAdmins) return 
 if (args.length > 4000) return 
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*Tidak Bisa Kick Member Karna 「 BOT HARUS JADI ADMIN 」*`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
 }*/
 
 if (buttonsR === `BLOGGER`) {
@@ -5666,6 +5961,7 @@ prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: fa
 client.relayWAMessage(prep)
 break
 }
+
 
 		if (isGroup && isSimi && budy != undefined) {
 						console.log(budy)
