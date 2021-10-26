@@ -98,7 +98,7 @@ const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
 
               vcard = 'BEGIN:VCARD\n' 
               + 'VERSION:3.0\n' 
-              + 'FN: ℓσя∂ мιтѕυнα ツ\n' 
+              + 'FN: 𓄹〘 𝖒𝖎𝖙𝖘𝖚𝖍𝖆 〙₎₎ 𖠇ツ\n' 
               + 'ORG: CREATOR/OWNER BOT;\n' 
               + 'TEL;type=CELL;type=VOICE;waid=6285731261728:+62 85731261728\n'  
               + 'END:VCARD'
@@ -126,7 +126,7 @@ namabot = setting.bot
 nobot = setting.nobot
 thumb = fs.readFileSync(`./lib/odc.jpeg`)
 thumb2 = fs.readFileSync(`./lib/odc.jpeg`)
-fakeimage = fs.readFileSync(`./lib/odc.jpeg`)
+fakeimage = fs.readFileSync(`./lib/Img.jpg`)
 namo = ``
 ator = ``
 numbernye = '0'
@@ -155,112 +155,116 @@ return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
 }
 
 const getLevelingXp = (sender) => {
-            let position = false
-            Object.keys(_level).forEach((i) => {
-                if (_level[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                return _level[position].xp
-            }
-        }
+let position = false
+Object.keys(_level).forEach((i) => {
+if (_level[i].id === sender) {
+position = i
+}
+})
+if (position !== false) {
+return _level[position].xp
+}
+}
+
 const getRegisteredRandomId = () => {
-            return _registered[Math.floor(Math.random() * _registered.length)].id
-        }
+ return _registered[Math.floor(Math.random() * _registered.length)].id
+}
+
 const addRegisteredUser = (userid, sender, age, time, serials) => {
-            const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
-            _registered.push(obj)
-            fs.writeFileSync('./src/pengguna.json', JSON.stringify(_registered))
-        }
+const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
+_registered.push(obj)
+fs.writeFileSync('./src/pengguna.json', JSON.stringify(_registered))
+}
 const createSerial = (size) => {
-            return crypto.randomBytes(size).toString('hex').slice(0, size)
-        }
+return crypto.randomBytes(size).toString('hex').slice(0, size)
+}
         
 const checkRegisteredUser = (sender) => {
-            let status = false
-            Object.keys(_registered).forEach((i) => {
-                if (_registered[i].id === sender) {
-                    status = true
-                }
-            })
-            return status
-        }
-        
+let status = false
+Object.keys(_registered).forEach((i) => {
+if (_registered[i].id === sender) {
+status = true
+}
+})
+return status
+}       
         
 const getLevelingLevel = (sender) => {
-            let position = false
-            Object.keys(_level).forEach((i) => {
-                if (_level[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                return _level[position].level
-            }
-        }
+let position = false
+Object.keys(_level).forEach((i) => {
+if (_level[i].id === sender) {
+position = i
+}
+})
+if (position !== false) {
+return _level[position].level
+}
+}
+
 const getLevelingId = (sender) => {
-            let position = false
-            Object.keys(_level).forEach((i) => {
-                if (_level[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                return _level[position].id
-            }
-        }
+let position = false
+Object.keys(_level).forEach((i) => {
+if (_level[i].id === sender) {
+position = i
+}
+})
+if (position !== false) {
+return _level[position].id
+}
+}
+
 const addLevelingXp = (sender, amount) => {
-            let position = false
-            Object.keys(_level).forEach((i) => {
-                if (_level[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                _level[position].xp += amount
-                fs.writeFileSync('./src/level.json', JSON.stringify(_level))
-            }
-        }
+let position = false
+Object.keys(_level).forEach((i) => {
+if (_level[i].id === sender) {
+position = i
+}
+})
+if (position !== false) {
+_level[position].xp += amount
+fs.writeFileSync('./src/level.json', JSON.stringify(_level))
+}
+}
+
 const addLevelingLevel = (sender, amount) => {
-            let position = false
-            Object.keys(_level).forEach((i) => {
-                if (_level[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                _level[position].level += amount
-                fs.writeFileSync('./src/level.json', JSON.stringify(_level))
-            }
-        }
+let position = false
+Object.keys(_level).forEach((i) => {
+if (_level[i].id === sender) {
+position = i
+}
+})
+if (position !== false) {
+_level[position].level += amount
+fs.writeFileSync('./src/level.json', JSON.stringify(_level))
+}
+}
         
 const addLevelingId = (sender) => {
-            const obj = {id: sender, xp: 1, level: 1}
-            _level.push(obj)
-            fs.writeFileSync('./src/level.json', JSON.stringify(_level))
-        }
+const obj = {id: sender, xp: 1, level: 1}
+_level.push(obj)
+fs.writeFileSync('./src/level.json', JSON.stringify(_level))
+}
 
-    async function starts() {
-	const client = new WAConnection()
-	//WWEB 
-    client.version = [2, 2119, 6]  //Fix Bug
-	client.logger.level = 'warn'
-	console.log(banner.string)
-	client.on('qr', () => {
-	console.log(color('[','red'), color('!','red'), color(']','red'), color(' Scan the qr code above'))
-	})
-
-	fs.existsSync('./BarBar.json') && client.loadAuthInfo('./BarBar.json')
-	client.on('connecting', () => {
-		start('2', 'ㅤ')
-	})
-	
-	client.on('open', () => {
-		 success('2', `success conect...`, 'yellow')
+async function starts() {
+const client = new WAConnection()
+//WWEB 
+client.version = [2, 2119, 6]  //Fix Bug
+client.logger.level = 'warn'
+console.log(banner.string)
+client.on('qr', () => {
+console.log(color('[','red'), color('!','red'), color(']','red'), color(' Scan the qr code above'))
 })
-   await client.connect({timeoutMs: 1000*1000})
-   fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
+
+fs.existsSync('./BarBar.json') && client.loadAuthInfo('./BarBar.json')
+client.on('connecting', () => {
+start('2', 'ㅤ')
+})
+	
+client.on('open', () => {
+success('2', `success conect...`, 'yellow')
+})
+await client.connect({timeoutMs: 1000*1000})
+fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
 
 data = fs.readFileSync('./lib/quiz.js');
 jsonData = JSON.parse(data);
@@ -289,7 +293,7 @@ const date = new Date().toLocaleDateString()
 const fkatalok =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 2007, status: 200, thumbnail: thumb2, surface: 200, message: `MITSUHA BOT | 2.0\nㅤㅤㅤㅤ`, orderTitle: 'ㅤㅤㅤㅤ', sellerJid: '0@s.whatsapp.net'} } } 
 const fkatalog1 =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb, surface: 200, message: `📢 PROMOTE DETEKSI`, orderTitle: 'Welcome', sellerJid: '0@s.whatsapp.net'} } } 
 const fkatalog2 =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb, surface: 200, message: `📢 DEMOTE DETEKSI`, orderTitle: 'Welcome', sellerJid: '0@s.whatsapp.net'} } } 
-const fkatalog3 =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb, surface: 200, message: `©Mitsuhabot\nㅤㅤㅤㅤ`, orderTitle: 'ㅤㅤㅤㅤ', sellerJid: '0@s.whatsapp.net'} } } 
+const fkatalog3 =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb, surface: 200, message: `❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞\nㅤㅤㅤㅤ`, orderTitle: 'ㅤㅤㅤㅤ', sellerJid: '0@s.whatsapp.net'} } } 
 const faketag3 =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb2, surface: 200, message: `☕ TAG ALL ☕\nㅤㅤㅤㅤ`, orderTitle: 'ㅤㅤㅤㅤ', sellerJid: '0@s.whatsapp.net'} } } 
 const jam = moment.tz('Asia/Jakarta').format('HH:mm')
 const wita = moment.tz('Asia/Makassar').format('HH:mm:ss')
@@ -303,75 +307,100 @@ const qatar = moment.tz('Asia/Qatar').format('HH:mm:ss')
 const singap = moment.tz('Asia/Singapore').format('HH:mm:ss')
 const kuala_l = moment.tz('Asia/Kuala_Lumpur').format('HH:mm:ss')
 const falfa = { key: {fromMe: false,participant: "0@s.whatsapp.net",
-		remoteJid: "0@s.whatsapp.net"},
+remoteJid: "0@s.whatsapp.net"},
 message: {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us",
 "inviteCode": "mememteeeekkeke","groupName": "Mitsuhabot", 
 "caption": `Made With ❤️`, 'jpegThumbnail': fs.readFileSync(`./lib/odc.jpeg`)
 }}}
 const fgclinkk = {
-	"key": {
-		"fromMe": false,
-		"participant": "0@s.whatsapp.net",
-		"remoteJid": "0@s.whatsapp.net"
-	},
-	"message": {
-		"groupInviteMessage": {
-			"groupJid": "6288213840883-1616169743@g.us",
-			"inviteCode": "NgsCIU2lXKh3VHJT",
-			"groupName": `MITSUHA BOT`, 
-"caption": `©Mitsuhabot\nTANGGAL : ${date} - ${jam}\nDONT CALL ME PLEASE`, 
+"key": {
+"fromMe": false,
+"participant": "0@s.whatsapp.net",
+"remoteJid": "0@s.whatsapp.net"
+},
+"message": {
+"groupInviteMessage": {
+"groupJid": "6288213840883-1616169743@g.us",
+"inviteCode": "NgsCIU2lXKh3VHJT",
+"groupName": `MITSUHA BOT`, 
+"caption": `❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞\nTANGGAL : ${date} - ${jam}\nDONT CALL ME PLEASE`, 
 'jpegThumbnail': fs.readFileSync(`./lib/odc.jpeg`)
-		}
-	}
+}
+}
 }
 const fgclinkkk = {
-	"key": {
-		"fromMe": false,
-		"participant": "0@s.whatsapp.net",
-		"remoteJid": "0@s.whatsapp.net"
-	},
-	"message": {
-		"groupInviteMessage": {
-			"groupJid": "6288213840883-1616169743@g.us",
-			"inviteCode": "NgsCIU2lXKh3VHJT",
-			"groupName": `MITSUHA BOT`, 
-"caption": `©Mitsuhabot\nTANGGAL : ${date} - ${jam}\nDONT CALL ME PLEASE`, 
+"key": {
+"fromMe": false,
+"participant": "0@s.whatsapp.net",
+"remoteJid": "0@s.whatsapp.net"
+},
+"message": {
+"groupInviteMessage": {
+"groupJid": "6288213840883-1616169743@g.us",
+"inviteCode": "NgsCIU2lXKh3VHJT",
+"groupName": `MITSUHA BOT`, 
+"caption": `❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞\nTANGGAL : ${date} - ${jam}\nDONT CALL ME PLEASE`, 
 'jpegThumbnail': fs.readFileSync(`./lib/odc.jpeg`)
-		}
-	}
+}
+}
 }
 const fakeitem = (teks) => {
-            client.sendMessage(from, teks, text, {
-                quoted: {
-        key:{
-        	fromMe: false,
-        participant:`0@s.whatsapp.net`, ...(from ? {
+client.sendMessage(from, teks, text, {
+quoted: {
+key:{
+fromMe: false,
+participant:`0@s.whatsapp.net`, ...(from ? {
 remoteJid :"6289523258649-1604595598@g.us" }: {})
-                    },message:{"orderMessage":{"orderId":"174238614569481","thumbnail":fs.readFileSync(`./lib/odc.jpeg`),"itemCount":10,"status":"INQUIRY","surface":"CATALOG","message":`©Mitsuhabot`,"token":"AR6xBKbXZn0Xwmu76Ksyd7rnxI+Rx87HfinVlW4lwXa6JA=="}}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true})}
+},message:{"orderMessage":{"orderId":"174238614569481","thumbnail":fs.readFileSync(`./lib/odc.jpeg`),"itemCount":10,"status":"INQUIRY","surface":"CATALOG","message":`❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`,"token":"AR6xBKbXZn0Xwmu76Ksyd7rnxI+Rx87HfinVlW4lwXa6JA=="}}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true})}
+const fakestatus = (teks) => {
+client.sendMessage(from, teks, text, {
+quoted: {
+key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
+},
+message: {
+"imageMessage": {
+"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
+"mimetype": "image/jpeg",
+"caption": cr,
+"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
+"fileLength": "28777",
+"height": 1080,
+"width": 1079,
+"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
+"fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
+"directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
+"mediaKeyTimestamp": "1610993486",
+"jpegThumbnail": fs.readFileSync('./lib/odc.jpeg'),
+"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="
+}
+}
+}
+})
+}
 const acaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
 const bulan = acaBulan[moment().format('MM') - 1]        
 const { text, extendedText, contact, location, liveLocation, image, video, gif, sticker, document, audio, product } = MessageType
 
-           client.on('group-participants-update', async (anu) => {
-		    if (!welkom.includes(anu.jid)) return
-		    try {
-			const mdata = await client.groupMetadata(anu.jid)
-			console.log(anu)
-			if (anu.action == 'add') {
-		    num = anu.participants[0]
-		    dev = "6285731261728"
-		    
-			
+client.on('group-participants-update', async (anu) => {
+if (!welkom.includes(anu.jid)) return
 try {
-		    ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-			}
-			
+const mdata = await client.groupMetadata(anu.jid)
+console.log(anu)
+if (anu.action == 'add') {
+num = anu.participants[0]
+dev = "6285731261728"
+try {
+ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+buffer = await getBuffer(ppimg)
 sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(mdata.id, kma, location)
- buttonMessages = {
+buttonMessages = {
 locationMessage: mhan.message.locationMessage,
 contentText: text1,
 footerText: desc1,
@@ -382,7 +411,7 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
 teks =`🍃 *WELCOME MESSAGES* 🍃`
-sendButLocation(mdata.id, `${teks}`, `Hello ${num.split("@")[0]} selamat datang di group ini semoga kamu betah dan tenang ya. Patuhi rules yang berlaku di grup ya 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:fakeimage}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
+sendButLocation(mdata.id, `${teks}`, `Hello ${num.split("@")[0]} selamat datang di group ini semoga kamu betah dan tenang ya. Patuhi rules yang berlaku di grup ya 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
 hai = `WELCOME @${num.split('@')[0]}`
@@ -401,21 +430,19 @@ mentionedJid: [hai, num, mdata.id],
 "sourceUrl": ""
 }}, quoted: falfa })*/
 
-			} else if (anu.action == 'remove') {
-			num = anu.participants[0]
-			dev = "6285731261728"
-			
-
-			try {
-		   ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-			}
-
+} else if (anu.action == 'remove') {
+num = anu.participants[0]
+dev = "6285731261728"
+try {
+ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+buffer = await getBuffer(ppimg)
 sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(mdata.id, kma, location)
- buttonMessages = {
+buttonMessages = {
 locationMessage: mhan.message.locationMessage,
 contentText: text1,
 footerText: desc1,
@@ -426,7 +453,7 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
 teks =`🍃 *LEAVE MESSAGES* 🍃`
-sendButLocation(mdata.id, `${teks}`, `Selamat tinggal ${num.split("@")[0]} dari group ini semoga kamu sehat dan tetap bernafas ya. Jangan balik lagi ke group ini yo 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:fakeimage}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
+sendButLocation(mdata.id, `${teks}`, `Selamat tinggal ${num.split("@")[0]} dari group ini semoga kamu sehat dan tetap bernafas ya. Jangan balik lagi ke group ini yo 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
 hai = `BYE @${num.split('@')[0]}`
@@ -445,55 +472,51 @@ mentionedJid: [hai, num, mdata.id],
 "sourceUrl": ""
 }}, quoted: falfa })*/
 		
- } else if (anu.action == 'promote') {
-			const mdata = await client.groupMetadata(anu.jid)
-			num = anu.participants[0]
-			 
-			try {
-			ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-					}
-			buff = await getBuffer(ppimg)
-              
+} else if (anu.action == 'promote') {
+const mdata = await client.groupMetadata(anu.jid)
+num = anu.participants[0]
+try {
+ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+buff = await getBuffer(ppimg)           
 teks = `*PROMOTE TERDETEKSI*
 ❏ *NOMOR* = ${num.replace('@s.whatsapp.net', '')}
 ❏ *USER* = @${num.split('@')[0]}
 ❏ *TANGGAL* = ${date}
 `
-			client.sendMessage(mdata.id, teks, MessageType.text, {quoted: fkatalog1, contextInfo: {mentionedJid: [num]}})
-		    } else if (anu.action == 'demote') {
-			num = anu.participants[0]
-			const mdata = await client.groupMetadata(anu.jid)
-			try {
-			ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-			}
-			buff = await getBuffer(ppimg)
-			 
- teks = `*DEMOTE TERDETEKSI*
+client.sendMessage(mdata.id, teks, MessageType.text, {quoted: fkatalog1, contextInfo: {mentionedJid: [num]}})
+
+} else if (anu.action == 'demote') {
+num = anu.participants[0]
+const mdata = await client.groupMetadata(anu.jid)
+try {
+ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+} catch {
+ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+}
+buff = await getBuffer(ppimg) 
+teks = `*DEMOTE TERDETEKSI*
 ❏ *NOMOR* = ${num.replace('@s.whatsapp.net', '')}
 ❏ *USER* = @${num.split('@')[0]}
 ❏ *TANGGAL* = ${date}
 `
-			client.sendMessage(mdata.id, teks, MessageType.text, {quoted: fkatalog2, contextInfo: {mentionedJid: [num]}})
-			
-			
-            }
-		    } catch (e) {
-			console.log('Error : %s', color(e, 'red'))
-		}
-	}) ,
-	      client.on('CB:Blocklist', json => {
-          if (blocked.length > 2) return
-	      for (let i of json[1].blocklist) {
-	      blocked.push(i.replace('c.us','s.whatsapp.net'))
-	    }
-	})
+client.sendMessage(mdata.id, teks, MessageType.text, {quoted: fkatalog2, contextInfo: {mentionedJid: [num]}})
+}
+} catch (e) {
+console.log('Error : %s', color(e, 'red'))
+}
+}) ,
+client.on('CB:Blocklist', json => {
+if (blocked.length > 2) return
+for (let i of json[1].blocklist) {
+blocked.push(i.replace('c.us','s.whatsapp.net'))
+}
+})
 
 	        client.on('chat-update', async (mek) => {
-		try {
+		    try {
             if (!mek.hasNewMessage) return
             mek = mek.messages.all()[0]
 			if (!mek.message) return
@@ -525,23 +548,20 @@ teks = `*PROMOTE TERDETEKSI*
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
 			}
-			
-
-			mess = {
-				
-				wait: '_「⏳」 wait sedang proses_',
-				success: '_success bro_',
-				error: {
-			    stick: '_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_',
-				Iv: '_link tersebut tidak valid_'
-				},
-				only: {
-			    group: '_perintah ini hanya bisa digunakan dalam grup saja_',
-			    ownerG: '_perintah ini hanya bisa digunakan oleh owner grup saja_',
-			    ownerB: '_perintah ini hanya bisa digunakan oleh owner bot saja_',
-				admin: '_perintah ini hanya bisa digunakan oleh admin grup saja_',
-				Badmin: '_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_'
-				}
+		    mess = {
+		    wait: '_「⏳」 wait sedang proses_',
+			success: '_success bro_',
+			error: {
+			stick: '_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_',
+			Iv: '_link tersebut tidak valid_'
+			},
+			only: {
+			group: '_perintah ini hanya bisa digunakan dalam grup saja_',
+			ownerG: '_perintah ini hanya bisa digunakan oleh owner grup saja_',
+			ownerB: '_perintah ini hanya bisa digunakan oleh owner bot saja_',
+		    admin: '_perintah ini hanya bisa digunakan oleh admin grup saja_',
+			Badmin: '_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_'
+			}
 			}
             hit_today.push(command)
 			const botNumber = client.user.jid
@@ -551,7 +571,6 @@ teks = `*PROMOTE TERDETEKSI*
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
 			const groupName = isGroup ? groupMetadata.subject : ''
 			const groupId = isGroup ? groupMetadata.jid : ''
-			
 			const totalchat = await client.chats.all()
 			const isPrem = premium.includes(sender)
 			const groupMembers = isGroup ? groupMetadata.participants : ''
@@ -577,47 +596,216 @@ teks = `*PROMOTE TERDETEKSI*
 			const isCemd = isGroup ? cmd.includes(from) : false
 			const isClem = isGroup ? clem.includes(sender) : false
 			const isAbsen = isGroup ? absen.includes(sender) : false
-			
-            pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
+			pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
 
+const fvn = {
+key: { 
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ?
+{ remoteJid: "6289643739077-1613049930@g.us" } : {}) 
+},
+message: { 
+"audioMessage": {
+"mimetype":"audio/ogg; codecs=opus",
+"seconds": "1.000.00",
+"ptt": "true"
+}
+} 
+}
+                     
+const ftoko2 = {
+key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289523258649-1604595598@g.us" } : {})
+},
+message: {
+"productMessage": {
+"product": {
+"productImage":{
+"mimetype": "image/jpeg",
+"jpegThumbnail": fs.readFileSync(`./lib/odc.jpeg`) 
+},
+"title": '❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞', 
+"description": "❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞", 
+"currencyCode": "IDR",
+"priceAmount1000": "20000000",
+"retailerId": 'Whatsapp bot',
+"productImageCount": 1
+},
+"businessOwnerJid": `0@s.whatsapp.net`
+}
+}
+}
 
-            const fakebc = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `💬 *BROADCAST BOT* 💬`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
+const floc2 = {
+key: {"fromMe": false,"participant": `0@s.whatsapp.net`, "remoteJid": "6289530863358-1621036495@g.us" },message: { "liveLocationMessage": { "title":`❬⸼۬࣪ꪶ M I T S U H A - O F C ˚᮪๑՞`,}}}
+                  
+const fakebc = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `💬 *BROADCAST BOT* 💬`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
             
+const reply = (teks) => {
+client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+}
+		
+const tchat = `${totalchat.length}`   
             
-		   const reply = (teks) => {
-				client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
-			}
+const ucapanFakereply = `「 MITSUHA BOT 」\nBOT CREATED BY MITSUHA`
+            
+const ucapanFakereply2 = `${pushname}\nCommand: ${command}`
+                        
+const fakereply = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞\n\n`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
+          
+const faketag = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `「  *CIEE KENA TAG BOT*`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
 			
+const faketag2 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `📢 *NOTICE* 📢`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
 			
-			const sendMess = (hehe, teks) => {
-				client.sendMessage(hehe, teks, text, {quoted: falfa})
-			}
+/*const faketag3 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `💕 HELLO BABY 💞`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }*/
 			
-			const mentions = (teks, memberr, id) => {
-				(id == null || id == undefined || id == false) ? client.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : client.sendMessage(from, teks.trim(), extendedText, {quoted: freply, contextInfo: {"mentionedJid": memberr}})
-			}
+const faketag4 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞\nTANGGAL : ${date} - ${jam}\n_*DONT CALL ME PLEASE*_`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
+          
+const faketag5 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `📩 PESAN INGFO MEMBER 📩`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
+ 
+const ftoko = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {}) }, message: { 'productMessage': { 'product': { 'productImage':{ 'mimetype': 'image/jpeg', 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg') }, 'title': `Mitsuha Bot Whatsapp\n▢ Rp. 10.000,00\nㅤㅤㅤㅤ\nㅤㅤㅤㅤ`, 'productImageCount': 9999 }, 'businessOwnerJid': `0@s.whatsapp.net`}}}
 			
-			const costum = (pesan, tipe, target, target2) => {
-			client.sendMessage(from, pesan, tipe, {quoted: { key: { fromMe: false, participant: `${target}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target2}` }}})
-			}
+const fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `0@s.whatsapp.net` } : {}) }, message: { 'contactMessage': { 'displayName': `${ucapanFakereply}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ucapanFakereply},;;;\nFN:${ucapanFakereply},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg')}}}
 			
-          const sendButton = (teks) => {
-               client.sendMessage(from, teks, MessageType.buttonsMessage, {quoted: mek})
-			}
+const fkontak2 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `0@s.whatsapp.net` } : {}) }, message: { 'contactMessage': { 'displayName': `${ucapanFakereply2}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ucapanFakereply2},;;;\nFN:${ucapanFakereply2},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg')}}}
+			
+/*const freply = {
+key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "caption": `${pushname}\n〓 ${command}`} } }*/
+		    
+const freply =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb, surface: 200, message: `TOTAL PENGGUNA: ${_registered.length}`, orderTitle: 'HALLO BANTU DONASI YA!', sellerJid: '0@s.whatsapp.net'} } } 
+                     
+const fgclink = {
+"key": {
+"fromMe": false,
+"participant": "0@s.whatsapp.net",
+"remoteJid": "0@s.whatsapp.net"
+},
+"message": {
+"groupInviteMessage": {
+"groupJid": "6288213840883-1616169743@g.us",
+"inviteCode": "NgsCIU2lXKh3VHJT",
+"groupName": `${groupName}`, 
+"caption": `TANGGAL : ${date}\n~> YOUR NAME : ${pushname}`, 
+'jpegThumbnail': fs.readFileSync(`./lib/odc.jpeg`)
+}
+}
+}
+
+const fakeitem = (teks) => {
+client.sendMessage(from, teks, text, {
+quoted: {
+key:{
+fromMe: false,
+participant:`0@s.whatsapp.net`, ...(from ? {
+remoteJid :"6289523258649-1604595598@g.us" }: {})
+},message:{"orderMessage":{"orderId":"174238614569481","thumbnail":fs.readFileSync(`./lib/odc.jpeg`),"itemCount":10,"status":"INQUIRY","surface":"CATALOG","message":`© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯?? 𝑩𝑶𝑻𝒁`,"token":"AR6xBKbXZn0Xwmu76Ksyd7rnxI+Rx87HfinVlW4lwXa6JA=="}}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true})}
            
-			const keranjang = (teks) => {
-            res = client.sendMessage(from,{ "orderMessage": { "itemCount": 321, "message": cap, "footerText": "*_© Mitsuha Official_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:fkatalok})
-        }       
+const sendlist = async (tekss, tekstombol, baris) => {
+if (!tekstombol) {tekstombol = 'klik disini'}
+if (!baris) {baris = [{"title": "kok bisa","rowId": `hmm`}]}
+let po = client.prepareMessageFromContent(from, {
+"listMessage":{
+"title": "",
+"description": tekss,
+"buttonText": tekstombol,
+"listType": "SINGLE_SELECT",
+"sections": [
+{
+"rows": baris
+}]}}, {}) 
+client.relayWAMessage(po, {waitForAck: true})
+}
+			
+const fgithub =
+{
+"key": {
+"remoteJid": "6285731261728@s.whatsapp.net",
+"fromMe": true,
+"id": "CC57AC2D101A643CE4D78CBEBE45CCE2"
+},
+"message": {
+"extendedTextMessage": {
+"text": "*HELLO IM MITSUHA*",
+"previewType": "NONE",
+"contextInfo": {
+"stanzaId": "D7AA558334F612C8E5D68A75C92C7D2D",
+"participant": "6285731261728@s.whatsapp.net",
+"quotedMessage": {
+"extendedTextMessage": {
+"text": "https://www.github.com/ITSMITSUHA\n\nnah ada fake kan",
+"matchedText": "https://www.github.com/ITSMITSUHA",
+"canonicalUrl": "https://github.com/ITSMITSUHA",
+"description": "Contact me. it has one repository available. Follow their code on GitHub.",
+"title": "it - Overview",
+"previewType": "NONE",
+"jpegThumbnail": "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"
+}
+}
+}
+}
+},
+"messageTimestamp": "1627739664",
+"status": "ERROR"
+}
+
+const fgerub= (teks) => {
+client.sendMessage(from, teks, text, {
+quoted: {
+key: {
+fromMe: false,
+participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289523258649-1604595598@g.us" } : {})
+},
+message: {
+"imageMessage": {
+"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
+"mimetype": "image/jpeg",
+"caption": '',
+"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
+"fileLength": "28777",
+"height": 1080,
+"width": 1079,
+"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
+"fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
+"directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
+"mediaKeyTimestamp": "1610993486",
+"jpegThumbnail": fs.readFileSync(`./lib/odc.jpeg`),
+"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="
+}
+}
+}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true
+})
+}
         
-            /*const listmsg = (from, title, desc, list) => { //List Buttonnya ~Riu
-            let pio = client.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "CLICK HERE","footerText": "Jangan Lupa Donasi Ya Kak ☕","listType": "SINGLE_SELECT","sections": list}}, {})
-            return client.relayWAMessage(pio, {waitForAck: true})
-        }*/
+const sendMess = (hehe, teks) => {
+client.sendMessage(hehe, teks, text, {quoted: falfa})
+}
+			
+const mentions = (teks, memberr, id) => {
+(id == null || id == undefined || id == false) ? client.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : client.sendMessage(from, teks.trim(), extendedText, {quoted: freply, contextInfo: {"mentionedJid": memberr}})
+}
+			
+const costum = (pesan, tipe, target, target2) => {
+client.sendMessage(from, pesan, tipe, {quoted: { key: { fromMe: false, participant: `${target}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target2}` }}})
+}
+			
+const sendButton = (teks) => {
+client.sendMessage(from, teks, MessageType.buttonsMessage, {quoted: floc2})
+}
+           
+const keranjang = (teks) => {
+res = client.sendMessage(from,{ "orderMessage": { "itemCount": 321, "message": cap, "footerText": "*_© Mitsuha Official_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:fkatalok})
+}       
         
-        const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
-            let po = client.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Choose in Here","listType": "SINGLE_SELECT","sections": list}}, {})
-            return client.relayWAMessage(po, {waitForAck: true})
-        }
+/*const listmsg = (from, title, desc, list) => { //List Buttonnya ~Riu
+let pio = client.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "CLICK HERE","footerText": "Jangan Lupa Donasi Ya Kak ☕","listType": "SINGLE_SELECT","sections": list}}, {})
+return client.relayWAMessage(pio, {waitForAck: true})
+}*/
+        
+const listmsg = (from, title, desc, list) => { // ngeread nya pake rowsId, jadi command nya ga keliatan
+let po = client.prepareMessageFromContent(from, {"listMessage": {"title": title,"description": desc,"buttonText": "Choose in Here","listType": "SINGLE_SELECT","sections": list}}, {})
+return client.relayWAMessage(po, {waitForAck: true})
+}
 			colors = ['red','gray','white','black','blue','yellow','green']
 			const isMedia = (type === 'imageMessage' || type === 'videoMessage')
 			const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
@@ -633,24 +821,23 @@ teks = `*PROMOTE TERDETEKSI*
 			if (authorname != undefined) { } else { authorname = groupName }	
 			
 			   
-      hour_now = moment().format('HH')
-        var ucapanWaktu = 'Selamat Pagi'
-        if (hour_now >= '03' && hour_now <= '10') {
-          ucapanWaktu = 'Selamat Pagi'
-        } else if (hour_now >= '10' && hour_now <= '14') {
-          ucapanWaktu = 'Selamat Siang'
-        } else if (hour_now >= '14' && hour_now <= '17') {
-          ucapanWaktu = 'Selamat Sore'
-        } else if (hour_now >= '17' && hour_now <= '18') {
-          ucapanWaktu = 'Selamat Malam'
-        } else if (hour_now >= '18' && hour_now <= '23') {
-          ucapanWaktu = 'Selamat Tengah Malam'
-        } else {
-          ucapanWaktu = 'Selamat Malam!'
-        }   
+hour_now = moment().format('HH')
+var ucapanWaktu = 'Selamat Pagi'
+if (hour_now >= '03' && hour_now <= '10') {
+ucapanWaktu = 'Selamat Pagi'
+} else if (hour_now >= '10' && hour_now <= '14') {
+ucapanWaktu = 'Selamat Siang'
+} else if (hour_now >= '14' && hour_now <= '17') {
+ucapanWaktu = 'Selamat Sore'
+} else if (hour_now >= '17' && hour_now <= '18') {
+ucapanWaktu = 'Selamat Malam'
+} else if (hour_now >= '18' && hour_now <= '23') {
+ucapanWaktu = 'Selamat Tengah Malam'
+} else {
+ucapanWaktu = 'Selamat Malam!'
+}   
 
-	
-			function addMetadata(packname, author) {	
+                function addMetadata(packname, author) {	
 				if (!packname) packname = ' '; if (!author) author = ' ';	
 				author = author.replace(/[^a-zA-Z0-9]/g, '');	
 				let name = `${author}_${packname}`
@@ -691,331 +878,327 @@ teks = `*PROMOTE TERDETEKSI*
 
 			}
 		
-		
-	
-        const pencapaian = tingkatan.length
-      var tingkat ='🏚️           🌳              🚗'
-        if (pencapaian <= 1) {
-            tingkat ='🏚️           🌳            🚗'
-        } else if (pencapaian <= 2) {
-        	tingkat ='🏚️           🌳          🚗'
-        } else if (pencapaian <= 3) {
-        	tingkat ='🏚️           🌳        🚗'
-        } else if (pencapaian <= 4) {
-        	tingkat ='🏚️           🌳     🚗'
-        } else if (pencapaian <= 5) {
-        	tingkat ='🏚️           🌳  🚗'
-        } else if (pencapaian <= 6) {
-        	tingkat ='🏚️               🚗'
-        } else if (pencapaian <= 7) {
-        	tingkat ='🏚️             🚗'
-        } else if (pencapaian <= 8) {
-        	tingkat ='🏚️          🚗'
-        } else if (pencapaian <= 9) {
-        	tingkat ='🏚️       🚗'
-        } else if (pencapaian <= 10) {
-        	tingkat ='🏚️    🚗  🌳'
-        } else if (pencapaian <= 11) {
-        	tingkat ='🏚️  🚗    🌳'
-        } else if (pencapaian <= 12) {
-        	tingkat ='🏚️ 🚗     🌳'
-        } else if (pencapaian <= 13) {
-        	tingkat ='*PENCAPAIAN SELESAI 🌳'
-        }
+const pencapaian = tingkatan.length
+var tingkat ='🏚️           🌳              🚗'
+if (pencapaian <= 1) {
+tingkat ='🏚️           🌳            🚗'
+} else if (pencapaian <= 2) {
+tingkat ='🏚️           🌳          🚗'
+} else if (pencapaian <= 3) {
+tingkat ='🏚️           🌳        🚗'
+} else if (pencapaian <= 4) {
+tingkat ='🏚️           🌳     🚗'
+} else if (pencapaian <= 5) {
+tingkat ='🏚️           🌳  🚗'
+} else if (pencapaian <= 6) {
+tingkat ='🏚️               🚗'
+} else if (pencapaian <= 7) {
+tingkat ='🏚️             🚗'
+} else if (pencapaian <= 8) {
+tingkat ='🏚️          🚗'
+} else if (pencapaian <= 9) {
+tingkat ='🏚️       🚗'
+} else if (pencapaian <= 10) {
+tingkat ='🏚️    🚗  🌳'
+} else if (pencapaian <= 11) {
+tingkat ='🏚️  🚗    🌳'
+} else if (pencapaian <= 12) {
+tingkat ='🏚️ 🚗     🌳'
+} else if (pencapaian <= 13) {
+tingkat ='*PENCAPAIAN SELESAI 🌳'
+}
         
-        const levelRole = getLevelingLevel(sender)
-        var role ='Newbie'
-        if (levelRole <= 2) {
-            role ='Newbie'
-        } else if (levelRole <= 4) {
-            role ='Beginner Grade 1'
-        } else if (levelRole <= 6) {
-            role ='Beginner Grade 2'
-        } else if (levelRole <= 8) {
-            role ='Beginner Grade 3'
-        } else if (levelRole <= 10) {
-            role ='Beginner Grade 4'
-        } else if (levelRole <= 12) {
-            role ='Private Grade 1'
-        } else if (levelRole <= 14) {
-            role ='Private Grade 2'
-        } else if (levelRole <= 16) {
-            role ='Private Grade 3'
-        } else if (levelRole <= 18) {
-            role ='Private Grade 4'
-        } else if (levelRole <= 20) {
-            role ='Private Grade 5'
-        } else if (levelRole <= 22) {
-            role ='Corporal Grade 1'
-        } else if (levelRole <= 24) {
-            role ='Corporal Grade 2'
-        } else if (levelRole <= 26) {
-            role ='Corporal Grade 3'
-        } else if (levelRole <= 28) {
-            role ='Corporal Grade 4'
-        } else if (levelRole <= 30) {
-            role ='Corporal Grade 5'
-        } else if (levelRole <= 32) {
-            role ='Sergeant Grade 1'
-        } else if (levelRole <= 34) {
-            role ='Sergeant Grade 2'
-        } else if (levelRole <= 36) {
-            role ='Sergeant Grade 3'
-        } else if (levelRole <= 38) {
-            role ='Sergeant Grade 4'
-        } else if (levelRole <= 40) {
-            role ='Sergeant Grade 5'
-        } else if (levelRole <= 42) {
-            role ='Staff Grade 1'
-        } else if (levelRole <= 44) {
-            role ='Staff Grade 2'
-        } else if (levelRole <= 46) {
-            role ='Staff Grade 3'
-        } else if (levelRole <= 48) {
-            role ='Staff Grade 4'
-        } else if (levelRole <= 50) {
-            role ='Staff Grade 5'
-        } else if (levelRole <= 52) {
-            role ='Sergeant Grade 1'
-        } else if (levelRole <= 54) {
-            role ='Sergeant Grade 2'
-        } else if (levelRole <= 56) {
-            role ='Sergeant Grade 3'
-        } else if (levelRole <= 58) {
-            role ='Sergeant Grade 4'
-        } else if (levelRole <= 60) {
-            role ='Sergeant Grade 5'
-        } else if (levelRole <= 62) {
-            role ='2nd Lt. Grade 1 '
-        } else if (levelRole <= 64) {
-            role ='2nd Lt. Grade 2'
-        } else if (levelRole <= 66) {
-            role ='2nd Lt. Grade 3'
-        } else if (levelRole <= 68) {
-            role ='2nd Lt. Grade 4'
-        } else if (levelRole <= 70) {
-            role ='2nd Lt. Grade 5'
-        } else if (levelRole <= 72) {
-            role ='1st Lt. Grade 1'
-        } else if (levelRole <= 74) {
-            role ='1st Lt. Grade 2'
-        } else if (levelRole <= 76) {
-            role ='1st Lt. Grade 3'
-        } else if (levelRole <= 78) {
-            role ='1st Lt. Grade 4'
-        } else if (levelRole <= 80) {
-            role ='1st Lt. Grade 5'
-        } else if (levelRole <= 82) {
-            role ='Major Grade 1'
-        } else if (levelRole <= 84) {
-            role ='Major Grade 2'
-        } else if (levelRole <= 86) {
-            role ='Major Grade 3'
-        } else if (levelRole <= 88) {
-            role ='Major Grade 4'
-        } else if (levelRole <= 90) {
-            role ='Major Grade 5'
-        } else if (levelRole <= 92) {
-            role ='Colonel Grade 1'
-        } else if (levelRole <= 94) {
-            role ='Colonel Grade 2'
-        } else if (levelRole <= 96) {
-            role ='Colonel Grade 3'
-        } else if (levelRole <= 98) {
-            role ='Colonel Grade 4'
-        } else if (levelRole <= 100) {
-            role ='Colonel Grade 5'
-        } else if (levelRole <= 102) {
-            role ='Brigadier Early'
-        } else if (levelRole <= 104) {
-            role ='Brigadier Silver'
-        } else if (levelRole <= 106) {
-            role ='Brigadier gold'
-        } else if (levelRole <= 108) {
-            role ='Brigadier Platinum'
-        } else if (levelRole <= 110) {
-            role ='Brigadier Diamond'
-        } else if (levelRole <= 112) {
-            role ='Major General Early'
-        } else if (levelRole <= 114) {
-            role ='Major General Silver'
-        } else if (levelRole <= 116) {
-            role ='Major General gold'
-        } else if (levelRole <= 118) {
-            role ='Major General Platinum'
-        } else if (levelRole <= 120) {
-            role ='Major General Diamond'
-        } else if (levelRole <= 122) {
-            role ='Lt. General Early'
-        } else if (levelRole <= 124) {
-            role ='Lt. General Silver'
-        } else if (levelRole <= 126) {
-            role ='Lt. General gold'
-        } else if (levelRole <= 128) {
-            role ='Lt. General Platinum'
-        } else if (levelRole <= 130) {
-            role ='Lt. General Diamond'
-        } else if (levelRole <= 132) {
-            role ='General Early'
-        } else if (levelRole <= 134) {
-            role ='General Silver'
-        } else if (levelRole <= 136) {
-            role ='General gold'
-        } else if (levelRole <= 138) {
-            role ='General Platinum'
-        } else if (levelRole <= 140) {
-            role ='General Diamond'
-        } else if (levelRole <= 142) {
-            role ='Commander Early'
-        } else if (levelRole <= 144) {
-            role ='Commander Intermediate'
-        } else if (levelRole <= 146) {
-            role ='Commander Elite'
-        } else if (levelRole <= 148) {
-            role ='The Commander Hero'
-        } else if (levelRole <= 152) {
-            role ='Legends'
-        } else if (levelRole <= 154) {
-            role ='Legends'
-        } else if (levelRole <= 156) {
-            role ='Legends'
-        } else if (levelRole <= 158) {
-            role ='Legends'
-        } else if (levelRole <= 160) {
-            role ='Legends'
-        } else if (levelRole <= 162) {
-            role ='Legends'
-        } else if (levelRole <= 164) {
-            role ='Legends'
-        } else if (levelRole <= 166) {
-            role ='Legends'
-        } else if (levelRole <= 168) {
-            role ='Legends'
-        } else if (levelRole <= 170) {
-            role ='Legends'
-        } else if (levelRole <= 172) {
-            role ='Legends'
-        } else if (levelRole <= 174) {
-            role ='Legends'
-        } else if (levelRole <= 176) {
-            role ='Legends'
-        } else if (levelRole <= 178) {
-            role ='Legends'
-        } else if (levelRole <= 180) {
-            role ='Legends'
-        } else if (levelRole <= 182) {
-            role ='Legends'
-        } else if (levelRole <= 184) {
-            role ='Legends'
-        } else if (levelRole <= 186) {
-            role ='Legends'
-        } else if (levelRole <= 188) {
-            role ='Legends'
-        } else if (levelRole <= 190) {
-            role ='Legends'
-        } else if (levelRole <= 192) {
-            role ='Legends'
-        } else if (levelRole <= 194) {
-            role ='Legends'
-        } else if (levelRole <= 196) {
-            role ='Legends'
-        } else if (levelRole <= 198) {
-            role ='Legends'
-        } else if (levelRole <= 200) {
-            role ='Legends'
-        } else if (levelRole <= 210) {
-            role ='Legends'
-        } else if (levelRole <= 220) {
-            role ='Legends'
-        } else if (levelRole <= 230) {
-            role ='Legends'
-        } else if (levelRole <= 240) {
-            role ='Legends'
-        } else if (levelRole <= 250) {
-            role ='Legends'
-        } else if (levelRole <= 260) {
-            role ='Legends'
-        } else if (levelRole <= 270) {
-            role ='Legends'
-        } else if (levelRole <= 280) {
-            role ='Legends'
-        } else if (levelRole <= 290) {
-            role ='Legends'
-        } else if (levelRole <= 300) {
-            role ='Legends'
-        } else if (levelRole <= 310) {
-            role ='Legends'
-        } else if (levelRole <= 320) {
-            role ='Legends'
-        } else if (levelRole <= 330) {
-            role ='Legends'
-        } else if (levelRole <= 340) {
-            role ='Legends'
-        } else if (levelRole <= 350) {
-            role ='Legends'
-        } else if (levelRole <= 360) {
-            role ='Legends'
-        } else if (levelRole <= 370) {
-            role ='Legends'
-        } else if (levelRole <= 380) {
-            role ='Legends'
-        } else if (levelRole <= 390) {
-            role ='Legends'
-        } else if (levelRole <= 400) {
-            role ='Legends'
-        } else if (levelRole <= 410) {
-            role ='Legends'
-        } else if (levelRole <= 420) {
-            role ='Legends'
-        } else if (levelRole <= 430) {
-            role ='Legends'
-        } else if (levelRole <= 440) {
-            role ='Legends'
-        } else if (levelRole <= 450) {
-            role ='Legends'
-        } else if (levelRole <= 460) {
-            role ='Legends'
-        } else if (levelRole <= 470) {
-            role ='Legends'
-        } else if (levelRole <= 480) {
-            role ='Legends'
-        } else if (levelRole <= 490) {
-            role ='Legends'
-        } else if (levelRole <= 500) {
-            role ='Legends'
-        } else if (levelRole <= 600) {
-            role ='Legends'
-        } else if (levelRole <= 700) {
-            role ='Legends'
-        } else if (levelRole <= 800) {
-            role ='Legends'
-        } else if (levelRole <= 900) {
-            role ='Legends'
-        } else if (levelRole <= 1000) {
-            role ='Legends'
-        } else if (levelRole <= 2000) {
-            role ='Legends'
-        } else if (levelRole <= 3000) {
-            role ='Legends'
-        } else if (levelRole <= 4000) {
-            role ='Legends'
-        } else if (levelRole <= 5000) {
-            role ='Legends'
-        } else if (levelRole <= 6000) {
-            role ='Legends'
-        } else if (levelRole <= 7000) {
-            role ='Legends'
-        } else if (levelRole <= 8000) {
-            role ='Legends'
-        } else if (levelRole <= 9000) {
-            role ='Legends'
-        } else if (levelRole <= 10000) {
-            role ='Legends'
-
-	}
+const levelRole = getLevelingLevel(sender)
+var role ='Newbie'
+if (levelRole <= 2) {
+role ='Newbie'
+} else if (levelRole <= 4) {
+role ='Beginner Grade 1'
+} else if (levelRole <= 6) {
+role ='Beginner Grade 2'
+} else if (levelRole <= 8) {
+role ='Beginner Grade 3'
+} else if (levelRole <= 10) {
+role ='Beginner Grade 4'
+} else if (levelRole <= 12) {
+role ='Private Grade 1'
+} else if (levelRole <= 14) {
+role ='Private Grade 2'
+} else if (levelRole <= 16) {
+role ='Private Grade 3'
+} else if (levelRole <= 18) {
+role ='Private Grade 4'
+} else if (levelRole <= 20) {
+role ='Private Grade 5'
+} else if (levelRole <= 22) {
+role ='Corporal Grade 1'
+} else if (levelRole <= 24) {
+role ='Corporal Grade 2'
+} else if (levelRole <= 26) {
+role ='Corporal Grade 3'
+} else if (levelRole <= 28) {
+role ='Corporal Grade 4'
+} else if (levelRole <= 30) {
+role ='Corporal Grade 5'
+} else if (levelRole <= 32) {
+role ='Sergeant Grade 1'
+} else if (levelRole <= 34) {
+role ='Sergeant Grade 2'
+} else if (levelRole <= 36) {
+role ='Sergeant Grade 3'
+} else if (levelRole <= 38) {
+role ='Sergeant Grade 4'
+} else if (levelRole <= 40) {
+role ='Sergeant Grade 5'
+} else if (levelRole <= 42) {
+role ='Staff Grade 1'
+} else if (levelRole <= 44) {
+role ='Staff Grade 2'
+} else if (levelRole <= 46) {
+role ='Staff Grade 3'
+} else if (levelRole <= 48) {
+role ='Staff Grade 4'
+} else if (levelRole <= 50) {
+role ='Staff Grade 5'
+} else if (levelRole <= 52) {
+role ='Sergeant Grade 1'
+} else if (levelRole <= 54) {
+role ='Sergeant Grade 2'
+} else if (levelRole <= 56) {
+role ='Sergeant Grade 3'
+} else if (levelRole <= 58) {
+role ='Sergeant Grade 4'
+} else if (levelRole <= 60) {
+role ='Sergeant Grade 5'
+} else if (levelRole <= 62) {
+role ='2nd Lt. Grade 1 '
+} else if (levelRole <= 64) {
+role ='2nd Lt. Grade 2'
+} else if (levelRole <= 66) {
+role ='2nd Lt. Grade 3'
+} else if (levelRole <= 68) {
+role ='2nd Lt. Grade 4'
+} else if (levelRole <= 70) {
+role ='2nd Lt. Grade 5'
+} else if (levelRole <= 72) {
+role ='1st Lt. Grade 1'
+} else if (levelRole <= 74) {
+role ='1st Lt. Grade 2'
+} else if (levelRole <= 76) {
+role ='1st Lt. Grade 3'
+} else if (levelRole <= 78) {
+role ='1st Lt. Grade 4'
+} else if (levelRole <= 80) {
+role ='1st Lt. Grade 5'
+} else if (levelRole <= 82) {
+role ='Major Grade 1'
+} else if (levelRole <= 84) {
+role ='Major Grade 2'
+} else if (levelRole <= 86) {
+role ='Major Grade 3'
+} else if (levelRole <= 88) {
+role ='Major Grade 4'
+} else if (levelRole <= 90) {
+role ='Major Grade 5'
+} else if (levelRole <= 92) {
+role ='Colonel Grade 1'
+} else if (levelRole <= 94) {
+role ='Colonel Grade 2'
+} else if (levelRole <= 96) {
+role ='Colonel Grade 3'
+} else if (levelRole <= 98) {
+role ='Colonel Grade 4'
+} else if (levelRole <= 100) {
+role ='Colonel Grade 5'
+} else if (levelRole <= 102) {
+role ='Brigadier Early'
+} else if (levelRole <= 104) {
+role ='Brigadier Silver'
+} else if (levelRole <= 106) {
+role ='Brigadier gold'
+} else if (levelRole <= 108) {
+role ='Brigadier Platinum'
+} else if (levelRole <= 110) {
+role ='Brigadier Diamond'
+} else if (levelRole <= 112) {
+role ='Major General Early'
+} else if (levelRole <= 114) {
+role ='Major General Silver'
+} else if (levelRole <= 116) {
+role ='Major General gold'
+} else if (levelRole <= 118) {
+role ='Major General Platinum'
+} else if (levelRole <= 120) {
+role ='Major General Diamond'
+} else if (levelRole <= 122) {
+role ='Lt. General Early'
+} else if (levelRole <= 124) {
+role ='Lt. General Silver'
+} else if (levelRole <= 126) {
+role ='Lt. General gold'
+} else if (levelRole <= 128) {
+role ='Lt. General Platinum'
+} else if (levelRole <= 130) {
+role ='Lt. General Diamond'
+} else if (levelRole <= 132) {
+role ='General Early'
+} else if (levelRole <= 134) {
+role ='General Silver'
+} else if (levelRole <= 136) {
+role ='General gold'
+} else if (levelRole <= 138) {
+role ='General Platinum'
+} else if (levelRole <= 140) {
+role ='General Diamond'
+} else if (levelRole <= 142) {
+role ='Commander Early'
+} else if (levelRole <= 144) {
+role ='Commander Intermediate'
+} else if (levelRole <= 146) {
+role ='Commander Elite'
+} else if (levelRole <= 148) {
+role ='The Commander Hero'
+} else if (levelRole <= 152) {
+role ='Legends'
+} else if (levelRole <= 154) {
+role ='Legends'
+} else if (levelRole <= 156) {
+role ='Legends'
+} else if (levelRole <= 158) {
+role ='Legends'
+} else if (levelRole <= 160) {
+role ='Legends'
+} else if (levelRole <= 162) {
+role ='Legends'
+} else if (levelRole <= 164) {
+role ='Legends'
+} else if (levelRole <= 166) {
+role ='Legends'
+} else if (levelRole <= 168) {
+role ='Legends'
+} else if (levelRole <= 170) {
+role ='Legends'
+} else if (levelRole <= 172) {
+role ='Legends'
+} else if (levelRole <= 174) {
+role ='Legends'
+} else if (levelRole <= 176) {
+role ='Legends'
+} else if (levelRole <= 178) {
+role ='Legends'
+} else if (levelRole <= 180) {
+role ='Legends'
+} else if (levelRole <= 182) {
+role ='Legends'
+} else if (levelRole <= 184) {
+role ='Legends'
+} else if (levelRole <= 186) {
+role ='Legends'
+} else if (levelRole <= 188) {
+role ='Legends'
+} else if (levelRole <= 190) {
+role ='Legends'
+} else if (levelRole <= 192) {
+role ='Legends'
+} else if (levelRole <= 194) {
+role ='Legends'
+} else if (levelRole <= 196) {
+role ='Legends'
+} else if (levelRole <= 198) {
+role ='Legends'
+} else if (levelRole <= 200) {
+role ='Legends'
+} else if (levelRole <= 210) {
+role ='Legends'
+} else if (levelRole <= 220) {
+role ='Legends'
+} else if (levelRole <= 230) {
+role ='Legends'
+} else if (levelRole <= 240) {
+role ='Legends'
+} else if (levelRole <= 250) {
+role ='Legends'
+} else if (levelRole <= 260) {
+role ='Legends'
+} else if (levelRole <= 270) {
+role ='Legends'
+} else if (levelRole <= 280) {
+role ='Legends'
+} else if (levelRole <= 290) {
+role ='Legends'
+} else if (levelRole <= 300) {
+role ='Legends'
+} else if (levelRole <= 310) {
+role ='Legends'
+} else if (levelRole <= 320) {
+role ='Legends'
+} else if (levelRole <= 330) {
+role ='Legends'
+} else if (levelRole <= 340) {
+role ='Legends'
+} else if (levelRole <= 350) {
+role ='Legends'
+} else if (levelRole <= 360) {
+role ='Legends'
+} else if (levelRole <= 370) {
+role ='Legends'
+} else if (levelRole <= 380) {
+role ='Legends'
+} else if (levelRole <= 390) {
+role ='Legends'
+} else if (levelRole <= 400) {
+role ='Legends'
+} else if (levelRole <= 410) {
+role ='Legends'
+} else if (levelRole <= 420) {
+role ='Legends'
+} else if (levelRole <= 430) {
+role ='Legends'
+} else if (levelRole <= 440) {
+role ='Legends'
+} else if (levelRole <= 450) {
+role ='Legends'
+} else if (levelRole <= 460) {
+role ='Legends'
+} else if (levelRole <= 470) {
+role ='Legends'
+} else if (levelRole <= 480) {
+role ='Legends'
+} else if (levelRole <= 490) {
+role ='Legends'
+} else if (levelRole <= 500) {
+role ='Legends'
+} else if (levelRole <= 600) {
+role ='Legends'
+} else if (levelRole <= 700) {
+role ='Legends'
+} else if (levelRole <= 800) {
+role ='Legends'
+} else if (levelRole <= 900) {
+role ='Legends'
+} else if (levelRole <= 1000) {
+role ='Legends'
+} else if (levelRole <= 2000) {
+role ='Legends'
+} else if (levelRole <= 3000) {
+role ='Legends'
+} else if (levelRole <= 4000) {
+role ='Legends'
+} else if (levelRole <= 5000) {
+role ='Legends'
+} else if (levelRole <= 6000) {
+role ='Legends'
+} else if (levelRole <= 7000) {
+role ='Legends'
+} else if (levelRole <= 8000) {
+role ='Legends'
+} else if (levelRole <= 9000) {
+role ='Legends'
+} else if (levelRole <= 10000) {
+role ='Legends'
+}
 	
-	
-	const hewan = [
+    const hewan = [
 	'🐡 : 🐬 : 🐋',
 	'🐋 : 🐋 : ??',
     '🐬 : 🐬 : 🐬',
@@ -1053,15 +1236,15 @@ teks = `*PROMOTE TERDETEKSI*
              var anlink = 'Off'
              if (isAntiLink) {
              anlink = 'On'
-             }
+}
              var anto = 'Off'
              if (isAntiToxic) {
              anto = 'On'
-             }
+}
              var lepel = 'Off'
              if (isLevelingOn) {
              lepel = 'On'
-             }
+}
              
             if (isGroup && isLevelingOn) {
             const currentLevel = getLevelingLevel(sender)
@@ -1082,11 +1265,11 @@ teks = `*PROMOTE TERDETEKSI*
 ❏ Level : ${getLevel} ⊱ ${getLevelingLevel(sender)}
 ╰┈─────────────────➣
 `)
-                }
-            } catch (err) {
+}
+} catch (err) {
                 console.error(err)
-            }
-        }
+}
+}
 
                     
 		async function sendFileFromUrl(from, url, caption, miku, mek, men) {
@@ -1097,227 +1280,21 @@ teks = `*PROMOTE TERDETEKSI*
             if(mime === "image/gif"){
                 type = MessageType.video
                 mime = Mimetype.gif
-            }
+}
             if(mime === "application/pdf"){
                 type = MessageType.document
                 mime = Mimetype.pdf
-            }
+}
             if(mime.split("/")[0] === "audio"){
                 mime = Mimetype.mp4Audio
-            }
-            return client.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: mek, thumbnail: miku, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
-        }
+}
+            return client.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: floc2, thumbnail: miku, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
+}
         
 /*_________________
-BAGIAN FAKE PESAN
+BAGIAN FUNC GRUP
 ___________________*/
               
-            tchat = `${totalchat.length}`   
-            
-            ucapanFakereply = `「 MITSUHA BOT 」\nBOT CREATED BY MITSUHA`
-            
-            ucapanFakereply2 = `${pushname}\nCommand: ${command}`
-            
-            const floc2 = {
-                  key: {"fromMe": false,"participant": `0@s.whatsapp.net`, "remoteJid": "6289530863358-1621036495@g.us" },message: { "liveLocationMessage": { "title":`CREATOR BOT\nMITSUHA-BOTZ`,}}}
-            
-           const fakereply = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `©Mitsuhabot\n\n`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
-          
-           const faketag = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `「  *CIEE KENA TAG BOT*`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
-			
-			const faketag2 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `📢 *NOTICE* 📢`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
-			
-			/*const faketag3 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `💕 HELLO BABY 💞`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }*/
-			
-            const faketag4 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `©Mitsuhabot\nTANGGAL : ${date} - ${jam}\n_*DONT CALL ME PLEASE*_`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
-          
-            const faketag5 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `📩 PESAN INGFO MEMBER 📩`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
- 
-           const ftoko = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {}) }, message: { 'productMessage': { 'product': { 'productImage':{ 'mimetype': 'image/jpeg', 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg') }, 'title': `Mitsuha Bot Whatsapp\n▢ Rp. 10.000,00\nㅤㅤㅤㅤ\nㅤㅤㅤㅤ`, 'productImageCount': 9999 }, 'businessOwnerJid': `0@s.whatsapp.net`}}}
-			
-			const fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `0@s.whatsapp.net` } : {}) }, message: { 'contactMessage': { 'displayName': `${ucapanFakereply}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ucapanFakereply},;;;\nFN:${ucapanFakereply},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg')}}}
-			
-			const fkontak2 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `0@s.whatsapp.net` } : {}) }, message: { 'contactMessage': { 'displayName': `${ucapanFakereply2}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ucapanFakereply2},;;;\nFN:${ucapanFakereply2},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg')}}}
-			
-            /*const freply = {
-		    key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "caption": `${pushname}\n〓 ${command}`} } }*/
-		    
-            const freply =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb, surface: 200, message: `TOTAL PENGGUNA: ${_registered.length}`, orderTitle: 'HALLO BANTU DONASI YA!', sellerJid: '0@s.whatsapp.net'} } } 
-		
-		
-
-
-		    const fvn = {
-	 key: { 
-          fromMe: false,
-	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6289643739077-1613049930@g.us" } : {}) 
-                },
-	 message: { 
-		"audioMessage": {
-                 "mimetype":"audio/ogg; codecs=opus",
-                 "seconds": "1.000.00",
-                 "ptt": "true"
-                        }
-	                  } 
-                     }
-                     
-          const fgclink = {
-                     	
-	"key": {
-		"fromMe": false,
-		"participant": "0@s.whatsapp.net",
-		"remoteJid": "0@s.whatsapp.net"
-	},
-	"message": {
-		"groupInviteMessage": {
-			"groupJid": "6288213840883-1616169743@g.us",
-			"inviteCode": "NgsCIU2lXKh3VHJT",
-			"groupName": `${groupName}`, 
-"caption": `TANGGAL : ${date}\n~> YOUR NAME : ${pushname}`, 
-'jpegThumbnail': fs.readFileSync(`./lib/odc.jpeg`)
-		}
-	}
-}
-const fakeitem = (teks) => {
-            client.sendMessage(from, teks, text, {
-                quoted: {
-        key:{
-        	fromMe: false,
-        participant:`0@s.whatsapp.net`, ...(from ? {
-remoteJid :"6289523258649-1604595598@g.us" }: {})
-                    },message:{"orderMessage":{"orderId":"174238614569481","thumbnail":fs.readFileSync(`./lib/odc.jpeg`),"itemCount":10,"status":"INQUIRY","surface":"CATALOG","message":`© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯?? 𝑩𝑶𝑻𝒁`,"token":"AR6xBKbXZn0Xwmu76Ksyd7rnxI+Rx87HfinVlW4lwXa6JA=="}}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true})}
-           
-           
-           
-           const ftoko2 = {
-key: {
-			fromMe: false,
-			participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289523258649-1604595598@g.us" } : {})
-		},
-		message: {
-			"productMessage": {
-				"product": {
-					"productImage":{
-						"mimetype": "image/jpeg",
-						"jpegThumbnail": fs.readFileSync(`./lib/odc.jpeg`) 
-					},
-					"title": '©Mitsuhabot', 
-					"description": "©Mitsuhabot", 
-					"currencyCode": "IDR",
-					"priceAmount1000": "20000000",
-					"retailerId": 'Whatsapp bot',
-					"productImageCount": 1
-				},
-				    "businessOwnerJid": `0@s.whatsapp.net`
-		}
-	}
-}
-
-
-          const fakestatus = (teks) => {
-            client.sendMessage(from, teks, text, {
-                quoted: {
-                    key: {
-                        fromMe: false,
-                        participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-                    },
-                    message: {
-                        "imageMessage": {
-                            "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
-                            "mimetype": "image/jpeg",
-                            "caption": cr,
-                            "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
-                            "fileLength": "28777",
-                            "height": 1080,
-                            "width": 1079,
-                            "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
-                            "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
-                            "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
-                            "mediaKeyTimestamp": "1610993486",
-                            "jpegThumbnail": fs.readFileSync('./lib/odc.jpeg'),
-                            "scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="
-                        }
-                    }
-                }
-            })
-        }
-      const sendlist = async (tekss, tekstombol, baris) => {
-				if (!tekstombol) {tekstombol = 'klik disini'}
-				if (!baris) {baris = [{"title": "kok bisa","rowId": `hmm`}]}
-				let po = client.prepareMessageFromContent(from, {
-	"listMessage":{
-    "title": "",
-    "description": tekss,
-	"buttonText": tekstombol,
-	"listType": "SINGLE_SELECT",
-	"sections": [
-		{
-		"rows": baris
-     }]}}, {}) 
-client.relayWAMessage(po, {waitForAck: true})
-			}
-			
-			fgithub =
-			{
-	"key": {
-		"remoteJid": "6285731261728@s.whatsapp.net",
-		"fromMe": true,
-		"id": "CC57AC2D101A643CE4D78CBEBE45CCE2"
-	},
-	"message": {
-		"extendedTextMessage": {
-			"text": "*HELLO IM MITSUHA*",
-			"previewType": "NONE",
-			"contextInfo": {
-				"stanzaId": "D7AA558334F612C8E5D68A75C92C7D2D",
-				"participant": "6285731261728@s.whatsapp.net",
-				"quotedMessage": {
-					"extendedTextMessage": {
-						"text": "https://www.github.com/ITSMITSUHA\n\nnah ada fake kan",
-						"matchedText": "https://www.github.com/ITSMITSUHA",
-						"canonicalUrl": "https://github.com/ITSMITSUHA",
-						"description": "Contact me. it has one repository available. Follow their code on GitHub.",
-						"title": "it - Overview",
-						"previewType": "NONE",
-						"jpegThumbnail": "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"
-					}
-				}
-			}
-		}
-	},
-	"messageTimestamp": "1627739664",
-	"status": "ERROR"
-}
-
-const fgerub= (teks) => {
-            client.sendMessage(from, teks, text, {
-                quoted: {
-                    key: {
-                        fromMe: false,
-                        participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289523258649-1604595598@g.us" } : {})
-                    },
-                    message: {
-                        "imageMessage": {
-                            "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
-                            "mimetype": "image/jpeg",
-                            "caption": '',
-                            "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
-                            "fileLength": "28777",
-                            "height": 1080,
-                            "width": 1079,
-                            "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
-                            "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
-                            "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
-                            "mediaKeyTimestamp": "1610993486",
-                            "jpegThumbnail": fs.readFileSync(`./lib/odc.jpeg`),
-                            "scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="
-                        }
-                    }
-                }, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true
-            })
-        }
-        
 sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(from, kma, location)
@@ -1350,7 +1327,7 @@ await client.groupRemove(from, [quotedis])
 console.log(color('[COMMAND]', 'blue'), color('Kick', 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 }*/
 
-if (budy == '.add'
+/*if (budy == '.add'
 || (budy == '#add')) {
 try {
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
@@ -1362,7 +1339,7 @@ await client.groupAdd(from, [quotedis])
 console.log('Error :', e)
 reply('Gagal menambahkan target, mungkin karena di private')
 }
-}
+}*/
 
 switch(command) {
 
@@ -1374,11 +1351,10 @@ ___________________*/
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`Hai ${pushname} ${ucapanWaktu} saya mitsuha bot whatsapp akan membantu untuk membuat sticker dll`
-sendButLocation(from, `${teks}`, `©Mitsuhabot Whatsapp`, {jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`LIST MENU`,buttonText:{displayText:'LIST MENU'},type:1},{buttonId:`PLAY GAME`,buttonText:{displayText:'PLAY GAME'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞ Whatsapp`, {jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`LIST MENU`,buttonText:{displayText:'LIST MENU'},type:1},{buttonId:`PLAY GAME`,buttonText:{displayText:'PLAY GAME'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break*/
 
-/*case 'menu':
-case 'help':
+/*case 'yonima':
 getLevel3 = getLevelingLevel(sender)
 mani = fs.readFileSync('./lib/luffy.jpeg')
 num = `${sender.split("@")[0]}@s.whatsapp.net`
@@ -1413,9 +1389,10 @@ break*/
 
 case perintah_help:
 case 'menu':
+await addLevelingId(sender)
 menu2 = fs.readFileSync('./lib/odc.jpeg') 
-menu3 = await client.prepareMessage(from, menu2, MessageType.image) 
-menu4 = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}] 
+menu3 = await client.prepareMessage(from, menu2, MessageType.image, {thumbnile: fakeimage}) 
+menu4 = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 menu5 = {
 contentText: "𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶?",
 footerText: `𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu`,
@@ -1423,14 +1400,14 @@ buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
 }
-client.sendMessage(from, menu5, MessageType.buttonsMessage, {quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
+client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
 break
  
 /*case 'menu':
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/Img.jpg'))
-buttons = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}]
+buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu', imageMessage: imageMsg,
 contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶? `,buttons,headerType:4}
@@ -1441,207 +1418,175 @@ break*/
 
 case 'allmenu':
 getLevel3 = getLevelingLevel(sender)
-uptime = process.uptime()
-jo = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
-•╭────────────────────
-•├❏  nama ${pushname}
-•├❏ setatus ${premi}
-•├❏ pangkat ${role}
-•├❏ level ${getLevel3}
-•├❏ xp ${getLevelingXp(sender)}
-•╰────────────────────
+creator = "6285731261728@s.whatsapp.net"
+teks =`「 *PROFILE KAMU* 」
+•  nama ${pushname}
+• setatus ${premi}
+• pangkat ${role}
+• level ${getLevel3}
+• xp ${getLevelingXp(sender)}
 
-•「 *INFORMASI MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}info
-•├❏ ${prefix2}iklan
-•├❏ ${prefix2}donasi
-•├❏ ${prefix2}request
-•╰────────────────────
 
-•「 *EVENT GAMES BOT* 」
-•╭────────────────────
-•├❏ ${prefix2}carspeed
-•├❏ ${prefix2}lotre
-•╰────────────────────
+「 *INFORMASI MENU* 」
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
 
-•「 *URL TO MEDIA TYPE* 」
-•╭────────────────────
-•├❏ ${prefix2}urltoimg
-•╰────────────────────
 
-•「 *PRODUK & VOTING* 」
-•╭────────────────────
-•├❏ ${prefix2}produk
-•├❏ ${prefix2}tambah
-•├❏ ${prefix2}votting
-•├❏ ${prefix2}vote
-•├❏ ${prefix2}dellvote
-•╰────────────────────
+「 *EVENT GAMES BOT* 」
+• ${prefix2}carspeed
+• ${prefix2}lotre
 
-•「 *ULASAN & MUTUAL* 」
-•╭────────────────────
-•├❏ ${prefix2}ulasan
-•├❏ ${prefix2}komentar
-•├❏ ${prefix2}mutual
-•├❏ ${prefix2}save
-•╰────────────────────
 
-•「 *ABSEN & MESSAGES* 」
-•╭────────────────────
-•├❏ ${prefix2}absen
-•├❏ ${prefix2}absensi
-•├❏ ${prefix2}svmess
-•├❏ ${prefix2}listmess
-•╰────────────────────
+「 *URL TO MEDIA TYPE* 」
+• ${prefix2}urltoimg
 
-•「 *GROUP MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cmd
-•├❏ ${prefix2}sider
-•├❏ ${prefix2}hidetag
-•├❏ ${prefix2}fitnah
-•├❏ ${prefix2}change
-•├❏ ${prefix2}revoke
-•├❏ ${prefix2}add
-•├❏ ${prefix2}kick
-•├❏ ${prefix2}promote
-•├❏ ${prefix2}demote
-•├❏ ${prefix2}tagall
-•├❏ ${prefix2}antilink
-•├❏ ${prefix2}antitoxic
-•├❏ ${prefix2}leveling
-•├❏ ${prefix2}welcome
-•╰────────────────────
 
-•「 *ANIME MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}neko
-•├❏ ${prefix2}waifu
-•╰────────────────────
+「 *PRODUK & VOTING* 」
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
 
-•「 *GAMES MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}dungeon
-•├❏ ${prefix2}slot
-•├❏ ${prefix2}truth
-•├❏ ${prefix2}dare
-•├❏ ${prefix2}tebakgambar
-•╰────────────────────
 
-•「 *IMAGE MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cogan
-•├❏ ${prefix2}cecan
-•├❏ ${prefix2}pinterest
-•├❏ ${prefix2}ocr
-•╰────────────────────
+「 *ULASAN & MUTUAL* 」
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
 
-•「 *RANDOM MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cerpen
-•├❏ ${prefix2}ceritahoror
-•├❏ ${prefix2}film
-•├❏ ${prefix2}fakedata
-•├❏ ${prefix2}news
-•├❏ ${prefix2}beasiswa
-•├❏ ${prefix2}ppcouple
-•╰────────────────────
 
-•「 *STICKER MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}sticker
-•├❏ ${prefix2}wasted
-•├❏ ${prefix2}comrade
-•├❏ ${prefix2}jail
-•├❏ ${prefix2}passed
-•├❏ ${prefix2}trigger
-•├❏ ${prefix2}toimg
-•╰────────────────────
+「 *ABSEN & MESSAGES* 」
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
 
-•「 *EDUCATION MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}quiz
-•├❏ ${prefix2}niatsholat
-•├❏ ${prefix2}niatsehari2
-•├❏ ${prefix2}hadist
-•╰────────────────────
 
-•「 *AUDIO/VN MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}fast
-•├❏ ${prefix2}tupai
-•├❏ ${prefix2}gemuk
-•├❏ ${prefix2}slow
-•├❏ ${prefix2}tomp3
-•╰────────────────────
+「 *GROUP MENU* 」
+• ${prefix2}cmd
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}change
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}leveling
+• ${prefix2}welcome
 
-•「 *PREMIUM MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}asupan
-•├❏ ${prefix2}upswtext
-•├❏ ${prefix2}upswimg
-•├❏ ${prefix2}upswvideo
-•╰────────────────────
 
-•「 *SOSIAL MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}upload
-•├❏ ${prefix2}posting
-•├❏ ${prefix2}draft
-•├❏ ${prefix2}blogger
-•╰────────────────────
+「 *ANIME MENU* 」
+• ${prefix2}neko
+• ${prefix2}waifu
 
-•「 *OTHER MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}sharelock
-•├❏ ${prefix2}delete
-•├❏ ${prefix2}pesan
-•├❏ ${prefix2}owner
-•├❏ ${prefix2}report
-•├❏ ${prefix2}timer
-•├❏ ${prefix2}setperintah
-•╰────────────────────
 
-•「 *OWNER MENU* 」
-•╭────────────────────
-•├❏ $
-•├❏ >
-•├❏ =>
-•├❏ ${prefix2}makegroup
-•├❏ ${prefix2}kudet
-•├❏ ${prefix2}leave
-•├❏ ${prefix2}clone
-•├❏ ${prefix2}bc
-•├❏ ${prefix2}addprem
-•├❏ ${prefix2}dellprem
-•├❏ ${prefix2}setbudy
-•├❏ ${prefix2}bug
-•╰────────────────────
+「 *GAMES MENU* 」
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
 
-•「 *THANKS TO* 」
-•╭────────────────────
-•├❏ mhankbarbar
-•├❏ mitsuhabotz
-•├❏ rimurubotz
-•├❏ dimxbotz
-•├❏ rurichan
-•├❏ zak06cheat
-•├❏ ridwan
-•├❏ hafizh
-•╰────────────────────`,
-"description": `.`,
-"footerText": `© *Copyright By Mitsuha Or Caca*
-Created Language Nodejs`,
-"buttons": [
-{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}
-],
-headerType: 1
-},
-}, {quoted: fkatalok})
-await client.relayWAMessage(jo)
+
+「 *IMAGE MENU* 」
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}pinterest
+• ${prefix2}ocr
+
+
+「 *RANDOM MENU* 」
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
+
+
+「 *STICKER MENU* 」
+• ${prefix2}sticker
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
+
+
+「 *EDUCATION MENU* 」
+• ${prefix2}quiz
+• ${prefix2}niatsholat
+• ${prefix2}niatsehari2
+• ${prefix2}hadist
+
+
+「 *AUDIO/VN MENU* 」
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
+
+
+「 *PREMIUM MENU* 」
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
+
+
+「 *SOSIAL MENU* 」
+• ${prefix2}upload
+• ${prefix2}posting
+• ${prefix2}draft
+• ${prefix2}blogger
+
+
+「 *OTHER MENU* 」
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+• ${prefix2}setperintah
+
+
+「 *OWNER MENU* 」
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
+
+
+「 *THANKS TO* 」
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh`
+sendButLocation(from, `${teks}`, `ཿ⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*_________________
@@ -1677,7 +1622,7 @@ mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
 var options = {
 text: value,
 contextInfo: { mentionedJid: mem },
-quoted: mek
+quoted: floc2
 }
 client.sendMessage(from, options, text, {quoted: faketag})
 break
@@ -1700,7 +1645,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{b
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
 break
 
@@ -1724,7 +1669,7 @@ deskripsi : biopro
 produk.push(H1)
 fs.writeFileSync(`./lib/${nmorpro}.jpeg`, delb)
 fs.writeFileSync('./lib/produk.js', JSON.stringify(produk))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: mek})		     	 
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
 break
 
 case 'draft':
@@ -1787,7 +1732,7 @@ cap : caption
 sosmed.push(H1)
 fs.writeFileSync(`./lib/${pushname}.jpeg`, delb)
 fs.writeFileSync('./lib/sosmed.js', JSON.stringify(sosmed))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: mek})		     	 
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
 break
 
 case 'fitnah':
@@ -1810,7 +1755,7 @@ buttons = [{buttonId:`BENAR`,buttonText:{displayText:`BENAR`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`JAWABAN BENAR ${benar.length}\nJAWABAN SALAH ${salah.length}\n\n${materi}`, imageMessage: imageMsg,
 contentText:`*QUIZ HARIAN BERHADIAH*`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -1829,7 +1774,7 @@ mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
 var options = {
 text: value,
 contextInfo: { mentionedJid: mem },
-quoted: mek
+quoted: floc2
 }
 client.sendMessage(from, options, text, {quoted: faketag})
 break
@@ -1838,7 +1783,7 @@ case 'close-grup':
 case 'close-grub':      
 if (!isRegistered) return reply(ind.noregis())     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
 if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 var nomor = mek.participant
 const close = {
@@ -1859,7 +1804,7 @@ open = {
 text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,             
 }
 client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 break
 
 case 'grub':
@@ -1882,7 +1827,7 @@ gwetkke = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(gwetkke)
 break
 
@@ -1928,7 +1873,7 @@ case 'welcome 0':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴??𝑻𝑺𝑼???? ??𝑶𝑻??`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 let gwekkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -1939,7 +1884,7 @@ let gwekkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(gwekkje)
 break
 
@@ -1960,7 +1905,7 @@ let gwekkkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkkje)
 break
 
@@ -1976,7 +1921,7 @@ let gwekkhkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkje)
 break
 
@@ -1997,7 +1942,7 @@ let gwekkkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkkj1e)
 break
 
@@ -2018,7 +1963,7 @@ let gwekkkjiie = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkkjiie)
 break
 
@@ -2039,7 +1984,7 @@ break
 case 'antilink-enable':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})     
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})     
 if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (isAntiLink) return reply('Sudah Aktif Kak')
 antilink.push(from)
@@ -2156,7 +2101,7 @@ client.groupDemoteAdmin(from, mentioned)
 }
 break
 				
-//case 'add':\\   
+/*case 'add':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
@@ -2170,21 +2115,26 @@ client.groupAdd(from, [num])
 console.log('Error :', e)
 reply('Gagal menambahkan target, mungkin karena di private')
 }
-break
+break*/
 
 case 'add':
-if (!isRegistered) return reply(ind.noregis())     
+try {
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
 if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-reply(`_untuk menggunakan fitur add silahkan tag pesan sesorang yang sudah keluar grup lali ketik #add, cara guna seperti kick reply_`)
+quotedis = mek.message.extendedTextMessage.contextInfo.participant
+await client.groupAdd(from, [quotedis])
+} catch (e) {
+console.log('Error :', e)
+reply('_tag pesan orang yang keluar tadi!!!_')
+}
 break
 
 case 'kick':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return client.sendMessage(from, `\`\`\`▢ BOT HARUS ADMIN ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - ??𝑰𝑻𝑺𝑼𝑯𝑨 𝑩𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 if (mek.message.extendedTextMessage.contextInfo.participant) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 if (args.length > 15) return ('Hanya Bisa Ngekick 1 Nomor') 
@@ -2209,7 +2159,7 @@ break*/
 if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
 if (!isRegistered) return reply(ind.noregis())     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})     
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
 if (args.length < 1) return reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 if (Number(args[0]) === 1) {
 if (isSimi) return reply('Mode simi sudah aktif')
@@ -2350,7 +2300,7 @@ buttons = [{buttonId:`NIH COWOK`,buttonText:{displayText:`NIH COWOK`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'© Mitsuhabot', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.female))
@@ -2358,7 +2308,7 @@ buttons = [{buttonId:`NIH CEWEK`,buttonText:{displayText:`NIH CEWEK`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'© Mitsuhabot', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan')) 
@@ -2391,7 +2341,7 @@ let o = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(o)
 break
 
@@ -2415,7 +2365,7 @@ let ok = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(ok)
 break
 
@@ -2435,7 +2385,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 break
 
@@ -2453,7 +2403,7 @@ snder : sender
 }
 save.push(H1)
 fs.writeFileSync('./lib/sv.js', JSON.stringify(save))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: mek})		     	 
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
 break
 
 case 'mutual':
@@ -2477,7 +2427,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 break
 
@@ -2489,11 +2439,11 @@ randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
-buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -2506,11 +2456,11 @@ randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
-buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -2523,11 +2473,11 @@ randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
-buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -2542,7 +2492,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buff = await getBuffer(randKey.result)
-client.sendMessage(from, buff, video, {quoted: mek, caption: `Farming Dosa?:v`})
+client.sendMessage(from, buff, video, {quoted: floc2, caption: `Farming Dosa?:v`})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan')) 
 break
 
@@ -2558,7 +2508,7 @@ buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -2587,7 +2537,7 @@ anu1 = `https://some-random-api.ml/canvas/triggered?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2612,7 +2562,7 @@ anu1 = `https://some-random-api.ml/canvas/passed?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2637,7 +2587,7 @@ anu1 = `https://some-random-api.ml/canvas/jail?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2662,7 +2612,7 @@ anu1 = `https://some-random-api.ml/canvas/comrade?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2687,7 +2637,7 @@ anu2 = `https://some-random-api.ml/canvas/wasted?avatar=${teks}`
 exec(`wget ${anu2} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2700,10 +2650,10 @@ case 'makegroup':
 if (!isRegistered) return reply(ind.noregis())
 if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (args.length < 1) return reply(`Beri Tag + Teks Pada Perintah =>\n\n.makegroup @member|nameGroup`)
 const aineloh = body.slice(11)
 const ainenihh = aineloh.split("|")[0]
 const okelahh = aineloh.split("|")[1].replace("@","")
-if (args.length < 1) return reply(`Beri Tag + Teks Pada Perintah =>\n\n.makegroup @member|nameGroup`)
 client.groupCreate(`${ainenihh}`, [`62858266304780@s.whatsapp.net`,`${okelahh}@s.whatsapp.net`])
 reply('_Sucses creategroup_')
 break
@@ -2714,7 +2664,7 @@ if (args.length < 1) return reply(`[❗] Cara mengirim pesan kepada pengguna wha
 var FG = body.slice(8)
 var F1 = FG.split("|")[0];
 var F2 = FG.split("|")[1];
-client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 reply('Berhasil mengirim pesan...')
 break
 				
@@ -2762,7 +2712,7 @@ buttons = [{buttonId:`START`,buttonText:{displayText:'START'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
 contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 break
 
@@ -2773,9 +2723,9 @@ const p2 = hewan[Math.floor(Math.random() * hewan.length)]
 const p3 = hewan[Math.floor(Math.random() * hewan.length)]
 buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1},{buttonId:`GET`,buttonText:{displayText:'GET'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`Tanggal ${date}\n©Mitsuhabot`, imageMessage: imageMsg,
+buttonsMessage = {footerText:`Tanggal ${date}\n❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`, imageMessage: imageMsg,
 contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  ?? | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : ??<=====`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
 break
               
@@ -2795,7 +2745,7 @@ let hot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: fakeimage}) 
 await client.relayWAMessage(hot)
 break
                  
@@ -2820,9 +2770,9 @@ if (!isRegistered) return reply(ind.noregis())
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
+buttonsMessage = {footerText:`❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 break
 
@@ -2847,7 +2797,7 @@ contentText:`「 \`\`\`SUKSES REGISTRASI\`\`\` 」\n\n
 \`\`\`❏ Ns: ${seriTod}\`\`\`
 \`\`\`❏ Total Pengguna: ${_registered.length}\`\`\`
 `,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 ??𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 ??𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
 break*/
 
@@ -2858,7 +2808,6 @@ case 'verify':
 case 'erify':
 case 'ogin':
 if (isRegistered) return reply(`_kamu telah verify sebelumnya_`) 
-addLevelingId(sender)
 serinya = createSerial(15)
 _registered.push(serinya)
 fs.writeFileSync('./src/pengguna.json', JSON.stringify(_registered))
@@ -2869,7 +2818,7 @@ addRegisteredUser(sender, serinya)
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`🐧 *SUCCESS VERIFY* 🐧`
-sendButLocation(from, `${teks}`, `_kamu telah terverifikasi √_\n_runtime : ${kyun(uptime)}_`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `_kamu telah terverifikasi √_\n_runtime : ${kyun(uptime)}_`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*case 'wait':
@@ -2948,7 +2897,7 @@ case 'del':
 case 'hapus':
 case 'delete':
 if (!isRegistered) return reply(ind.noregis())     
-client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
+client.deleteMessage(from, { id: fvn.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 break
 				
 case 'neko':
@@ -2958,11 +2907,11 @@ E2 = E1[Math.floor(Math.random() * E1.length)]
 reply(`_「⏳」 wait sedang proses_`)
 B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
-buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
+buttonsMessage = {footerText:`❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`, imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek, thumbnail: thumb})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2, thumbnail: thumb})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -2972,7 +2921,7 @@ if (!isRegistered) return reply(ind.noregis())
 const trut = ['Pernah suka sama siapa aja? berapa lama?', 'Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)', 'apa ketakutan terbesar kamu?', 'pernah suka sama orang dan merasa orang itu suka sama kamu juga?', 'Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?', 'pernah gak nyuri uang nyokap atau bokap? Alesanya?', 'hal yang bikin seneng pas lu lagi sedih apa', 'pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?', 'pernah jadi selingkuhan orang?', 'hal yang paling ditakutin', 'siapa orang yang paling berpengaruh kepada kehidupanmu', 'hal membanggakan apa yang kamu dapatkan di tahun ini', 'siapa orang yang bisa membuatmu sange', 'siapa orang yang pernah buatmu sange', '(bgi yg muslim) pernah ga solat seharian?', 'Siapa yang paling mendekati tipe pasangan idealmu di sini', 'suka mabar(main bareng)sama siapa?', 'pernah nolak orang? alasannya kenapa?', 'Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget', 'pencapaian yang udah didapet apa aja ditahun ini?', 'kebiasaan terburuk lo pas di sekolah apa?']
 const ttrth = trut[Math.floor(Math.random() * trut.length)]
 truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-client.sendMessage(from, truteh, image, { caption: '*Truth*\n\n' + ttrth, quoted: mek })
+client.sendMessage(from, truteh, image, { caption: '*Truth*\n\n' + ttrth, quoted: floc2 })
 break
 
 case 'dare':
@@ -2980,18 +2929,18 @@ if (!isRegistered) return reply(ind.noregis())
 const dare = ['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu', 'telfon crush/pacar sekarang dan ss ke pemain', 'pap ke salah satu anggota grup', 'Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo', 'ss recent call whatsapp', 'drop emot 🤥 setiap ngetik di gc/pc selama 1 hari', 'kirim voice note bilang can i call u baby?', 'drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu', 'pake foto sule sampe 3 hari', 'ketik pake bahasa daerah 24 jam', 'ganti nama menjadi "gue anak lucinta luna" selama 5 jam', 'chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you', 'prank chat mantan dan bilang " i love u, pgn balikan', 'record voice baca surah al-kautsar', 'bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini', 'sebutkan tipe pacar mu!', 'snap/post foto pacar/crush', 'teriak gajelas lalu kirim pake vn kesini', 'pap mukamu lalu kirim ke salah satu temanmu', 'kirim fotomu dengan caption, aku anak pungut', 'teriak pake kata kasar sambil vn trus kirim kesini', 'teriak " anjimm gabutt anjimmm " di depan rumah mu', 'ganti nama jadi " BOWO " selama 24 jam', 'Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 const der = dare[Math.floor(Math.random() * dare.length)]
 tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-client.sendMessage(from, tod, image, { quoted: mek, caption: '*Dare*\n\n' + der })
+client.sendMessage(from, tod, image, { quoted: floc2, caption: '*Dare*\n\n' + der })
 break
 			
 case 'waifu':
 if (!isRegistered) return reply(ind.noregis())
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
-buttons = [{buttonId:`⫹⫺ ${command} ⫹⫺`,buttonText:{displayText:`⫹⫺ ${command} ⫹⫺`},type:1}]
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'© Mitsuhabot', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -3006,7 +2955,7 @@ reply(ind.wait())
 n = JSON.parse(JSON.stringify(ahu));
 nimek = n[Math.floor(Math.random() * n.length)];
 pok = await getBuffer(nimek)
-client.sendMessage(from, pok, image, { quoted: mek, caption: `*PINTEREST*` })
+client.sendMessage(from, pok, image, { quoted: floc2, caption: `*PINTEREST*` })
 break
 
 /*case 'pinterest':
@@ -3028,41 +2977,41 @@ break
                                 "x-app-version": "9a236a4",
                                 "x-pinterest-appstate": "active",
                                 "x-requested-with": "XMLHttpRequest"
-                            },
+},
                             "referrer": "https://www.pinterest.com/",
                             "referrerPolicy": "origin",
                             "body": null,
                             "method": "GET",
                             "mode": "cors"
-                        }).then((res) => res.json())
+}).then((res) => res.json())
                             .then((json) => {
                                 const generatepin = json.resource_response.data.results[Math.floor(Math.random() * (json.resource_response.data.results.length))]
                                 var result = [];
                                 result.push({
                                     link: generatepin.images.orig.url
-                                })
+ })
                                 resolve(result)
-                            }).catch(reject)
-                    })
-                }
+}).catch(reject)
+})
+}
 
                 const pinterest = (query) => new Promise((resolve, reject) => {
                     pinterestSearch(query).then((data) => {
                         resolve({
                             status: 200,
                             image: data[0].link
-                        })
-                    }).catch(reject)
-                })
+})
+}).catch(reject)
+})
 
                 pinterest(q).then(async(res) => {
                     await reply(mess.wait)
                     await sendFileFromUrl(from, res.image, `Hasil Pencarian: ${q}`, mek)
-                }).catch(async(err) => {
+}).catch(async(err) => {
                     sendMess(ownerNumber, 'Pinterest Error : ' + err)
                     console.log(color('[Pinterest]', 'red'), err)
                     reply(mess.error.api)
-                })
+})
                 break*/
 					
 case 'slow':
@@ -3074,7 +3023,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=0.7,asetrate=44100" ${ran}`, (err, st
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 hah = fs.readFileSync(ran)
-client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
 break
@@ -3088,7 +3037,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=1.6,asetrate=22100" ${ran}`, (err, st
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 hah = fs.readFileSync(ran)
-client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
 break
@@ -3104,7 +3053,7 @@ exec(`ffmpeg -i ${media} ${ran}`, (err) => {
 fs.unlinkSync(media)
 if (err) return reply(`Err: ${err}`)
 buffer453 = fs.readFileSync(ran)
-client.sendMessage(from, buffer453, audio, { mimetype: 'audio/mp4', quoted: mek })
+client.sendMessage(from, buffer453, audio, { mimetype: 'audio/mp4', quoted: floc2 })
 fs.unlinkSync(ran)
 })
 } else {
@@ -3121,7 +3070,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=0.5,asetrate=65100" ${ran}`, (err, st
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 hah = fs.readFileSync(ran)
-client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
 break
@@ -3135,7 +3084,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=1.63,asetrate=44100" ${ran}`, (err, s
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 uhh = fs.readFileSync(ran)
-client.sendMessage(from, uhh, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+client.sendMessage(from, uhh, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
 break
@@ -3222,7 +3171,7 @@ var options = {
 text: teks1,
 contextInfo: {mentionedJid: [nomor]},
 }
-client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩????𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
 reply('Maaf ketidak nyamanan nya, kami akan memperbaikin nya secepatnya.\n\n-> Laporan main main akan dibanned dan ditegur Owner bot')
 break 
                   
@@ -3239,7 +3188,7 @@ buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 break
          
@@ -3256,7 +3205,7 @@ Time : tem
 }
 _komentar.push(teks)
 fs.writeFileSync('./lib/komentar.js', JSON.stringify(_komentar))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: mek})
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})
 break
 
 case 'bug':
@@ -3318,7 +3267,7 @@ gwekkhkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkje)
 break
 
@@ -3347,7 +3296,7 @@ for (let sensi of absen) {
 teks += `=-> @${sensi.split('@')[0]} ✅\n`
 }
 teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
-client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": absen}})
+client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2, contextInfo: {"mentionedJid": absen}})
 break
 
 case 'absen':
@@ -3366,7 +3315,7 @@ teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen
 reply(`List Presentasi Hadir Telah Siap\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`)
 setTimeout( () => {
 reply(`Waktu Absensi Telah Habis`)
-client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": absen}})
+client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2, contextInfo: {"mentionedJid": absen}})
 }, tem)
 setTimeout( () => {
 ini = absen.indexOf(from)
@@ -3391,15 +3340,15 @@ reply(`Woke, Sudah Di Bintangin Bot!`)
 break
 
 case 'gtts':
-if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text, {quoted: mek})
+if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text, {quoted: floc2})
 const gtts = require('./lib/gtts')(args[0])
-if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text, {quoted: mek})
+if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text, {quoted: floc2})
 dtt = body.slice(9)
 ranm = getRandom('.mp3')
 dtt.length > 600
 ? reply('Textnya kebanyakan om')
 : gtts.save(ranm, dtt, function() {
-client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: floc2, mimetype: 'audio/mp4', ptt:true})
 fs.unlinkSync(ranm)
 })
 break
@@ -3411,7 +3360,7 @@ for (let i of berbintang) {
 teks += `⬡ *Pesan : ${i.name} > ${i.waktu}*\n${i.teks}\n\n---------------------------\n\n`
 }
 teks += `Total : ${berbintang.length}`
-client.sendMessage(from, teks.trim(), extendedText, {quoted: mek})
+client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 break
 			
@@ -3422,7 +3371,7 @@ for (let i of req) {
 teks += `⬡ *${i.name} > ${i.waktu}*\nPesan : ${i.teks}\n\n---------------------------\n\n`
 }
 teks += `Total : ${req.length}`
-client.sendMessage(from, teks.trim(), extendedText, {quoted: mek})
+client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
 st = { 
@@ -3439,7 +3388,7 @@ var options = {
 text: teks2,
 contextInfo: {mentionedJid: [nomor2]},
 }
-client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩??????`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩??????`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
 break
 
 case 'tebakgambar':
@@ -3452,7 +3401,7 @@ setTimeout( () => {
 client.sendMessage(from, gambar, image, { caption: `Jawablah pertanyaan dengan waktu yang sudah di tentukan _Waktu + 30 second_\n\n*TebakGambar*`})
 }, 0)
 setTimeout( () => {
-client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text, { quoted: mek })
+client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text, { quoted: floc2 })
 }, 30000)
 break
 
@@ -3562,9 +3511,9 @@ uptime = process.uptime()
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
+buttonsMessage = {footerText:`❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 break
 }
@@ -3582,7 +3531,7 @@ let hot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: fkatalok}) 
 await client.relayWAMessage(hot)
 break
 }
@@ -3748,7 +3697,7 @@ let gwkee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 client.relayWAMessage(gwkee)
 break
 }
@@ -3765,7 +3714,7 @@ let gwee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwee)
 break
 }
@@ -3782,7 +3731,7 @@ let gwee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwee)
 break
 }
@@ -3798,21 +3747,22 @@ let gwkee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 client.relayWAMessage(gwkee)
 break
 }
 
 if (buttonsR === 'Hubungi Pusat') {
-client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: mek})
+client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
 reply(`punya masalah dengan bot? silahkan hubungi saya`)
 break
 }
   
 if (buttonsR === 'HOME BACK') {
+await addLevelingId(sender)
 menu2 = fs.readFileSync('./lib/odc.jpeg') 
 menu3 = await client.prepareMessage(from, menu2, MessageType.image) 
-menu4 = [{buttonId:`ALL FEATURE`,buttonText:{displayText:'ALL FEATURE'},type:1},{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}] 
+menu4 = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 menu5 = {
 contentText: "𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶?",
 footerText: `𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu`,
@@ -3820,205 +3770,185 @@ buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
 }
-client.sendMessage(from, menu5, MessageType.buttonsMessage, {quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
+client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
 
 /*getLevel3 = getLevelingLevel(sender)
 uptime = process.uptime()
 jo = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
-•╭────────────────────
-•├❏  nama ${pushname}
-•├❏ setatus ${premi}
-•├❏ pangkat ${role}
-•├❏ level ${getLevel3}
-•├❏ xp ${getLevelingXp(sender)}
-•╰────────────────────
+•  nama ${pushname}
+• setatus ${premi}
+• pangkat ${role}
+• level ${getLevel3}
+• xp ${getLevelingXp(sender)}
 
-•「 *INFORMASI MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}info
-•├❏ ${prefix2}iklan
-•├❏ ${prefix2}donasi
-•├❏ ${prefix2}request
-•╰────────────────────
 
-•「 *EVENT GAMES BOT* 」
-•╭────────────────────
-•├❏ ${prefix2}carspeed
-•├❏ ${prefix2}lotre
-•╰────────────────────
+「 *INFORMASI MENU* 」
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
 
-•「 *URL TO MEDIA TYPE* 」
-•╭────────────────────
-•├❏ ${prefix2}urltoimg
-•╰────────────────────
 
-•「 *PRODUK & VOTING* 」
-•╭────────────────────
-•├❏ ${prefix2}produk
-•├❏ ${prefix2}tambah
-•├❏ ${prefix2}votting
-•├❏ ${prefix2}vote
-•├❏ ${prefix2}dellvote
-•╰────────────────────
+「 *EVENT GAMES BOT* 」
+• ${prefix2}carspeed
+• ${prefix2}lotre
 
-•「 *ULASAN & MUTUAL* 」
-•╭────────────────────
-•├❏ ${prefix2}ulasan
-•├❏ ${prefix2}komentar
-•├❏ ${prefix2}mutual
-•├❏ ${prefix2}save
-•╰────────────────────
 
-•「 *ABSEN & MESSAGES* 」
-•╭────────────────────
-•├❏ ${prefix2}absen
-•├❏ ${prefix2}absensi
-•├❏ ${prefix2}svmess
-•├❏ ${prefix2}listmess
-•╰────────────────────
+「 *URL TO MEDIA TYPE* 」
+• ${prefix2}urltoimg
 
-•「 *GROUP MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cmd
-•├❏ ${prefix2}sider
-•├❏ ${prefix2}hidetag
-•├❏ ${prefix2}fitnah
-•├❏ ${prefix2}change
-•├❏ ${prefix2}revoke
-•├❏ ${prefix2}add
-•├❏ ${prefix2}kick
-•├❏ ${prefix2}promote
-•├❏ ${prefix2}demote
-•├❏ ${prefix2}tagall
-•├❏ ${prefix2}antilink
-•├❏ ${prefix2}antitoxic
-•├❏ ${prefix2}leveling
-•├❏ ${prefix2}welcome
-•╰────────────────────
 
-•「 *ANIME MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}neko
-•├❏ ${prefix2}waifu
-•╰────────────────────
+「 *PRODUK & VOTING* 」
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
 
-•「 *GAMES MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}dungeon
-•├❏ ${prefix2}slot
-•├❏ ${prefix2}truth
-•├❏ ${prefix2}dare
-•├❏ ${prefix2}tebakgambar
-•╰────────────────────
 
-•「 *IMAGE MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cogan
-•├❏ ${prefix2}cecan
-•├❏ ${prefix2}pinterest
-•├❏ ${prefix2}ocr
-•╰────────────────────
+「 *ULASAN & MUTUAL* 」
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
 
-•「 *RANDOM MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cerpen
-•├❏ ${prefix2}ceritahoror
-•├❏ ${prefix2}film
-•├❏ ${prefix2}fakedata
-•├❏ ${prefix2}news
-•├❏ ${prefix2}beasiswa
-•├❏ ${prefix2}ppcouple
-•╰────────────────────
 
-•「 *STICKER MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}sticker
-•├❏ ${prefix2}wasted
-•├❏ ${prefix2}comrade
-•├❏ ${prefix2}jail
-•├❏ ${prefix2}passed
-•├❏ ${prefix2}trigger
-•├❏ ${prefix2}toimg
-•╰────────────────────
+「 *ABSEN & MESSAGES* 」
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
 
-•「 *EDUCATION MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}quiz
-•├❏ ${prefix2}niatsholat
-•├❏ ${prefix2}niatsehari2
-•├❏ ${prefix2}hadist
-•╰────────────────────
 
-•「 *AUDIO/VN MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}fast
-•├❏ ${prefix2}tupai
-•├❏ ${prefix2}gemuk
-•├❏ ${prefix2}slow
-•├❏ ${prefix2}tomp3
-•╰────────────────────
+「 *GROUP MENU* 」
+• ${prefix2}cmd
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}change
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}leveling
+• ${prefix2}welcome
 
-•「 *PREMIUM MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}asupan
-•├❏ ${prefix2}upswtext
-•├❏ ${prefix2}upswimg
-•├❏ ${prefix2}upswvideo
-•╰────────────────────
 
-•「 *SOSIAL MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}upload
-•├❏ ${prefix2}posting
-•├❏ ${prefix2}draft
-•├❏ ${prefix2}blogger
-•╰────────────────────
+「 *ANIME MENU* 」
+• ${prefix2}neko
+• ${prefix2}waifu
 
-•「 *OTHER MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}sharelock
-•├❏ ${prefix2}delete
-•├❏ ${prefix2}pesan
-•├❏ ${prefix2}owner
-•├❏ ${prefix2}report
-•├❏ ${prefix2}timer
-•├❏ ${prefix2}setperintah
-•╰────────────────────
 
-•「 *OWNER MENU* 」
-•╭────────────────────
-•├❏ $
-•├❏ >
-•├❏ =>
-•├❏ ${prefix2}makegroup
-•├❏ ${prefix2}kudet
-•├❏ ${prefix2}leave
-•├❏ ${prefix2}clone
-•├❏ ${prefix2}bc
-•├❏ ${prefix2}addprem
-•├❏ ${prefix2}dellprem
-•├❏ ${prefix2}setbudy
-•├❏ ${prefix2}bug
-•╰────────────────────
+「 *GAMES MENU* 」
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
 
-•「 *THANKS TO* 」
-•╭────────────────────
-•├❏ mhankbarbar
-•├❏ mitsuhabotz
-•├❏ rimurubotz
-•├❏ dimxbotz
-•├❏ rurichan
-•├❏ zak06cheat
-•├❏ ridwan
-•├❏ hafizh
-•╰────────────────────`,
+
+「 *IMAGE MENU* 」
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}pinterest
+• ${prefix2}ocr
+
+
+「 *RANDOM MENU* 」
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
+
+
+「 *STICKER MENU* 」
+• ${prefix2}sticker
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
+
+
+「 *EDUCATION MENU* 」
+• ${prefix2}quiz
+• ${prefix2}niatsholat
+• ${prefix2}niatsehari2
+• ${prefix2}hadist
+
+
+「 *AUDIO/VN MENU* 」
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
+
+
+「 *PREMIUM MENU* 」
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
+
+
+「 *SOSIAL MENU* 」
+• ${prefix2}upload
+• ${prefix2}posting
+• ${prefix2}draft
+• ${prefix2}blogger
+
+
+「 *OTHER MENU* 」
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+• ${prefix2}setperintah
+
+
+「 *OWNER MENU* 」
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
+
+
+「 *THANKS TO* 」
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh
+`,
 "description": `.`,
 "footerText": `© *Copyright By Mitsuha Or Caca*
 Created Language Nodejs`,
 "buttons": [
-{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}
+{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}
 ],
 headerType: 1
 },
@@ -4027,209 +3957,177 @@ await client.relayWAMessage(jo)*/
 break
 }
 
-if (buttonsR === 'ALL FEATURE') {
+if (buttonsR === 'MENU') {
 getLevel3 = getLevelingLevel(sender)
-uptime = process.uptime()
-jo = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
-•╭────────────────────
-•├❏  nama ${pushname}
-•├❏ setatus ${premi}
-•├❏ pangkat ${role}
-•├❏ level ${getLevel3}
-•├❏ xp ${getLevelingXp(sender)}
-•╰────────────────────
+creator = "6285731261728@s.whatsapp.net"
+teks =`「 *PROFILE KAMU* 」
+•  nama ${pushname}
+• setatus ${premi}
+• pangkat ${role}
+• level ${getLevel3}
+• xp ${getLevelingXp(sender)}
 
-•「 *INFORMASI MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}info
-•├❏ ${prefix2}iklan
-•├❏ ${prefix2}donasi
-•├❏ ${prefix2}request
-•╰────────────────────
 
-•「 *EVENT GAMES BOT* 」
-•╭────────────────────
-•├❏ ${prefix2}carspeed
-•├❏ ${prefix2}lotre
-•╰────────────────────
+「 *INFORMASI MENU* 」
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
 
-•「 *URL TO MEDIA TYPE* 」
-•╭────────────────────
-•├❏ ${prefix2}urltoimg
-•╰────────────────────
 
-•「 *PRODUK & VOTING* 」
-•╭────────────────────
-•├❏ ${prefix2}produk
-•├❏ ${prefix2}tambah
-•├❏ ${prefix2}votting
-•├❏ ${prefix2}vote
-•├❏ ${prefix2}dellvote
-•╰────────────────────
+「 *EVENT GAMES BOT* 」
+• ${prefix2}carspeed
+• ${prefix2}lotre
 
-•「 *ULASAN & MUTUAL* 」
-•╭────────────────────
-•├❏ ${prefix2}ulasan
-•├❏ ${prefix2}komentar
-•├❏ ${prefix2}mutual
-•├❏ ${prefix2}save
-•╰────────────────────
 
-•「 *ABSEN & MESSAGES* 」
-•╭────────────────────
-•├❏ ${prefix2}absen
-•├❏ ${prefix2}absensi
-•├❏ ${prefix2}svmess
-•├❏ ${prefix2}listmess
-•╰────────────────────
+「 *URL TO MEDIA TYPE* 」
+• ${prefix2}urltoimg
 
-•「 *GROUP MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cmd
-•├❏ ${prefix2}sider
-•├❏ ${prefix2}hidetag
-•├❏ ${prefix2}fitnah
-•├❏ ${prefix2}change
-•├❏ ${prefix2}revoke
-•├❏ ${prefix2}add
-•├❏ ${prefix2}kick
-•├❏ ${prefix2}promote
-•├❏ ${prefix2}demote
-•├❏ ${prefix2}tagall
-•├❏ ${prefix2}antilink
-•├❏ ${prefix2}antitoxic
-•├❏ ${prefix2}leveling
-•├❏ ${prefix2}welcome
-•╰────────────────────
 
-•「 *ANIME MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}neko
-•├❏ ${prefix2}waifu
-•╰────────────────────
+「 *PRODUK & VOTING* 」
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
 
-•「 *GAMES MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}dungeon
-•├❏ ${prefix2}slot
-•├❏ ${prefix2}truth
-•├❏ ${prefix2}dare
-•├❏ ${prefix2}tebakgambar
-•╰────────────────────
 
-•「 *IMAGE MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cogan
-•├❏ ${prefix2}cecan
-•├❏ ${prefix2}pinterest
-•├❏ ${prefix2}ocr
-•╰────────────────────
+「 *ULASAN & MUTUAL* 」
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
 
-•「 *RANDOM MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}cerpen
-•├❏ ${prefix2}ceritahoror
-•├❏ ${prefix2}film
-•├❏ ${prefix2}fakedata
-•├❏ ${prefix2}news
-•├❏ ${prefix2}beasiswa
-•├❏ ${prefix2}ppcouple
-•╰────────────────────
 
-•「 *STICKER MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}sticker
-•├❏ ${prefix2}wasted
-•├❏ ${prefix2}comrade
-•├❏ ${prefix2}jail
-•├❏ ${prefix2}passed
-•├❏ ${prefix2}trigger
-•├❏ ${prefix2}toimg
-•╰────────────────────
+「 *ABSEN & MESSAGES* 」
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
 
-•「 *EDUCATION MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}quiz
-•├❏ ${prefix2}niatsholat
-•├❏ ${prefix2}niatsehari2
-•├❏ ${prefix2}hadist
-•╰────────────────────
 
-•「 *AUDIO/VN MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}fast
-•├❏ ${prefix2}tupai
-•├❏ ${prefix2}gemuk
-•├❏ ${prefix2}slow
-•├❏ ${prefix2}tomp3
-•╰────────────────────
+「 *GROUP MENU* 」
+• ${prefix2}cmd
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}change
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}leveling
+• ${prefix2}welcome
 
-•「 *PREMIUM MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}asupan
-•├❏ ${prefix2}upswtext
-•├❏ ${prefix2}upswimg
-•├❏ ${prefix2}upswvideo
-•╰────────────────────
 
-•「 *SOSIAL MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}upload
-•├❏ ${prefix2}posting
-•├❏ ${prefix2}draft
-•├❏ ${prefix2}blogger
-•╰────────────────────
+「 *ANIME MENU* 」
+• ${prefix2}neko
+• ${prefix2}waifu
 
-•「 *OTHER MENU* 」
-•╭────────────────────
-•├❏ ${prefix2}sharelock
-•├❏ ${prefix2}delete
-•├❏ ${prefix2}pesan
-•├❏ ${prefix2}owner
-•├❏ ${prefix2}report
-•├❏ ${prefix2}timer
-•├❏ ${prefix2}setperintah
-•╰────────────────────
 
-•「 *OWNER MENU* 」
-•╭────────────────────
-•├❏ $
-•├❏ >
-•├❏ =>
-•├❏ ${prefix2}makegroup
-•├❏ ${prefix2}kudet
-•├❏ ${prefix2}leave
-•├❏ ${prefix2}clone
-•├❏ ${prefix2}bc
-•├❏ ${prefix2}addprem
-•├❏ ${prefix2}dellprem
-•├❏ ${prefix2}setbudy
-•├❏ ${prefix2}bug
-•╰────────────────────
+「 *GAMES MENU* 」
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
 
-•「 *THANKS TO* 」
-•╭────────────────────
-•├❏ mhankbarbar
-•├❏ mitsuhabotz
-•├❏ rimurubotz
-•├❏ dimxbotz
-•├❏ rurichan
-•├❏ zak06cheat
-•├❏ ridwan
-•├❏ hafizh
-•╰────────────────────`,
-"description": `.`,
-"footerText": `© *Copyright By Mitsuha Or Caca*
-Created Language Nodejs`,
-"buttons": [
-{buttonId:`DAILY EVENT`,buttonText:{displayText:'DAILY EVENT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`ISLAM BETA`,buttonText:{displayText:'ISLAM BETA'},type:1}
-],
-headerType: 1
-},
-}, {quoted: fkatalok})
-await client.relayWAMessage(jo)
+
+「 *IMAGE MENU* 」
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}pinterest
+• ${prefix2}ocr
+
+
+「 *RANDOM MENU* 」
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
+
+
+「 *STICKER MENU* 」
+• ${prefix2}sticker
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
+
+
+「 *EDUCATION MENU* 」
+• ${prefix2}quiz
+• ${prefix2}niatsholat
+• ${prefix2}niatsehari2
+• ${prefix2}hadist
+
+
+「 *AUDIO/VN MENU* 」
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
+
+
+「 *PREMIUM MENU* 」
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
+
+
+「 *SOSIAL MENU* 」
+• ${prefix2}upload
+• ${prefix2}posting
+• ${prefix2}draft
+• ${prefix2}blogger
+
+
+「 *OTHER MENU* 」
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+• ${prefix2}setperintah
+
+
+「 *OWNER MENU* 」
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
+
+
+「 *THANKS TO* 」
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh`
+sendButLocation(from, `${teks}`, `ཿ⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
@@ -4275,34 +4173,57 @@ headerType: 1
 await client.relayWAMessage(gwmkkeje)
 break
 }
+
+if (buttonsR === 'IKLAN') {
+if (!isRegistered) return reply(ind.noregis())
+let gwmgkkeje = await client.prepareMessageFromContent(from, {
+"buttonsMessage": {
+"contentText": `*OPEN JASA SEWA BOT*`,
+"description": `.`,
+"footerText": `
+🛑 *FEATURE FEATURE BOT*:
+- ANTILINK . KICK SEND LINK
+- WELCOME . SAMBUT MEMBER
+- SETTING . PENGATURAN GC
+- PRODUK . PROMOSI BARANG
+- GROUP WA . BANTU CARI GRUP
+- PLAY GAME . GAMES BOT
+
+🛑 *LIST HARGA SEWA BOT*:
+- SEWA DUA MINGGU - 5.000
+- SEWA SATU BULAN - 10.000
+- SEWA PERMANENT - 15.000
+
+🛑 *CONTACT PERSON*:
+- owner - wa.me/6285731261728
+- bot - wa.me/62857312617284
+- payment - qris - gopay - dana
+- note - script bot tidak pasaran
+- dan tidak ada di bot lain.
+- note - script bot full fitur tanpa
+- apikey jadi kemungkinan eror 
+- sangatlah rendah!`,
+"buttons": [
+{buttonId: 'OWNER', buttonText: {displayText: 'OWNER'}, type: 1}
+],
+headerType: 1
+},
+}, {quoted: fkatalok})
+await client.relayWAMessage(gwmgkkeje)
+break
+}
                 
 /*if (body.startsWith(`.${command}`)) 
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek2})  
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22})  
 break
 }*/
 
 /*if (body.startsWith(`X${command}`)) {
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: mek2})  
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22})  
 break
 }*/
-                  
-if (buttonsR === 'ISLAM BETA') {
-reply(`_hallo kaka ingin memilih query?_\n\n1. bacaan niat shalat\n2. bacaan niat sehari hari\n3. hadist riwayat bukhari\n\n_silahkan pilih salah satu dibawah ya lalu ketik angka dan simbolnya saja contoh_ *-QUERY1*`) 
-}
-
-if (budy.includes(`-QUERY1`)) {
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NIAT1-*`)
-}
-
-if (budy.includes(`-QUERY2`)) {
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-DOA1-*`)
-}
-
-if (budy.includes(`-QUERY3`)) {
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HADIST1-*`)
-}
 
 if (budy.includes(`-HADIST1-`)) {
 for (let i of hadist) {
@@ -4747,7 +4668,7 @@ break
 }
 
 if (budy.includes(`Test`)) {
-client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 break
 }
    
@@ -4815,7 +4736,7 @@ headerType: 1
 await client.relayWAMessage(gwmee)
 
             break
-            }
+}
             
                     if (budy.includes(`🦄`)) {
                     var value = body.slice(9)
@@ -4830,7 +4751,7 @@ await client.relayWAMessage(gwmee)
 					var options = {
 					text: `${ucapanWaktu} Pacar Orang :v`,
 					contextInfo: { mentionedJid: mem },
-					quoted: mek
+					quoted: floc2
 					}
 					client.sendMessage(from, options, text, {quoted: faketag3})
 					break
@@ -4855,7 +4776,7 @@ if (buttonsR === 'Tutup') {
               client.groupSettingChange (from, GroupSettingChange.messageSend, true);
               reply(close)
               break
-              }
+}
               if (buttonsR === 'Buka') {
               	  if (!isRegistered) return reply(ind.noregis())     
                     if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
@@ -4867,9 +4788,9 @@ open = {
               contextInfo: { mentionedJid: [sender] }
 }
               client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
               break
-              }
+}
               if (buttonsR === 'Enable W1') {
               	  if (!isRegistered) return reply(ind.noregis())     
                     if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
@@ -4983,7 +4904,7 @@ var ini = cmd.indexOf(from)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
                      reply('「 BERHASIL DI AKTIFKAN 」')
                      break
-                     }
+}
                      
                      if (buttonsR === 'Disable L0') {
 							if (!isRegistered) return reply(ind.noregis())     
@@ -4996,7 +4917,7 @@ var ini = cmd.indexOf(from)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
                      reply('「 BERHASIL DI MATIKAN 」')
                      break
-                     }
+}
                      
 
               
@@ -5010,13 +4931,13 @@ var ini = cmd.indexOf(from)
               const p3 = hewan[Math.floor(Math.random() * hewan.length)]
 		      buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1},{buttonId:`GET`,buttonText:{displayText:'GET'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-              buttonsMessage = {footerText:`Tanggal ${date}\n©Mitsuhabot`, imageMessage: imageMsg,
+              buttonsMessage = {footerText:`Tanggal ${date}\n❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`, imageMessage: imageMsg,
               contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
               client.relayWAMessage(prep)
               
               break
-              }
+}
 
 if (buttonsR === 'GET') {
 	getLevel2 = getLevelingLevel(sender)
@@ -5038,10 +4959,10 @@ if (buttonsR === '10 menit') {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 2500)
 				setTimeout( () => {
-				client.sendMessage(from, `Grup akan ditutup dalam 10 menit`, MessageType.text, { quoted: mek })
+				client.sendMessage(from, `Grup akan ditutup dalam 10 menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
 				break
 }
@@ -5054,10 +4975,10 @@ if (buttonsR === '10 menit') {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 300000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 2500)
 				setTimeout( () => {
-				client.sendMessage(from, `Grup akan ditutup dalam 5 menit`, MessageType.text, { quoted: mek })
+				client.sendMessage(from, `Grup akan ditutup dalam 5 menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
 				break
 }
@@ -5070,10 +4991,10 @@ if (buttonsR === '10 menit') {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 300000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 2500)
 				setTimeout( () => {
-				client.sendMessage(from, `Grup akan dibuka dalam 5 menit`, MessageType.text, { quoted: mek })
+				client.sendMessage(from, `Grup akan dibuka dalam 5 menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
 				break
 }
@@ -5086,10 +5007,10 @@ if (buttonsR === '10 menit') {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 2500)
 				setTimeout( () => {
-				client.sendMessage(from, `Grup akan dibuka dalam 10 menit`, MessageType.text, { quoted: mek })
+				client.sendMessage(from, `Grup akan dibuka dalam 10 menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
 				break
 }
@@ -5101,10 +5022,10 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 500000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text, { quoted: mek })
+				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
 				break
 }
@@ -5116,10 +5037,10 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,200,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 1,100,000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text, { quoted: mek })
+				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
 				break
 }
@@ -5131,10 +5052,10 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,800,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 1,700,000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text, { quoted: mek })
+				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
 				break
 }
@@ -5145,50 +5066,50 @@ setTimeout( () => {
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
               contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               
               break
-              }
+}
               if (buttonsR === 'START') {
               E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
-				await client.sendMessage(from, `Searching Monster...`, MessageType.text, { quoted: mek })
+				await client.sendMessage(from, `Searching Monster...`, MessageType.text, { quoted: floc2 })
 				
 			   youke = fs.readFileSync('./lib/odc.jpeg')
 		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1},{buttonId:`LANTAI 2`,buttonText:{displayText:'LANTAI 2'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Skull.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Monster Tipe Pengguna Pedang Yang Ahli, Konon Pada Tahun 1567 Di Amerika Serikat Seorang Kesatria Berjuang Sendiri Melawan Penjajahan`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               break
-              }        
+}        
              if (buttonsR === 'LANTAI 2') {
               E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
-				await client.sendMessage(from, `Searching Monster...`, MessageType.text, { quoted: mek })
+				await client.sendMessage(from, `Searching Monster...`, MessageType.text, { quoted: floc2 })
 				
 			   youke = fs.readFileSync('./lib/odc.jpeg')
 		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Slime.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Slime Atau Sering Disebut Juga Lendir Memiliki Skill Hebat Ia Mampu Membelah Dirinya Menjadi Banyak Hingga Membuat Lawan Kuwalahan Menghadapinya`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               break
-              }
+}
 
 if (buttonsR === 'SERANG ⚔') {
 buttons = [{buttonId:`BUY`,buttonText:{displayText:'BUY'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`HARGA 1 PERALATAN DI BANDROL DENGAN HARGA 1000 XP`, imageMessage: imageMsg,
               contentText:`*PERALATAN PERANG*`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               addLevelingXp(sender, -1000)
               break
-              }
+}
 
 if (buttonsR === 'BUY') {
 vs = ["WIN","LOSE","LOSE"]
@@ -5198,7 +5119,7 @@ setTimeout( () => {
 			  creator = "6285731261728@s.whatsapp.net"
 teks =`*PERTEMPURAN SELESAI*`
 sendButLocation(from, `${teks}`, `Hasil Pertempuran Kamu Adalah ( *${mk}* ) Silahkan Kamu Claim Hadiah Yang Sudah Di Sediakan`, {jpegThumbnail:fakeimage}, [{buttonId:`${mk}`,buttonText:{displayText:`${mk}`},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-			  }, 15000)
+			}, 15000)
 break
 }
 if (buttonsR === 'LOSE') {
@@ -5215,8 +5136,8 @@ reply(`Kamu Mendapatkan Xp Sebanyak 1500, Dan Levelmu Naik 1`)
 break
 }
               
-			  if (buttonsR === 'TOKO PRODUK') {
-			        if (!isRegistered) return reply(ind.noregis())   
+			  if (budy.includes(`SHARE`)){
+			        
 		      data = fs.readFileSync('./lib/produk.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5225,11 +5146,27 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{b
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
              break
-             }
-           if (buttonsR === '⫹⫺ cecan ⫹⫺') {
+}
+             
+             if (budy.includes(`READY`)){
+			        
+		      data = fs.readFileSync('./lib/produk.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{buttonId:`TAMBAH 📦`,buttonText:{displayText:'TAMBAH 📦'},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
+buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
+contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.relayWAMessage(prep)
+             break
+}
+             
+           if (buttonsR === '么 cecan 么') {
 			  if (!isRegistered) return reply(ind.noregis())
 			    data = fs.readFileSync('./lib/apirandom.js');
 				jsonData = JSON.parse(data);
@@ -5237,16 +5174,16 @@ client.relayWAMessage(prep)
 				randKey = jsonData[randIndex];
               /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
-		      buttons = [{buttonId:`⫹⫺ cecan ⫹⫺`,buttonText:{displayText:`⫹⫺ cecan ⫹⫺`},type:1}]
+		      buttons = [{buttonId:`么 cecan 么`,buttonText:{displayText:`么 cecan 么`},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               break
-              }
-              if (buttonsR === '⫹⫺ cogan ⫹⫺') {
+}
+              if (buttonsR === '么 cogan 么') {
 			  if (!isRegistered) return reply(ind.noregis())
 			    data = fs.readFileSync('./lib/apirandom.js');
 				jsonData = JSON.parse(data);
@@ -5254,26 +5191,26 @@ client.relayWAMessage(prep)
 				randKey = jsonData[randIndex];
               /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
-		      buttons = [{buttonId:`⫹⫺ cogan ⫹⫺`,buttonText:{displayText:`⫹⫺ cogan ⫹⫺`},type:1}]
+		      buttons = [{buttonId:`么 cogan 么`,buttonText:{displayText:`么 cogan 么`},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               break
 }
             
  
-				if (buttonsR === '⫹⫺ waifu ⫹⫺') {
+				if (buttonsR === '么 waifu 么') {
 				if (!isRegistered) return reply(ind.noregis())
               b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
-		      buttons = [{buttonId:`⫹⫺ waifu ⫹⫺`,buttonText:{displayText:`⫹⫺ waifu ⫹⫺`},type:1}]
+		      buttons = [{buttonId:`么 waifu 么`,buttonText:{displayText:`么 waifu 么`},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-              buttonsMessage = {footerText:'©Mitsuhabot', imageMessage: imageMsg,
+              buttonsMessage = {footerText:'❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               break
@@ -5298,18 +5235,18 @@ fs.writeFileSync('./src/Star2.json', JSON.stringify(dislike))
 reply(`Terimkasih Atas Ulasannya Kami Harap Kamu Dapat Menikmati Bot Dengan Bijak Dan Baik`)
 break
 }
-if (buttonsR === '⫹⫺ neko ⫹⫺') {
+if (buttonsR === '么 neko 么') {
 if (!isRegistered) return reply(ind.noregis())
 			  E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
 			  reply(`_「⏳」 wait sedang proses_`)
 			  B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
-		      buttons = [{buttonId:`⫹⫺ neko ⫹⫺`,buttonText:{displayText:`⫹⫺ neko ⫹⫺`},type:1}]
+		      buttons = [{buttonId:`么 neko 么`,buttonText:{displayText:`么 neko 么`},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-              buttonsMessage = {footerText:`©Mitsuhabot`, imageMessage: imageMsg,
+              buttonsMessage = {footerText:`❬⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`, imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek, thumbnail: thumb})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2, thumbnail: thumb})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
 			break
@@ -5331,7 +5268,7 @@ deskripsi : biopro
 produk.push(H1)
 fs.writeFileSync(`./lib/${randKey.nomor}.jpeg`, delb)
 fs.writeFileSync('./src/produk.js', JSON.stringify(produk))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: mek})		     	 
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
 break
 }
 if (buttonsR === 'NEXT 📦') {
@@ -5344,19 +5281,19 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT ??'},type:1},{but
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": `DEV MITSUHA : ${date}`,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
               break
-              }
+}
               
               if (buttonsR === 'LEAVE NOW') {
               	    if (!isRegistered) return reply(ind.noregis())     
                     if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
                     if (isGroupAdmins || isOwner) {
                     	client.groupLeave(from)
-                    } else {
+} else {
                         reply(mess.only.admin)
-                    }
+}
 break
 }
 
@@ -5380,7 +5317,7 @@ await client.relayWAMessage(gwetkhhkkke)
 break
 }
       
-if (buttonsR === '⫹⫺ cerita_horor ⫹⫺') {
+if (buttonsR === '么 cerita_horor 么') {
 if (!isRegistered) return reply(ind.noregis())
 data = fs.readFileSync('./lib/horor.js');
 jsonData = JSON.parse(data);
@@ -5388,11 +5325,11 @@ randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
-buttons = [{buttonId:`⫹⫺ cerita_horor ⫹⫺`,buttonText:{displayText:`⫹⫺ cerita_horor ⫹⫺`},type:1}]
+buttons = [{buttonId:`么 cerita_horor 么`,buttonText:{displayText:`么 cerita_horor 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -5411,7 +5348,7 @@ buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 break
 }
@@ -5428,7 +5365,7 @@ buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -5450,7 +5387,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 break
 }
@@ -5471,7 +5408,7 @@ let ot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(ot)
 break
 }
@@ -5498,7 +5435,7 @@ let gwekke = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekke)
 break
 }
@@ -5518,7 +5455,7 @@ gwetkke = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(gwetkke)
 break
 }
@@ -5538,7 +5475,7 @@ gwekyyke = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(gwekyyke)
 break
 }
@@ -5558,7 +5495,7 @@ gwetkke = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(gwetkke)
 break
 }
@@ -5584,7 +5521,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 break
 }
@@ -5615,7 +5552,7 @@ let io = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(io)
 break
 }
@@ -5695,7 +5632,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 if (!isGroup) return
 if (!isAntiToxic) return
@@ -5719,7 +5656,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 if (!isGroup) return
 if (!isAntiToxic) return
@@ -5743,7 +5680,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 if (!isGroup) return
 if (!isAntiToxic) return
@@ -5767,7 +5704,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 if (!isGroup) return
 if (!isAntiToxic) return
@@ -5791,7 +5728,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 if (!isGroup) return
 if (!isAntiToxic) return
@@ -5815,7 +5752,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 if (!isGroup) return
 if (!isAntiToxic) return
@@ -5839,7 +5776,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: mek})
+}, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 if (!isGroup) return
 if (!isAntiToxic) return
@@ -5907,7 +5844,7 @@ reply(stdout)
 if (budy.startsWith('>')){
 if (!isOwner) return
 try {
-return client.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+return client.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: floc2})
 } catch(err) {
 e = String(err)
 reply(e)
@@ -5971,7 +5908,7 @@ break
 					} else {
 						return //console.log(color('[WARN]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
 					}
-  }   
+}   
 		} catch (e) {
 			console.log('Error : %s', color(e, 'red'))
 		}
