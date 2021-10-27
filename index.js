@@ -1400,7 +1400,7 @@ buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
 }
-client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
+client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: floc2, contextInfo: {forwardingScore: 508, isForwarded: true}})
 break
  
 /*case 'menu':
@@ -1411,7 +1411,7 @@ buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`O
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu', imageMessage: imageMsg,
 contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶? `,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: fkatalok})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break*/
@@ -2702,7 +2702,7 @@ let gwmkkee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: fkatalok})
+}, {quoted: floc2})
 await client.relayWAMessage(gwmkkee)
 break
             
@@ -2733,7 +2733,7 @@ case 'author':
 case perintah_owner:
 case 'creator':
 if (!isRegistered) return reply(ind.noregis())    
-await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
 let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `Apakah Kamu Butuh Info Dari Owner Ku?`,
@@ -2836,43 +2836,45 @@ reply(err)
 reply('Foto aja mas')
 }
 break*/
-
+					
 case perintah_info:
 if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
 if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
 linkgc = await client.groupInviteCode (from)
+ppimg = await client.getProfilePicture(from)
+ppnya = await getBuffer(ppimg)
 me = client.user
 uptime = process.uptime()
 var G1 = await client.groupMetadata(from)
 creator = "6285731261728@s.whatsapp.net"
-teks =`*〔INFO MITSUHA WHATSAPP〕*\n
-🤖 nama : ${me.name}
-📞 nomor : ${me.jid.split('@')[0]}
-#⃣ prefix : MULTI PREFIX
-⌚ runtime : ${kyun(uptime)}
-📩 total hit : ${hit_today.length}
-⭐ pengguna premium : ${premium.length}
-👥 total pengguna : ${_registered.length}
-🗃 total chat : ${tchat}
-📦 block kontak : ${blocked.length}
+teks =`*( INFO MITSUHA WHATSAPP )*\n
+\`\`\`nama : ${me.name}\`\`\`
+\`\`\`nomor : ${me.jid.split('@')[0]}\`\`\`
+\`\`\`prefix : MULTI PREFIX\`\`\`
+\`\`\`runtime : ${kyun(uptime)}\`\`\`
+\`\`\`total hit : ${hit_today.length}\`\`\`
+\`\`\`user premium : ${premium.length}\`\`\`
+\`\`\`total pengguna : ${_registered.length}\`\`\`
+\`\`\`total chat : ${tchat}\`\`\`
+\`\`\`block kontak : ${blocked.length}\`\`\`
 
-*〔INFO GROUP WHATSAPP〕*\n
-💻 cek status antilink : ${anlink}
-🛠 cek status antitoxic : ${anto}
-🗡 cek status leveling : ${lepel}
-🔮 cek status simisimi : ${sim}
-🗑 pengguna antilink : ${antilink.length}
-🔧 pengguna antitoxic : ${antitoxic.length}
-💷 pengguna leveling : ${_leveling.length}
-📮 pengguna simisimi : ${samih.length}
-📹 jumlah anggota grup : ${groupMembers.length}
-📋 jumlah admin grup : ${groupAdmins.length}
-🏮 group id : ${G1.id}
-🖱 link grup : https://chat.whatsapp.com/${linkgc}`
-sendButLocation(from, `${teks}`, `INFO BOT - INFO GROUP`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+*( INFO GROUP WHATSAPP )*\n
+\`\`\`status antilink : ${anlink}\`\`\`
+\`\`\`status antitoxic : ${anto}\`\`\`
+\`\`\`status leveling : ${lepel}\`\`\`
+\`\`\`status simisimi : ${sim}\`\`\`
+\`\`\`user antilink : ${antilink.length}\`\`\`
+\`\`\`user antitoxic : ${antitoxic.length}\`\`\`
+\`\`\`user leveling : ${_leveling.length}\`\`\`
+\`\`\`user simisimi : ${samih.length}\`\`\`
+\`\`\`member grup : ${groupMembers.length}\`\`\`
+\`\`\`admin grup : ${groupAdmins.length}\`\`\`
+\`\`\`group id : ${G1.id}\`\`\`
+\`\`\`link grup : https://chat.whatsapp.com/${linkgc}\`\`\``
+sendButLocation(from, `${teks}`, `INFO BOT - INFO GROUP`,{jpegThumbnail:ppnya}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
-					
+
 case 'ocr':
 if (!isRegistered) return reply(ind.noregis())     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -3519,7 +3521,7 @@ break
 }
 	
 if (buttonsR === 'OWNER') {
-await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
 let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `Apakah Kamu Butuh Info Dari Owner Ku?`,
@@ -3531,13 +3533,13 @@ let hot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: fkatalok}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(hot)
 break
 }
 
 if (buttonsR === 'OWNER BOT') {
-await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: fkatalok})
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
 break
 }
 
@@ -3770,7 +3772,7 @@ buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
 }
-client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: fkatalok, contextInfo: {forwardingScore: 508, isForwarded: true}})
+client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: floc2, contextInfo: {forwardingScore: 508, isForwarded: true}})
 
 /*getLevel3 = getLevelingLevel(sender)
 uptime = process.uptime()
@@ -3952,7 +3954,7 @@ Created Language Nodejs`,
 ],
 headerType: 1
 },
-}, {quoted: fkatalok})
+}, {quoted: floc2})
 await client.relayWAMessage(jo)*/
 break
 }
@@ -4126,7 +4128,7 @@ teks =`「 *PROFILE KAMU* 」
 • rurichan
 • zak06cheat
 • ridwan
-• hafizh`
+• hafizh\n`
 sendButLocation(from, `${teks}`, `ཿ⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
@@ -4169,7 +4171,7 @@ let gwmkkeje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: fkatalok})
+}, {quoted: floc2})
 await client.relayWAMessage(gwmkkeje)
 break
 }
@@ -4208,7 +4210,7 @@ let gwmgkkeje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: fkatalok})
+}, {quoted: floc2})
 await client.relayWAMessage(gwmgkkeje)
 break
 }
@@ -4730,7 +4732,7 @@ headerType: 1
 },
 					
 
-}, {quoted: fkatalok})
+}, {quoted: floc2})
 					
  
 await client.relayWAMessage(gwmee)
