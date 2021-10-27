@@ -19,7 +19,7 @@ RUN npm install
 RUN mkdir /Alphab0t7
 WORKDIR /Alphab0t7
 COPY . /Alphab0t7
-RUN python3 -m pip install -r /Alphab0t7/requirements.txt
+RUN python3 -m pip install -r /Whatsapp-Botz/requirements.txt
 ENV TZ=Asia/Jakarta
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
