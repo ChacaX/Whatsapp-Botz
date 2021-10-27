@@ -1652,8 +1652,8 @@ break
 case '+tambah':
 case 'tambah':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isQuotedImage) return reply('tag foto produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
-if(!q) return reply(`tag foto produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
+if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if(!q) return reply(`tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
 biopro = q.split('|')[2]
@@ -1719,8 +1719,8 @@ break
 case 'upload':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
-if (!isQuotedImage) return reply(`tag foto kamu lalu ketik\n#upload caption`)
-if(!q) return reply(`tag foto kamu lalu ketik\n#upload caption`)
+if (!isQuotedImage) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
+if(!q) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
 caption = args.join(" ")
 boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 delb = await client.downloadMediaMessage(boij)
@@ -3239,7 +3239,7 @@ setting.vote = vote
 fs.writeFileSync('./src/settings.json', JSON.stringify(setting, null, '\t'))
 reply(`${vote}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk me votting dan ${prefix2}delvote untuk menghapus vote kamu`)
 setTimeout( () => {
-reply(`*VOTING TELAH BERAKHIR*\n\n${vote}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk me votting dan ${prefix2}delvote untuk menghapus vote kamu`)
+reply(`*VOTING TELAH BERAKHIR*\n\n${vote}\n\n✅ ${yes.length}\n❎ ${no.length}`)
 }, tem)
 setTimeout( () => {
 nol = `Saat Ini Sedang Tidak Ada Voting`
@@ -3259,7 +3259,7 @@ break
 case 'vote':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-gwekkhkje = await client.prepareMessageFromContent(from, {
+gwekkhhhkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `VOTE - BOT\n\n${vote}`,
 "footerText": `Tanda Centang Berarti Setuju, Tanda Silang Artinya Tidak Setuju`,
@@ -3270,7 +3270,7 @@ gwekkhkje = await client.prepareMessageFromContent(from, {
 headerType: 1
 },
 }, {quoted: floc2})
-await client.relayWAMessage(gwekkhkje)
+await client.relayWAMessage(gwekkhhhkje)
 break
 
 case 'dellvote':
@@ -3464,7 +3464,7 @@ break
 
 case 'upswimg':
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
-if (!isQuotedImage) return reply(`_tag foto lalu ketik #${command} dengan caption_`)
+if (!isQuotedImage) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik #${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
 if (isQuotedImage) {
 swew = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -3476,7 +3476,7 @@ break
 
 case 'upswvideo':
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
-if (!isQuotedVideo) return reply(`_tag foto lalu ketik #${command} dengan caption_`)
+if (!isQuotedVideo) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik #${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
 if (isQuotedVideo) {
 swew = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -5255,8 +5255,8 @@ if (!isRegistered) return reply(ind.noregis())
 }
 				if (buttonsR === 'TAMBAH 📦') {
 if (!isRegistered) return reply(ind.noregis()) 
-if (!isQuotedImage) return reply('tag foto produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
-if(!q) return reply(`tag foto produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
+if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if(!q) return reply(`tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
 biopro = q.split('|')[2]
