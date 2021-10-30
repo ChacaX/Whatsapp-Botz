@@ -1389,7 +1389,7 @@ quoted:
 fkatalok})
 break*/
 
-case perintah_help:
+/*case perintah_help:
 case 'menu':
 if (!isRegistered) return reply(ind.noregis())     
 uptime = process.uptime()
@@ -1404,20 +1404,21 @@ headerType: 4,
 imageMessage: menu3.message.imageMessage
 }
 client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: floc2, contextInfo: {forwardingScore: 508, isForwarded: true}})
-break
+break*/
  
-/*case 'menu':
+case perintah_help:
+case 'menu':
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
-fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/Img.jpg'))
+fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:'𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu', imageMessage: imageMsg,
-contentText:`𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶? `,buttons,headerType:4}
+buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
+contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mhankbarbar\n• mitsuhabotz\n• rimurubotz\n• dimxbotz\n• rurichan\n• zak06cheat\n• ridwan\n• hafizh`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
-break*/
+break
 
 case 'allmenu':
 getLevel3 = getLevelingLevel(sender)
@@ -2147,7 +2148,7 @@ quotedis = mek.message.extendedTextMessage.contextInfo.participant
 await client.groupAdd(from, [quotedis])
 } catch (e) {
 console.log('Error :', e)
-reply('_tag pesan orang yang keluar tadi!!!_')
+reply('_reply pesan chat member yang keluar lalu ketik #add_')
 }
 break
 
@@ -3795,18 +3796,16 @@ break
 }
   
 if (buttonsR === 'HOME BACK') {
-uptime = process.uptime()
-menu2 = fs.readFileSync('./lib/odc.jpeg') 
-menu3 = await client.prepareMessage(from, menu2, MessageType.image, {thumbnile: fakeimage}) 
-menu4 = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
-menu5 = {
-contentText: `*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mitsuha\n• mhankbarbar\n• nayla\n• zaky\n• all creator`,
-footerText: `_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_`,
-buttons: menu4,
-headerType: 4,
-imageMessage: menu3.message.imageMessage
-}
-client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: floc2, contextInfo: {forwardingScore: 508, isForwarded: true}})
+getLevel3 = getLevelingLevel(sender)
+b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
+fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
+buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
+buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
+contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mhankbarbar\n• mitsuhabotz\n• rimurubotz\n• dimxbotz\n• rurichan\n• zak06cheat\n• ridwan\n• hafizh`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
 
 /*getLevel3 = getLevelingLevel(sender)
 uptime = process.uptime()
