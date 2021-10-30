@@ -549,18 +549,18 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
 			}
 		    mess = {
-		    wait: '﹝⌬﹞wait proses_',
-			success: '﹝⌬﹞success bro_',
+		    wait: '_﹝⌬﹞wait proses_',
+			success: '_﹝⌬﹞success bro_',
 			error: {
-			stick: '﹝⌬﹞system error_',
-			Iv: '﹝⌬﹞url tidak valid_'
+			stick: '_﹝⌬﹞system error_',
+			Iv: '_﹝⌬﹞url tidak valid_'
 			},
 			only: {
-			group: '﹝⌬﹞hanya bisa di grup_',
-			ownerG: '﹝⌬﹞hanya untuk owner grup_',
-			ownerB: '﹝⌬﹞hanya untuk owner_',
-		    admin: '﹝⌬﹞hanya untuk admin grup_',
-			Badmin: '﹝⌬﹞error, jadikan bot admin_'
+			group: '_﹝⌬﹞hanya bisa di grup_',
+			ownerG: '_﹝⌬﹞hanya untuk owner grup_',
+			ownerB: '_﹝⌬﹞hanya untuk owner_',
+		    admin: '_﹝⌬﹞hanya untuk admin grup_',
+			Badmin: '_﹝⌬﹞error, jadikan bot admin_'
 			}
 			}
             hit_today.push(command)
@@ -1871,10 +1871,10 @@ if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-if (isWelkom) return reply('﹝⌬﹞berhasil di aktifkan_')
+if (isWelkom) return reply('_﹝⌬﹞berhasil di aktifkan_')
 welkom.push(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-reply('﹝⌬﹞berhasil di aktifkan_')
+reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 						
 case 'welcome-disable':
@@ -1885,7 +1885,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 var ini = welkom.indexOf(from)
 welkom.splice(ini, 1)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-reply('﹝⌬﹞berhasil di matikan_')
+reply('_﹝⌬﹞berhasil di matikan_')
 break
 
 case 'welcome':
@@ -2007,10 +2007,10 @@ if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-if (isAntiLink) return reply('﹝⌬﹞berhasil di aktifkan_')
+if (isAntiLink) return reply('_﹝⌬﹞berhasil di aktifkan_')
 antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-reply('﹝⌬﹞berhasil di aktifkan_')
+reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 					
 case 'antilink-disable':
@@ -2022,7 +2022,7 @@ if (!isAntiLink) return reply('Sudah Mati Kak')
 var ini = antilink.indexOf(from)
 antilink.splice(ini, 1)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-reply('﹝⌬﹞berhasil di matikan_')
+reply('_﹝⌬﹞berhasil di matikan_')
 break
 
 case 'antitoxic-disable':
@@ -2033,7 +2033,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 var ini = antitoxic.indexOf(from)
 antitoxic.splice(ini, 1)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-reply('﹝⌬﹞berhasil di matikan_')
+reply('_﹝⌬﹞berhasil di matikan_')
 break
 						
 case 'antitoxic-enable':
@@ -2044,7 +2044,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
 antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-reply('﹝⌬﹞berhasil di aktifkan_')
+reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 
 case 'leveling-enable':
@@ -2055,7 +2055,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
 _leveling.push(from)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
-reply('﹝⌬﹞berhasil di aktifkan_')
+reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 
 case 'leveling-disable':
@@ -2066,7 +2066,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 var ini = _leveling.indexOf(from)
 _leveling.splice(ini, 1)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
-('﹝⌬﹞berhasil di matikan_')
+('_﹝⌬﹞berhasil di matikan_')
 break
         
 case 'sider':
@@ -4835,10 +4835,10 @@ open = {
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-              	if (isWelkom) return reply('﹝⌬﹞berhasil di aktifkan_')
+              	if (isWelkom) return reply('_﹝⌬﹞berhasil di aktifkan_')
 						welkom.push(from)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-						reply('﹝⌬﹞berhasil di aktifkan_')
+						reply('_﹝⌬﹞berhasil di aktifkan_')
 						break
 						}
 						if (buttonsR === 'Disable W0') {
@@ -4850,7 +4850,7 @@ open = {
 							var ini = welkom.indexOf(from)
 						welkom.splice(ini, 1)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-						reply('﹝⌬﹞berhasil di matikan_')
+						reply('_﹝⌬﹞berhasil di matikan_')
 						break
 						}
 						if (buttonsR === 'Enable A1') {
@@ -4859,10 +4859,10 @@ open = {
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-							if (isAntiLink) return reply('﹝⌬﹞berhasil di aktifkan_')
+							if (isAntiLink) return reply('_﹝⌬﹞berhasil di aktifkan_')
 						antilink.push(from)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('﹝⌬﹞berhasil di aktifkan_')
+						reply('_﹝⌬﹞berhasil di aktifkan_')
 						break
 						}
 						
@@ -4872,23 +4872,23 @@ open = {
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-							if (!isAntiLink) return reply('﹝⌬﹞berhasil di matikan_')
+							if (!isAntiLink) return reply('_﹝⌬﹞berhasil di matikan_')
 						var ini = antilink.indexOf(from)
 						antilink.splice(ini, 1)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('﹝⌬﹞berhasil di matikan_')
+						reply('_﹝⌬﹞berhasil di matikan_')
 						break 
 						}
 						
 						if (buttonsR === 'Enable C1') {
 							  if (!isRegistered) return reply(ind.noregis())     
-							if (isCemd) return reply('﹝⌬﹞berhasil di aktifkan_')
+							if (isCemd) return reply('_﹝⌬﹞berhasil di aktifkan_')
 						
 cmd.push(from)
 usercmd.push(sender)
 						fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
 						fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-						reply('﹝⌬﹞berhasil di aktifkan_')
+						reply('_﹝⌬﹞berhasil di aktifkan_')
 						reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
 						break
 						}
@@ -4896,7 +4896,7 @@ usercmd.push(sender)
 						if (buttonsR === 'Disable C0') {
 							  if (!isRegistered) return reply(ind.noregis())
                     
-							if (!isCemd) return reply('﹝⌬﹞berhasil di matikan_')
+							if (!isCemd) return reply('_﹝⌬﹞berhasil di matikan_')
 				
 var ini = cmd.indexOf(from)
 						cmd.splice(ini, 1)
@@ -4904,7 +4904,7 @@ var ini = cmd.indexOf(from)
 						var ini = usercmd.indexOf(sender)
 						usercmd.splice(ini, 1)
 						fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-						reply('﹝⌬﹞berhasil di matikan_')
+						reply('_﹝⌬﹞berhasil di matikan_')
 						break 
 						}
 						
@@ -4917,7 +4917,7 @@ var ini = cmd.indexOf(from)
 							var ini = antitoxic.indexOf(from)
 						antitoxic.splice(ini, 1)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-						reply('﹝⌬﹞berhasil di matikan_')
+						reply('_﹝⌬﹞berhasil di matikan_')
 						break
 						}
 						if (buttonsR === 'Enable T1') {
@@ -4926,10 +4926,10 @@ var ini = cmd.indexOf(from)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-							if (isAntiToxic) return reply('﹝⌬﹞berhasil di aktifkan_')
+							if (isAntiToxic) return reply('_﹝⌬﹞berhasil di aktifkan_')
 						antitoxic.push(from)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-						reply('﹝⌬﹞berhasil di aktifkan_')
+						reply('_﹝⌬﹞berhasil di aktifkan_')
 						break
 						}
 						if (buttonsR === 'Enable L1') {
@@ -4938,10 +4938,10 @@ var ini = cmd.indexOf(from)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-					if (isLevelingOn) return reply('﹝⌬﹞berhasil di aktifkan_')
+					if (isLevelingOn) return reply('_﹝⌬﹞berhasil di aktifkan_')
                     _leveling.push(from)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-                     reply('﹝⌬﹞berhasil di aktifkan_')
+                     reply('_﹝⌬﹞berhasil di aktifkan_')
                      break
 }
                      
@@ -4954,7 +4954,7 @@ var ini = cmd.indexOf(from)
 					var ini = _leveling.indexOf(from)
 						_leveling.splice(ini, 1)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-                     reply('﹝⌬﹞berhasil di matikan_')
+                     reply('_﹝⌬﹞berhasil di matikan_')
                      break
 }
                      
