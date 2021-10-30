@@ -11,7 +11,7 @@ exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
 }
 
 exports.noregis = () => {
-	return`_kamu belum terdaftar di bot, silahkan ketik .verify untuk login ke database bot_`
+	return`_﹝⌬﹞silahkan ketik .verify dulu_`
 }
 
 exports.wait = () => {
