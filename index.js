@@ -100,7 +100,7 @@ const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
 
               vcard = 'BEGIN:VCARD\n' 
               + 'VERSION:3.0\n' 
-              + 'FN: 𓄹〘 𝖒𝖎𝖙𝖘𝖚𝖍𝖆 〙₎₎ 𖠇ツ\n' 
+              + 'FN: OWNER MITSUHA ツ\n' 
               + 'ORG: CREATOR/OWNER BOT;\n' 
               + 'TEL;type=CELL;type=VOICE;waid=6285731261728:+62 85731261728\n'  
               + 'END:VCARD'
@@ -1408,13 +1408,14 @@ break*/
  
 case perintah_help:
 case 'menu':
+uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
-contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mhankbarbar\n• mitsuhabotz\n• rimurubotz\n• dimxbotz\n• rurichan\n• zak06cheat\n• ridwan\n• hafizh`,buttons,headerType:4}
+contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -1520,6 +1521,8 @@ teks =`「 *PROFILE KAMU* 」
 
 「 *STICKER MENU* 」
 • ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
 • ${prefix2}wasted
 • ${prefix2}comrade
 • ${prefix2}jail
@@ -2254,6 +2257,38 @@ reply('Gagal om')
 }
 break
 
+case 'attp':
+				if (!isRegistered) return reply(ind.noregis())
+				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`https://salism3api.pythonanywhere.com/text2gif/?text=${body.slice(5)}`, {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.image} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+			break
+			
+case 'ttp':
+				if (!isRegistered) return reply( ind.noregis())
+				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
+					ranp = getRandom('.png')
+					rano = getRandom('.webp')
+					anu = await fetchJson(`https://salism3api.pythonanywhere.com/text2img/?text=${body.slice(4)}`, {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.image} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+			break
+			
 /*case 'bc':
 if (!isRegistered) return reply(ind.noregis())     
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
@@ -2712,7 +2747,7 @@ let gwmkkee = await client.prepareMessageFromContent(from, {
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617284
+- bot - wa.me/62857312617283
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
@@ -3425,7 +3460,7 @@ var options = {
 text: teks2,
 contextInfo: {mentionedJid: [nomor2]},
 }
-client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - 𝑴𝑰𝑻??𝑼𝑯𝑨 𝑩??????`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© 𝑩𝒀 - ??𝑰𝑻??𝑼𝑯𝑨 𝑩??????`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
 break
 
 case 'tebakgambar':
@@ -3796,13 +3831,14 @@ break
 }
   
 if (buttonsR === 'HOME BACK') {
+uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
-contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mhankbarbar\n• mitsuhabotz\n• rimurubotz\n• dimxbotz\n• rurichan\n• zak06cheat\n• ridwan\n• hafizh`,buttons,headerType:4}
+contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -3908,6 +3944,8 @@ jo = await client.prepareMessageFromContent(from, {
 
 「 *STICKER MENU* 」
 • ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
 • ${prefix2}wasted
 • ${prefix2}comrade
 • ${prefix2}jail
@@ -4093,6 +4131,8 @@ teks =`「 *PROFILE KAMU* 」
 
 「 *STICKER MENU* 」
 • ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
 • ${prefix2}wasted
 • ${prefix2}comrade
 • ${prefix2}jail
@@ -4194,7 +4234,7 @@ let gwmkkeje = await client.prepareMessageFromContent(from, {
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617284
+- bot - wa.me/62857312617283
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
@@ -4233,7 +4273,7 @@ let gwmgkkeje = await client.prepareMessageFromContent(from, {
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617284
+- bot - wa.me/62857312617283
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
@@ -4746,7 +4786,7 @@ break
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617284
+- bot - wa.me/62857312617283
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
