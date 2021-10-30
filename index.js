@@ -61,6 +61,7 @@ const loli = new lolis()*/
 CONST JSON & JS
 ___________________*/
 
+const ban = JSON.parse(fs.readFileSync('./src/ban.json'))
 const rabsen = JSON.parse(fs.readFileSync('./src/rabsen.json'))
 const vote = JSON.parse(fs.readFileSync('./src/vote.json'))
 const clem = JSON.parse(fs.readFileSync('./src/clem.json'))
@@ -598,6 +599,7 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			const isAbsen = isGroup ? absen.includes(sender) : false
 			const isVote = isGroup ? vote.includes(from) : false
 			const isRabsen = isGroup ? rabsen.includes(from) : false
+			const isBan = isGroup ? ban.includes(sender) : false
 			pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
 
 const fvn = {
@@ -1391,7 +1393,8 @@ break*/
 
 /*case perintah_help:
 case 'menu':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 uptime = process.uptime()
 menu2 = fs.readFileSync('./lib/odc.jpeg') 
 menu3 = await client.prepareMessage(from, menu2, MessageType.image, {thumbnile: fakeimage}) 
@@ -1471,6 +1474,8 @@ teks =`「 *PROFILE KAMU* 」
 
 
 「 *GROUP MENU* 」
+• ${prefix2}ban
+• ${prefix2}dellban
 • ${prefix2}cmd
 • ${prefix2}sider
 • ${prefix2}hidetag
@@ -1602,14 +1607,16 @@ ALL FEATURE BOT
 ___________________*/
 
 case 'lotre':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan ketik -LOTRE(angka)- contoh :_\n\n*-LOTRE1-*`)
 break
 
 case 'kudet':
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 ppp = `${args.join(' ')}`
 send = ppp.split("|")[0];
@@ -1636,7 +1643,8 @@ client.sendMessage(from, options, text, {quoted: faketag})
 break
 
 case 'revoke':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1644,7 +1652,8 @@ client.revokeInvite(from)
 break
 
 case 'produk':
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 data = fs.readFileSync('./lib/produk.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -1659,7 +1668,8 @@ break
 
 case '+tambah':
 case 'tambah':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
@@ -1682,6 +1692,7 @@ break
 
 case 'draft':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if(!q) return reply(`*BLOGGER WHATSAPP*\n\nBagikan cerita dan pengalamanmu di blogger dengan cara ketik #blogger lalu isi cerita menarikmu`)
 bodi = args.join(" ")
 st = {
@@ -1694,7 +1705,8 @@ reply(`_success to publish_`)
 break
 
 case 'blogger':
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 view.push(sender)
 fs.writeFileSync('./src/view.json', JSON.stringify(view))
 data = fs.readFileSync('./src/draft.json');
@@ -1711,7 +1723,8 @@ break
 
 case 'postingan':
 case 'posting':
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 data = fs.readFileSync('./lib/sosmed.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -1725,7 +1738,8 @@ client.relayWAMessage(prep)
 break
 
 case 'upload':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 if (!isQuotedImage) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
@@ -1745,6 +1759,7 @@ break
 
 case 'fitnah':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
 if (args.length < 1) return reply(`Usage :\n${prefix}fitnah [@tag|pesan|balasanbot]\n\nEx : \n${prefix}fitnah @tagmember|hai|hai juga`)
 var ainegs = body.slice(8)
@@ -1758,6 +1773,7 @@ break
 
 case 'quiz':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(Soalnya.gambar))
 buttons = [{buttonId:`BENAR`,buttonText:{displayText:`BENAR`},type:1},{buttonId:`SALAH`,buttonText:{displayText:`SALAH`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
@@ -1770,6 +1786,7 @@ break
 					
 case 'hidetag':                 
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)
 var value = body.slice(9)
@@ -1789,7 +1806,8 @@ break
 					
 case 'close-grup':
 case 'close-grub':      
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1804,7 +1822,8 @@ break
 
 case 'open-grup':
 case 'open-grub':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1819,7 +1838,8 @@ case 'grub':
 case 'grup':
 case 'group':
 case 'change':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1838,7 +1858,8 @@ await client.relayWAMessage(gwekke)
 break
 
 case 'setchange':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1857,7 +1878,8 @@ await client.relayWAMessage(gwetkke)
 break
 
 case 'timer':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (args.length < 1) return reply(`Cara Memulai Timer => Silahkan Ketik\n\n.timer waktu => Contoh #timer 06:57`)
 creator = "6285731261728@s.whatsapp.net"
 taime = body.slice(6)
@@ -1871,7 +1893,8 @@ reply(`_﹝⌬﹞berhasil di aktifkan_`)
 break
       
 case 'welcome-enable':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1882,7 +1905,8 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 						
 case 'welcome-disable':
-if (!isRegistered) return reply(ind.noregis())    
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)    
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1895,7 +1919,8 @@ break
 case 'welcome':
 case 'welcome 1':
 case 'welcome 0':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1916,7 +1941,8 @@ break
 case 'antilink':
 case 'antilink 1':
 case 'antilink 0':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1935,7 +1961,8 @@ await client.relayWAMessage(gwekkkje)
 break
 
 case 'cmd':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 let gwekkhkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -1953,7 +1980,8 @@ break
 case 'antitoxic':
 case 'antitoxic 1':
 case 'antitoxic 0':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1974,7 +2002,8 @@ break
 case 'leveling':
 case 'leveling 1':
 case 'leveling 0':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -1994,7 +2023,8 @@ break
 
 case 'tagall':
 case 'tagall1':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
@@ -2007,7 +2037,8 @@ mentions(teks, members_id, true)
 break
           
 case 'antilink-enable':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2018,7 +2049,8 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 					
 case 'antilink-disable':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)    
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2030,7 +2062,8 @@ reply('_﹝⌬﹞berhasil di matikan_')
 break
 
 case 'antitoxic-disable':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2041,7 +2074,8 @@ reply('_﹝⌬﹞berhasil di matikan_')
 break
 						
 case 'antitoxic-enable':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2052,7 +2086,8 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 
 case 'leveling-enable':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2063,7 +2098,8 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 
 case 'leveling-disable':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2088,6 +2124,7 @@ break
                                 
 case 'promote':                                   
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2107,7 +2144,8 @@ client.groupMakeAdmin(from, mentioned)
 break
 
 case 'demote':   
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2127,7 +2165,8 @@ client.groupDemoteAdmin(from, mentioned)
 break
 				
 /*case 'add':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2156,7 +2195,8 @@ reply('_reply pesan chat member yang keluar lalu ketik #add_')
 break
 
 case 'kick':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2182,7 +2222,8 @@ break*/
 
 /*case 'simih':
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
 if (args.length < 1) return reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
@@ -2201,7 +2242,8 @@ reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 break*/
 		
 case 'addprem':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)    
 if (args.length < 1) return reply(`contoh ${prefix + command} 6285298595430\n\natau bisa juga dengan ${prefix + command} tag target`)
 adpr = body.slice(10)
@@ -2211,17 +2253,44 @@ reply(`Berhasil Menambahkan ${adpr} Ke Daftar Premium`)
 break
 					
 case 'dellprem':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(ind.ownerB())
 din02 = body.slice(11)
 delp = premium.indexOf(din02)
 premium.splice(delp, 1)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 reply(`Berhasil Menghapus ${din02} Dari Daftar Premium`)
-break				
+break
+
+case 'ban':
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (args.length < 1) return reply(`*Format Salah*\n\n*Tag target yang ingin di Ban*\n*Ex : #ban @tag*`)
+adpr = body.slice(6)
+ban.push(`${adpr}@s.whatsapp.net`)
+fs.writeFileSync('./src/ban.json', JSON.stringify(ban))
+reply(`Berhasil Menambahkan ${adpr} Ke Daftar Banned`)
+break
+					
+case 'dellban':
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (args.length < 1) return reply(`*Format Salah*\n\n*Tag target yang ingin di Dellban*\n*Ex : #dellban @tag*`)
+din02 = body.slice(10)
+delp = ban.indexOf(din02)
+ban.splice(delp, 1)
+fs.writeFileSync('./src/ban.json', JSON.stringify(ban))
+reply(`Berhasil Menghapus ${din02} Dari Daftar Banned`)
+break
 				
 case 'leave':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkkkke = await client.prepareMessageFromContent(from, {
@@ -2239,7 +2308,8 @@ await client.relayWAMessage(gwetkkkke)
 break
                     
 case 'clone':
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
@@ -2259,6 +2329,7 @@ break
 
 case 'attp':
 				if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -2290,7 +2361,8 @@ case 'ttp':
 			break
 			
 /*case 'bc':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 if (args.length < 1) return reply('.......')
 anu = await client.chats.all()
@@ -2310,7 +2382,8 @@ reply('Suksess broadcast ')
 break*/
 
 case 'bc':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 bc = body.slice(3)
 if (args.length < 1) return reply('.......')
@@ -2333,7 +2406,8 @@ reply('Suksess broadcast ')
 break
 
 case 'setbudy':   
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 if (args.length < 1) return
 kunci = args[0]
@@ -2347,6 +2421,7 @@ break
 case 'ppcouple':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 data = fs.readFileSync('./lib/couple.js');
 jsonData = JSON.parse(data);
@@ -2374,6 +2449,7 @@ break
 case 'cerpen':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/cerpen.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2384,6 +2460,7 @@ break
 
 case 'fake_data':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/fdata.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2404,6 +2481,7 @@ break
 
 case 'beasiswa':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/beasiswa.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2428,6 +2506,7 @@ break
 
 case 'news':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/berita.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2447,7 +2526,8 @@ await client.relayWAMessage(oo)
 break
 
 case 'save':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if(!q) return reply(`Ingin Menemui Seseorang Diluar Sana? Yuk Ketik\n\n${prefix}.save nama|nomor\n\nGunakan Tanda | Sebagai Pembatas, Nomor Harus Berupa Kode Negara 62xxx`)
 nma = q.split('|')[0]
 nmor = q.split('|')[1]
@@ -2465,6 +2545,7 @@ break
 
 case 'mutual':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/sv.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2490,6 +2571,7 @@ break
 
 case 'cerita_horor':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/horor.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2507,6 +2589,7 @@ break
 
 case 'cecan':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/apirandom.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2524,6 +2607,7 @@ break
 
 case 'cogan':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/apirandom.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2542,6 +2626,7 @@ break
 case 'asupan':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 reply(`_Butuh Beberapa Menit Untuk Mengirim, Harap Menunggu_`)
 data = fs.readFileSync('./lib/asupan.js');
@@ -2555,6 +2640,7 @@ break
 
 case 'film':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/film.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2580,6 +2666,7 @@ break
 			
 case  'trigger':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
@@ -2605,6 +2692,7 @@ break
 		
 case  'passed':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
@@ -2630,6 +2718,7 @@ break
 
 case  'jail':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
@@ -2655,6 +2744,7 @@ break
 
 case  'comrade':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
@@ -2680,6 +2770,7 @@ break
 
 case  'wasted':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
@@ -2705,6 +2796,7 @@ break
 		
 case 'makegroup':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (args.length < 1) return reply(`Beri Tag + Teks Pada Perintah =>\n\n.makegroup @member|nameGroup`)
@@ -2717,6 +2809,7 @@ break
 
 case 'pesan':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (args.length < 1) return reply(`[❗] Cara mengirim pesan kepada pengguna whatsapp\nUsage :\n${prefix2}${command} +codenegara|halo kak\n\nEx :\n${prefix2}${command} +6289654360447|halo kak\nError :\n${prefix2}${command} +62 8xx-xxx-xxx|halo kak\nError Auto Banned!`)
 var FG = body.slice(8)
 var F1 = FG.split("|")[0];
@@ -2726,7 +2819,8 @@ reply('Berhasil mengirim pesan...')
 break
 				
 case 'iklan':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 let gwmkkee = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `*OPEN JASA SEWA BOT*`,
@@ -2764,6 +2858,8 @@ await client.relayWAMessage(gwmkkee)
 break
             
 case 'dungeon':
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId:`START`,buttonText:{displayText:'START'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
@@ -2774,6 +2870,8 @@ client.relayWAMessage(prep)
 break
 
 case 'slot':  
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 youke = fs.readFileSync('./lib/odc.jpeg')
 const p = hewan[Math.floor(Math.random() * hewan.length)]
 const p2 = hewan[Math.floor(Math.random() * hewan.length)]
@@ -2789,7 +2887,8 @@ break
 case 'author':
 case perintah_owner:
 case 'creator':
-if (!isRegistered) return reply(ind.noregis())    
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)    
 await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
 let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -2808,6 +2907,7 @@ break
                  
 case 'toimg':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isQuotedSticker) return reply('❌ reply stickernya um ❌')
 reply(mess.wait)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -2824,6 +2924,7 @@ break
 
 case 'donasi':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
@@ -2880,7 +2981,8 @@ await addLevelingId(sender)
 break
 
 /*case 'wait':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 reply(mess.wait)
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -2897,6 +2999,7 @@ break*/
 					
 case perintah_info:
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 linkgc = await client.groupInviteCode (from)
@@ -2934,7 +3037,8 @@ sendButLocation(from, `${teks}`, `INFO BOT - INFO GROUP`,{jpegThumbnail:ppnya}, 
 break
 
 case 'ocr':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 const media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -2956,12 +3060,14 @@ break
 case 'del':
 case 'hapus':
 case 'delete':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 client.deleteMessage(from, { id: fvn.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 break
 				
 case 'neko':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
 E2 = E1[Math.floor(Math.random() * E1.length)]
 reply(`_﹝⌬﹞wait proses_`)
@@ -2978,6 +3084,7 @@ break
 				
 case 'truth':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 const trut = ['Pernah suka sama siapa aja? berapa lama?', 'Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)', 'apa ketakutan terbesar kamu?', 'pernah suka sama orang dan merasa orang itu suka sama kamu juga?', 'Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?', 'pernah gak nyuri uang nyokap atau bokap? Alesanya?', 'hal yang bikin seneng pas lu lagi sedih apa', 'pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?', 'pernah jadi selingkuhan orang?', 'hal yang paling ditakutin', 'siapa orang yang paling berpengaruh kepada kehidupanmu', 'hal membanggakan apa yang kamu dapatkan di tahun ini', 'siapa orang yang bisa membuatmu sange', 'siapa orang yang pernah buatmu sange', '(bgi yg muslim) pernah ga solat seharian?', 'Siapa yang paling mendekati tipe pasangan idealmu di sini', 'suka mabar(main bareng)sama siapa?', 'pernah nolak orang? alasannya kenapa?', 'Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget', 'pencapaian yang udah didapet apa aja ditahun ini?', 'kebiasaan terburuk lo pas di sekolah apa?']
 const ttrth = trut[Math.floor(Math.random() * trut.length)]
 truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -2986,6 +3093,7 @@ break
 
 case 'dare':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 const dare = ['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu', 'telfon crush/pacar sekarang dan ss ke pemain', 'pap ke salah satu anggota grup', 'Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo', 'ss recent call whatsapp', 'drop emot 🤥 setiap ngetik di gc/pc selama 1 hari', 'kirim voice note bilang can i call u baby?', 'drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu', 'pake foto sule sampe 3 hari', 'ketik pake bahasa daerah 24 jam', 'ganti nama menjadi "gue anak lucinta luna" selama 5 jam', 'chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you', 'prank chat mantan dan bilang " i love u, pgn balikan', 'record voice baca surah al-kautsar', 'bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini', 'sebutkan tipe pacar mu!', 'snap/post foto pacar/crush', 'teriak gajelas lalu kirim pake vn kesini', 'pap mukamu lalu kirim ke salah satu temanmu', 'kirim fotomu dengan caption, aku anak pungut', 'teriak pake kata kasar sambil vn trus kirim kesini', 'teriak " anjimm gabutt anjimmm " di depan rumah mu', 'ganti nama jadi " BOWO " selama 24 jam', 'Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 const der = dare[Math.floor(Math.random() * dare.length)]
 tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -2994,6 +3102,7 @@ break
 			
 case 'waifu':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
@@ -3007,6 +3116,7 @@ break
            
 case 'pinterest':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 client.updatePresence(from, Presence.composing)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 data = await fetchJson(`https://api.zeks.xyz/api/pinimg?apikey=n3zxghJzUiPwdTKWGkP96eiv16M&q=${body.slice(10)}`, { method: 'get' })
@@ -3076,6 +3186,7 @@ break
 					
 case 'slow':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -3090,6 +3201,7 @@ break
 				
 case 'gemuk':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -3103,7 +3215,8 @@ fs.unlinkSync(ran)
 break
 				
 case 'tomp3':              
-if (!isRegistered) return reply(ind.noregis())              
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)              
 if (isQuotedVideo || isQuotedAudio){
 reply(mess.wait)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
@@ -3123,6 +3236,7 @@ break
 
 case 'tupai':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -3137,6 +3251,7 @@ break
 
 case 'fast':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.mp3')
@@ -3154,6 +3269,7 @@ case 'sticker':
 case 'stikergif':
 case 'stickergif':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 const media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -3222,7 +3338,8 @@ reply(`Kirim gambar dengan caption ${prefix2}sticker atau tag gambar yang sudah 
 break
 				
 case 'report':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 const pesan = body.slice(8)
 if (pesan.length > 300) return client.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text)
 var nomor = mek.participant
@@ -3237,6 +3354,7 @@ break
                   
 case 'ulasan':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/komentar.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -3254,6 +3372,7 @@ break
          
 case 'komentar':
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (args.length < 1) return reply('TEKS NYA MANA?')
 bodi = body.slice(9)
 user = pushname
@@ -3281,7 +3400,8 @@ break
 
 case 'voting':
 case 'votting':
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
 if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)
 ppp = `${args.join(' ')}`
@@ -3322,7 +3442,8 @@ fs.writeFileSync('./src/no.json', JSON.stringify(no))
 break
 					
 case 'vote':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 for (let i of vote) {
 gwekkhhhkje = await client.prepareMessageFromContent(from, {
@@ -3342,7 +3463,8 @@ break
 
 case 'dellvote':
 case 'delvote':
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
@@ -3355,7 +3477,8 @@ break
 
 case 'absensi':
 client.updatePresence(from, Presence.composing) 
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
 if (isAbsen) return reply(`_kamu sudah absensi tadi_`)
 if (!isRabsen) return reply(`_belum buat daftar absen, silahkan ketik #absen terlebih dahulu_`)
@@ -3371,7 +3494,8 @@ break
 
 case 'absen':
 client.updatePresence(from, Presence.composing) 
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 if (args.length < 1) return reply(`Cara Memulai Absen Silahkan Ketik\n\n.absen (waktu)\n\nlist waktu yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .absen 600000`)
 tem = args.join(" ")
 rabsen.push(from)
@@ -3397,7 +3521,8 @@ fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 break
 
 case 'svmess':
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
 st = { 
@@ -3437,7 +3562,8 @@ console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'w
 break
 			
 case 'request':
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 teks = 'LIST REQUETS BOT:\n\n'
 for (let i of req) {
 teks += `⬡ *${i.name} > ${i.waktu}*\nPesan : ${i.teks}\n\n---------------------------\n\n`
@@ -3579,6 +3705,7 @@ break
 
 if (buttonsR === 'DONASI') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 uptime = process.uptime()
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
@@ -3894,6 +4021,8 @@ jo = await client.prepareMessageFromContent(from, {
 
 
 「 *GROUP MENU* 」
+• ${prefix2}ban
+• ${prefix2}dellban
 • ${prefix2}cmd
 • ${prefix2}sider
 • ${prefix2}hidetag
@@ -4081,6 +4210,8 @@ teks =`「 *PROFILE KAMU* 」
 
 
 「 *GROUP MENU* 」
+• ${prefix2}ban
+• ${prefix2}dellban
 • ${prefix2}cmd
 • ${prefix2}sider
 • ${prefix2}hidetag
@@ -4214,6 +4345,7 @@ reply(`_hei welkom tu my event!_\n\n1. car speed\n2. lotre berhadiah\n\n_untuk m
 
 if (buttonsR === 'IKLAN BOT') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 let gwmkkeje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `*OPEN JASA SEWA BOT*`,
@@ -4253,6 +4385,7 @@ break
 
 if (buttonsR === 'IKLAN') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 let gwmgkkeje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `*OPEN JASA SEWA BOT*`,
@@ -4840,7 +4973,8 @@ break
 }
 
 if (buttonsR === 'Tutup') {
-	  if (!isRegistered) return reply(ind.noregis())     
+	  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4855,7 +4989,8 @@ if (buttonsR === 'Tutup') {
               break
 }
               if (buttonsR === 'Buka') {
-              	  if (!isRegistered) return reply(ind.noregis())     
+              	  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4869,7 +5004,8 @@ open = {
               break
 }
               if (buttonsR === 'Enable W1') {
-              	  if (!isRegistered) return reply(ind.noregis())     
+              	  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4881,7 +5017,8 @@ open = {
 						break
 						}
 						if (buttonsR === 'Disable W0') {
-							  if (!isRegistered) return reply(ind.noregis())     
+							  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4893,7 +5030,8 @@ open = {
 						break
 						}
 						if (buttonsR === 'Enable A1') {
-							  if (!isRegistered) return reply(ind.noregis())     
+							  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4907,6 +5045,7 @@ open = {
 						
 						if (buttonsR === 'Disable A0') {
 							  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4920,7 +5059,8 @@ open = {
 						}
 						
 						if (buttonsR === 'Enable C1') {
-							  if (!isRegistered) return reply(ind.noregis())     
+							  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 							if (isCemd) return reply('_﹝⌬﹞berhasil di aktifkan_')
 						
 cmd.push(from)
@@ -4934,6 +5074,7 @@ usercmd.push(sender)
 						
 						if (buttonsR === 'Disable C0') {
 							  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
                     
 							if (!isCemd) return reply('_﹝⌬﹞berhasil di matikan_')
 				
@@ -4948,7 +5089,8 @@ var ini = cmd.indexOf(from)
 						}
 						
 						if (buttonsR === 'Disable T0') {
-							if (!isRegistered) return reply(ind.noregis())     
+							if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4960,7 +5102,8 @@ var ini = cmd.indexOf(from)
 						break
 						}
 						if (buttonsR === 'Enable T1') {
-							if (!isRegistered) return reply(ind.noregis())     
+							if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4972,7 +5115,8 @@ var ini = cmd.indexOf(from)
 						break
 						}
 						if (buttonsR === 'Enable L1') {
-							if (!isRegistered) return reply(ind.noregis())     
+							if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -4985,7 +5129,8 @@ var ini = cmd.indexOf(from)
 }
                      
                      if (buttonsR === 'Disable L0') {
-							if (!isRegistered) return reply(ind.noregis())     
+							if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
@@ -5029,7 +5174,8 @@ if (buttonsR === 'GET') {
 				 
 
 if (buttonsR === '10 menit') {
-              if (!isRegistered) return reply(ind.noregis())     
+              if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
               if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
               if (!isGroupAdmins) reply(`_﹝⌬﹞hanya untuk admin grup_`)    
 			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -5045,7 +5191,8 @@ if (buttonsR === '10 menit') {
 				break
 }
 				if (buttonsR === '5 menit') {
-              if (!isRegistered) return reply(ind.noregis())     
+              if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
               if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
               if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -5061,7 +5208,8 @@ if (buttonsR === '10 menit') {
 				break
 }
 				if (buttonsR === '5 menit >') {
-              if (!isRegistered) return reply(ind.noregis())     
+              if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
               if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
               if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -5077,7 +5225,8 @@ if (buttonsR === '10 menit') {
 				break
 }
 				if (buttonsR === '10 menit >') {
-              if (!isRegistered) return reply(ind.noregis())     
+              if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
               if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
               if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -5093,7 +5242,8 @@ if (buttonsR === '10 menit') {
 				break
 }
 if (buttonsR === '10 Menit <') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 setTimeout( () => {
@@ -5108,7 +5258,8 @@ setTimeout( () => {
 				break
 }
 if (buttonsR === '14 Menit <') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 setTimeout( () => {
@@ -5123,7 +5274,8 @@ setTimeout( () => {
 				break
 }
 if (buttonsR === '30 Menit <') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 setTimeout( () => {
@@ -5246,6 +5398,7 @@ client.relayWAMessage(prep)
              
            if (buttonsR === '么 cecan 么') {
 			  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 			    data = fs.readFileSync('./lib/apirandom.js');
 				jsonData = JSON.parse(data);
 				randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5263,6 +5416,7 @@ client.relayWAMessage(prep)
 }
               if (buttonsR === '么 cogan 么') {
 			  if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 			    data = fs.readFileSync('./lib/apirandom.js');
 				jsonData = JSON.parse(data);
 				randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5282,6 +5436,7 @@ client.relayWAMessage(prep)
  
 				if (buttonsR === '么 waifu 么') {
 				if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
               b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 		      buttons = [{buttonId:`么 waifu 么`,buttonText:{displayText:`么 waifu 么`},type:1}]
@@ -5315,6 +5470,7 @@ break
 }
 if (buttonsR === '么 neko 么') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 			  E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
 			  reply(`_﹝⌬﹞wait proses_`)
@@ -5330,7 +5486,8 @@ if (!isRegistered) return reply(ind.noregis())
 			break
 }
 				if (buttonsR === 'TAMBAH 📦') {
-if (!isRegistered) return reply(ind.noregis()) 
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`) 
 if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
@@ -5351,6 +5508,7 @@ break
 }
 if (buttonsR === 'NEXT 📦') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/produk.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5365,7 +5523,8 @@ client.relayWAMessage(prep)
 }
               
               if (buttonsR === 'LEAVE NOW') {
-              	    if (!isRegistered) return reply(ind.noregis())     
+              	    if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
                     if (isGroupAdmins || isOwner) {
                     	client.groupLeave(from)
@@ -5376,7 +5535,8 @@ break
 }
 
 if (buttonsR === 'LEAVE TIME') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkhhkkke = await client.prepareMessageFromContent(from, {
@@ -5397,6 +5557,7 @@ break
       
 if (buttonsR === '么 cerita_horor 么') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/horor.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5415,6 +5576,7 @@ break
               
 if (buttonsR === 'BERI NILAI') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/komentar.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5433,6 +5595,7 @@ break
 
 if (buttonsR === 'SEARCHING') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/film.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5451,6 +5614,7 @@ break
 
 if (buttonsR === 'NEWS') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/berita.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5472,6 +5636,7 @@ break
 
 if (buttonsR === 'SELANJUTNYA') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/fdata.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5499,7 +5664,8 @@ break
 }
 
 if (buttonsR === 'SET CLOSE') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -5519,7 +5685,8 @@ break
 }
 
 if (buttonsR === 'SET OPEN') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -5540,6 +5707,7 @@ break
 
 if (buttonsR === 'MUTUAL') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/sv.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5565,13 +5733,15 @@ break
 }
 
 if (buttonsR === 'SAVE') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if(!q) return reply(`Ingin Menemui Seseorang Diluar Sana? Yuk Ketik\n\n${prefix}.save nama|nomor\n\nGunakan Tanda | Sebagai Pembatas, Nomor Harus Berupa Kode Negara 62xxx`)
 break
 }
 
 if (buttonsR === 'CARI LAGI') {
 if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/beasiswa.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5627,7 +5797,8 @@ break
 }
 
 if (buttonsR === 'JEDA 1 MENIT') {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (args.length < 1) return reply(`Cara Memulai Timer => Silahkan Ketik\n\n.timer waktu => ( 1 menit = 60000 )\n\nMisal : .timer 60000`)
 creator = "6285731261728@s.whatsapp.net"
 setTimeout( () => {
@@ -5640,7 +5811,8 @@ break
 }
 
 if (buttonsR === 'SCROL') {
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 data = fs.readFileSync('./lib/sosmed.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -5830,7 +6002,8 @@ break
 }
 		 
 if (buttonsR === `${Soalnya.jawaban}`) {
-if (!isRegistered) return reply(ind.noregis())  
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)  
 if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
 if (isSalah) return reply(`_kamu sudah menjawab sebelumnya_`)
 benar.push(sender)
@@ -5844,7 +6017,8 @@ break
 }
 						
 if (buttonsR === `${Soalnya.salahnya}`) {
-if (!isRegistered) return reply(ind.noregis())     
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
 if (isSalah) return reply(`_kamu sudah menjawab sebelumnya_`)
 salah.push(sender)
@@ -5925,7 +6099,8 @@ client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot 
 }*/
 
 if (buttonsR === `BLOGGER`) {
-if (!isRegistered) return reply(ind.noregis())   
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 view.push(sender)
 fs.writeFileSync('./src/view.json', JSON.stringify(view))
 data = fs.readFileSync('./src/draft.json');
