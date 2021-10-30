@@ -61,6 +61,8 @@ const loli = new lolis()*/
 CONST JSON & JS
 ___________________*/
 
+const rabsen = JSON.parse(fs.readFileSync('./src/rabsen.json'))
+const vote = JSON.parse(fs.readFileSync('./src/vote.json'))
 const clem = JSON.parse(fs.readFileSync('./src/clem.json'))
 const tingkatan = JSON.parse(fs.readFileSync('./src/tingkatan.json'))
 const hadist = JSON.parse(fs.readFileSync('./lib/hadist.js'))
@@ -119,7 +121,6 @@ ___________________*/
 	
 prefix = setting.prefix
 prefix2 = `#`
-vote = setting.vote
 owner = setting.ownerNumber
 namaowner = setting.nama
 namabot = setting.bot
@@ -151,7 +152,6 @@ var minutes = Math.floor(seconds % (60*60) / 60);
 var seconds = Math.floor(seconds % 60);
 
 return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
-//return `${pad(hours)}H - ${pad(minutes)}M`
 }
 
 const getLevelingXp = (sender) => {
@@ -549,18 +549,18 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
 			}
 		    mess = {
-		    wait: '_「⏳」 wait sedang proses_',
-			success: '_success bro_',
+		    wait: '﹝⌬﹞wait proses_',
+			success: '﹝⌬﹞success bro_',
 			error: {
-			stick: '_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_',
-			Iv: '_link tersebut tidak valid_'
+			stick: '﹝⌬﹞system error_',
+			Iv: '﹝⌬﹞url tidak valid_'
 			},
 			only: {
-			group: '_perintah ini hanya bisa digunakan dalam grup saja_',
-			ownerG: '_perintah ini hanya bisa digunakan oleh owner grup saja_',
-			ownerB: '_perintah ini hanya bisa digunakan oleh owner bot saja_',
-		    admin: '_perintah ini hanya bisa digunakan oleh admin grup saja_',
-			Badmin: '_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_'
+			group: '﹝⌬﹞hanya bisa di grup_',
+			ownerG: '﹝⌬﹞hanya untuk owner grup_',
+			ownerB: '﹝⌬﹞hanya untuk owner_',
+		    admin: '﹝⌬﹞hanya untuk admin grup_',
+			Badmin: '﹝⌬﹞error, jadikan bot admin_'
 			}
 			}
             hit_today.push(command)
@@ -596,6 +596,8 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			const isCemd = isGroup ? cmd.includes(from) : false
 			const isClem = isGroup ? clem.includes(sender) : false
 			const isAbsen = isGroup ? absen.includes(sender) : false
+			const isVote = isGroup ? vote.includes(from) : false
+			const isRabsen = isGroup ? rabsen.includes(from) : false
 			pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
 
 const fvn = {
@@ -1314,7 +1316,7 @@ if (!isAntiLink) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 }
 
 /*if (budy == '.kick'
@@ -1330,9 +1332,9 @@ console.log(color('[COMMAND]', 'blue'), color('Kick', 'yellow'), color(time, 'wh
 /*if (budy == '.add'
 || (budy == '#add')) {
 try {
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 quotedis = mek.message.extendedTextMessage.contextInfo.participant
 await client.groupAdd(from, [quotedis])
 } catch (e) {
@@ -1389,13 +1391,14 @@ break*/
 
 case perintah_help:
 case 'menu':
-await addLevelingId(sender)
+if (!isRegistered) return reply(ind.noregis())     
+uptime = process.uptime()
 menu2 = fs.readFileSync('./lib/odc.jpeg') 
 menu3 = await client.prepareMessage(from, menu2, MessageType.image, {thumbnile: fakeimage}) 
 menu4 = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 menu5 = {
-contentText: "𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶?",
-footerText: `𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu`,
+contentText: `*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mitsuha\n• mhankbarbar\n• nayla\n• zaky\n• all creator`,
+footerText: `_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_`,
 buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
@@ -1471,6 +1474,7 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}hidetag
 • ${prefix2}fitnah
 • ${prefix2}change
+• ${prefix2}setchange
 • ${prefix2}revoke
 • ${prefix2}add
 • ${prefix2}kick
@@ -1600,9 +1604,9 @@ reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotr
 break
 
 case 'kudet':
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 if (!isRegistered) return reply(ind.noregis())     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 ppp = `${args.join(' ')}`
 send = ppp.split("|")[0];
 lok = ppp.split("|")[1];
@@ -1629,9 +1633,9 @@ break
 
 case 'revoke':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 client.revokeInvite(from)
 break
 
@@ -1652,8 +1656,8 @@ break
 case '+tambah':
 case 'tambah':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
-if(!q) return reply(`tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
+if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
 biopro = q.split('|')[2]
@@ -1718,7 +1722,7 @@ break
 
 case 'upload':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 if (!isQuotedImage) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
 caption = args.join(" ")
@@ -1763,7 +1767,7 @@ break
 case 'hidetag':                 
 if (!isRegistered) return reply(ind.noregis())
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)
 var value = body.slice(9)
 var group = await client.groupMetadata(from)
 var member = group['participants']
@@ -1782,9 +1786,9 @@ break
 case 'close-grup':
 case 'close-grub':      
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 var nomor = mek.participant
 const close = {
 text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
@@ -1797,9 +1801,9 @@ break
 case 'open-grup':
 case 'open-grub':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 open = {
 text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,             
 }
@@ -1811,19 +1815,36 @@ case 'grub':
 case 'grup':
 case 'group':
 case 'change':
-case 'setclose':
-case 'setopen':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+let gwekke = await client.prepareMessageFromContent(from, {
+"buttonsMessage": {
+"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
+"footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .open-grup atau .close-grup`,
+"buttons": [
+{buttonId: 'Buka', buttonText: {displayText: 'Buka'}, type: 1},
+{buttonId: 'Tutup', buttonText: {displayText: 'Tutup'}, type: 1}
+],
+headerType: 1
+},
+}, {quoted: floc2})
+await client.relayWAMessage(gwekke)
+break
+
+case 'setchange':
+if (!isRegistered) return reply(ind.noregis())     
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
 "footerText": `Pilih Satu Aja Ya Njg`,
 "buttons": [
-{buttonId: 'CHANGE NOW', buttonText: {displayText: 'CHANGE NOW'}, type: 1},
-{buttonId: 'CHANGE TIME', buttonText: {displayText: 'CHANGE TIME'}, type: 1}
+{buttonId: 'SET OPEN', buttonText: {displayText: 'SET OPEN'}, type: 1},
+{buttonId: 'SET CLOSE', buttonText: {displayText: 'SET CLOSE'}, type: 1}
 ],
 headerType: 1
 },
@@ -1841,39 +1862,39 @@ setTimeout( () => {
 sendButLocation(from, `JEDA ALARM ⏰`, `TIMER - BOTZ`, {jpegThumbnail:fakeimage}, [{buttonId:`JEDA 1 MENIT`,buttonText:{displayText:'JEDA 1 MENIT'},type:1},{buttonId:`MATIKAN`,buttonText:{displayText:'MATIKAN'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 }, taime)
 setTimeout( () => {
-reply(`Yosh Alarm Sudah Di Pasang`)
+reply(`_﹝⌬﹞berhasil di aktifkan_`)
 }, 0)
 break
       
 case 'welcome-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-if (isWelkom) return reply('「 SUDAH ON KAWAN 」')
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+if (isWelkom) return reply('﹝⌬﹞berhasil di aktifkan_')
 welkom.push(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-reply('Sukses mengaktifkan fitur welcome di group ini ✔️')
+reply('﹝⌬﹞berhasil di aktifkan_')
 break
 						
 case 'welcome-disable':
 if (!isRegistered) return reply(ind.noregis())    
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 var ini = welkom.indexOf(from)
 welkom.splice(ini, 1)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-reply('Sukses menonaktifkan fitur welcome di group ini ✔️')
+reply('﹝⌬﹞berhasil di matikan_')
 break
 
 case 'welcome':
 case 'welcome 1':
 case 'welcome 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -1892,9 +1913,9 @@ case 'antilink':
 case 'antilink 1':
 case 'antilink 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -1929,9 +1950,9 @@ case 'antitoxic':
 case 'antitoxic 1':
 case 'antitoxic 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -1950,9 +1971,9 @@ case 'leveling':
 case 'leveling 1':
 case 'leveling 0':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkjiie = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -1970,7 +1991,7 @@ break
 case 'tagall':
 case 'tagall1':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 members_id = []
 teks = (args.length > 1) ? body.slice(8).trim() : ''
 teks += '\n\n'
@@ -1983,69 +2004,69 @@ break
           
 case 'antilink-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `© ??𝒀 - 𝑴𝑰??𝑺𝑼𝑯𝑨 ??𝑶𝑻𝒁`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-if (isAntiLink) return reply('Sudah Aktif Kak')
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+if (isAntiLink) return reply('﹝⌬﹞berhasil di aktifkan_')
 antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-reply('「 SUKSES 」Fitur Anti Link Diaktifkan')
+reply('﹝⌬﹞berhasil di aktifkan_')
 break
 					
 case 'antilink-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)    
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)    
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (!isAntiLink) return reply('Sudah Mati Kak')
 var ini = antilink.indexOf(from)
 antilink.splice(ini, 1)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-reply('「 SUKSES 」Fitur Anti Link Dimatikan')
+reply('﹝⌬﹞berhasil di matikan_')
 break
 
 case 'antitoxic-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 var ini = antitoxic.indexOf(from)
 antitoxic.splice(ini, 1)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-reply('「 BERHASIL DI MATIKAN 」')
+reply('﹝⌬﹞berhasil di matikan_')
 break
 						
 case 'antitoxic-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
 antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-reply('「 BERHASIL DI AKTIFKAN 」 ')
+reply('﹝⌬﹞berhasil di aktifkan_')
 break
 
 case 'leveling-enable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
 _leveling.push(from)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
-reply('「 BERHASIL DI AKTIFKAN 」')
+reply('﹝⌬﹞berhasil di aktifkan_')
 break
 
 case 'leveling-disable':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 var ini = _leveling.indexOf(from)
 _leveling.splice(ini, 1)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
-reply('「 BERHASIL DI MATIKAN 」')
+('﹝⌬﹞berhasil di matikan_')
 break
         
 case 'sider':
@@ -2063,9 +2084,9 @@ break
                                 
 case 'promote':                                   
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
@@ -2083,9 +2104,9 @@ break
 
 case 'demote':   
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
@@ -2103,9 +2124,9 @@ break
 				
 /*case 'add':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (args.length < 1) return reply('Yang mau di add jin ya?')
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
 try {
@@ -2119,9 +2140,9 @@ break*/
 
 case 'add':
 try {
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 quotedis = mek.message.extendedTextMessage.contextInfo.participant
 await client.groupAdd(from, [quotedis])
 } catch (e) {
@@ -2132,9 +2153,9 @@ break
 
 case 'kick':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 if (mek.message.extendedTextMessage.contextInfo.participant) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 if (args.length > 15) return ('Hanya Bisa Ngekick 1 Nomor') 
@@ -2156,9 +2177,9 @@ reply(`Suzes Gabung Ke Gerup`)
 break*/
 
 /*case 'simih':
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
 if (args.length < 1) return reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 if (Number(args[0]) === 1) {
@@ -2177,7 +2198,7 @@ break*/
 		
 case 'addprem':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)    
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)    
 if (args.length < 1) return reply(`contoh ${prefix + command} 6285298595430\n\natau bisa juga dengan ${prefix + command} tag target`)
 adpr = body.slice(10)
 premium.push(`${adpr}@s.whatsapp.net`)
@@ -2197,8 +2218,8 @@ break
 				
 case 'leave':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -2215,9 +2236,9 @@ break
                     
 case 'clone':
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 if (args.length < 1) return reply('Tag target yang ingin di clone')
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
@@ -2234,7 +2255,7 @@ break
 
 /*case 'bc':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 if (args.length < 1) return reply('.......')
 anu = await client.chats.all()
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
@@ -2254,7 +2275,7 @@ break*/
 
 case 'bc':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
 bc = body.slice(3)
 if (args.length < 1) return reply('.......')
 anu = await client.chats.all()
@@ -2268,7 +2289,7 @@ reply('Suksess broadcast ')
 } else {
 for (let _ of anu) {
 creator = "6285731261728@s.whatsapp.net"
-teks =`🐥 *BROADCAST ALL CHAT* 🐥`
+teks =`☁ *BROADCAST ALL CHAT* ☁`
 sendButLocation(_.jid, `${teks}`, `${bc}`, {jpegThumbnail:fakeimage}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 }
 reply('Suksess broadcast ')
@@ -2277,7 +2298,7 @@ break
 
 case 'setbudy':   
 if (!isRegistered) return reply(ind.noregis())     
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 if (args.length < 1) return
 kunci = args[0]
 respon = args[1]
@@ -2290,7 +2311,7 @@ break
 case 'ppcouple':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 data = fs.readFileSync('./lib/couple.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -2526,7 +2547,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-reply(`_「⏳」 wait sedang proses_`)
+reply(`_﹝⌬﹞wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2551,7 +2572,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-reply(`_「⏳」 wait sedang proses_`)
+reply(`_﹝⌬﹞wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2576,7 +2597,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-reply(`_「⏳」 wait sedang proses_`)
+reply(`_﹝⌬﹞wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2601,7 +2622,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-reply(`_「⏳」 wait sedang proses_`)
+reply(`_﹝⌬﹞wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2626,7 +2647,7 @@ if (!isRegistered) return reply(ind.noregis())
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-reply(`_「⏳」 wait sedang proses_`)
+reply(`_﹝⌬﹞wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
@@ -2648,8 +2669,8 @@ break
 		
 case 'makegroup':
 if (!isRegistered) return reply(ind.noregis())
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)     
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (args.length < 1) return reply(`Beri Tag + Teks Pada Perintah =>\n\n.makegroup @member|nameGroup`)
 const aineloh = body.slice(11)
 const ainenihh = aineloh.split("|")[0]
@@ -2819,6 +2840,7 @@ uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`🐧 *SUCCESS VERIFY* 🐧`
 sendButLocation(from, `${teks}`, `_kamu telah terverifikasi √_\n_runtime : ${kyun(uptime)}_`,{jpegThumbnail:fakeimage}, [{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+await addLevelingId(sender)
 break
 
 /*case 'wait':
@@ -2839,8 +2861,8 @@ break*/
 					
 case perintah_info:
 if (!isRegistered) return reply(ind.noregis())
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 linkgc = await client.groupInviteCode (from)
 ppimg = await client.getProfilePicture(from)
 ppnya = await getBuffer(ppimg)
@@ -2906,7 +2928,7 @@ case 'neko':
 if (!isRegistered) return reply(ind.noregis())
 E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
 E2 = E1[Math.floor(Math.random() * E1.length)]
-reply(`_「⏳」 wait sedang proses_`)
+reply(`_﹝⌬﹞wait proses_`)
 B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
@@ -2953,7 +2975,7 @@ client.updatePresence(from, Presence.composing)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 data = await fetchJson(`https://api.zeks.xyz/api/pinimg?apikey=n3zxghJzUiPwdTKWGkP96eiv16M&q=${body.slice(10)}`, { method: 'get' })
 ahu = data.data
-reply(ind.wait())
+reply(`_﹝⌬﹞wait proses_`)
 n = JSON.parse(JSON.stringify(ahu));
 nimek = n[Math.floor(Math.random() * n.length)];
 pok = await getBuffer(nimek)
@@ -3108,7 +3130,7 @@ console.log(`Started : ${cmd}`)
 .on('error', function (err) {
 console.log(`Error : ${err}`)
 fs.unlinkSync(media)
-reply(`_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_`)
+reply(`_﹝⌬﹞system error_`)
 })
 .on('end', function () {
 console.log('Finish')
@@ -3140,7 +3162,7 @@ console.log(`Started : ${cmd}`)
 console.log(`Error : ${err}`)
 fs.unlinkSync(media)
 tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-reply(`_yah gagal sepertinya sistem sedang bermasalah, silahkan report bug ini ke owner bot ya_`)
+reply(`_﹝⌬﹞system error_`)
 })
 .on('end', function () {
 console.log('Finish')
@@ -3224,28 +3246,35 @@ break
 case 'voting':
 case 'votting':
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
 if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)
 ppp = `${args.join(' ')}`
 tem = ppp.split("|")[0];
-vote = ppp.split("|")[1];
+votenye = ppp.split("|")[1];
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
+ini3 = vote.indexOf(from)
 yes.splice(ini, 1)
-no.splice(ini, 1)
+no.splice(ini2, 1)
+vote.splice(ini3, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
-setting.vote = vote
-fs.writeFileSync('./src/settings.json', JSON.stringify(setting, null, '\t'))
-reply(`${vote}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk me votting dan ${prefix2}delvote untuk menghapus vote kamu`)
+fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
+vote.push(votenye)
+fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
+for (let i of vote) {
+reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk me votting dan ${prefix2}delvote untuk menghapus vote kamu`)
 setTimeout( () => {
-reply(`*VOTING TELAH BERAKHIR*\n\n${vote}\n\n✅ ${yes.length}\n❎ ${no.length}`)
+reply(`*VOTING TELAH BERAKHIR*\n\n${votenye}\n\n✅ ${yes.length}\n❎ ${no.length}`)
 }, tem)
 setTimeout( () => {
-nol = `Saat Ini Sedang Tidak Ada Voting`
-setting.vote = nol
-fs.writeFileSync('./src/settings.json', JSON.stringify(setting, null, '\t'))
+ini3 = vote.indexOf(from)
+vote.splice(ini3, 1)
+fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
+vote.push(`_saat ini sedang tidak ada votting silahkan ketik #votting untuk memulai votting_`)
+fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
 }, tem)
+}
 setTimeout( () => {
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
@@ -3258,10 +3287,11 @@ break
 					
 case 'vote':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+for (let i of vote) {
 gwekkhhhkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `VOTE - BOT\n\n${vote}`,
+"contentText": `*VOTE - BOT*\n\n${i}`,
 "footerText": `Tanda Centang Berarti Setuju, Tanda Silang Artinya Tidak Setuju`,
 "buttons": [
 {buttonId: '❎', buttonText: {displayText: '❎'}, type: 1},
@@ -3271,12 +3301,13 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhhhkje)
+}
 break
 
 case 'dellvote':
 case 'delvote':
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
 yes.splice(ini, 1)
@@ -3289,8 +3320,9 @@ break
 case 'absensi':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())   
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
 if (isAbsen) return reply(`_kamu sudah absensi tadi_`)
+if (!isRabsen) return reply(`_belum buat daftar absen, silahkan ketik #absen terlebih dahulu_`)
 absen.push(sender)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 teks = `*LIST DAFTAR HADIR ABSEN*:\n`
@@ -3306,6 +3338,8 @@ client.updatePresence(from, Presence.composing)
 if (!isRegistered) return reply(ind.noregis())   
 if (args.length < 1) return reply(`Cara Memulai Absen Silahkan Ketik\n\n.absen (waktu)\n\nlist waktu yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .absen 600000`)
 tem = args.join(" ")
+rabsen.push(from)
+fs.writeFileSync('./src/rabsen.json', JSON.stringify(rabsen))
 ini = absen.indexOf(from)
 absen.splice(ini, 1)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
@@ -3761,13 +3795,13 @@ break
 }
   
 if (buttonsR === 'HOME BACK') {
-await addLevelingId(sender)
+uptime = process.uptime()
 menu2 = fs.readFileSync('./lib/odc.jpeg') 
-menu3 = await client.prepareMessage(from, menu2, MessageType.image) 
+menu3 = await client.prepareMessage(from, menu2, MessageType.image, {thumbnile: fakeimage}) 
 menu4 = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 menu5 = {
-contentText: "𝘩𝘢𝘪 𝘬𝘢𝘬 𝘴𝘢𝘺𝘢 𝘮𝘪𝘵𝘴𝘶𝘩𝘢 𝘣𝘰𝘵 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱. 𝘢𝘬𝘢𝘯 𝘮𝘦𝘮𝘣𝘢𝘯𝘵𝘶 𝘬𝘢𝘮𝘶 𝘥𝘢𝘭𝘢𝘮 𝘮𝘦𝘮𝘣𝘶𝘢𝘵 𝘴𝘵𝘪𝘬𝘦𝘳 𝘥𝘢𝘯 𝘭𝘢𝘪𝘯 𝘭𝘢𝘪𝘯 𝘣𝘶𝘵𝘶𝘩 𝘪𝘯𝘧𝘰 𝘥𝘢𝘳𝘪𝘬𝘶?",
-footerText: `𝘫𝘪𝘬𝘢 𝘬𝘢𝘮𝘶 𝘮𝘦??𝘢𝘬𝘢𝘪 𝘸𝘩𝘢𝘵𝘴𝘢𝘱𝘱 𝘮𝘰𝘥 𝘴𝘪𝘭𝘢𝘩𝘬𝘢𝘯 𝘬𝘦𝘵𝘪𝘬 #allmenu`,
+contentText: `*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mitsuha\n• mhankbarbar\n• nayla\n• zaky\n• all creator`,
+footerText: `_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_`,
 buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
@@ -3830,6 +3864,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}hidetag
 • ${prefix2}fitnah
 • ${prefix2}change
+• ${prefix2}setchange
 • ${prefix2}revoke
 • ${prefix2}add
 • ${prefix2}kick
@@ -4014,6 +4049,7 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}hidetag
 • ${prefix2}fitnah
 • ${prefix2}change
+• ${prefix2}setchange
 • ${prefix2}revoke
 • ${prefix2}add
 • ${prefix2}kick
@@ -4676,7 +4712,7 @@ break
    
                   
                    if (budy.includes(`⌚`)) {
-                   	if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+                   	if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 			  uptime = process.uptime()
 					client.setStatus(`Runtime ${kyun(uptime)}`)
 					reply(`Sukses mengganti bio`)
@@ -4766,10 +4802,10 @@ break
 
 if (buttonsR === 'Tutup') {
 	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 	var nomor = mek.participant
               const close = {
               text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
@@ -4781,10 +4817,10 @@ if (buttonsR === 'Tutup') {
 }
               if (buttonsR === 'Buka') {
               	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 open = {
               text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,
               contextInfo: { mentionedJid: [sender] }
@@ -4795,71 +4831,72 @@ open = {
 }
               if (buttonsR === 'Enable W1') {
               	  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-              	if (isWelkom) return reply('「 SUDAH ON KAWAN 」')
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+              	if (isWelkom) return reply('﹝⌬﹞berhasil di aktifkan_')
 						welkom.push(from)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-						reply('Sukses mengaktifkan fitur welcome di group ini ✔️')
+						reply('﹝⌬﹞berhasil di aktifkan_')
 						break
 						}
 						if (buttonsR === 'Disable W0') {
 							  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 							var ini = welkom.indexOf(from)
 						welkom.splice(ini, 1)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-						reply('Sukses menonaktifkan fitur welcome di group ini ✔️')
+						reply('﹝⌬﹞berhasil di matikan_')
 						break
 						}
 						if (buttonsR === 'Enable A1') {
 							  if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-							if (isAntiLink) return reply('Sudah Aktif Kak')
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+							if (isAntiLink) return reply('﹝⌬﹞berhasil di aktifkan_')
 						antilink.push(from)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('「 SUKSES 」Fitur Anti Link Diaktifkan')
+						reply('﹝⌬﹞berhasil di aktifkan_')
 						break
 						}
 						
 						if (buttonsR === 'Disable A0') {
 							  if (!isRegistered) return reply(ind.noregis())
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-							if (!isAntiLink) return reply('Sudah Mati Kak')
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+							if (!isAntiLink) return reply('﹝⌬﹞berhasil di matikan_')
 						var ini = antilink.indexOf(from)
 						antilink.splice(ini, 1)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('「 SUKSES 」Fitur Anti Link Dimatikan')
+						reply('﹝⌬﹞berhasil di matikan_')
 						break 
 						}
 						
 						if (buttonsR === 'Enable C1') {
 							  if (!isRegistered) return reply(ind.noregis())     
-							if (isCemd) return reply('Sudah Aktif Kak')
+							if (isCemd) return reply('﹝⌬﹞berhasil di aktifkan_')
 						
 cmd.push(from)
 usercmd.push(sender)
 						fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
 						fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-						reply('「 SUKSES 」Fitur Cmd Diaktifkan')
+						reply('﹝⌬﹞berhasil di aktifkan_')
+						reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
 						break
 						}
 						
 						if (buttonsR === 'Disable C0') {
 							  if (!isRegistered) return reply(ind.noregis())
                     
-							if (!isCemd) return reply('Sudah Mati Kak')
+							if (!isCemd) return reply('﹝⌬﹞berhasil di matikan_')
 				
 var ini = cmd.indexOf(from)
 						cmd.splice(ini, 1)
@@ -4867,57 +4904,57 @@ var ini = cmd.indexOf(from)
 						var ini = usercmd.indexOf(sender)
 						usercmd.splice(ini, 1)
 						fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-						reply('「 SUKSES 」Fitur Cmd Dimatikan')
+						reply('﹝⌬﹞berhasil di matikan_')
 						break 
 						}
 						
 						if (buttonsR === 'Disable T0') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 							var ini = antitoxic.indexOf(from)
 						antitoxic.splice(ini, 1)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-						reply('「 BERHASIL DI MATIKAN 」')
+						reply('﹝⌬﹞berhasil di matikan_')
 						break
 						}
 						if (buttonsR === 'Enable T1') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-							if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+							if (isAntiToxic) return reply('﹝⌬﹞berhasil di aktifkan_')
 						antitoxic.push(from)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-						reply('「 BERHASIL DI AKTIFKAN 」 ')
+						reply('﹝⌬﹞berhasil di aktifkan_')
 						break
 						}
 						if (buttonsR === 'Enable L1') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-					if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+					if (isLevelingOn) return reply('﹝⌬﹞berhasil di aktifkan_')
                     _leveling.push(from)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-                     reply('「 BERHASIL DI AKTIFKAN 」')
+                     reply('﹝⌬﹞berhasil di aktifkan_')
                      break
 }
                      
                      if (buttonsR === 'Disable L0') {
 							if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 					
-					if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-					if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+					if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+					if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 					var ini = _leveling.indexOf(from)
 						_leveling.splice(ini, 1)
                     fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-                     reply('「 BERHASIL DI MATIKAN 」')
+                     reply('﹝⌬﹞berhasil di matikan_')
                      break
 }
                      
@@ -4954,9 +4991,9 @@ if (buttonsR === 'GET') {
 
 if (buttonsR === '10 menit') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-              if (!isGroupAdmins) reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)    
-			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+              if (!isGroupAdmins) reply(`_﹝⌬﹞hanya untuk admin grup_`)    
+			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 600000)
@@ -4970,9 +5007,9 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '5 menit') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-              if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+              if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 				}, 300000)
@@ -4986,9 +5023,9 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '5 menit >') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-              if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+              if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 300000)
@@ -5002,9 +5039,9 @@ if (buttonsR === '10 menit') {
 }
 				if (buttonsR === '10 menit >') {
               if (!isRegistered) return reply(ind.noregis())     
-              if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-              if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-			  if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+              if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 			setTimeout( () => {
 				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 				}, 600000)
@@ -5018,8 +5055,8 @@ if (buttonsR === '10 menit') {
 }
 if (buttonsR === '10 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 600000)
@@ -5033,8 +5070,8 @@ setTimeout( () => {
 }
 if (buttonsR === '14 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,200,000)
@@ -5048,8 +5085,8 @@ setTimeout( () => {
 }
 if (buttonsR === '30 Menit <') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,800,000)
@@ -5241,7 +5278,7 @@ if (buttonsR === '么 neko 么') {
 if (!isRegistered) return reply(ind.noregis())
 			  E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
-			  reply(`_「⏳」 wait sedang proses_`)
+			  reply(`_﹝⌬﹞wait proses_`)
 			  B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 		      buttons = [{buttonId:`么 neko 么`,buttonText:{displayText:`么 neko 么`},type:1}]
@@ -5255,8 +5292,8 @@ if (!isRegistered) return reply(ind.noregis())
 }
 				if (buttonsR === 'TAMBAH 📦') {
 if (!isRegistered) return reply(ind.noregis()) 
-if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
-if(!q) return reply(`tag foto yang sudah dikirim sebelumnya produk lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
+if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
 biopro = q.split('|')[2]
@@ -5290,7 +5327,7 @@ client.relayWAMessage(prep)
               
               if (buttonsR === 'LEAVE NOW') {
               	    if (!isRegistered) return reply(ind.noregis())     
-                    if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
+                    if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
                     if (isGroupAdmins || isOwner) {
                     	client.groupLeave(from)
 } else {
@@ -5301,8 +5338,8 @@ break
 
 if (buttonsR === 'LEAVE TIME') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isOwner) return reply(`_perintah ini hanya bisa digunakan oleh owner bot saja_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkhhkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -5422,51 +5459,11 @@ sendButLocation(from, `${teks}`, `nama : chacha\nlahir tahun : 2007\nbulan : apr
 break
 }
 
-if (buttonsR === 'CHANGE NOW') {
-if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-let gwekke = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .open-grup atau .close-grup`,
-"buttons": [
-{buttonId: 'Buka', buttonText: {displayText: 'Buka'}, type: 1},
-{buttonId: 'Tutup', buttonText: {displayText: 'Tutup'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2})
-await client.relayWAMessage(gwekke)
-break
-}
-
-if (buttonsR === 'CHANGE TIME') {
-if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
-gwetkke = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Pilih Satu Aja Ya Njg`,
-"buttons": [
-{buttonId: 'SET OPEN', buttonText: {displayText: 'SET OPEN'}, type: 1},
-{buttonId: 'SET CLOSE', buttonText: {displayText: 'SET CLOSE'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(gwetkke)
-break
-}
-
 if (buttonsR === 'SET CLOSE') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwekyyke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -5484,9 +5481,9 @@ break
 
 if (buttonsR === 'SET OPEN') {
 if (!isRegistered) return reply(ind.noregis())     
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)
-if (!isGroupAdmins) return reply(`_perintah ini hanya bisa digunakan oleh admin grup saja_`)     
-if (!isBotGroupAdmins) return reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
@@ -5560,24 +5557,28 @@ break
 }
 
 if (buttonsR === '❎') {
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
 if (isDepot) return reply('Kamu Sudah Melakukan Vote')
+for (let i of vote) {
 no.push(sender)
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
 yes.splice(ini, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
-reply(`${vote}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
+reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
+}
 break
 }
 
 if (buttonsR === '✅') {
-if (!isGroup) return reply(`_perintah ini hanya bisa digunakan dalam grup saja_`)  
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
 if (isPote) return reply('Kamu Sudah Melakukan Vote')
+for (let i of vote) {
 yes.push(sender)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 no.splice(ini, 1)
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
-reply(`${vote}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
+reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
+}
 break
 }
 
@@ -5641,7 +5642,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 break
 }
 
@@ -5665,7 +5666,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 break
 }
 
@@ -5689,7 +5690,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 break
 }
 
@@ -5713,7 +5714,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 break
 }
 
@@ -5737,7 +5738,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 break
 }
 
@@ -5761,7 +5762,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 break
 }
 
@@ -5785,7 +5786,7 @@ if (!isAntiToxic) return
 if (isGroupAdmins) return 
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 break
 }
 		 
@@ -5881,7 +5882,7 @@ if (!isGroup) return
 if (isGroupAdmins) return 
 if (args.length > 4000) return 
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
-client.groupRemove(from, [kic]).catch((e)=>{reply(`_perintah tidak dapat di akses, bot harus menjadi admin untuk menjalankan perintah_`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 }*/
 
 if (buttonsR === `BLOGGER`) {
