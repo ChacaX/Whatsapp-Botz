@@ -6050,6 +6050,36 @@ client.setStatus(`Runtime ${kyun(uptime)}`)
 }, 1000)
 }
 
+if (hoour_now >= '23.59' && hour_now <= '00.00') {
+ayonima = fs.readFileSync(./lib/tengah.jpg)
+client.updateProfilePicture(ayonima)
+}
+
+if (hoour_now >= '04.59' && hour_now <= '05.00') {
+ayonima = fs.readFileSync(./lib/pagi.jpg)
+client.updateProfilePicture(ayonima)
+}
+
+if (hoour_now >= '04.59' && hour_now <= '05.00') {
+ayonima = fs.readFileSync(./lib/pagi.jpg)
+client.updateProfilePicture(ayonima)
+}
+
+if (hoour_now >= '11.59' && hour_now <= '12.00') {
+ayonima = fs.readFileSync(./lib/siang.jpg)
+client.updateProfilePicture(ayonima)
+}
+
+if (hoour_now >= '14.59' && hour_now <= '15.00') {
+ayonima = fs.readFileSync(./lib/sore.jpg)
+client.updateProfilePicture(ayonima)
+}
+
+if (hoour_now >= '18.59' && hour_now <= '19.00') {
+ayonima = fs.readFileSync(./lib/malam.jpg)
+client.updateProfilePicture(ayonima)
+}
+
 if (hoour_now >= '11:37' && hour_now <= '11:37') {
 var ini = benar.indexOf(from)
 benar.splice(ini, 1)
