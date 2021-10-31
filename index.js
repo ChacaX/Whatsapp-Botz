@@ -1538,7 +1538,7 @@ teks =`「 *PROFILE KAMU* 」
 
 「 *EDUCATION MENU* 」
 • ${prefix2}quiz
-• ${prefix2}menu
+• ${prefix2}nulis
 • ${prefix2}niatsholat
 • ${prefix2}niatsehari2
 • ${prefix2}hadist
@@ -1600,7 +1600,7 @@ teks =`「 *PROFILE KAMU* 」
 • zak06cheat
 • ridwan
 • hafizh`
-sendButLocation(from, `${teks}`, `ཿ⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, *_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*_________________
@@ -4099,7 +4099,7 @@ jo = await client.prepareMessageFromContent(from, {
 
 「 *EDUCATION MENU* 」
 • ${prefix2}quiz
-• ${prefix2}menu
+• ${prefix2}nulis
 • ${prefix2}niatsholat
 • ${prefix2}niatsehari2
 • ${prefix2}hadist
@@ -4289,7 +4289,7 @@ teks =`「 *PROFILE KAMU* 」
 
 「 *EDUCATION MENU* 」
 • ${prefix2}quiz
-• ${prefix2}menu
+• ${prefix2}nulis
 • ${prefix2}niatsholat
 • ${prefix2}niatsehari2
 • ${prefix2}hadist
@@ -4351,7 +4351,7 @@ teks =`「 *PROFILE KAMU* 」
 • zak06cheat
 • ridwan
 • hafizh\n`
-sendButLocation(from, `${teks}`, `ཿ⸼۬࣪ꪶ M I T S U H A - O F F I C I A L ˚᮪๑՞`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, *_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
