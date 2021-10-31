@@ -2200,9 +2200,10 @@ if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+mem = body.slice(6)
+if (mem.length > 15) return ('Hanya Bisa Ngekick 1 Nomor') 
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
 if (mek.message.extendedTextMessage.contextInfo.participant) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
-if (args.length > 15) return ('Hanya Bisa Ngekick 1 Nomor') 
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
 for (let _ of mentioned) {
