@@ -6062,36 +6062,42 @@ client.setStatus(`Runtime ${kyun(uptime)}`)
 }
 
 if (hoour_now >= '23.59' && hour_now <= '00.00') {
+client.updatePresence(from, Presence.composing)
 ayonima = fs.readFileSync('./lib/tengah.jpg')
 media = await client.downloadAndSaveMediaMessage(ayonima)
 await client.updateProfilePicture(botNumber, media)
 }
 
 if (hoour_now >= '04.59' && hour_now <= '05.00') {
+client.updatePresence(from, Presence.composing)
 ayonima = fs.readFileSync('./lib/pagi.jpg')
 media = await client.downloadAndSaveMediaMessage(ayonima)
 await client.updateProfilePicture(botNumber, media)
 }
 
 if (hoour_now >= '04.59' && hour_now <= '05.00') {
+client.updatePresence(from, Presence.composing)
 ayonima = fs.readFileSync('./lib/pagi.jpg')
 media = await client.downloadAndSaveMediaMessage(ayonima)
 await client.updateProfilePicture(botNumber, media)
 }
 
-if (hoour_now >= '12.44' && hour_now <= '14.45') {
+if (hoour_now >= '12.51' && hour_now <= '12.52') {
+client.updatePresence(from, Presence.composing)
 ayonima = fs.readFileSync('./lib/siang.jpg')
 media = await client.downloadAndSaveMediaMessage(ayonima)
 await client.updateProfilePicture(botNumber, media)
 }
 
 if (hoour_now >= '14.59' && hour_now <= '15.00') {
+client.updatePresence(from, Presence.composing)
 ayonima = fs.readFileSync('./lib/sore.jpg')
 media = await client.downloadAndSaveMediaMessage(ayonima)
 await client.updateProfilePicture(botNumber, media)
 }
 
 if (hoour_now >= '18.59' && hour_now <= '19.00') {
+client.updatePresence(from, Presence.composing)
 ayonima = fs.readFileSync('./lib/malam.jpg')
 media = await client.downloadAndSaveMediaMessage(ayonima)
 await client.updateProfilePicture(botNumber, media)
