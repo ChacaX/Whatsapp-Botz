@@ -1419,7 +1419,7 @@ uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
-buttons =* [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
+buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
 contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
