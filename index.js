@@ -3354,7 +3354,7 @@ if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 client.updatePresence(from, Presence.composing) 
 if (args[1]=="detik") {var waktu = args[0]+"000"
 } else if (args[1]=="menit") {var waktu = args[0]+"0000"
-} else if (args[1]=="jam") {var waktu = args[0]+"00000"}
+} else if (args[1]=="jam") {var waktu = args[0]+"00000"
 } else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #votting 1 menit alasan_\n_note : alasan gunakan "." sebagai pengganti sepasi_`)}
 /*ppp = `${args.join(' ')}`*/
 /*waktu = ppp.split("|")[0];*/
