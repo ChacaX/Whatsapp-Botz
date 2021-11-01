@@ -6076,7 +6076,7 @@ ayonima = fs.readFileSync('./lib/pagi.jpg')
 client.updateProfilePicture(from, ayonima)
 }
 
-if (hoour_now >= '12.10' && hour_now <= '12.11') {
+if (hoour_now >= '12.19' && hour_now <= '12.20') {
 ayonima = fs.readFileSync('./lib/siang.jpg')
 client.updateProfilePicture(from, ayonima)
 }
