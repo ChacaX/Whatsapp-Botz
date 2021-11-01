@@ -71,16 +71,12 @@ const bacaharian = JSON.parse(fs.readFileSync('./lib/bacasehari.js'))
 const bacasholat = JSON.parse(fs.readFileSync('./lib/bacasholat.json'))
 const usercmd = JSON.parse(fs.readFileSync('./src/usercmd.json'))
 const cmd = JSON.parse(fs.readFileSync('./src/cmd.json'))
-const draft = JSON.parse(fs.readFileSync('./src/draft.json'))
-const view = JSON.parse(fs.readFileSync('./src/view.json'))
 const req = JSON.parse(fs.readFileSync('./src/req.json'))
 const benar = JSON.parse(fs.readFileSync('./src/benar.json'))
 const salah = JSON.parse(fs.readFileSync('./src/salah.json'))
 const berbintang = JSON.parse(fs.readFileSync('./src/berbintang.json'))
 const kasar = JSON.parse(fs.readFileSync('./src/kasar.json'))
 const absen = JSON.parse(fs.readFileSync('./src/absen.json'))
-const sosmed = JSON.parse(fs.readFileSync('./lib/sosmed.js'))
-const love = JSON.parse(fs.readFileSync('./src/love.json'))
 const no = JSON.parse(fs.readFileSync('./src/no.json'))
 const yes = JSON.parse(fs.readFileSync('./src/yes.json'))
 const save = JSON.parse(fs.readFileSync('./lib/sv.js'))
@@ -1567,13 +1563,6 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}upswvideo
 
 
-「 *SOSIAL MENU* 」
-• ${prefix2}upload
-• ${prefix2}posting
-• ${prefix2}draft
-• ${prefix2}blogger
-
-
 「 *OTHER MENU* 」
 • ${prefix2}sharelock
 • ${prefix2}delete
@@ -1697,73 +1686,6 @@ deskripsi : biopro
 produk.push(H1)
 fs.writeFileSync(`./lib/${nmorpro}.jpeg`, delb)
 fs.writeFileSync('./lib/produk.js', JSON.stringify(produk))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
-break
-
-case 'draft':
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
-if(!q) return reply(`*BLOGGER WHATSAPP*\n\nBagikan cerita dan pengalamanmu di blogger dengan cara ketik #blogger lalu isi cerita menarikmu`)
-bodi = args.join(" ")
-st = {
-pengguna : pushname,
-teks : bodi
-}
-draft.push(st)
-fs.writeFileSync(`./src/draft.json`, JSON.stringify(draft))
-reply(`_success to publish_`)
-break
-
-case 'blogger':
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
-view.push(sender)
-fs.writeFileSync('./src/view.json', JSON.stringify(view))
-data = fs.readFileSync('./src/draft.json');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-buttons = [{buttonId:`BLOGGER`,buttonText:{displayText:'BLOGGER'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/draft.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`view ${view.length}`, imageMessage: imageMsg,
-contentText:`*${randKey.pengguna}*\n\n${randKey.teks}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
-client.relayWAMessage(prep)
-break
-
-case 'postingan':
-case 'posting':
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
-data = fs.readFileSync('./lib/sosmed.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-buttons = [{buttonId:`LIKE`,buttonText:{displayText:'LIKE'},type:1},{buttonId:`SCROL`,buttonText:{displayText:'SCROL'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`SOSMED INSTAN`, imageMessage: imageMsg,
-contentText:`❤ *${love.length}*\n*${randKey.nama}* ${randKey.cap}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
-client.relayWAMessage(prep)
-break
-
-case 'upload':
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
-if (!isQuotedImage) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
-if(!q) return reply(`tag foto yang sudah dikirim sebelumnya kamu lalu ketik\n#upload caption`)
-caption = args.join(" ")
-boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-delb = await client.downloadMediaMessage(boij)
-nem = pushname
-H1 = {
-nama : nem,
-cap : caption
-}
-sosmed.push(H1)
-fs.writeFileSync(`./lib/${pushname}.jpeg`, delb)
-fs.writeFileSync('./lib/sosmed.js', JSON.stringify(sosmed))
 client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
 break
 
@@ -4129,13 +4051,6 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}upswvideo
 
 
-「 *SOSIAL MENU* 」
-• ${prefix2}upload
-• ${prefix2}posting
-• ${prefix2}draft
-• ${prefix2}blogger
-
-
 「 *OTHER MENU* 」
 • ${prefix2}sharelock
 • ${prefix2}delete
@@ -4318,13 +4233,6 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}upswtext
 • ${prefix2}upswimg
 • ${prefix2}upswvideo
-
-
-「 *SOSIAL MENU* 」
-• ${prefix2}upload
-• ${prefix2}posting
-• ${prefix2}draft
-• ${prefix2}blogger
 
 
 「 *OTHER MENU* 」
@@ -5837,29 +5745,6 @@ reply(`Alarm Akan Bunyi 1 Menit Lagi`)
 break
 }
 
-if (buttonsR === 'SCROL') {
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
-data = fs.readFileSync('./lib/sosmed.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-buttons = [{buttonId:`LIKE`,buttonText:{displayText:'LIKE'},type:1},{buttonId:`SCROL`,buttonText:{displayText:'SCROL'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nama}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`SOSMED INSTAN`, imageMessage: imageMsg,
-contentText:`❤ *${love.length}*\n*${randKey.nama}* ${randKey.cap}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
-client.relayWAMessage(prep)
-break
-}
-	
-if (buttonsR === 'LIKE') {
-love.push(sender)
-fs.writeFileSync('./src/love.json', JSON.stringify(love))
-reply(`SIP 1 FOLOWERS BUAT MITSUHA`)
-break
-}
-
 if (budy.includes(`Asu`)) {
 kasar.push(sender)
 fs.writeFileSync('./src/kasar.json', JSON.stringify(kasar))
@@ -6124,24 +6009,6 @@ if (args.length > 4000) return
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 }*/
-
-if (buttonsR === `BLOGGER`) {
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
-view.push(sender)
-fs.writeFileSync('./src/view.json', JSON.stringify(view))
-data = fs.readFileSync('./src/draft.json');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-buttons = [{buttonId:`BLOGGER`,buttonText:{displayText:'BLOGGER'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/draft.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:`view ${view.length}`, imageMessage: imageMsg,
-contentText:`*${randKey.pengguna}*\n\n${randKey.teks}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: falfa})
-client.relayWAMessage(prep)
-break
-}
 
 
 		if (isGroup && isSimi && budy != undefined) {
