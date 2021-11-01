@@ -3662,6 +3662,7 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
 } else {return reply(`_pilihan enable :_\n\n_- .enable antilink_\n_- .enable welcome_\n_- .enable antitoxic_\n_- .enable leveling_\n_- .enable cmd_`)}
 }
+break
 
 case 'disable':
 if (args[1]=="antilink") {antilink.splice(from)
@@ -3684,6 +3685,7 @@ fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
 reply('_﹝⌬﹞berhasil di aktifkan_')
 } else {return reply(`_pilihan disable :_\n\n_- .disable antilink_\n_- .disable welcome_\n_- .disable antitoxic_\n_- .disable leveling_\n_- .disable cmd_`)}
 }
+break
 
 /*_________________
 BATAS DEFAULT
