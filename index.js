@@ -6063,32 +6063,32 @@ client.setStatus(`Runtime ${kyun(uptime)}`)
 
 if (hoour_now >= '23.59' && hour_now <= '00.00') {
 ayonima = fs.readFileSync('./lib/tengah.jpg')
-client.updateProfilePicture(from, ayonima, image)
+client.updateProfilePicture(botNumber, ayonima)
 }
 
 if (hoour_now >= '04.59' && hour_now <= '05.00') {
 ayonima = fs.readFileSync('./lib/pagi.jpg')
-client.updateProfilePicture(from, ayonima, image)
+client.updateProfilePicture(botNumber, ayonima)
 }
 
 if (hoour_now >= '04.59' && hour_now <= '05.00') {
 ayonima = fs.readFileSync('./lib/pagi.jpg')
-client.updateProfilePicture(from, ayonima, image)
+client.updateProfilePicture(botNumber, ayonima)
 }
 
-if (hoour_now >= '12.25' && hour_now <= '12.26') {
+if (hoour_now >= '12.35' && hour_now <= '12.36') {
 ayonima = fs.readFileSync('./lib/siang.jpg')
-client.updateProfilePicture(from, ayonima, image)
+client.updateProfilePicture(botNumber, ayonima)
 }
 
 if (hoour_now >= '14.59' && hour_now <= '15.00') {
 ayonima = fs.readFileSync('./lib/sore.jpg')
-client.updateProfilePicture(from, ayonima, image)
+client.updateProfilePicture(botNumber, ayonima)
 }
 
 if (hoour_now >= '18.59' && hour_now <= '19.00') {
 ayonima = fs.readFileSync('./lib/malam.jpg')
-client.updateProfilePicture(from, ayonima, image)
+client.updateProfilePicture(botNumber, ayonima)
 }
 
 if (hoour_now >= '11:37' && hour_now <= '11:37') {
