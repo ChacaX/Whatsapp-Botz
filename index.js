@@ -1312,8 +1312,7 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
-if (budy == '.join'
-|| (budy == '#join')) {
+if (budy.includes(`${prefix2}join`)){
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`) 
