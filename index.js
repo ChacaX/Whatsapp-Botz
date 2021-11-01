@@ -3358,7 +3358,7 @@ if (args[1]=="detik") {var waktu = args[0]+"000"
 } else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #votting 1 menit alasan_\n_note : alasan gunakan "." sebagai pengganti sepasi_`)}
 /*ppp = `${args.join(' ')}`*/
 /*waktu = ppp.split("|")[0];*/
-votenye = args[2]
+votenya= args[2]
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
 ini3 = vote.indexOf(from)
