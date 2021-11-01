@@ -1419,7 +1419,7 @@ uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
-buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
+buttons =* [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
 contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
@@ -1432,174 +1432,174 @@ case 'allmenu':
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`「 *PROFILE KAMU* 」
-•  nama ${pushname}
-• setatus ${premi}
-• pangkat ${role}
-• level ${getLevel3}
-• xp ${getLevelingXp(sender)}
+•  *nama* ${pushname}
+• *setatus* ${premi}
+• *pangkat* ${role}
+• *level* ${getLevel3}
+• *xp* ${getLevelingXp(sender)}
 
 
 「 *INFORMASI MENU* 」
-• ${prefix2}info
-• ${prefix2}iklan
-• ${prefix2}donasi
-• ${prefix2}request
+• *${prefix2}info*
+• *${prefix2}iklan*
+• *${prefix2}donasi* [query]
+• *${prefix2}request* <teks>
 
 
 「 *EVENT GAMES BOT* 」
-• ${prefix2}carspeed
-• ${prefix2}lotre
+• *${prefix2}carspeed* <teks>
+• *${prefix2}lotre* [query]
 
 
 「 *URL TO MEDIA TYPE* 」
-• ${prefix2}urltoimg
+• *${prefix2}urltoimg* <url>
 
 
 「 *PRODUK & VOTING* 」
-• ${prefix2}produk
-• ${prefix2}tambah
-• ${prefix2}votting
-• ${prefix2}vote
-• ${prefix2}dellvote
+• *${prefix2}produk*
+• *${prefix2}tambah* <judul> | <nomor> | <desc>
+• *${prefix2}votting* <waktu> | <alasan>
+• *${prefix2}vote* [query]
+• *${prefix2}dellvote*
 
 
 「 *ULASAN & MUTUAL* 」
-• ${prefix2}ulasan
-• ${prefix2}komentar
-• ${prefix2}mutual
-• ${prefix2}save
+• *${prefix2}ulasan* [query]
+• *${prefix2}komentar* <teks>
+• *${prefix2}mutual*
+• *${prefix2}save* <nama> |  <nomor>
 
 
 「 *ABSEN & MESSAGES* 」
-• ${prefix2}absen
-• ${prefix2}absensi
-• ${prefix2}svmess
-• ${prefix2}listmess
+• *${prefix2}absen* <waktu>
+• *${prefix2}absensi*
+• *${prefix2}svmess* <teks>
+• *${prefix2}listmess*
 
 
 「 *GROUP MENU* 」
-• ${prefix2}enable
-• ${prefix2}disable
-• ${prefix2}ban
-• ${prefix2}dellban
-• ${prefix2}cmd
-• ${prefix2}sider
-• ${prefix2}hidetag
-• ${prefix2}fitnah
-• ${prefix2}change
-• ${prefix2}setchange
-• ${prefix2}revoke
-• ${prefix2}add
-• ${prefix2}kick
-• ${prefix2}promote
-• ${prefix2}demote
-• ${prefix2}tagall
-• ${prefix2}antilink
-• ${prefix2}antitoxic
-• ${prefix2}leveling
-• ${prefix2}welcome
+• *${prefix2}enable* [query]
+• *${prefix2}disable* [query]
+• *${prefix2}ban* <@tag>
+• *${prefix2}dellban* <@tag>
+• *${prefix2}cmd* [query] (enable/disable)
+• *${prefix2}sider* [reply pesan bot]
+• *${prefix2}hidetag* <teks>
+• *${prefix2}fitnah* <@tag> | <teks> | <teks>
+• *${prefix2}change* [query]
+• *${prefix2}setchange* [query]
+• *${prefix2}revoke*
+• *${prefix2}add* [reply chat]
+• *${prefix2}kick* <@tag>
+• *${prefix2}promote* <@tag>
+• *${prefix2}demote* <@tag>
+• *${prefix2}tagall* <teks>
+• *${prefix2}antilink* [query] (enable/disable)
+• *${prefix2}antitoxic* [query] (enable/disable)
+• *${prefix2}leveling* [query] (enable/disable)
+• *${prefix2}welcome* [query] (enable/disable)
 
 
 「 *ANIME MENU* 」
-• ${prefix2}neko
-• ${prefix2}waifu
+• *${prefix2}neko*
+• *${prefix2}waifu*
 
 
 「 *GAMES MENU* 」
-• ${prefix2}dungeon
-• ${prefix2}slot
-• ${prefix2}truth
-• ${prefix2}dare
-• ${prefix2}tebakgambar
+• *${prefix2}dungeon*
+• *${prefix2}slot*
+• *${prefix2}truth*
+• *${prefix2}dare*
+• *${prefix2}tebakgambar*
 
 
 「 *IMAGE MENU* 」
-• ${prefix2}cogan
-• ${prefix2}cecan
-• ${prefix2}pinterest
-• ${prefix2}ocr
+• *${prefix2}cogan*
+• *${prefix2}cecan*
+• *${prefix2}pinterest* <teks>
+• *${prefix2}ocr* [reply gambar/img]
 
 
 「 *RANDOM MENU* 」
-• ${prefix2}cerpen
-• ${prefix2}ceritahoror
-• ${prefix2}film
-• ${prefix2}fakedata
-• ${prefix2}news
-• ${prefix2}beasiswa
-• ${prefix2}ppcouple
+• *${prefix2}cerpen*
+• *${prefix2}ceritahoror*
+• *${prefix2}film*
+• *${prefix2}fakedata*
+• *${prefix2}news*
+• *${prefix2}beasiswa*
+• *${prefix2}ppcouple*
 
 
 「 *STICKER MENU* 」
-• ${prefix2}sticker
-• ${prefix2}ttp
-• ${prefix2}attp
-• ${prefix2}wasted
-• ${prefix2}comrade
-• ${prefix2}jail
-• ${prefix2}passed
-• ${prefix2}trigger
-• ${prefix2}toimg
+• *${prefix2}sticker* [reply gambar/img]
+• *${prefix2}ttp* [reply gambar/img]
+• *${prefix2}attp* [reply gambar/img]
+• *${prefix2}wasted* [reply gambar/img]
+• *${prefix2}comrade* [reply gambar/img]
+• *${prefix2}jail* [reply gambar/img]
+• *${prefix2}passed* [reply gambar/img]
+• *${prefix2}trigger* [reply gambar/img]
+• *${prefix2}toimg* [sticker]
 
 
 「 *EDUCATION MENU* 」
-• ${prefix2}quiz
-• ${prefix2}nulis
-• ${prefix2}niatsholat
-• ${prefix2}niatsehari2
-• ${prefix2}hadist
+• *${prefix2}quiz*
+• *${prefix2}nulis* <teks>
+• *${prefix2}niatsholat* [query]
+• *${prefix2}niatsehari2* [query]
+• *${prefix2}hadist* [query]
 
 
 「 *AUDIO/VN MENU* 」
-• ${prefix2}fast
-• ${prefix2}tupai
-• ${prefix2}gemuk
-• ${prefix2}slow
-• ${prefix2}tomp3
+• *${prefix2}fast* [reply vn/audio]
+• *${prefix2}tupai* [reply vn/audio]
+• *${prefix2}gemuk* [reply vn/audio]
+• *${prefix2}slow* [reply vn/audio]
+• *${prefix2}tomp3* [reply video]
 
 
 「 *PREMIUM MENU* 」
-• ${prefix2}asupan
-• ${prefix2}upswtext
-• ${prefix2}upswimg
-• ${prefix2}upswvideo
+• *${prefix2}asupan* (premium)
+• *${prefix2}upswtext* <caption> (premium)
+• *${prefix2}upswimg* [image] <caption> (premium)
+• *${prefix2}upswvideo* [image] <caption> (premium)
 
 
 「 *OTHER MENU* 」
-• ${prefix2}sharelock
-• ${prefix2}delete
-• ${prefix2}pesan
-• ${prefix2}owner
-• ${prefix2}report
-• ${prefix2}timer
-• ${prefix2}setperintah
+• *${prefix2}sharelock* <teks> | <teks>
+• *${prefix2}delete* [reply]
+• *${prefix2}pesan* <nomor> | <pesan>
+• *${prefix2}owner*
+• *${prefix2}report* <teks>
+• *${prefix2}timer* <waktu>
+• *${prefix2}setperintah* [query]
 
 
 「 *OWNER MENU* 」
-• $
-• >
-• =>
-• ${prefix2}makegroup
-• ${prefix2}join
-• ${prefix2}kudet
-• ${prefix2}leave
-• ${prefix2}clone
-• ${prefix2}bc
-• ${prefix2}addprem
-• ${prefix2}dellprem
-• ${prefix2}setbudy
-• ${prefix2}bug
+• *$
+• *>
+• *=>
+• *${prefix2}makegroup* <@tag> | <teks> | <teks> (owner)
+• *${prefix2}join* <url> (owner)
+• *${prefix2}kudet* [image] <teks> | <teks> (owner)
+• *${prefix2}leave* [query] (owner)
+• *${prefix2}clone* <@tag> (owner)
+• *${prefix2}bc* <teks> (owner)
+• *${prefix2}addprem* <@tag> (owner)
+• *${prefix2}dellprem* <@tag> (owner)
+• *${prefix2}setbudy* <teks> (owner)
+• *${prefix2}bug* [query]
 
 
 「 *THANKS TO* 」
-• mhankbarbar
-• mitsuhabotz
-• rimurubotz
-• dimxbotz
-• rurichan
-• zak06cheat
-• ridwan
-• hafizh`
+• *mhankbarbar*
+• *mitsuhabotz*
+• *rimurubotz*
+• dimxbotz*
+• *rurichan*
+• *zak06cheat*
+• *ridwan*
+• *hafizh*`
 sendButLocation(from, `${teks}`, `*_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -1781,7 +1781,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Buka', buttonText: {displayText: 'Buka'}, type: 1},
 {buttonId: 'Tutup', buttonText: {displayText: 'Tutup'}, type: 1}
@@ -1801,7 +1801,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'SET OPEN', buttonText: {displayText: 'SET OPEN'}, type: 1},
 {buttonId: 'SET CLOSE', buttonText: {displayText: 'SET CLOSE'}, type: 1}
@@ -1864,7 +1864,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable W1', buttonText: {displayText: 'Enable W1'}, type: 1},
 {buttonId: 'Disable W0', buttonText: {displayText: 'Disable W0'}, type: 1}
@@ -1886,7 +1886,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable A1', buttonText: {displayText: 'Enable A1'}, type: 1},
 {buttonId: 'Disable A0', buttonText: {displayText: 'Disable A0'}, type: 1}
@@ -1925,7 +1925,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
@@ -1947,7 +1947,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkjiie = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable L1', buttonText: {displayText: 'Enable L1'}, type: 1},
 {buttonId: 'Disable L0', buttonText: {displayText: 'Disable L0'}, type: 1}
@@ -2232,7 +2232,7 @@ if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'LEAVE NOW', buttonText: {displayText: 'LEAVE NOW'}, type: 1},
 {buttonId: 'LEAVE TIME', buttonText: {displayText: 'LEAVE TIME'}, type: 1}
@@ -4164,174 +4164,174 @@ if (buttonsR === 'MENU') {
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`「 *PROFILE KAMU* 」
-•  nama ${pushname}
-• setatus ${premi}
-• pangkat ${role}
-• level ${getLevel3}
-• xp ${getLevelingXp(sender)}
+•  *nama* ${pushname}
+• *setatus* ${premi}
+• *pangkat* ${role}
+• *level* ${getLevel3}
+• *xp* ${getLevelingXp(sender)}
 
 
 「 *INFORMASI MENU* 」
-• ${prefix2}info
-• ${prefix2}iklan
-• ${prefix2}donasi
-• ${prefix2}request
+• *${prefix2}info*
+• *${prefix2}iklan*
+• *${prefix2}donasi* [query]
+• *${prefix2}request* <teks>
 
 
 「 *EVENT GAMES BOT* 」
-• ${prefix2}carspeed
-• ${prefix2}lotre
+• *${prefix2}carspeed* <teks>
+• *${prefix2}lotre* [query]
 
 
 「 *URL TO MEDIA TYPE* 」
-• ${prefix2}urltoimg
+• *${prefix2}urltoimg* <url>
 
 
 「 *PRODUK & VOTING* 」
-• ${prefix2}produk
-• ${prefix2}tambah
-• ${prefix2}votting
-• ${prefix2}vote
-• ${prefix2}dellvote
+• *${prefix2}produk*
+• *${prefix2}tambah* <judul> | <nomor> | <desc>
+• *${prefix2}votting* <waktu> | <alasan>
+• *${prefix2}vote* [query]
+• *${prefix2}dellvote*
 
 
 「 *ULASAN & MUTUAL* 」
-• ${prefix2}ulasan
-• ${prefix2}komentar
-• ${prefix2}mutual
-• ${prefix2}save
+• *${prefix2}ulasan* [query]
+• *${prefix2}komentar* <teks>
+• *${prefix2}mutual*
+• *${prefix2}save* <nama> |  <nomor>
 
 
 「 *ABSEN & MESSAGES* 」
-• ${prefix2}absen
-• ${prefix2}absensi
-• ${prefix2}svmess
-• ${prefix2}listmess
+• *${prefix2}absen* <waktu>
+• *${prefix2}absensi*
+• *${prefix2}svmess* <teks>
+• *${prefix2}listmess*
 
 
 「 *GROUP MENU* 」
-• ${prefix2}enable
-• ${prefix2}disable
-• ${prefix2}ban
-• ${prefix2}dellban
-• ${prefix2}cmd
-• ${prefix2}sider
-• ${prefix2}hidetag
-• ${prefix2}fitnah
-• ${prefix2}change
-• ${prefix2}setchange
-• ${prefix2}revoke
-• ${prefix2}add
-• ${prefix2}kick
-• ${prefix2}promote
-• ${prefix2}demote
-• ${prefix2}tagall
-• ${prefix2}antilink
-• ${prefix2}antitoxic
-• ${prefix2}leveling
-• ${prefix2}welcome
+• *${prefix2}enable* [query]
+• *${prefix2}disable* [query]
+• *${prefix2}ban* <@tag>
+• *${prefix2}dellban* <@tag>
+• *${prefix2}cmd* [query] (enable/disable)
+• *${prefix2}sider* [reply pesan bot]
+• *${prefix2}hidetag* <teks>
+• *${prefix2}fitnah* <@tag> | <teks> | <teks>
+• *${prefix2}change* [query]
+• *${prefix2}setchange* [query]
+• *${prefix2}revoke*
+• *${prefix2}add* [reply chat]
+• *${prefix2}kick* <@tag>
+• *${prefix2}promote* <@tag>
+• *${prefix2}demote* <@tag>
+• *${prefix2}tagall* <teks>
+• *${prefix2}antilink* [query] (enable/disable)
+• *${prefix2}antitoxic* [query] (enable/disable)
+• *${prefix2}leveling* [query] (enable/disable)
+• *${prefix2}welcome* [query] (enable/disable)
 
 
 「 *ANIME MENU* 」
-• ${prefix2}neko
-• ${prefix2}waifu
+• *${prefix2}neko*
+• *${prefix2}waifu*
 
 
 「 *GAMES MENU* 」
-• ${prefix2}dungeon
-• ${prefix2}slot
-• ${prefix2}truth
-• ${prefix2}dare
-• ${prefix2}tebakgambar
+• *${prefix2}dungeon*
+• *${prefix2}slot*
+• *${prefix2}truth*
+• *${prefix2}dare*
+• *${prefix2}tebakgambar*
 
 
 「 *IMAGE MENU* 」
-• ${prefix2}cogan
-• ${prefix2}cecan
-• ${prefix2}pinterest
-• ${prefix2}ocr
+• *${prefix2}cogan*
+• *${prefix2}cecan*
+• *${prefix2}pinterest* <teks>
+• *${prefix2}ocr* [reply gambar/img]
 
 
 「 *RANDOM MENU* 」
-• ${prefix2}cerpen
-• ${prefix2}ceritahoror
-• ${prefix2}film
-• ${prefix2}fakedata
-• ${prefix2}news
-• ${prefix2}beasiswa
-• ${prefix2}ppcouple
+• *${prefix2}cerpen*
+• *${prefix2}ceritahoror*
+• *${prefix2}film*
+• *${prefix2}fakedata*
+• *${prefix2}news*
+• *${prefix2}beasiswa*
+• *${prefix2}ppcouple*
 
 
 「 *STICKER MENU* 」
-• ${prefix2}sticker
-• ${prefix2}ttp
-• ${prefix2}attp
-• ${prefix2}wasted
-• ${prefix2}comrade
-• ${prefix2}jail
-• ${prefix2}passed
-• ${prefix2}trigger
-• ${prefix2}toimg
+• *${prefix2}sticker* [reply gambar/img]
+• *${prefix2}ttp* [reply gambar/img]
+• *${prefix2}attp* [reply gambar/img]
+• *${prefix2}wasted* [reply gambar/img]
+• *${prefix2}comrade* [reply gambar/img]
+• *${prefix2}jail* [reply gambar/img]
+• *${prefix2}passed* [reply gambar/img]
+• *${prefix2}trigger* [reply gambar/img]
+• *${prefix2}toimg* [sticker]
 
 
 「 *EDUCATION MENU* 」
-• ${prefix2}quiz
-• ${prefix2}nulis
-• ${prefix2}niatsholat
-• ${prefix2}niatsehari2
-• ${prefix2}hadist
+• *${prefix2}quiz*
+• *${prefix2}nulis* <teks>
+• *${prefix2}niatsholat* [query]
+• *${prefix2}niatsehari2* [query]
+• *${prefix2}hadist* [query]
 
 
 「 *AUDIO/VN MENU* 」
-• ${prefix2}fast
-• ${prefix2}tupai
-• ${prefix2}gemuk
-• ${prefix2}slow
-• ${prefix2}tomp3
+• *${prefix2}fast* [reply vn/audio]
+• *${prefix2}tupai* [reply vn/audio]
+• *${prefix2}gemuk* [reply vn/audio]
+• *${prefix2}slow* [reply vn/audio]
+• *${prefix2}tomp3* [reply video]
 
 
 「 *PREMIUM MENU* 」
-• ${prefix2}asupan
-• ${prefix2}upswtext
-• ${prefix2}upswimg
-• ${prefix2}upswvideo
+• *${prefix2}asupan* (premium)
+• *${prefix2}upswtext* <caption> (premium)
+• *${prefix2}upswimg* [image] <caption> (premium)
+• *${prefix2}upswvideo* [image] <caption> (premium)
 
 
 「 *OTHER MENU* 」
-• ${prefix2}sharelock
-• ${prefix2}delete
-• ${prefix2}pesan
-• ${prefix2}owner
-• ${prefix2}report
-• ${prefix2}timer
-• ${prefix2}setperintah
+• *${prefix2}sharelock* <teks> | <teks>
+• *${prefix2}delete* [reply]
+• *${prefix2}pesan* <nomor> | <pesan>
+• *${prefix2}owner*
+• *${prefix2}report* <teks>
+• *${prefix2}timer* <waktu>
+• *${prefix2}setperintah* [query]
 
 
 「 *OWNER MENU* 」
-• $
-• >
-• =>
-• ${prefix2}makegroup
-• ${prefix2}join
-• ${prefix2}kudet
-• ${prefix2}leave
-• ${prefix2}clone
-• ${prefix2}bc
-• ${prefix2}addprem
-• ${prefix2}dellprem
-• ${prefix2}setbudy
-• ${prefix2}bug
+• *$
+• *>
+• *=>
+• *${prefix2}makegroup* <@tag> | <teks> | <teks> (owner)
+• *${prefix2}join* <url> (owner)
+• *${prefix2}kudet* [image] <teks> | <teks> (owner)
+• *${prefix2}leave* [query] (owner)
+• *${prefix2}clone* <@tag> (owner)
+• *${prefix2}bc* <teks> (owner)
+• *${prefix2}addprem* <@tag> (owner)
+• *${prefix2}dellprem* <@tag> (owner)
+• *${prefix2}setbudy* <teks> (owner)
+• *${prefix2}bug* [query]
 
 
 「 *THANKS TO* 」
-• mhankbarbar
-• mitsuhabotz
-• rimurubotz
-• dimxbotz
-• rurichan
-• zak06cheat
-• ridwan
-• hafizh\n`
+• *mhankbarbar*
+• *mitsuhabotz*
+• *rimurubotz*
+• dimxbotz*
+• *rurichan*
+• *zak06cheat*
+• *ridwan*
+• *hafizh*`
 sendButLocation(from, `${teks}`, `*_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
@@ -5539,7 +5539,7 @@ if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkhhkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: '10 Menit <', buttonText: {displayText: '10 Menit <'}, type: 1},
 {buttonId: '20 Menit <', buttonText: {displayText: '20 Menit <'}, type: 1},
@@ -5669,7 +5669,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwekyyke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: '5 menit', buttonText: {displayText: '5 menit'}, type: 1},
 {buttonId: '10 menit', buttonText: {displayText: '10 menit'}, type: 1}
@@ -5690,7 +5690,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
+"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
 "buttons": [
 {buttonId: '5 menit >', buttonText: {displayText: '5 menit >'}, type: 1},
 {buttonId: '10 menit >', buttonText: {displayText: '10 menit >'}, type: 1}
