@@ -1812,13 +1812,15 @@ break
 case 'timer':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-if (args.length < 1) return reply(`Cara Memulai Timer => Silahkan Ketik\n\n.timer waktu => Contoh #timer 06:57`)
+client.updatePresence(from, Presence.composing) 
+if (args[1]=="detik") {var timer = args[0]+"000"
+} else if (args[1]=="menit") {var timer = args[0]+"0000"
+} else if (args[1]=="jam") {var timer = args[0]+"00000"
+} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #timer 1 menit_`)}
 creator = "6285731261728@s.whatsapp.net"
-taime = body.slice(6)
-reply(`Oke Timer Nyala Sampai Pukul ${taime}`)
 setTimeout( () => {
 sendButLocation(from, `JEDA ALARM ⏰`, `TIMER - BOTZ`, {jpegThumbnail:fakeimage}, [{buttonId:`JEDA 1 MENIT`,buttonText:{displayText:'JEDA 1 MENIT'},type:1},{buttonId:`MATIKAN`,buttonText:{displayText:'MATIKAN'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-}, taime)
+}, timer)
 setTimeout( () => {
 reply(`_﹝⌬﹞berhasil di aktifkan_`)
 }, 0)
@@ -3348,10 +3350,16 @@ case 'votting':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
-if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)
-ppp = `${args.join(' ')}`
-tem = ppp.split("|")[0];
-votenye = ppp.split("|")[1];
+/*if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)*/
+client.updatePresence(from, Presence.composing) 
+if (args[1]=="detik") {var waktu = args[0]+"000"
+} else if (args[1]=="menit") {var waktu = args[0]+"0000"
+} else if (args[1]=="jam") {var waktu = args[0]+"00000"}
+if (args[2]=="|") {var votenya = args[3]
+} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #votting 1 menit | alasan_\n_note : gunakan "." sebagai pengganti sepasi_`)}
+/*ppp = `${args.join(' ')}`*/
+/*waktu = ppp.split("|")[0];*/
+/*waktu = args[3]*/
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
 ini3 = vote.indexOf(from)
@@ -3361,20 +3369,20 @@ vote.splice(ini3, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
-vote.push(votenye)
+vote.push(votenya)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
 for (let i of vote) {
 reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk me votting dan ${prefix2}delvote untuk menghapus vote kamu`)
 setTimeout( () => {
-reply(`*VOTING TELAH BERAKHIR*\n\n${votenye}\n\n✅ ${yes.length}\n❎ ${no.length}`)
-}, tem)
+reply(`*VOTING TELAH BERAKHIR*\n\n${votenya}\n\n✅ ${yes.length}\n❎ ${no.length}`)
+}, waktu)
 setTimeout( () => {
 ini3 = vote.indexOf(from)
 vote.splice(ini3, 1)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
 vote.push(`_saat ini sedang tidak ada votting silahkan ketik #votting untuk memulai votting_`)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
-}, tem)
+}, waktu)
 }
 setTimeout( () => {
 ini = yes.indexOf(from)
@@ -3383,7 +3391,7 @@ yes.splice(ini, 1)
 no.splice(ini2, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
-}, tem)
+}, waktu) 
 break
 					
 case 'vote':
@@ -3441,8 +3449,11 @@ case 'absen':
 client.updatePresence(from, Presence.composing) 
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
-if (args.length < 1) return reply(`Cara Memulai Absen Silahkan Ketik\n\n.absen (waktu)\n\nlist waktu yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .absen 600000`)
-tem = args.join(" ")
+client.updatePresence(from, Presence.composing) 
+if (args[1]=="detik") {var tem = args[0]+"000"
+} else if (args[1]=="menit") {var tem = args[0]+"0000"
+} else if (args[1]=="jam") {var tem = args[0]+"00000"
+} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #absen 1 menit_`)}
 rabsen.push(from)
 fs.writeFileSync('./src/rabsen.json', JSON.stringify(rabsen))
 ini = absen.indexOf(from)
@@ -5734,7 +5745,6 @@ break
 if (buttonsR === 'JEDA 1 MENIT') {
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-if (args.length < 1) return reply(`Cara Memulai Timer => Silahkan Ketik\n\n.timer waktu => ( 1 menit = 60000 )\n\nMisal : .timer 60000`)
 creator = "6285731261728@s.whatsapp.net"
 setTimeout( () => {
 sendButLocation(from, `JEDA ALARM ⏰`, `TIMER - BOTZ`, {jpegThumbnail:fakeimage}, [{buttonId:`JEDA 1 MENIT`,buttonText:{displayText:'JEDA 1 MENIT'},type:1},{buttonId:`MATIKAN`,buttonText:{displayText:'MATIKAN'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
