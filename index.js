@@ -1478,6 +1478,8 @@ teks =`「 *PROFILE KAMU* 」
 
 
 「 *GROUP MENU* 」
+• ${prefix2}enable
+• ${prefix2}disable
 • ${prefix2}ban
 • ${prefix2}dellban
 • ${prefix2}cmd
@@ -1617,6 +1619,7 @@ if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
+if(!q) return reply(`teksnya mana kak? contoh:\n\n#kudet nama|desc`)
 ppp = `${args.join(' ')}`
 send = ppp.split("|")[0];
 lok = ppp.split("|")[1];
@@ -1736,7 +1739,7 @@ quoted: floc2
 client.sendMessage(from, options, text, {quoted: faketag})
 break
 					
-case 'close-grup':
+/*case 'close-grup':
 case 'close-grub':      
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
@@ -1764,7 +1767,7 @@ text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta*
 }
 client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
-break
+break*/
 
 case 'grub':
 case 'grup':
@@ -1778,7 +1781,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .open-grup atau .close-grup`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Buka', buttonText: {displayText: 'Buka'}, type: 1},
 {buttonId: 'Tutup', buttonText: {displayText: 'Tutup'}, type: 1}
@@ -1798,7 +1801,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Pilih Satu Aja Ya Njg`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'SET OPEN', buttonText: {displayText: 'SET OPEN'}, type: 1},
 {buttonId: 'SET CLOSE', buttonText: {displayText: 'SET CLOSE'}, type: 1}
@@ -1861,7 +1864,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable W1', buttonText: {displayText: 'Enable W1'}, type: 1},
 {buttonId: 'Disable W0', buttonText: {displayText: 'Disable W0'}, type: 1}
@@ -1883,7 +1886,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable A1', buttonText: {displayText: 'Enable A1'}, type: 1},
 {buttonId: 'Disable A0', buttonText: {displayText: 'Disable A0'}, type: 1}
@@ -1922,7 +1925,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
@@ -1944,7 +1947,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 let gwekkkjiie = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Jika Tidak Muncul Tombol Silahkan Ketik .${command}-enable atau .${command}-disable`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'Enable L1', buttonText: {displayText: 'Enable L1'}, type: 1},
 {buttonId: 'Disable L0', buttonText: {displayText: 'Disable L0'}, type: 1}
@@ -2229,7 +2232,7 @@ if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Pilih Satu Aja Ya Njg`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: 'LEAVE NOW', buttonText: {displayText: 'LEAVE NOW'}, type: 1},
 {buttonId: 'LEAVE TIME', buttonText: {displayText: 'LEAVE TIME'}, type: 1}
@@ -3976,6 +3979,8 @@ jo = await client.prepareMessageFromContent(from, {
 
 
 「 *GROUP MENU* 」
+• ${prefix2}enable
+• ${prefix2}disable
 • ${prefix2}ban
 • ${prefix2}dellban
 • ${prefix2}cmd
@@ -4160,6 +4165,8 @@ teks =`「 *PROFILE KAMU* 」
 
 
 「 *GROUP MENU* 」
+• ${prefix2}enable
+• ${prefix2}disable
 • ${prefix2}ban
 • ${prefix2}dellban
 • ${prefix2}cmd
@@ -4379,6 +4386,51 @@ opp = `*「 COMMAND IS NOT FOUND 」*`
 client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22})  
 break
 }*/
+
+if (budy.includes(`enable`)) {
+if (args[1]=="antilink") {antilink.push(from)
+fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="welcome") {welkom.push(from)
+fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="antitoxic") {antitoxic.push(from)
+fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="leveling") {_leveling.push(from)
+fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="cmd") {
+cmd.push(from)
+usercmd.push(sender)
+fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
+fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
+} else {return reply(`_pilihan enable :_\n_- .enable antilink_\n_- .enable welcome_\n_- .enable antitoxic_\n_- .enable leveling_\n_- .enable cmd_`)}
+}
+
+if (budy.includes(`disable`)) {
+if (args[1]=="antilink") {antilink.splice(from)
+fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="welcome") {welkom.splice(from)
+fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="antitoxic") {antitoxic.splice(from)
+fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="leveling") {_leveling.splice(from)
+fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="cmd") {
+cmd.splice(from)
+usercmd.splice(sender)
+fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
+fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else {return reply(`_pilihan disable :_\n_- .disable antilink_\n_- .disable welcome_\n_- .disable antitoxic_\n_- .disable leveling_\n_- .disable cmd_`)}
+}
 
 if (budy.includes(`-HADIST1-`)) {
 for (let i of hadist) {
@@ -5487,7 +5539,7 @@ if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`)
 gwetkhhkkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Pilih Satu Aja Ya Njg`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: '10 Menit <', buttonText: {displayText: '10 Menit <'}, type: 1},
 {buttonId: '20 Menit <', buttonText: {displayText: '20 Menit <'}, type: 1},
@@ -5617,7 +5669,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwekyyke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Pilih Satu Aja Ya Njg`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: '5 menit', buttonText: {displayText: '5 menit'}, type: 1},
 {buttonId: '10 menit', buttonText: {displayText: '10 menit'}, type: 1}
@@ -5638,7 +5690,7 @@ if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 gwetkke = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `Pilih Satu Aja Ya Njg`,
+"footerText": `_jika tidak muncuk tombol silahkan ketik .enable/.disable kemudian pilih query_`,
 "buttons": [
 {buttonId: '5 menit >', buttonText: {displayText: '5 menit >'}, type: 1},
 {buttonId: '10 menit >', buttonText: {displayText: '10 menit >'}, type: 1}
