@@ -3641,19 +3641,19 @@ reply(`Berhasil Membuat Status`)
 break
 
 case 'enable':
-if (args[1]=="antilink") {antilink.push(from)
+if (args[0]=="antilink") {antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="welcome") {welkom.push(from)
+} else if (args[0]=="welcome") {welkom.push(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="antitoxic") {antitoxic.push(from)
+} else if (args[0]=="antitoxic") {antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="leveling") {_leveling.push(from)
+} else if (args[0]=="leveling") {_leveling.push(from)
 fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="cmd") {
+} else if (args[0]=="cmd") {
 cmd.push(from)
 usercmd.push(sender)
 fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
@@ -3664,19 +3664,19 @@ reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika in
 break
 
 case 'disable':
-if (args[1]=="antilink") {antilink.splice(from)
+if (args[0]=="antilink") {antilink.splice(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="welcome") {welkom.splice(from)
+} else if (args[0]=="welcome") {welkom.splice(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="antitoxic") {antitoxic.splice(from)
+} else if (args[0]=="antitoxic") {antitoxic.splice(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="leveling") {_leveling.splice(from)
+} else if (args[0]=="leveling") {_leveling.splice(from)
 fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="cmd") {
+} else if (args[0]=="cmd") {
 cmd.splice(from)
 usercmd.splice(sender)
 fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
