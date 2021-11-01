@@ -1312,6 +1312,15 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
+if (budy == '.join'
+|| (budy == '#join')) {
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
+if (!isOwner) return reply(`_﹝⌬﹞hanya untuk owner_`) 
+await client.query({json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]})
+reply(`_succes join_`)
+}
+
 if (budy.includes("https://chat.whatsapp.com/")){
 if (!isGroup) return
 if (!isAntiLink) return
@@ -1581,6 +1590,7 @@ teks =`「 *PROFILE KAMU* 」
 • >
 • =>
 • ${prefix2}makegroup
+• ${prefix2}join
 • ${prefix2}kudet
 • ${prefix2}leave
 • ${prefix2}clone
@@ -2219,7 +2229,7 @@ break
             
 /*case 'join':
 await client.query({json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]})
-reply(`Suzes Gabung Ke Gerup`)
+reply(`_succes join_`)
 break*/
 
 /*case 'simih':
@@ -4142,6 +4152,7 @@ jo = await client.prepareMessageFromContent(from, {
 • >
 • =>
 • ${prefix2}makegroup
+• ${prefix2}join
 • ${prefix2}kudet
 • ${prefix2}leave
 • ${prefix2}clone
@@ -4332,6 +4343,7 @@ teks =`「 *PROFILE KAMU* 」
 • >
 • =>
 • ${prefix2}makegroup
+• ${prefix2}join
 • ${prefix2}kudet
 • ${prefix2}leave
 • ${prefix2}clone
