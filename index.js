@@ -1973,7 +1973,7 @@ members_id.push(mem.jid)
 mentions(teks, members_id, true)
 break
           
-case 'antilink-enable':
+/*case 'antilink-enable':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
@@ -2044,7 +2044,7 @@ var ini = _leveling.indexOf(from)
 _leveling.splice(ini, 1)
 fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
 ('_﹝⌬﹞berhasil di matikan_')
-break
+break*/
         
 case 'sider':
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
@@ -3640,6 +3640,51 @@ client.sendMessage('status@broadcast', sweb, video, {caption: `*UPDATE STATUS*: 
 reply(`Berhasil Membuat Status`)
 break
 
+case 'enable':
+if (args[1]=="antilink") {antilink.push(from)
+fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="welcome") {welkom.push(from)
+fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="antitoxic") {antitoxic.push(from)
+fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="leveling") {_leveling.push(from)
+fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="cmd") {
+cmd.push(from)
+usercmd.push(sender)
+fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
+fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
+} else {return reply(`_pilihan enable :_\n\n_- .enable antilink_\n_- .enable welcome_\n_- .enable antitoxic_\n_- .enable leveling_\n_- .enable cmd_`)}
+}
+
+case 'disable':
+if (args[1]=="antilink") {antilink.splice(from)
+fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="welcome") {welkom.splice(from)
+fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="antitoxic") {antitoxic.splice(from)
+fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="leveling") {_leveling.splice(from)
+fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else if (args[1]=="cmd") {
+cmd.splice(from)
+usercmd.splice(sender)
+fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
+fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else {return reply(`_pilihan disable :_\n\n_- .disable antilink_\n_- .disable welcome_\n_- .disable antitoxic_\n_- .disable leveling_\n_- .disable cmd_`)}
+}
+
 /*_________________
 BATAS DEFAULT
 ___________________*/
@@ -4386,51 +4431,6 @@ opp = `*「 COMMAND IS NOT FOUND 」*`
 client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22})  
 break
 }*/
-
-if (budy.includes(`enable`)) {
-if (args[1]=="antilink") {antilink.push(from)
-fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="welcome") {welkom.push(from)
-fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="antitoxic") {antitoxic.push(from)
-fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="leveling") {_leveling.push(from)
-fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="cmd") {
-cmd.push(from)
-usercmd.push(sender)
-fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
-fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
-} else {return reply(`_pilihan enable :_\n_- .enable antilink_\n_- .enable welcome_\n_- .enable antitoxic_\n_- .enable leveling_\n_- .enable cmd_`)}
-}
-
-if (budy.includes(`disable`)) {
-if (args[1]=="antilink") {antilink.splice(from)
-fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="welcome") {welkom.splice(from)
-fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="antitoxic") {antitoxic.splice(from)
-fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="leveling") {_leveling.splice(from)
-fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[1]=="cmd") {
-cmd.splice(from)
-usercmd.splice(sender)
-fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
-fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else {return reply(`_pilihan disable :_\n_- .disable antilink_\n_- .disable welcome_\n_- .disable antitoxic_\n_- .disable leveling_\n_- .disable cmd_`)}
-}
 
 if (budy.includes(`-HADIST1-`)) {
 for (let i of hadist) {
