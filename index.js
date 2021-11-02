@@ -1422,7 +1422,7 @@ fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
-contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
+contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• *dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -1458,7 +1458,7 @@ teks =`「 *PROFILE KAMU* 」
 「 *PRODUK & VOTING* 」
 • *${prefix2}produk*
 • *${prefix2}tambah* <judul> | <nomor> | <desc>
-• *${prefix2}votting* <waktu> | <alasan>
+• *${prefix2}votting* <waktu> <alasan>
 • *${prefix2}vote* [query]
 • *${prefix2}dellvote*
 
@@ -1595,7 +1595,7 @@ teks =`「 *PROFILE KAMU* 」
 • *mhankbarbar*
 • *mitsuhabotz*
 • *rimurubotz*
-• dimxbotz*
+• *dimxbotz*
 • *rurichan*
 • *zak06cheat*
 • *ridwan*
@@ -2119,7 +2119,8 @@ reply('Gagal menambahkan target, mungkin karena di private')
 break*/
 
 case 'add':
-try {
+reply(`_maaf fitur ini tidak bisa di akses sementara_`)
+/*try {
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
@@ -2128,7 +2129,7 @@ await client.groupAdd(from, [quotedis])
 } catch (e) {
 console.log('Error :', e)
 reply('_reply pesan chat member yang keluar lalu ketik #add_')
-}
+}*/
 break
 
 case 'kick':
@@ -3968,7 +3969,7 @@ fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
-contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
+contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• *dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -4190,7 +4191,7 @@ teks =`「 *PROFILE KAMU* 」
 「 *PRODUK & VOTING* 」
 • *${prefix2}produk*
 • *${prefix2}tambah* <judul> | <nomor> | <desc>
-• *${prefix2}votting* <waktu> | <alasan>
+• *${prefix2}votting* <waktu> <alasan>
 • *${prefix2}vote* [query]
 • *${prefix2}dellvote*
 
@@ -4327,7 +4328,7 @@ teks =`「 *PROFILE KAMU* 」
 • *mhankbarbar*
 • *mitsuhabotz*
 • *rimurubotz*
-• dimxbotz*
+• *dimxbotz*
 • *rurichan*
 • *zak06cheat*
 • *ridwan*
