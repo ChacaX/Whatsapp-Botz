@@ -1317,14 +1317,6 @@ reply(`_jangan tag dia kak, dia lagi afk_`)
 }
 }
 
-if (budy.includes(``)) { 
-if (!isAfk) return
-if (!isGroup) return
-afk.splice(sender)
-fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
-}
-
 if (budy.includes(`${prefix2}join`)){
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
@@ -5965,8 +5957,16 @@ bang = util.format(sul)
 return reply(bang)
 }
 }
+
+if (budy.includes(``)) { 
+if (!isAfk) return
+if (!isGroup) return
+afk.splice(sender)
+fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
+reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
+}
 	
-if (budy.includes(``)) {
+if (budy.includes(`${command}`)) {
 if (!isCemd) return
 if (!isGroup) return 
 for (let sensi of usercmd) {
