@@ -3487,7 +3487,7 @@ if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 afk.push(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-reply(`*{ AFK MODE ACTIVE }*\n\nnama : ${pushname}\nalasan: ${body.slice(4)}`)
+reply(`*{ AFK MODE ACTIVE }*\n\nnama : ${pushname}\nalasan : ${body.slice(4)}`)
 break
 
 case 'gtts':
