@@ -3655,14 +3655,15 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 } else if (args[0]=="leveling") {_leveling.push(from)
 fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="cmd") {
-cmd.push(from)
+} else if (args[0]=="cmd") {cmd.push(from)
 usercmd.push(sender)
 fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
 fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
 reply('_﹝⌬﹞berhasil di aktifkan_')
 reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
-} else {return reply(`_pilihan enable :_\n\n_- .enable antilink_\n_- .enable welcome_\n_- .enable antitoxic_\n_- .enable leveling_\n_- .enable cmd_`)}
+} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, false)
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else {return reply(`_pilihan enable :_\n\n_• .enable antilink_\n_• .enable welcome_\n_• .enable antitoxic_\n_• .enable leveling_\n_• .enable cmd_\n_• .enable grup_`)}
 break
 
 case 'disable':
@@ -3678,13 +3679,37 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 } else if (args[0]=="leveling") {_leveling.splice(from)
 fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="cmd") {
-cmd.splice(from)
+} else if (args[0]=="cmd") {cmd.splice(from)
 usercmd.splice(sender)
 fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
 fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else {return reply(`_pilihan disable :_\n\n_- .disable antilink_\n_- .disable welcome_\n_- .disable antitoxic_\n_- .disable leveling_\n_- .disable cmd_`)}
+} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);fy(_leveling))
+reply('_﹝⌬﹞berhasil di aktifkan_')
+} else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable cmd_\n_• .disable grup_`)}
+break
+
+case 'disable':
+if (args[0]=="antilink") {antilink.splice(from)
+fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
+reply('_﹝⌬﹞berhasil di matikan_')
+} else if (args[0]=="welcome") {welkom.splice(from)
+fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
+reply('_﹝⌬﹞berhasil di matikan_')
+} else if (args[0]=="antitoxic") {antitoxic.splice(from)
+fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
+reply('_﹝⌬﹞berhasil di matikan_')
+} else if (args[0]=="leveling") {_leveling.splice(from)
+fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
+reply('_﹝⌬﹞berhasil di matikan_')
+} else if (args[0]=="cmd") {cmd.splice(from)
+usercmd.splice(sender)
+fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
+fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
+reply('_﹝⌬﹞berhasil di matikan_')
+} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);fy(_leveling))
+reply('_﹝⌬﹞berhasil di matikan_')
+} else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable cmd_\n_• .disable grup_`)}
 break
 
 /*_________________
