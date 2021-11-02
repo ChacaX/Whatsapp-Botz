@@ -3684,7 +3684,7 @@ usercmd.splice(sender)
 fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
 fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);fy(_leveling))
+} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 reply('_﹝⌬﹞berhasil di aktifkan_')
 } else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable cmd_\n_• .disable grup_`)}
 break
@@ -3707,7 +3707,7 @@ usercmd.splice(sender)
 fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
 fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
 reply('_﹝⌬﹞berhasil di matikan_')
-} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);fy(_leveling))
+} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 reply('_﹝⌬﹞berhasil di matikan_')
 } else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable cmd_\n_• .disable grup_`)}
 break
