@@ -1487,8 +1487,7 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}sider
 • ${prefix2}hidetag
 • ${prefix2}fitnah
-• ${prefix2}change
-• ${prefix2}setchange
+• ${prefix2}settings
 • ${prefix2}revoke
 • ${prefix2}add
 • ${prefix2}kick
@@ -1774,6 +1773,8 @@ case 'grub':
 case 'grup':
 case 'group':
 case 'change':
+case 'settings':
+case 'setting':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
@@ -1791,26 +1792,6 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwekke)
-break
-
-case 'setchange':
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
-if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
-if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-gwetkke = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
-"buttons": [
-{buttonId: 'SET OPEN', buttonText: {displayText: 'SET OPEN'}, type: 1},
-{buttonId: 'SET CLOSE', buttonText: {displayText: 'SET CLOSE'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(gwetkke)
 break
 
 case 'timer':
@@ -3669,29 +3650,6 @@ break
 case 'disable':
 if (args[0]=="antilink") {antilink.splice(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="welcome") {welkom.splice(from)
-fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="antitoxic") {antitoxic.splice(from)
-fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="leveling") {_leveling.splice(from)
-fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="cmd") {cmd.splice(from)
-usercmd.splice(sender)
-fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
-fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);
-reply('_﹝⌬﹞berhasil di aktifkan_')
-} else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable cmd_\n_• .disable grup_`)}
-break
-
-case 'disable':
-if (args[0]=="antilink") {antilink.splice(from)
-fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('_﹝⌬﹞berhasil di matikan_')
 } else if (args[0]=="welcome") {welkom.splice(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
@@ -4059,8 +4017,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}sider
 • ${prefix2}hidetag
 • ${prefix2}fitnah
-• ${prefix2}change
-• ${prefix2}setchange
+• ${prefix2}settings
 • ${prefix2}revoke
 • ${prefix2}add
 • ${prefix2}kick
@@ -4245,8 +4202,7 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}sider
 • ${prefix2}hidetag
 • ${prefix2}fitnah
-• ${prefix2}change
-• ${prefix2}setchange
+• ${prefix2}settings
 • ${prefix2}revoke
 • ${prefix2}add
 • ${prefix2}kick
@@ -5197,74 +5153,7 @@ if (buttonsR === 'GET') {
 	
 				 
 
-if (buttonsR === '10 menit') {
-              if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
-              if (!isGroupAdmins) reply(`_﹝⌬﹞hanya untuk admin grup_`)    
-			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-			setTimeout( () => {
-				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
-				}, 600000)
-				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
-				}, 2500)
-				setTimeout( () => {
-				client.sendMessage(from, `Grup akan ditutup dalam 10 menit`, MessageType.text, { quoted: floc2 })
-				}, 0)
-				break
-}
-				if (buttonsR === '5 menit') {
-              if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
-              if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
-			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-			setTimeout( () => {
-				client.groupSettingChange (from, GroupSettingChange.messageSend, true);
-				}, 300000)
-				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Ditutup!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
-				}, 2500)
-				setTimeout( () => {
-				client.sendMessage(from, `Grup akan ditutup dalam 5 menit`, MessageType.text, { quoted: floc2 })
-				}, 0)
-				break
-}
-				if (buttonsR === '5 menit >') {
-              if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
-              if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
-			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-			setTimeout( () => {
-				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-				}, 300000)
-				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
-				}, 2500)
-				setTimeout( () => {
-				client.sendMessage(from, `Grup akan dibuka dalam 5 menit`, MessageType.text, { quoted: floc2 })
-				}, 0)
-				break
-}
-				if (buttonsR === '10 menit >') {
-              if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-              if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
-              if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
-			  if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-			setTimeout( () => {
-				client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-				}, 600000)
-				setTimeout( () => {
-				client.sendMessage(from, 'Perhatian Grup Akan Dibuka!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
-				}, 2500)
-				setTimeout( () => {
-				client.sendMessage(from, `Grup akan dibuka dalam 10 menit`, MessageType.text, { quoted: floc2 })
-				}, 0)
-				break
-}
+
 if (buttonsR === '10 Menit <') {
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
@@ -5684,48 +5573,6 @@ if (buttonsR === 'MY INFO') {
 creator = "6285731261728@s.whatsapp.net"
 teks =`*HELLO ${pushname} ${ucapanWaktu} BERIKUT INFO DARI OWNERKU*`
 sendButLocation(from, `${teks}`, `nama : chacha\nlahir tahun : 2007\nbulan : april\ntanggal : 10\nalamat : yogyakarta\ndesa : guyangan\ngender : cowo\nhobi : nonton anime\ndeveloper bot : chacha\ncreator bot : chacha`, {jpegThumbnail:fakeimage}, [{buttonId:`BERI NILAI`,buttonText:{displayText:'BERI NILAI'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-break
-}
-
-if (buttonsR === 'SET CLOSE') {
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
-if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
-if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-gwekyyke = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
-"buttons": [
-{buttonId: '5 menit', buttonText: {displayText: '5 menit'}, type: 1},
-{buttonId: '10 menit', buttonText: {displayText: '10 menit'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(gwekyyke)
-break
-}
-
-if (buttonsR === 'SET OPEN') {
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
-if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
-if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
-gwetkke = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
-"buttons": [
-{buttonId: '5 menit >', buttonText: {displayText: '5 menit >'}, type: 1},
-{buttonId: '10 menit >', buttonText: {displayText: '10 menit >'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(gwetkke)
 break
 }
 
