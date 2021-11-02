@@ -2824,7 +2824,13 @@ exec(`ffmpeg -i ${media} ${ran}`, (err) => {
 fs.unlinkSync(media)
 if (err) return reply('❌ Gagal, pada saat mengkonversi sticker ke gambar ❌')
 buffer = fs.readFileSync(ran)
-client.sendMessage(from, buffer, MessageType.image)
+//client.sendMessage(from, buffer, MessageType.image)//
+buttons = [{buttonId: `么`,buttonText:{displayText: `么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, buffer, 'imageMessage', {thumbnail: thumb})).message.imageMessage
+buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
+contentText:`*T O  I M G*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+client.relayWAMessage(prep)
 fs.unlinkSync(ran)
 })
 break
