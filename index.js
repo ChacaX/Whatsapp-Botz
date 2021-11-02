@@ -1483,6 +1483,12 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}listmess
 
 
+「 *DOWNLOADER* 」
+• ${prefix2}play
+• ${prefix2}ytmp3
+• ${prefix2}ytmp4
+
+
 「 *GROUP MENU* 」
 • ${prefix2}afk
 • ${prefix2}enable
@@ -2964,6 +2970,53 @@ reply('Foto aja mas')
 }
 break
 
+case 'play':   
+				if (!isRegistered) return reply(ind.noregis())
+			    if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+				reply(ind.wait())
+				playvinz = body.slice(6)
+				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3/2?apikey=apikeyaine&q=${playvinz}`)
+				if (anu.error) return reply(anu.error)
+				infomp3vinz = `*Lagu Ditemukan!!!*\nJudul : ${anu.result.title}\nSource : ${anu.result.source}\nUkuran : ${anu.result.size}\n\n*TUNGGU SEBENTAR LAGI DIKIRIM MOHON JANGAN SPAM YA SAYANG*`
+				buffer = await getBuffer(anu.result.thumb)
+				client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3vinz})
+				laguvinz = await getBuffer(anu.result.link)
+				client.sendMessage(from, laguvinz, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek}
+				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
+			break
+			
+			case 'ytmp3':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+				reply(ind.wait())
+				if (args.length < 1) return reply('Urlnya mana kak?')
+				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
+				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp3/2?url=${args[0]}&apikey=apikeyaine`, {method: 'get'})
+				if (anu.error) return reply(anu.error)
+				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Audionya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.result.thumb)
+				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
+				buffer = await getBuffer(anu.result.link)
+				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek}
+				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
+			break
+			
+			case 'ytmp4':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+				reply(ind.wait())
+				if (args.length < 1) return reply('Urlnya mana kak?')
+				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
+				anu = await fetchJson(`https://api.zeks.xyz/api/ytmp4/2?url=${args[0]}&apikey=apikeyaine`, {method: 'get'})
+				if (anu.error) return reply(anu.error)
+				teks = `❏ *Title* : ${anu.result.title}\n❏ *Ukuran* : ${anu.result.size}\n\n❏ *Tunggu Bentar Ya Kak, Vidoenya Lagi Di Kirim...*`
+				thumb = await getBuffer(anu.result.thumb)
+				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
+				buffer = await getBuffer(anu.result.link)
+				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.title}.mp4`, quoted: mek}
+				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
+			break
+			
 case 'del':
 case 'hapus':
 case 'delete':
@@ -4005,6 +4058,12 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}listmess
 
 
+「 *DOWNLOADER* 」
+• ${prefix2}play
+• ${prefix2}ytmp3
+• ${prefix2}ytmp4
+
+
 「 *GROUP MENU* 」
 • ${prefix2}afk
 • ${prefix2}enable
@@ -4188,6 +4247,12 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}absensi
 • ${prefix2}svmess
 • ${prefix2}listmess
+
+
+「 *DOWNLOADER* 」
+• ${prefix2}play
+• ${prefix2}ytmp3
+• ${prefix2}ytmp4
 
 
 「 *GROUP MENU* 」
