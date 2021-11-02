@@ -1311,6 +1311,20 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
+for (let x of afk) {
+if (budy.includes(x.split('@')[0])) {
+reply(`_jangan tag dia kak, dia lagi afk_`)
+}
+}
+
+if (budy.includes(``)) { 
+if (!isAfk) return
+if (!isGroup) return
+afk.splice(sender)
+fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
+reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
+}
+
 if (budy.includes(`${prefix2}join`)){
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
@@ -5969,20 +5983,6 @@ if (args.length > 4000) return
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 }*/
-
-for (let x of afk) {
-if (budy.includes(x.split('@')[0])) {
-reply(`_jangan tag dia kak, dia lagi afk_`)
-}
-}
-
-if (budy.includes(``)) { 
-if (!isAfk) return
-if (!isGroup) return
-afk.splice(sender)
-fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
-}
 
 		if (isGroup && isSimi && budy != undefined) {
 						console.log(budy)
