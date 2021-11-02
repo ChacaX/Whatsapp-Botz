@@ -71,8 +71,6 @@ const tingkatan = JSON.parse(fs.readFileSync('./src/tingkatan.json'))
 const hadist = JSON.parse(fs.readFileSync('./lib/hadist.js'))
 const bacaharian = JSON.parse(fs.readFileSync('./lib/bacasehari.js'))
 const bacasholat = JSON.parse(fs.readFileSync('./lib/bacasholat.json'))
-const usercmd = JSON.parse(fs.readFileSync('./src/usercmd.json'))
-const cmd = JSON.parse(fs.readFileSync('./src/cmd.json'))
 const req = JSON.parse(fs.readFileSync('./src/req.json'))
 const benar = JSON.parse(fs.readFileSync('./src/benar.json'))
 const salah = JSON.parse(fs.readFileSync('./src/salah.json'))
@@ -592,7 +590,6 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			const isBenar = isGroup ? benar.includes(sender) : false
 			const isSalah = isGroup ? salah.includes(sender) : false
 			const isCar = isGroup ? tingkatan.includes(sender) : false
-			const isCemd = isGroup ? cmd.includes(from) : false
 			const isClem = isGroup ? clem.includes(sender) : false
 			const isAbsen = isGroup ? absen.includes(sender) : false
 			const isVote = isGroup ? vote.includes(from) : false
@@ -1492,7 +1489,6 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}disable
 • ${prefix2}ban
 • ${prefix2}dellban
-• ${prefix2}cmd
 • ${prefix2}sider
 • ${prefix2}hidetag
 • ${prefix2}fitnah
@@ -1886,23 +1882,6 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkkje)
-break
-
-case 'cmd':
-if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-let gwekkhkje = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `CMD IS COMMAND PROMPT`,
-"buttons": [
-{buttonId: 'Enable C1', buttonText: {displayText: 'Enable C1'}, type: 1},
-{buttonId: 'Disable C0', buttonText: {displayText: 'Disable C0'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2})
-await client.relayWAMessage(gwekkhkje)
 break
 
 case 'antitoxic':
@@ -3660,15 +3639,9 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 } else if (args[0]=="leveling") {_leveling.push(from)
 fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else if (args[0]=="cmd") {cmd.push(from)
-usercmd.push(sender)
-fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
-fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-reply('_﹝⌬﹞berhasil di aktifkan_')
-reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
 } else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 reply('_﹝⌬﹞berhasil di aktifkan_')
-} else {return reply(`_pilihan enable :_\n\n_• .enable antilink_\n_• .enable welcome_\n_• .enable antitoxic_\n_• .enable leveling_\n_• .enable cmd_\n_• .enable grup_`)}
+} else {return reply(`_pilihan enable :_\n\n_• .enable antilink_\n_• .enable welcome_\n_• .enable antitoxic_\n_• .enable leveling_\n_• .enable grup_`)}
 break
 
 case 'disable':
@@ -3689,14 +3662,9 @@ reply('_﹝⌬﹞berhasil di matikan_')
 } else if (args[0]=="leveling") {_leveling.splice(from)
 fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
 reply('_﹝⌬﹞berhasil di matikan_')
-} else if (args[0]=="cmd") {cmd.splice(from)
-usercmd.splice(sender)
-fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
-fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-reply('_﹝⌬﹞berhasil di matikan_')
 } else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 reply('_﹝⌬﹞berhasil di matikan_')
-} else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable cmd_\n_• .disable grup_`)}
+} else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable grup_`)}
 break
 
 /*_________________
@@ -4043,7 +4011,6 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}disable
 • ${prefix2}ban
 • ${prefix2}dellban
-• ${prefix2}cmd
 • ${prefix2}sider
 • ${prefix2}hidetag
 • ${prefix2}fitnah
@@ -4229,7 +4196,6 @@ teks =`「 *PROFILE KAMU* 」
 • ${prefix2}disable
 • ${prefix2}ban
 • ${prefix2}dellban
-• ${prefix2}cmd
 • ${prefix2}sider
 • ${prefix2}hidetag
 • ${prefix2}fitnah
@@ -5069,35 +5035,7 @@ if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
 						break 
 						}
 						
-						if (buttonsR === 'Enable C1') {
-							  if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
-							if (isCemd) return reply('_﹝⌬﹞berhasil di aktifkan_')
 						
-cmd.push(from)
-usercmd.push(sender)
-						fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
-						fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-						reply('_﹝⌬﹞berhasil di aktifkan_')
-						reply(`_fitur cmd aktif, bot akan mengirimkan setiap pesan ke chat kamu. jika ingin berhenti silahkan ketik #cmd lalu pilih tombol disable_`)
-						break
-						}
-						
-						if (buttonsR === 'Disable C0') {
-							  if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)
-                    
-							if (!isCemd) return reply('_﹝⌬﹞berhasil di matikan_')
-				
-var ini = cmd.indexOf(from)
-						cmd.splice(ini, 1)
-						fs.writeFileSync('./src/cmd.json', JSON.stringify(cmd))
-						var ini = usercmd.indexOf(sender)
-						usercmd.splice(ini, 1)
-						fs.writeFileSync('./src/usercmd.json', JSON.stringify(usercmd))
-						reply('_﹝⌬﹞berhasil di matikan_')
-						break 
-						}
 						
 						if (buttonsR === 'Disable T0') {
 							if (!isRegistered) return reply(ind.noregis())
@@ -5966,16 +5904,6 @@ fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
 reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
 }
 	
-if (budy.includes(`${prefix}${command}`)) {
-if (!isCemd) return
-if (!isGroup) return 
-for (let sensi of usercmd) {
-/*client.sendMessage(`${sensi}`, `> *time* ${time} *command* ${command} *from* ${groupName}`, text)*/
-client.sendMessage(`${sensi}`,`{\n"from": "${sender}",\n"command": "${command}",\n"time": "${time}"\n}`, text)
-break
-}
-}
-
 /*if (budy.includes(``)) {
 if (!isGroup) return
 if (isGroupAdmins) return 
