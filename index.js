@@ -61,6 +61,7 @@ const loli = new lolis()*/
 CONST JSON & JS
 ___________________*/
 
+const tebak = JSON.parse(fs.readFileSync('./lib/tebakgambar.js'))
 const ban = JSON.parse(fs.readFileSync('./src/ban.json'))
 const rabsen = JSON.parse(fs.readFileSync('./src/rabsen.json'))
 const vote = JSON.parse(fs.readFileSync('./src/vote.json'))
@@ -1829,7 +1830,7 @@ reply(`_﹝⌬﹞berhasil di aktifkan_`)
 }, 0)
 break
       
-case 'welcome-enable':
+/*case 'welcome-enable':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
@@ -1851,7 +1852,7 @@ var ini = welkom.indexOf(from)
 welkom.splice(ini, 1)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
 reply('_﹝⌬﹞berhasil di matikan_')
-break
+break*/
 
 case 'welcome':
 case 'welcome 1':
@@ -3978,7 +3979,7 @@ fs.unlinkSync(`./${sender}.jpeg`)
 uptime = process.uptime()
 jo = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
+"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃?? 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
 • nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
@@ -6071,7 +6072,6 @@ if (args.length > 4000) return
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 }*/
-
 
 		if (isGroup && isSimi && budy != undefined) {
 						console.log(budy)
