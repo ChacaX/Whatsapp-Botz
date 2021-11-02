@@ -2981,7 +2981,7 @@ case 'play':
 				buffer = await getBuffer(anu.result.thumb)
 				client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3vinz})
 				laguvinz = await getBuffer(anu.result.link)
-				client.sendMessage(from, laguvinz, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek}
+				client.sendMessage(from, laguvinz, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 			break
 			
@@ -2997,7 +2997,7 @@ case 'play':
 				thumb = await getBuffer(anu.result.thumb)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 				buffer = await getBuffer(anu.result.link)
-				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek}
+				client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 			break
 			
@@ -3013,7 +3013,7 @@ case 'play':
 				thumb = await getBuffer(anu.result.thumb)
 				client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 				buffer = await getBuffer(anu.result.link)
-				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.title}.mp4`, quoted: mek}
+				client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', filename: `${anu.result.title}.mp4`, quoted: mek})
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 			break
 			
