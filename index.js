@@ -245,7 +245,7 @@ fs.writeFileSync('./src/level.json', JSON.stringify(_level))
 async function starts() {
 const client = new WAConnection()
 //WWEB 
-client.version = [2, 2119, 6]  //Fix Bug
+client.version = [2, 2140, 12] /*[2, 2119, 6]*/
 client.logger.level = 'warn'
 console.log(banner.string)
 client.on('qr', () => {
@@ -1432,174 +1432,174 @@ case 'allmenu':
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`「 *PROFILE KAMU* 」
-•  *nama* ${pushname}
-• *setatus* ${premi}
-• *pangkat* ${role}
-• *level* ${getLevel3}
-• *xp* ${getLevelingXp(sender)}
+• nama ${pushname}
+• setatus ${premi}
+• pangkat ${role}
+• level ${getLevel3}
+• xp ${getLevelingXp(sender)}
 
 
 「 *INFORMASI MENU* 」
-• *${prefix2}info*
-• *${prefix2}iklan*
-• *${prefix2}donasi* [query]
-• *${prefix2}request* <teks>
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
 
 
 「 *EVENT GAMES BOT* 」
-• *${prefix2}carspeed* <teks>
-• *${prefix2}lotre* [query]
+• ${prefix2}carspeed
+• ${prefix2}lotre
 
 
 「 *URL TO MEDIA TYPE* 」
-• *${prefix2}urltoimg* <url>
+• ${prefix2}urltoimg
 
 
 「 *PRODUK & VOTING* 」
-• *${prefix2}produk*
-• *${prefix2}tambah* <judul> | <nomor> | <desc>
-• *${prefix2}votting* <waktu> <alasan>
-• *${prefix2}vote* [query]
-• *${prefix2}dellvote*
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
 
 
 「 *ULASAN & MUTUAL* 」
-• *${prefix2}ulasan* [query]
-• *${prefix2}komentar* <teks>
-• *${prefix2}mutual*
-• *${prefix2}save* <nama> |  <nomor>
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
 
 
 「 *ABSEN & MESSAGES* 」
-• *${prefix2}absen* <waktu>
-• *${prefix2}absensi*
-• *${prefix2}svmess* <teks>
-• *${prefix2}listmess*
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
 
 
 「 *GROUP MENU* 」
-• *${prefix2}enable* [query]
-• *${prefix2}disable* [query]
-• *${prefix2}ban* <@tag>
-• *${prefix2}dellban* <@tag>
-• *${prefix2}cmd* [query] (enable/disable)
-• *${prefix2}sider* [reply pesan bot]
-• *${prefix2}hidetag* <teks>
-• *${prefix2}fitnah* <@tag> | <teks> | <teks>
-• *${prefix2}change* [query]
-• *${prefix2}setchange* [query]
-• *${prefix2}revoke*
-• *${prefix2}add* [reply chat]
-• *${prefix2}kick* <@tag>
-• *${prefix2}promote* <@tag>
-• *${prefix2}demote* <@tag>
-• *${prefix2}tagall* <teks>
-• *${prefix2}antilink* [query] (enable/disable)
-• *${prefix2}antitoxic* [query] (enable/disable)
-• *${prefix2}leveling* [query] (enable/disable)
-• *${prefix2}welcome* [query] (enable/disable)
+• ${prefix2}enable
+• ${prefix2}disable
+• ${prefix2}ban
+• ${prefix2}dellban
+• ${prefix2}cmd
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}change
+• ${prefix2}setchange
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}leveling
+• ${prefix2}welcome
 
 
 「 *ANIME MENU* 」
-• *${prefix2}neko*
-• *${prefix2}waifu*
+• ${prefix2}neko
+• ${prefix2}waifu
 
 
 「 *GAMES MENU* 」
-• *${prefix2}dungeon*
-• *${prefix2}slot*
-• *${prefix2}truth*
-• *${prefix2}dare*
-• *${prefix2}tebakgambar*
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
 
 
 「 *IMAGE MENU* 」
-• *${prefix2}cogan*
-• *${prefix2}cecan*
-• *${prefix2}pinterest* <teks>
-• *${prefix2}ocr* [reply gambar/img]
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}pinterest
+• ${prefix2}ocr
 
 
 「 *RANDOM MENU* 」
-• *${prefix2}cerpen*
-• *${prefix2}ceritahoror*
-• *${prefix2}film*
-• *${prefix2}fakedata*
-• *${prefix2}news*
-• *${prefix2}beasiswa*
-• *${prefix2}ppcouple*
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
 
 
 「 *STICKER MENU* 」
-• *${prefix2}sticker* [reply gambar/img]
-• *${prefix2}ttp* [reply gambar/img]
-• *${prefix2}attp* [reply gambar/img]
-• *${prefix2}wasted* [reply gambar/img]
-• *${prefix2}comrade* [reply gambar/img]
-• *${prefix2}jail* [reply gambar/img]
-• *${prefix2}passed* [reply gambar/img]
-• *${prefix2}trigger* [reply gambar/img]
-• *${prefix2}toimg* [sticker]
+• ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
 
 
 「 *EDUCATION MENU* 」
-• *${prefix2}quiz*
-• *${prefix2}nulis* <teks>
-• *${prefix2}niatsholat* [query]
-• *${prefix2}niatsehari2* [query]
-• *${prefix2}hadist* [query]
+• ${prefix2}quiz
+• ${prefix2}nulis
+• ${prefix2}niatsholat
+• ${prefix2}niatsehari2
+• ${prefix2}hadist
 
 
 「 *AUDIO/VN MENU* 」
-• *${prefix2}fast* [reply vn/audio]
-• *${prefix2}tupai* [reply vn/audio]
-• *${prefix2}gemuk* [reply vn/audio]
-• *${prefix2}slow* [reply vn/audio]
-• *${prefix2}tomp3* [reply video]
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
 
 
 「 *PREMIUM MENU* 」
-• *${prefix2}asupan* (premium)
-• *${prefix2}upswtext* <caption> (premium)
-• *${prefix2}upswimg* [image] <caption> (premium)
-• *${prefix2}upswvideo* [image] <caption> (premium)
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
 
 
 「 *OTHER MENU* 」
-• *${prefix2}sharelock* <teks> | <teks>
-• *${prefix2}delete* [reply]
-• *${prefix2}pesan* <nomor> | <pesan>
-• *${prefix2}owner*
-• *${prefix2}report* <teks>
-• *${prefix2}timer* <waktu>
-• *${prefix2}setperintah* [query]
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+• ${prefix2}setperintah
 
 
 「 *OWNER MENU* 」
-• *$
-• *>
-• *=>
-• *${prefix2}makegroup* <@tag> | <teks> | <teks> (owner)
-• *${prefix2}join* <url> (owner)
-• *${prefix2}kudet* [image] <teks> | <teks> (owner)
-• *${prefix2}leave* [query] (owner)
-• *${prefix2}clone* <@tag> (owner)
-• *${prefix2}bc* <teks> (owner)
-• *${prefix2}addprem* <@tag> (owner)
-• *${prefix2}dellprem* <@tag> (owner)
-• *${prefix2}setbudy* <teks> (owner)
-• *${prefix2}bug* [query]
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}join
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
 
 
 「 *THANKS TO* 」
-• *mhankbarbar*
-• *mitsuhabotz*
-• *rimurubotz*
-• *dimxbotz*
-• *rurichan*
-• *zak06cheat*
-• *ridwan*
-• *hafizh*`
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh`
 sendButLocation(from, `${teks}`, `*_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -3979,7 +3979,7 @@ uptime = process.uptime()
 jo = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `𝙈𝙄𝙏𝙎𝙐𝙃𝘼 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
-•  nama ${pushname}
+• nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
 • level ${getLevel3}
@@ -4165,174 +4165,174 @@ if (buttonsR === 'MENU') {
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`「 *PROFILE KAMU* 」
-•  *nama* ${pushname}
-• *setatus* ${premi}
-• *pangkat* ${role}
-• *level* ${getLevel3}
-• *xp* ${getLevelingXp(sender)}
+• nama ${pushname}
+• setatus ${premi}
+• pangkat ${role}
+• level ${getLevel3}
+• xp ${getLevelingXp(sender)}
 
 
 「 *INFORMASI MENU* 」
-• *${prefix2}info*
-• *${prefix2}iklan*
-• *${prefix2}donasi* [query]
-• *${prefix2}request* <teks>
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
 
 
 「 *EVENT GAMES BOT* 」
-• *${prefix2}carspeed* <teks>
-• *${prefix2}lotre* [query]
+• ${prefix2}carspeed
+• ${prefix2}lotre
 
 
 「 *URL TO MEDIA TYPE* 」
-• *${prefix2}urltoimg* <url>
+• ${prefix2}urltoimg
 
 
 「 *PRODUK & VOTING* 」
-• *${prefix2}produk*
-• *${prefix2}tambah* <judul> | <nomor> | <desc>
-• *${prefix2}votting* <waktu> <alasan>
-• *${prefix2}vote* [query]
-• *${prefix2}dellvote*
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
 
 
 「 *ULASAN & MUTUAL* 」
-• *${prefix2}ulasan* [query]
-• *${prefix2}komentar* <teks>
-• *${prefix2}mutual*
-• *${prefix2}save* <nama> |  <nomor>
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
 
 
 「 *ABSEN & MESSAGES* 」
-• *${prefix2}absen* <waktu>
-• *${prefix2}absensi*
-• *${prefix2}svmess* <teks>
-• *${prefix2}listmess*
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
 
 
 「 *GROUP MENU* 」
-• *${prefix2}enable* [query]
-• *${prefix2}disable* [query]
-• *${prefix2}ban* <@tag>
-• *${prefix2}dellban* <@tag>
-• *${prefix2}cmd* [query] (enable/disable)
-• *${prefix2}sider* [reply pesan bot]
-• *${prefix2}hidetag* <teks>
-• *${prefix2}fitnah* <@tag> | <teks> | <teks>
-• *${prefix2}change* [query]
-• *${prefix2}setchange* [query]
-• *${prefix2}revoke*
-• *${prefix2}add* [reply chat]
-• *${prefix2}kick* <@tag>
-• *${prefix2}promote* <@tag>
-• *${prefix2}demote* <@tag>
-• *${prefix2}tagall* <teks>
-• *${prefix2}antilink* [query] (enable/disable)
-• *${prefix2}antitoxic* [query] (enable/disable)
-• *${prefix2}leveling* [query] (enable/disable)
-• *${prefix2}welcome* [query] (enable/disable)
+• ${prefix2}enable
+• ${prefix2}disable
+• ${prefix2}ban
+• ${prefix2}dellban
+• ${prefix2}cmd
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}change
+• ${prefix2}setchange
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}leveling
+• ${prefix2}welcome
 
 
 「 *ANIME MENU* 」
-• *${prefix2}neko*
-• *${prefix2}waifu*
+• ${prefix2}neko
+• ${prefix2}waifu
 
 
 「 *GAMES MENU* 」
-• *${prefix2}dungeon*
-• *${prefix2}slot*
-• *${prefix2}truth*
-• *${prefix2}dare*
-• *${prefix2}tebakgambar*
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
 
 
 「 *IMAGE MENU* 」
-• *${prefix2}cogan*
-• *${prefix2}cecan*
-• *${prefix2}pinterest* <teks>
-• *${prefix2}ocr* [reply gambar/img]
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}pinterest
+• ${prefix2}ocr
 
 
 「 *RANDOM MENU* 」
-• *${prefix2}cerpen*
-• *${prefix2}ceritahoror*
-• *${prefix2}film*
-• *${prefix2}fakedata*
-• *${prefix2}news*
-• *${prefix2}beasiswa*
-• *${prefix2}ppcouple*
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
 
 
 「 *STICKER MENU* 」
-• *${prefix2}sticker* [reply gambar/img]
-• *${prefix2}ttp* [reply gambar/img]
-• *${prefix2}attp* [reply gambar/img]
-• *${prefix2}wasted* [reply gambar/img]
-• *${prefix2}comrade* [reply gambar/img]
-• *${prefix2}jail* [reply gambar/img]
-• *${prefix2}passed* [reply gambar/img]
-• *${prefix2}trigger* [reply gambar/img]
-• *${prefix2}toimg* [sticker]
+• ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
 
 
 「 *EDUCATION MENU* 」
-• *${prefix2}quiz*
-• *${prefix2}nulis* <teks>
-• *${prefix2}niatsholat* [query]
-• *${prefix2}niatsehari2* [query]
-• *${prefix2}hadist* [query]
+• ${prefix2}quiz
+• ${prefix2}nulis
+• ${prefix2}niatsholat
+• ${prefix2}niatsehari2
+• ${prefix2}hadist
 
 
 「 *AUDIO/VN MENU* 」
-• *${prefix2}fast* [reply vn/audio]
-• *${prefix2}tupai* [reply vn/audio]
-• *${prefix2}gemuk* [reply vn/audio]
-• *${prefix2}slow* [reply vn/audio]
-• *${prefix2}tomp3* [reply video]
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
 
 
 「 *PREMIUM MENU* 」
-• *${prefix2}asupan* (premium)
-• *${prefix2}upswtext* <caption> (premium)
-• *${prefix2}upswimg* [image] <caption> (premium)
-• *${prefix2}upswvideo* [image] <caption> (premium)
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
 
 
 「 *OTHER MENU* 」
-• *${prefix2}sharelock* <teks> | <teks>
-• *${prefix2}delete* [reply]
-• *${prefix2}pesan* <nomor> | <pesan>
-• *${prefix2}owner*
-• *${prefix2}report* <teks>
-• *${prefix2}timer* <waktu>
-• *${prefix2}setperintah* [query]
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+• ${prefix2}setperintah
 
 
 「 *OWNER MENU* 」
-• *$
-• *>
-• *=>
-• *${prefix2}makegroup* <@tag> | <teks> | <teks> (owner)
-• *${prefix2}join* <url> (owner)
-• *${prefix2}kudet* [image] <teks> | <teks> (owner)
-• *${prefix2}leave* [query] (owner)
-• *${prefix2}clone* <@tag> (owner)
-• *${prefix2}bc* <teks> (owner)
-• *${prefix2}addprem* <@tag> (owner)
-• *${prefix2}dellprem* <@tag> (owner)
-• *${prefix2}setbudy* <teks> (owner)
-• *${prefix2}bug* [query]
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}join
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
 
 
 「 *THANKS TO* 」
-• *mhankbarbar*
-• *mitsuhabotz*
-• *rimurubotz*
-• *dimxbotz*
-• *rurichan*
-• *zak06cheat*
-• *ridwan*
-• *hafizh*`
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh`
 sendButLocation(from, `${teks}`, `*_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
