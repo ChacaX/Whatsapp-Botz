@@ -61,6 +61,7 @@ const loli = new lolis()*/
 CONST JSON & JS
 ___________________*/
 
+const afk = JSON.parse(fs.readFileSync('./src/afk.json'))
 const tebak = JSON.parse(fs.readFileSync('./lib/tebakgambar.js'))
 const ban = JSON.parse(fs.readFileSync('./src/ban.json'))
 const rabsen = JSON.parse(fs.readFileSync('./src/rabsen.json'))
@@ -246,7 +247,7 @@ fs.writeFileSync('./src/level.json', JSON.stringify(_level))
 async function starts() {
 const client = new WAConnection()
 //WWEB 
-client.version = [2, 2140, 12] /*[2, 2119, 6]*/
+client.version = [2, 2140, 12]
 client.logger.level = 'warn'
 console.log(banner.string)
 client.on('qr', () => {
@@ -450,7 +451,7 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
-teks =`🍃 *LEAVE MESSAGES* 🍃`
+teks =`🍃 *LEAVE MESSAGES* ??`
 sendButLocation(mdata.id, `${teks}`, `Selamat tinggal ${num.split("@")[0]} dari group ini semoga kamu sehat dan tetap bernafas ya. Jangan balik lagi ke group ini yo 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
@@ -597,6 +598,7 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			const isVote = isGroup ? vote.includes(from) : false
 			const isRabsen = isGroup ? rabsen.includes(from) : false
 			const isBan = isGroup ? ban.includes(sender) : false
+			const isAfk = isGroup ? afk.includes(sender) : false
 			pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
 
 const fvn = {
@@ -1479,6 +1481,7 @@ teks =`「 *PROFILE KAMU* 」
 
 
 「 *GROUP MENU* 」
+• ${prefix2}afk
 • ${prefix2}enable
 • ${prefix2}disable
 • ${prefix2}ban
@@ -3477,6 +3480,16 @@ fs.writeFileSync('./src/berbintang.json', JSON.stringify(berbintang))
 reply(`Woke, Sudah Di Bintangin Bot!`)
 break
 
+case 'afk':
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)   
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)  
+if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
+afk.push(sender)
+fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
+reply(`*{ AFK MODE ACTIVE }*\n\nnama : ${pushname}\nalasan: ${body.slice(4)}`)
+break
+
 case 'gtts':
 if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text, {quoted: floc2})
 const gtts = require('./lib/gtts')(args[0])
@@ -3624,6 +3637,11 @@ reply(`Berhasil Membuat Status`)
 break
 
 case 'enable':
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (args[0]=="antilink") {antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('_﹝⌬﹞berhasil di aktifkan_')
@@ -3648,6 +3666,11 @@ reply('_﹝⌬﹞berhasil di aktifkan_')
 break
 
 case 'disable':
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝⌬﹞kamu telah dibanned bot_`)     
+if (!isGroup) return reply(`_﹝⌬﹞hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_﹝⌬﹞hanya untuk admin grup_`)     
+if (!isBotGroupAdmins) return reply(`_﹝⌬﹞error, jadikan bot admin_`)
 if (args[0]=="antilink") {antilink.splice(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('_﹝⌬﹞berhasil di matikan_')
@@ -4009,6 +4032,7 @@ jo = await client.prepareMessageFromContent(from, {
 
 
 「 *GROUP MENU* 」
+• ${prefix2}afk
 • ${prefix2}enable
 • ${prefix2}disable
 • ${prefix2}ban
@@ -4194,6 +4218,7 @@ teks =`「 *PROFILE KAMU* 」
 
 
 「 *GROUP MENU* 」
+• ${prefix2}afk
 • ${prefix2}enable
 • ${prefix2}disable
 • ${prefix2}ban
@@ -5944,6 +5969,20 @@ if (args.length > 4000) return
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝⌬﹞error, jadikan bot admin_`)})
 }*/
+
+for (let x of afk) {
+if (budy.includes(x.split('@')[0])) {
+reply(`_jangan tag dia kak, dia lagi afk_`)
+}
+}
+
+if (budy.includes(``)) { 
+if (!isAfk) return
+if (!isGroup) return
+afk.splice(sender)
+fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
+reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
+}
 
 		if (isGroup && isSimi && budy != undefined) {
 						console.log(budy)
