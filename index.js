@@ -5966,7 +5966,7 @@ fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
 reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
 }
 	
-if (budy.includes(`${command}`)) {
+if (budy.includes(`${prefix}${command}`)) {
 if (!isCemd) return
 if (!isGroup) return 
 for (let sensi of usercmd) {
