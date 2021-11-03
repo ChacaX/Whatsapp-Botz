@@ -11,7 +11,7 @@ exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
 }
 
 exports.noregis = () => {
-	return`_﹝⌬﹞silahkan ketik .verify dulu_`
+	return`_﹝🍺﹞silahkan ketik .verify dulu_`
 }
 
 exports.wait = () => {
