@@ -3469,7 +3469,6 @@ case 'afk':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)  
-if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 afk.push(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
 reply(`*{ AFK MODE ACTIVE }*\n\nnama : ${pushname}\nalasan : ${body.slice(4)}`)
@@ -5819,7 +5818,7 @@ break
 		 
 if (buttonsR === `${Soalnya.jawaban}`) {
 if (!isRegistered) return reply(ind.noregis())
-if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)  
+if (isBan) return reply(`_﹝??﹞kamu telah dibanned bot_`)  
 if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
 if (isSalah) return reply(`_kamu sudah menjawab sebelumnya_`)
 benar.push(sender)
@@ -5901,7 +5900,7 @@ if (!isAfk) return
 if (!isGroup) return
 afk.splice(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-reply(`_kakak telah kembali dari *AFK* sampai jam ${hoour_now}_`)
+reply(`_${pushname} telah kembali dari *AFK* sampai jam ${hoour_now}_`)
 }
 	
 /*if (budy.includes(``)) {
@@ -5911,7 +5910,7 @@ if (args.length > 4000) return
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
 }*/
-
+						
 		if (isGroup && isSimi && budy != undefined) {
 						console.log(budy)
 						muehe = await simih(budy)
