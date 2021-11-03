@@ -1427,8 +1427,8 @@ b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
-contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
+buttonsMessage = {footerText:`support by meta`, imageMessage: imageMsg,
+contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -1437,7 +1437,8 @@ break
 case 'allmenu':
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`「 *PROFILE KAMU* 」
+teks =`\`\`\`Whatsapp Botz\`\`\``
+sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
@@ -1604,8 +1605,7 @@ teks =`「 *PROFILE KAMU* 」
 • rurichan
 • zak06cheat
 • ridwan
-• hafizh`
-sendButLocation(from, `${teks}`, `*_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+• hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*_________________
@@ -2029,8 +2029,9 @@ tagg.push(i.jid)
 mentions(teks, tagg, true)
 break
                                 
-case 'promote':                                   
-if (!isRegistered) return reply(ind.noregis())
+case 'promote':          
+reply(`_maaf fitur ini tidak bisa di akses sementara_`)                   
+/*if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2047,11 +2048,12 @@ client.groupRemove(from, mentioned)
 } else {
 mentions(`Berhasil Promote @${mentioned[0].split('@')[0]} Sebagai Admin Group!`, mentioned, true)
 client.groupMakeAdmin(from, mentioned)
-}
+}*/
 break
 
 case 'demote':   
-if (!isRegistered) return reply(ind.noregis())
+reply(`_maaf fitur ini tidak bisa di akses sementara_`)
+/*if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2068,7 +2070,7 @@ client.groupRemove(from, mentioned)
 } else {
 mentions(`Berhasil Demote @${mentioned[0].split('@')[0]} Menjadi Member Group!`, mentioned, true)
 client.groupDemoteAdmin(from, mentioned)
-}
+}*/
 break
 				
 /*case 'add':
@@ -3948,8 +3950,8 @@ b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
-buttonsMessage = {footerText:'_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_', imageMessage: imageMsg,
-contentText:`*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n*• mhankbarbar*\n*• mitsuhabotz*\n*• rimurubotz*\n*• dimxbotz*\n*• rurichan*\n*• zak06cheat*\n*• ridwan*\n*• hafizh*`,buttons,headerType:4}
+buttonsMessage = {footerText:`support by meta`, imageMessage: imageMsg,
+contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -4143,7 +4145,8 @@ break
 if (buttonsR === 'MENU') {
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`「 *PROFILE KAMU* 」
+teks =`\`\`\`Whatsapp Botz\`\`\``
+sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
@@ -4310,8 +4313,7 @@ teks =`「 *PROFILE KAMU* 」
 • rurichan
 • zak06cheat
 • ridwan
-• hafizh`
-sendButLocation(from, `${teks}`, `*_© Mitsuha Official_*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+• hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
