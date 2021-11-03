@@ -1410,7 +1410,7 @@ menu2 = fs.readFileSync('./lib/odc.jpeg')
 menu3 = await client.prepareMessage(from, menu2, MessageType.image, {thumbnile: fakeimage}) 
 menu4 = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 menu5 = {
-contentText: `*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n「 *THANKS TO* 」\n• mitsuha\n• mhankbarbar\n• nayla\n• zaky\n• all creator`,
+contentText: `*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n  *THANKS TO*\n• mitsuha\n• mhankbarbar\n• nayla\n• zaky\n• all creator`,
 footerText: `_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_`,
 buttons: menu4,
 headerType: 4,
@@ -1435,10 +1435,14 @@ fs.unlinkSync(`./${sender}.jpeg`)
 break
 
 case 'allmenu':
+uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`\`\`\`Whatsapp Botz\`\`\``
-sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
+teks =`             \`\`\`Whatsapp Botz\`\`\`\n`
+sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
+📲 developer : wa.me/6285731261728\n
+
+  *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
@@ -1446,23 +1450,23 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • xp ${getLevelingXp(sender)}
 
 
-「 *INFORMASI MENU* 」
+  *INFORMASI MENU*
 • ${prefix2}info
 • ${prefix2}iklan
 • ${prefix2}donasi
 • ${prefix2}request
 
 
-「 *EVENT GAMES BOT* 」
+  *EVENT GAMES BOT*
 • ${prefix2}carspeed
 • ${prefix2}lotre
 
 
-「 *URL TO MEDIA TYPE* 」
+  *URL TO MEDIA TYPE*
 • ${prefix2}urltoimg
 
 
-「 *PRODUK & VOTING* 」
+  *PRODUK & VOTING*
 • ${prefix2}produk
 • ${prefix2}tambah
 • ${prefix2}votting
@@ -1470,21 +1474,21 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}dellvote
 
 
-「 *ULASAN & MUTUAL* 」
+  *ULASAN & MUTUAL*
 • ${prefix2}ulasan
 • ${prefix2}komentar
 • ${prefix2}mutual
 • ${prefix2}save
 
 
-「 *ABSEN & MESSAGES* 」
+  *ABSEN & MESSAGES*
 • ${prefix2}absen
 • ${prefix2}absensi
 • ${prefix2}svmess
 • ${prefix2}listmess
 
 
-「 *GROUP MENU* 」
+  *GROUP MENU*
 • ${prefix2}afk
 • ${prefix2}enable
 • ${prefix2}disable
@@ -1506,12 +1510,12 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}welcome
 
 
-「 *ANIME MENU* 」
+  *ANIME MENU*
 • ${prefix2}neko
 • ${prefix2}waifu
 
 
-「 *GAMES MENU* 」
+  *GAMES MENU*
 • ${prefix2}dungeon
 • ${prefix2}slot
 • ${prefix2}truth
@@ -1519,14 +1523,14 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}tebakgambar
 
 
-「 *IMAGE MENU* 」
+  *IMAGE MENU*
 • ${prefix2}cogan
 • ${prefix2}cecan
 • ${prefix2}pinterest
 • ${prefix2}ocr
 
 
-「 *RANDOM MENU* 」
+  *RANDOM MENU*
 • ${prefix2}cerpen
 • ${prefix2}ceritahoror
 • ${prefix2}film
@@ -1536,7 +1540,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}ppcouple
 
 
-「 *STICKER MENU* 」
+  *STICKER MENU*
 • ${prefix2}sticker
 • ${prefix2}ttp
 • ${prefix2}attp
@@ -1548,7 +1552,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}toimg
 
 
-「 *EDUCATION MENU* 」
+  *EDUCATION MENU*
 • ${prefix2}quiz
 • ${prefix2}nulis
 • ${prefix2}niatsholat
@@ -1556,7 +1560,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}hadist
 
 
-「 *AUDIO/VN MENU* 」
+  *AUDIO/VN MENU*
 • ${prefix2}fast
 • ${prefix2}tupai
 • ${prefix2}gemuk
@@ -1564,14 +1568,14 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}tomp3
 
 
-「 *PREMIUM MENU* 」
+  *PREMIUM MENU*
 • ${prefix2}asupan
 • ${prefix2}upswtext
 • ${prefix2}upswimg
 • ${prefix2}upswvideo
 
 
-「 *OTHER MENU* 」
+  *OTHER MENU*
 • ${prefix2}sharelock
 • ${prefix2}delete
 • ${prefix2}pesan
@@ -1581,7 +1585,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}setperintah
 
 
-「 *OWNER MENU* 」
+  *OWNER MENU*
 • $
 • >
 • =>
@@ -1597,7 +1601,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}bug
 
 
-「 *THANKS TO* 」
+  *THANKS TO*
 • mhankbarbar
 • mitsuhabotz
 • rimurubotz
@@ -3960,7 +3964,7 @@ fs.unlinkSync(`./${sender}.jpeg`)
 uptime = process.uptime()
 jo = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃?? 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n「 *PROFILE KAMU* 」
+"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃?? 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n  *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
@@ -3968,23 +3972,23 @@ jo = await client.prepareMessageFromContent(from, {
 • xp ${getLevelingXp(sender)}
 
 
-「 *INFORMASI MENU* 」
+  *INFORMASI MENU*
 • ${prefix2}info
 • ${prefix2}iklan
 • ${prefix2}donasi
 • ${prefix2}request
 
 
-「 *EVENT GAMES BOT* 」
+  *EVENT GAMES BOT*
 • ${prefix2}carspeed
 • ${prefix2}lotre
 
 
-「 *URL TO MEDIA TYPE* 」
+  *URL TO MEDIA TYPE*
 • ${prefix2}urltoimg
 
 
-「 *PRODUK & VOTING* 」
+  *PRODUK & VOTING*
 • ${prefix2}produk
 • ${prefix2}tambah
 • ${prefix2}votting
@@ -3992,21 +3996,21 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}dellvote
 
 
-「 *ULASAN & MUTUAL* 」
+  *ULASAN & MUTUAL*
 • ${prefix2}ulasan
 • ${prefix2}komentar
 • ${prefix2}mutual
 • ${prefix2}save
 
 
-「 *ABSEN & MESSAGES* 」
+  *ABSEN & MESSAGES*
 • ${prefix2}absen
 • ${prefix2}absensi
 • ${prefix2}svmess
 • ${prefix2}listmess
 
 
-「 *GROUP MENU* 」
+  *GROUP MENU*
 • ${prefix2}afk
 • ${prefix2}enable
 • ${prefix2}disable
@@ -4028,12 +4032,12 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}welcome
 
 
-「 *ANIME MENU* 」
+  *ANIME MENU*
 • ${prefix2}neko
 • ${prefix2}waifu
 
 
-「 *GAMES MENU* 」
+  *GAMES MENU*
 • ${prefix2}dungeon
 • ${prefix2}slot
 • ${prefix2}truth
@@ -4041,14 +4045,14 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}tebakgambar
 
 
-「 *IMAGE MENU* 」
+  *IMAGE MENU*
 • ${prefix2}cogan
 • ${prefix2}cecan
 • ${prefix2}pinterest
 • ${prefix2}ocr
 
 
-「 *RANDOM MENU* 」
+  *RANDOM MENU*
 • ${prefix2}cerpen
 • ${prefix2}ceritahoror
 • ${prefix2}film
@@ -4058,7 +4062,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}ppcouple
 
 
-「 *STICKER MENU* 」
+  *STICKER MENU*
 • ${prefix2}sticker
 • ${prefix2}ttp
 • ${prefix2}attp
@@ -4070,7 +4074,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}toimg
 
 
-「 *EDUCATION MENU* 」
+  *EDUCATION MENU*
 • ${prefix2}quiz
 • ${prefix2}nulis
 • ${prefix2}niatsholat
@@ -4078,7 +4082,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}hadist
 
 
-「 *AUDIO/VN MENU* 」
+  *AUDIO/VN MENU*
 • ${prefix2}fast
 • ${prefix2}tupai
 • ${prefix2}gemuk
@@ -4086,14 +4090,14 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}tomp3
 
 
-「 *PREMIUM MENU* 」
+  *PREMIUM MENU*
 • ${prefix2}asupan
 • ${prefix2}upswtext
 • ${prefix2}upswimg
 • ${prefix2}upswvideo
 
 
-「 *OTHER MENU* 」
+  *OTHER MENU*
 • ${prefix2}sharelock
 • ${prefix2}delete
 • ${prefix2}pesan
@@ -4103,7 +4107,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}setperintah
 
 
-「 *OWNER MENU* 」
+  *OWNER MENU*
 • $
 • >
 • =>
@@ -4119,7 +4123,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}bug
 
 
-「 *THANKS TO* 」
+  *THANKS TO*
 • mhankbarbar
 • mitsuhabotz
 • rimurubotz
@@ -4145,8 +4149,11 @@ break
 if (buttonsR === 'MENU') {
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`\`\`\`Whatsapp Botz\`\`\``
-sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
+teks =`             \`\`\`Whatsapp Botz\`\`\`\n`
+sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
+📲 developer : wa.me/6285731261728\n
+
+  *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
@@ -4154,23 +4161,23 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • xp ${getLevelingXp(sender)}
 
 
-「 *INFORMASI MENU* 」
+  *INFORMASI MENU*
 • ${prefix2}info
 • ${prefix2}iklan
 • ${prefix2}donasi
 • ${prefix2}request
 
 
-「 *EVENT GAMES BOT* 」
+  *EVENT GAMES BOT*
 • ${prefix2}carspeed
 • ${prefix2}lotre
 
 
-「 *URL TO MEDIA TYPE* 」
+  *URL TO MEDIA TYPE*
 • ${prefix2}urltoimg
 
 
-「 *PRODUK & VOTING* 」
+  *PRODUK & VOTING*
 • ${prefix2}produk
 • ${prefix2}tambah
 • ${prefix2}votting
@@ -4178,21 +4185,21 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}dellvote
 
 
-「 *ULASAN & MUTUAL* 」
+  *ULASAN & MUTUAL*
 • ${prefix2}ulasan
 • ${prefix2}komentar
 • ${prefix2}mutual
 • ${prefix2}save
 
 
-「 *ABSEN & MESSAGES* 」
+  *ABSEN & MESSAGES*
 • ${prefix2}absen
 • ${prefix2}absensi
 • ${prefix2}svmess
 • ${prefix2}listmess
 
 
-「 *GROUP MENU* 」
+  *GROUP MENU*
 • ${prefix2}afk
 • ${prefix2}enable
 • ${prefix2}disable
@@ -4214,12 +4221,12 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}welcome
 
 
-「 *ANIME MENU* 」
+  *ANIME MENU*
 • ${prefix2}neko
 • ${prefix2}waifu
 
 
-「 *GAMES MENU* 」
+  *GAMES MENU*
 • ${prefix2}dungeon
 • ${prefix2}slot
 • ${prefix2}truth
@@ -4227,14 +4234,14 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}tebakgambar
 
 
-「 *IMAGE MENU* 」
+  *IMAGE MENU*
 • ${prefix2}cogan
 • ${prefix2}cecan
 • ${prefix2}pinterest
 • ${prefix2}ocr
 
 
-「 *RANDOM MENU* 」
+  *RANDOM MENU*
 • ${prefix2}cerpen
 • ${prefix2}ceritahoror
 • ${prefix2}film
@@ -4244,7 +4251,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}ppcouple
 
 
-「 *STICKER MENU* 」
+  *STICKER MENU*
 • ${prefix2}sticker
 • ${prefix2}ttp
 • ${prefix2}attp
@@ -4256,7 +4263,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}toimg
 
 
-「 *EDUCATION MENU* 」
+  *EDUCATION MENU*
 • ${prefix2}quiz
 • ${prefix2}nulis
 • ${prefix2}niatsholat
@@ -4264,7 +4271,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}hadist
 
 
-「 *AUDIO/VN MENU* 」
+  *AUDIO/VN MENU*
 • ${prefix2}fast
 • ${prefix2}tupai
 • ${prefix2}gemuk
@@ -4272,14 +4279,14 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}tomp3
 
 
-「 *PREMIUM MENU* 」
+  *PREMIUM MENU*
 • ${prefix2}asupan
 • ${prefix2}upswtext
 • ${prefix2}upswimg
 • ${prefix2}upswvideo
 
 
-「 *OTHER MENU* 」
+  *OTHER MENU*
 • ${prefix2}sharelock
 • ${prefix2}delete
 • ${prefix2}pesan
@@ -4289,7 +4296,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}setperintah
 
 
-「 *OWNER MENU* 」
+  *OWNER MENU*
 • $
 • >
 • =>
@@ -4305,7 +4312,7 @@ sendButLocation(from, `${teks}`, `「 *PROFILE KAMU* 」
 • ${prefix2}bug
 
 
-「 *THANKS TO* 」
+  *THANKS TO*
 • mhankbarbar
 • mitsuhabotz
 • rimurubotz
@@ -5332,6 +5339,8 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
               break
              
 }
+
+
 if (buttonsR === '👍') {
 if (isLek) return reply(`Kamu Sudah Pernah Memberikan Ratting Sebelumnya`)     
 dislike.splice(ini, 1)
