@@ -132,9 +132,6 @@ kunci = setting.kunci
 respon = setting.respon
 blocked = []
 hit_today = []
-perintah_help = `help`
-perintah_info = `info`
-perintah_owner = `owner`
 
 /*_________________
 BAGIAN FUNCTION
@@ -1419,7 +1416,7 @@ imageMessage: menu3.message.imageMessage
 client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: floc2, contextInfo: {forwardingScore: 508, isForwarded: true}})
 break*/
  
-case perintah_help:
+case 'help':
 case 'menu':
 uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
@@ -1526,6 +1523,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
   *IMAGE MENU*
 • ${prefix2}cogan
 • ${prefix2}cecan
+• ${prefix2}darkjokes
 • ${prefix2}pinterest
 • ${prefix2}ocr
 
@@ -1582,7 +1580,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}owner
 • ${prefix2}report
 • ${prefix2}timer
-• ${prefix2}setperintah
 
 
   *OWNER MENU*
@@ -2518,6 +2515,24 @@ client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
 
+case 'darkjokes':
+if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/dark.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
+buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
+contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+break
+
 case 'cogan':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
@@ -2754,7 +2769,7 @@ let gwmkkee = await client.prepareMessageFromContent(from, {
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617283
+- bot - wa.me/62857312617285
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
@@ -2798,7 +2813,7 @@ client.relayWAMessage(prep)
 break
               
 case 'author':
-case perintah_owner:
+case 'owner':
 case 'creator':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)    
@@ -2910,7 +2925,7 @@ reply('Foto aja mas')
 }
 break*/
 					
-case perintah_info:
+case 'info':
 if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
@@ -3548,7 +3563,7 @@ client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, te
 break
 
 case 'carspeed':
-reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-CRSP-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
+reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-KUPON-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
 break
 
 case 'niatsholat':
@@ -3561,31 +3576,6 @@ break
 
 case 'hadist':
 reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HADIST1-*`)
-break
-
-case 'set-help':
-if(!q) return reply(`teksnya mana kak? contoh:\n\n#set-help ayonima`)
-perintah_help = args.join(" ")
-perintah_help = perintah_help
-reply(`Perintah Help Berhasil Di Ubah Menjadi = ${perintah_help}\n\nSilahkan Kakak Bisa Ketik #${perintah_help}`)
-break
-
-case 'set-info':
-if(!q) return reply(`teksnya mana kak? contoh:\n\n#set-info ayonima`)
-perintah_info = args.join(" ")
-perintah_info = perintah_info
-reply(`Perintah Info Berhasil Di Ubah Menjadi = ${perintah_info}\n\nSilahkan Kakak Bisa Ketik #${perintah_info}`)
-break
-
-case 'set-owner':
-if(!q) return reply(`teksnya mana kak? contoh:\n\n#set-owner ayonima`)
-perintah_owner = args.join(" ")
-perintah_owner = perintah_owner
-reply(`Perintah Owner Berhasil Di Ubah Menjadi = ${perintah_owner}\n\nSilahkan Kakak Bisa Ketik #${perintah_owner}`)
-break
-
-case 'setperintah':
-if(!q) return reply(`pilih query nya kak 😃\n\nketik *#set-help* untuk mengubah nama fitur help\n\nketik *#set-info* untuk mengubah nama fitur info\n\nketik *#set-owner* untuk mengubah nama fitur owner`)
 break
 
 case 'urltoimg':
@@ -3861,7 +3851,7 @@ reply(`_slot nomor 9 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
 break
 } 
 
-if (budy.includes(`-CRSP-`)) {
+if (budy.includes(`-KUPON-`)) {
 if (isCar) return reply(`_kamu telah meng claim daily ini mohon untuk menyelasaikan event lain dahulu dan dapatkan hadiah_`)
 tingkatan.push(sender)
 fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
@@ -3869,7 +3859,7 @@ reply(`_berhasil claim ticket!_`)
 }
 	
 if (budy.includes(`-EVENT 1-`)) {
-reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-CRSP-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
+reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-KUPON-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
 }
 
 if (budy.includes(`-EVENT 2-`)) {
@@ -4048,6 +4038,7 @@ jo = await client.prepareMessageFromContent(from, {
   *IMAGE MENU*
 • ${prefix2}cogan
 • ${prefix2}cecan
+• ${prefix2}darkjokes
 • ${prefix2}pinterest
 • ${prefix2}ocr
 
@@ -4104,7 +4095,6 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}owner
 • ${prefix2}report
 • ${prefix2}timer
-• ${prefix2}setperintah
 
 
   *OWNER MENU*
@@ -4237,6 +4227,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
   *IMAGE MENU*
 • ${prefix2}cogan
 • ${prefix2}cecan
+• ${prefix2}darkjokes
 • ${prefix2}pinterest
 • ${prefix2}ocr
 
@@ -4293,7 +4284,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}owner
 • ${prefix2}report
 • ${prefix2}timer
-• ${prefix2}setperintah
 
 
   *OWNER MENU*
@@ -4351,7 +4341,7 @@ let gwmkkeje = await client.prepareMessageFromContent(from, {
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617283
+- bot - wa.me/62857312617285
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
@@ -4391,7 +4381,7 @@ let gwmgkkeje = await client.prepareMessageFromContent(from, {
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617283
+- bot - wa.me/62857312617285
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
@@ -4904,7 +4894,7 @@ break
 
 🛑 *CONTACT PERSON*:
 - owner - wa.me/6285731261728
-- bot - wa.me/62857312617283
+- bot - wa.me/62857312617285
 - payment - qris - gopay - dana
 - note - script bot tidak pasaran
 - dan tidak ada di bot lain.
@@ -5031,7 +5021,7 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 						if (buttonsR === 'Disable A0') {
 							  if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
-                    if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
+                    if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
 					if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
@@ -5322,8 +5312,25 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
               fs.unlinkSync(`./${sender}.jpeg`)
               break
 }
-            
- 
+  
+if (buttonsR === '么 darkjokes 么') {   
+ if (!isRegistered) return reply(ind.noregis())
+if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/dark.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: thumb})).message.imageMessage
+buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
+contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+}
+
 				if (buttonsR === '么 waifu 么') {
 				if (!isRegistered) return reply(ind.noregis())
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
