@@ -525,7 +525,7 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			const tescuk = ["0@s.whatsapp.net"]
 			const type = Object.keys(mek.message)[0]
 			const apiKey = setting.apiKey // contact me on whatsapp wa.me/6285892766102
-    		const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
+    		const time = moment.tz('Asia/Jakarta').format('HH:mm:ss')
             const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 			const hoour_now = moment().format('HH:mm:ss')
 			body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
@@ -1305,6 +1305,13 @@ buttons: but,
 headerType: 6
 }
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+
+if (time >= '00:00:00' && time <= '23:59:00') {
+uptime = process.uptime()
+setTimeout( () => {
+client.setStatus(`TELAH ON SELAMA ${kyun(uptime)}`)
+}, 1000)
 }
 
 for (let x of afk) {
@@ -6017,13 +6024,6 @@ salah.push(sender)
 fs.writeFileSync('./src/salah.json', JSON.stringify(sender))
 reply('Jawaban Anda Salah ❌')
 break
-}
-
-if (hoour_now >= '01:00' && hour_now <= '23:00') {
-uptime = process.uptime()
-setTimeout( () => {
-client.setStatus(`Runtime ${kyun(uptime)}`)
-}, 1000)
 }
 
 if (hoour_now >= '11:37' && hour_now <= '11:37') {
