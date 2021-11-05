@@ -1567,7 +1567,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}quiz
 • ${prefix2}nulis
 • ${prefix2}niatsholat
-• ${prefix2}niatsehari2
+• ${prefix2}doa
 • ${prefix2}hadist
 
 
@@ -1631,7 +1631,111 @@ if (!isRegistered) return reply(ind.noregis())
 if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan ketik -LOTRE(angka)- contoh :_\n\n*-LOTRE1-*`)
+if (args[0]=="1") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = `❌`
+lotre1 = ini
+reply(`_slot nomor 1 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+} else if (args[0]=="2") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = `❌`
+lotre2 = ini
+reply(`_slot nomor 2 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+} else if (args[0]=="3") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = `❌`
+lotre3 = ini
+reply(`_slot nomor 3 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+} else if (args[0]=="4") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = `❌`
+lotre4 = ini
+reply(`_slot nomor 4 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+} else if (args[0]=="5") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+tingkatan.splice(sender)
+fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
+reply(`_yah ticket kamu hangus, mainkan carspeed untuk memperoleh ticket!_`)
+ini = `❌`
+lotre5 = ini
+} else if (args[0]=="6") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+premium.push(sender)
+fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
+reply(`_horeee! kamu mendapatkan akses fitur premiums_`)
+ini = `❌`
+lotre6 = ini
+} else if (args[0]=="7") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = `❌`
+lotre7 = ini
+reply(`_slot nomor 7 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+} else if (args[0]=="8") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = `❌`
+lotre8 = ini
+reply(`_slot nomor 8 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+} else if (args[0]=="9") {
+if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
+if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
+clem.push(sender)
+fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
+vs = ["1","10","100"]
+mk = vs[Math.floor(Math.random() * vs.length)]
+addLevelingLevel(sender, mk)
+addLevelingXp(sender, mk)
+ini = `❌`
+lotre9 = ini
+reply(`_slot nomor 9 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+} else {return reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan pilih #lotre 1 sampai 9_`)}
 break
 
 case 'kudet':
@@ -3687,19 +3791,277 @@ client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, te
 break
 
 case 'carspeed':
-reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-KUPON-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
+reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *#carspeed on* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
+if (args[0]=="on") {
+if (isCar) return reply(`_kamu telah meng claim daily ini mohon untuk menyelasaikan event lain dahulu dan dapatkan hadiah_`)
+tingkatan.push(sender)
+fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
+reply(`_berhasil claim ticket!_`)
+} else {return reply(`_ketik #carspeed on unuk mendapatkan ticket_`)}
 break
 
 case 'niatsholat':
- reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-NIAT1-*`)
+ if (args[0]=="1") {
+for (let i of bacasholat) {
+reply(`${i.result1.name}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
+}
+} else if (args[0]=="2") {
+for (let i of bacasholat) {
+reply(`${i.result2.name}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
+}
+} else if (args[0]=="3") {
+for (let i of bacasholat) {
+reply(`${i.result3.name}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
+}
+} else if (args[0]=="4") {
+for (let i of bacasholat) {
+reply(`${i.result4.name}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
+}
+} else if (args[0]=="5") {
+for (let i of bacasholat) {
+reply(`${i.result5.name}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
+}
+} else if (args[0]=="6") {
+for (let i of bacasholat) {
+reply(`${i.result6.name}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
+}
+} else if (args[0]=="7") {
+for (let i of bacasholat) {
+reply(`${i.result7.name}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
+}
+} else if (args[0]=="8") {
+for (let i of bacasholat) {
+reply(`${i.result8.name}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
+}
+} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan pilih #niatsholat 1 sampai 8_`)}
 break
 
-case 'niatsehari2':
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-DOA1-*`)
+case 'doa':
+ if (args[0]=="1") {
+for(let i of bacaharian) {
+reply(`${i.result1.title}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
+}
+} else if (args[0]=="2") {
+for(let i of bacaharian) {
+reply(`${i.result2.title}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
+}
+} else if (args[0]=="3") {
+for(let i of bacaharian) {
+reply(`${i.result3.title}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
+}
+} else if (args[0]=="4") {
+for(let i of bacaharian) {
+reply(`${i.result4.title}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
+}
+} else if (args[0]=="5") {
+for(let i of bacaharian) {
+reply(`${i.result5.title}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
+}
+} else if (args[0]=="6") {
+for(let i of bacaharian) {
+reply(`${i.result6.title}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
+}
+} else if (args[0]=="7") {
+for(let i of bacaharian) {
+reply(`${i.result7.title}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
+}
+} else if (args[0]=="8") {
+for(let i of bacaharian) {
+reply(`${i.result8.title}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
+}
+} else if (args[0]=="9") {
+for(let i of bacaharian) {
+reply(`${i.result9.title}\n\n*${i.result9.arabic}*\n\n${i.result9.latin}\n\n${i.result9.terjemahan}`) 
+}
+} else if (args[0]=="10") {
+for(let i of bacaharian) {
+reply(`${i.result10.title}\n\n*${i.result10.arabic}*\n\n${i.result10.latin}\n\n${i.result10.terjemahan}`) 
+}
+} else if (args[0]=="11") {
+for(let i of bacaharian) {
+reply(`${i.result11.title}\n\n*${i.result11.arabic}*\n\n${i.result11.latin}\n\n${i.result11.terjemahan}`) 
+}
+} else if (args[0]=="12") {
+for(let i of bacaharian) {
+reply(`${i.result12.title}\n\n*${i.result12.arabic}*\n\n${i.result12.latin}\n\n${i.result12.terjemahan}`) 
+}
+} else if (args[0]=="13") {
+for(let i of bacaharian) {
+reply(`${i.result13.title}\n\n*${i.result13.arabic}*\n\n${i.result13.latin}\n\n${i.result13.terjemahan}`) 
+}
+} else if (args[0]=="14") {
+for(let i of bacaharian) {
+reply(`${i.result14.title}\n\n*${i.result14.arabic}*\n\n${i.result14.latin}\n\n${i.result14.terjemahan}`) 
+}
+} else if (args[0]=="15") {
+for(let i of bacaharian) {
+reply(`${i.result15.title}\n\n*${i.result15.arabic}*\n\n${i.result15.latin}\n\n${i.result15.terjemahan}`) 
+}
+} else if (args[0]=="16") {
+for(let i of bacaharian) {
+reply(`${i.result16.title}\n\n*${i.result16.arabic}*\n\n${i.result16.latin}\n\n${i.result16.terjemahan}`) 
+}
+} else if (args[0]=="17") {
+for(let i of bacaharian) {
+reply(`${i.result17.title}\n\n*${i.result17.arabic}*\n\n${i.result17.latin}\n\n${i.result17.terjemahan}`) 
+}
+} else if (args[0]=="18") {
+for(let i of bacaharian) {
+reply(`${i.result18.title}\n\n*${i.result18.arabic}*\n\n${i.result18.latin}\n\n${i.result18.terjemahan}`) 
+}
+} else if (args[0]=="19") {
+for(let i of bacaharian) {
+reply(`${i.result19.title}\n\n*${i.result19.arabic}*\n\n${i.result19.latin}\n\n${i.result19.terjemahan}`) 
+}
+} else if (args[0]=="20") {
+for(let i of bacaharian) {
+reply(`${i.result20.title}\n\n*${i.result20.arabic}*\n\n${i.result20.latin}\n\n${i.result20.terjemahan}`) 
+}
+} else if (args[0]=="21") {
+for(let i of bacaharian) {
+reply(`${i.result21.title}\n\n*${i.result21.arabic}*\n\n${i.result21.latin}\n\n${i.result21.terjemahan}`) 
+}
+} else if (args[0]=="22") {
+for(let i of bacaharian) {
+reply(`${i.result22.title}\n\n*${i.result22.arabic}*\n\n${i.result22.latin}\n\n${i.result22.terjemahan}`) 
+}
+} else if (args[0]=="23") {
+for(let i of bacaharian) {
+reply(`${i.result23.title}\n\n*${i.result23.arabic}*\n\n${i.result23.latin}\n\n${i.result23.terjemahan}`) 
+}
+} else if (args[0]=="24") {
+for(let i of bacaharian) {
+reply(`${i.result24.title}\n\n*${i.result24.arabic}*\n\n${i.result24.latin}\n\n${i.result24.terjemahan}`) 
+}
+} else if (args[0]=="25") {
+for(let i of bacaharian) {
+reply(`${i.result25.title}\n\n*${i.result25.arabic}*\n\n${i.result25.latin}\n\n${i.result25.terjemahan}`) 
+}
+} else if (args[0]=="26") {
+for(let i of bacaharian) {
+reply(`${i.result26.title}\n\n*${i.result26.arabic}*\n\n${i.result26.latin}\n\n${i.result26.terjemahan}`) 
+}
+} else if (args[0]=="27") {
+for(let i of bacaharian) {
+reply(`${i.result27.title}\n\n*${i.result27.arabic}*\n\n${i.result27.latin}\n\n${i.result27.terjemahan}`) 
+}
+} else if (args[0]=="28") {
+for(let i of bacaharian) {
+reply(`${i.result28.title}\n\n*${i.result28.arabic}*\n\n${i.result28.latin}\n\n${i.result28.terjemahan}`) 
+}
+} else if (args[0]=="29") {
+for(let i of bacaharian) {
+reply(`${i.result29.title}\n\n*${i.result29.arabic}*\n\n${i.result29.latin}\n\n${i.result29.terjemahan}`) 
+}
+} else if (args[0]=="30") {
+for(let i of bacaharian) {
+reply(`${i.result30.title}\n\n*${i.result30.arabic}*\n\n${i.result30.latin}\n\n${i.result30.terjemahan}`) 
+}
+} else if (args[0]=="31") {
+for(let i of bacaharian) {
+reply(`${i.result31.title}\n\n*${i.result31.arabic}*\n\n${i.result31.latin}\n\n${i.result31.terjemahan}`) 
+}
+} else if (args[0]=="32") {
+for(let i of bacaharian) {
+reply(`${i.result32.title}\n\n*${i.result32.arabic}*\n\n${i.result32.latin}\n\n${i.result32.terjemahan}`) 
+}
+} else if (args[0]=="33") {
+for(let i of bacaharian) {
+reply(`${i.result33.title}\n\n*${i.result33.arabic}*\n\n${i.result33.latin}\n\n${i.result33.terjemahan}`) 
+}
+} else if (args[0]=="34") {
+for(let i of bacaharian) {
+reply(`${i.result34.title}\n\n*${i.result34.arabic}*\n\n${i.result34.latin}\n\n${i.result34.terjemahan}`) 
+}
+} else if (args[0]=="35") {
+for(let i of bacaharian) {
+reply(`${i.result35.title}\n\n*${i.result35.arabic}*\n\n${i.result35.latin}\n\n${i.result35.terjemahan}`) 
+}
+} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik #doa 1 sampai 35_`)}
 break
 
 case 'hadist':
-reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Hr. Bukahri (1)\n2. Hr. Bukahri (2)\n3. Hr. Bukahri (3)\n4. Hr. Bukahri (4)\n5. Hr. Bukahri (5)\n6. Hr. Bukahri (6)\n7. Hr. Bukahri (7)\n8. Hr. Bukahri (8)\n9. Hr. Bukahri (9)\n10. Hr Bukhari (10)\n11. Hr. Bukahri (11)\n12. Hr. Bukahri (12)\n13. Hr. Bukahri (13)\n14. Hr. Bukahri (14)\n15. Hr. Bukahri (15)\n16. Hr. Bukahri (16)\n17. Hr. Bukahri (17)\n18. Hr. Bukahri (18)\n19. Hr. Bukahri (19)\n20. Hr. Bukahri (20)\n\n_silahkan ketik simbol dan angkanya saja ya contoh_ *-HADIST1-*`)
+if (args[0]=="1") {
+for (let i of hadist) {
+reply(`${i.result1.message}\n\n*${i.result1.arabic}*\n\n${i.result1.id}`) 
+}
+} else if (args[0]=="2") {
+for (let i of hadist) {
+reply(`${i.result2.message}\n\n*${i.result2.arabic}*\n\n${i.result2.id}`) 
+}
+} else if (args[0]=="3") {
+for (let i of hadist) {
+reply(`${i.result3.message}\n\n*${i.result3.arabic}*\n\n${i.result3.id}`) 
+}
+} else if (args[0]=="4") {
+for (let i of hadist) {
+reply(`${i.result4.message}\n\n*${i.result4.arabic}*\n\n${i.result4.id}`) 
+}
+} else if (args[0]=="5") {
+for (let i of hadist) {
+reply(`${i.result5.message}\n\n*${i.result5.arabic}*\n\n${i.result5.id}`) 
+}
+} else if (args[0]=="6") {
+for (let i of hadist) {
+reply(`${i.result6.message}\n\n*${i.result6.arabic}*\n\n${i.result6.id}`) 
+}
+} else if (args[0]=="7") {
+for (let i of hadist) {
+reply(`${i.result7.message}\n\n*${i.result7.arabic}*\n\n${i.result7.id}`) 
+}
+} else if (args[0]=="8") {
+for (let i of hadist) {
+reply(`${i.result8.message}\n\n*${i.result8.arabic}*\n\n${i.result8.id}`) 
+}
+} else if (args[0]=="9") {
+for (let i of hadist) {
+reply(`${i.result9.message}\n\n*${i.result9.arabic}*\n\n${i.result9.id}`) 
+}
+} else if (args[0]=="10") {
+for (let i of hadist) {
+reply(`${i.result10.message}\n\n*${i.result10.arabic}*\n\n${i.result10.id}`) 
+}
+} else if (args[0]=="11") {
+for (let i of hadist) {
+reply(`${i.result11.message}\n\n*${i.result11.arabic}*\n\n${i.result11.id}`) 
+}
+} else if (args[0]=="12") {
+for (let i of hadist) {
+reply(`${i.result12.message}\n\n*${i.result12.arabic}*\n\n${i.result12.id}`) 
+}
+} else if (args[0]=="13") {
+for (let i of hadist) {
+reply(`${i.result13.message}\n\n*${i.result13.arabic}*\n\n${i.result13.id}`) 
+}
+} else if (args[0]=="14") {
+for (let i of hadist) {
+reply(`${i.result14.message}\n\n*${i.result14.arabic}*\n\n${i.result14.id}`) 
+}
+} else if (args[0]=="15") {
+for (let i of hadist) {
+reply(`${i.result15.message}\n\n*${i.result15.arabic}*\n\n${i.result15.id}`) 
+}
+} else if (args[0]=="16") {
+for (let i of hadist) {
+reply(`${i.result16.message}\n\n*${i.result16.arabic}*\n\n${i.result16.id}`) 
+}
+} else if (args[0]=="17") {
+for (let i of hadist) {
+reply(`${i.result17.message}\n\n*${i.result17.arabic}*\n\n${i.result17.id}`) 
+}
+} else if (args[0]=="18") {
+for (let i of hadist) {
+reply(`${i.result18.message}\n\n*${i.result18.arabic}*\n\n${i.result18.id}`) 
+}
+} else if (args[0]=="19") {
+for (let i of hadist) {
+reply(`${i.result19.message}\n\n*${i.result19.arabic}*\n\n${i.result19.id}`) 
+}
+} else if (args[0]=="20") {
+for (let i of hadist) {
+reply(`${i.result20.message}\n\n*${i.result20.arabic}*\n\n${i.result20.id}`) 
+} 
+} else {return reply(`_silahkan pilih #hadist 1 sampai 20_`)}
 break
 
 case 'urltoimg':
@@ -3845,153 +4207,6 @@ break
 if (buttonsR === 'OWNER BOT') {
 await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: freply})
 break
-}
-
-if (budy.includes(`-LOTRE1-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
-ini = `❌`
-lotre1 = ini
-reply(`_slot nomor 1 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
-break
-}
-
-if (budy.includes(`-LOTRE2-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
-ini = `❌`
-lotre2 = ini
-reply(`_slot nomor 2 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
-break
-}
-
-if (budy.includes(`-LOTRE3-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
-ini = `❌`
-lotre3 = ini
-reply(`_slot nomor 3 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
-break
-}
-
-if (budy.includes(`-LOTRE4-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
-ini = `❌`
-lotre4 = ini
-reply(`_slot nomor 4 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
-break
-}
-
-if (budy.includes(`-LOTRE5-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-tingkatan.splice(sender)
-fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
-reply(`_yah ticket kamu hangus, mainkan carspeed untuk memperoleh ticket!_`)
-ini = `❌`
-lotre5 = ini
-break
-}
-
-if (budy.includes(`-LOTRE6-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-premium.push(sender)
-fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
-reply(`_horeee! kamu mendapatkan akses fitur premiums_`)
-ini = `❌`
-lotre6 = ini
-break
-}
-
-if (budy.includes(`-LOTRE7-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
-ini = `❌`
-lotre7 = ini
-reply(`_slot nomor 7 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
-break
-}
-
-if (budy.includes(`-LOTRE8-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
-ini = `❌`
-lotre8 = ini
-reply(`_slot nomor 8 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
-break
-}
-
-if (budy.includes(`-LOTRE9-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
-clem.push(sender)
-fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
-ini = `❌`
-lotre9 = ini
-reply(`_slot nomor 9 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
-break
-} 
-
-if (budy.includes(`-KUPON-`)) {
-if (isCar) return reply(`_kamu telah meng claim daily ini mohon untuk menyelasaikan event lain dahulu dan dapatkan hadiah_`)
-tingkatan.push(sender)
-fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
-reply(`_berhasil claim ticket!_`)
-}
-	
-if (budy.includes(`-EVENT 1-`)) {
-reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *-KUPON-* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
-}
-
-if (budy.includes(`-EVENT 2-`)) {
-if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
-reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan ketik -LOTRE(angka)- contoh :_\n\n*-LOTRE1-*`)
 }
 
 if (budy.includes(`BOT`)) {      	
@@ -4198,7 +4413,7 @@ jo = await client.prepareMessageFromContent(from, {
 • ${prefix2}quiz
 • ${prefix2}nulis
 • ${prefix2}niatsholat
-• ${prefix2}niatsehari2
+• ${prefix2}doa
 • ${prefix2}hadist
 
 
@@ -4389,7 +4604,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}quiz
 • ${prefix2}nulis
 • ${prefix2}niatsholat
-• ${prefix2}niatsehari2
+• ${prefix2}doa
 • ${prefix2}hadist
 
 
@@ -4542,448 +4757,6 @@ opp = `*「 COMMAND IS NOT FOUND 」*`
 client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: freply2})  
 break
 }*/
-
-if (budy.includes(`-HADIST1-`)) {
-for (let i of hadist) {
-reply(`${i.result1.message}\n\n*${i.result1.arabic}*\n\n${i.result1.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST2-`)) {
-for (let i of hadist) {
-reply(`${i.result2.message}\n\n*${i.result2.arabic}*\n\n${i.result2.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST3-`)) {
-for (let i of hadist) {
-reply(`${i.result3.message}\n\n*${i.result3.arabic}*\n\n${i.result3.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST4-`)) {
-for (let i of hadist) {
-reply(`${i.result4.message}\n\n*${i.result4.arabic}*\n\n${i.result4.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST5-`)) {
-for (let i of hadist) {
-reply(`${i.result5.message}\n\n*${i.result5.arabic}*\n\n${i.result5.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST6-`)) {
-for (let i of hadist) {
-reply(`${i.result6.message}\n\n*${i.result6.arabic}*\n\n${i.result6.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST7-`)) {
-for (let i of hadist) {
-reply(`${i.result7.message}\n\n*${i.result7.arabic}*\n\n${i.result7.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST8-`)) {
-for (let i of hadist) {
-reply(`${i.result8.message}\n\n*${i.result8.arabic}*\n\n${i.result8.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST9-`)) {
-for (let i of hadist) {
-reply(`${i.result9.message}\n\n*${i.result9.arabic}*\n\n${i.result9.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST10-`)) {
-for (let i of hadist) {
-reply(`${i.result10.message}\n\n*${i.result10.arabic}*\n\n${i.result10.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST11-`)) {
-for (let i of hadist) {
-reply(`${i.result11.message}\n\n*${i.result11.arabic}*\n\n${i.result11.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST12-`)) {
-for (let i of hadist) {
-reply(`${i.result12.message}\n\n*${i.result12.arabic}*\n\n${i.result12.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST13-`)) {
-for (let i of hadist) {
-reply(`${i.result13.message}\n\n*${i.result13.arabic}*\n\n${i.result13.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST14-`)) {
-for (let i of hadist) {
-reply(`${i.result14.message}\n\n*${i.result14.arabic}*\n\n${i.result14.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST15-`)) {
-for (let i of hadist) {
-reply(`${i.result15.message}\n\n*${i.result15.arabic}*\n\n${i.result15.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST16-`)) {
-for (let i of hadist) {
-reply(`${i.result16.message}\n\n*${i.result16.arabic}*\n\n${i.result16.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST17-`)) {
-for (let i of hadist) {
-reply(`${i.result17.message}\n\n*${i.result17.arabic}*\n\n${i.result17.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST18-`)) {
-for (let i of hadist) {
-reply(`${i.result18.message}\n\n*${i.result18.arabic}*\n\n${i.result18.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST19-`)) {
-for (let i of hadist) {
-reply(`${i.result19.message}\n\n*${i.result19.arabic}*\n\n${i.result19.id}`) 
-break
-}
-}
-
-if (budy.includes(`-HADIST20-`)) {
-for (let i of hadist) {
-reply(`${i.result20.message}\n\n*${i.result20.arabic}*\n\n${i.result20.id}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT1-`)) {
-for (let i of bacasholat) {
-reply(`${i.result1.name}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT2-`)) {
-for (let i of bacasholat) {
-reply(`${i.result2.name}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT3-`)) {
-for (let i of bacasholat) {
-reply(`${i.result3.name}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT4-`)) {
-for (let i of bacasholat) {
-reply(`${i.result4.name}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT5-`)) {
-for (let i of bacasholat) {
-reply(`${i.result5.name}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT6-`)) {
-for (let i of bacasholat) {
-reply(`${i.result6.name}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT7-`)) {
-for (let i of bacasholat) {
-reply(`${i.result7.name}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-NIAT8-`)) {
-for (let i of bacasholat) {
-reply(`${i.result8.name}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
-break
-}
-}
-
-
-if (budy.includes(`-DOA1-`)) {
-for (let i of bacaharian) {
-reply(`${i.result1.title}\n\n*${i.result1.arabic}*\n\n${i.result1.latin}\n\n${i.result1.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA2-`)) {
-for (let i of bacaharian) {
-reply(`${i.result2.title}\n\n*${i.result2.arabic}*\n\n${i.result2.latin}\n\n${i.result2.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA3-`)) {
-for (let i of bacaharian) {
-reply(`${i.result3.title}\n\n*${i.result3.arabic}*\n\n${i.result3.latin}\n\n${i.result3.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA4-`)) {
-for (let i of bacaharian) {
-reply(`${i.result4.title}\n\n*${i.result4.arabic}*\n\n${i.result4.latin}\n\n${i.result4.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA5-`)) {
-for (let i of bacaharian) {
-reply(`${i.result5.title}\n\n*${i.result5.arabic}*\n\n${i.result5.latin}\n\n${i.result5.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA6-`)) {
-for (let i of bacaharian) {
-reply(`${i.result6.title}\n\n*${i.result6.arabic}*\n\n${i.result6.latin}\n\n${i.result6.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA7-`)) {
-for (let i of bacaharian) {
-reply(`${i.result7.title}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.result7.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA8-`)) {
-for (let i of bacaharian) {
-reply(`${i.result8.title}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA9-`)) {
-for (let i of bacaharian) {
-reply(`${i.result9.title}\n\n*${i.result9.arabic}*\n\n${i.result9.latin}\n\n${i.result9.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA10-`)) {
-for (let i of bacaharian) {
-reply(`${i.result10.title}\n\n*${i.result10.arabic}*\n\n${i.result10.latin}\n\n${i.result10.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA11-`)) {
-for (let i of bacaharian) {
-reply(`${i.result11.title}\n\n*${i.result11.arabic}*\n\n${i.result11.latin}\n\n${i.result11.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA12-`)) {
-for (let i of bacaharian) {
-reply(`${i.result12.title}\n\n*${i.result12.arabic}*\n\n${i.result12.latin}\n\n${i.result12.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA13-`)) {
-for (let i of bacaharian) {
-reply(`${i.result13.title}\n\n*${i.result13.arabic}*\n\n${i.result13.latin}\n\n${i.result13.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA14-`)) {
-for (let i of bacaharian) {
-reply(`${i.result14.title}\n\n*${i.result14.arabic}*\n\n${i.result14.latin}\n\n${i.result14.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA15-`)) {
-for (let i of bacaharian) {
-reply(`${i.result15.title}\n\n*${i.result15.arabic}*\n\n${i.result15.latin}\n\n${i.result15.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA16-`)) {
-for (let i of bacaharian) {
-reply(`${i.result16.title}\n\n*${i.result16.arabic}*\n\n${i.result16.latin}\n\n${i.result16.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA17-`)) {
-for (let i of bacaharian) {
-reply(`${i.result17.title}\n\n*${i.result17.arabic}*\n\n${i.result17.latin}\n\n${i.result17.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA18-`)) {
-for (let i of bacaharian) {
-reply(`${i.result18.title}\n\n*${i.result18.arabic}*\n\n${i.result18.latin}\n\n${i.result18.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA19-`)) {
-for (let i of bacaharian) {
-reply(`${i.result19.title}\n\n*${i.result19.arabic}*\n\n${i.result19.latin}\n\n${i.result19.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA20-`)) {
-for (let i of bacaharian) {
-reply(`${i.result20.title}\n\n*${i.result20.arabic}*\n\n${i.result20.latin}\n\n${i.result20.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA21-`)) {
-for (let i of bacaharian) {
-reply(`${i.result21.title}\n\n*${i.result21.arabic}*\n\n${i.result21.latin}\n\n${i.result21.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA22-`)) {
-for (let i of bacaharian) {
-reply(`${i.result22.title}\n\n*${i.result22.arabic}*\n\n${i.result22.latin}\n\n${i.result22.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA23-`)) {
-for (let i of bacaharian) {
-reply(`${i.result23.title}\n\n*${i.result23.arabic}*\n\n${i.result23.latin}\n\n${i.result23.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA24-`)) {
-for (let i of bacaharian) {
-reply(`${i.result24.title}\n\n*${i.result24.arabic}*\n\n${i.result24.latin}\n\n${i.result24.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA25-`)) {
-for (let i of bacaharian) {
-reply(`${i.result25.title}\n\n*${i.result25.arabic}*\n\n${i.result25.latin}\n\n${i.result25.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA26-`)) {
-for (let i of bacaharian) {
-reply(`${i.result26.title}\n\n*${i.result26.arabic}*\n\n${i.result26.latin}\n\n${i.result26.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA27-`)) {
-for (let i of bacaharian) {
-reply(`${i.result27.title}\n\n*${i.result27.arabic}*\n\n${i.result27.latin}\n\n${i.result27.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA28-`)) {
-for (let i of bacaharian) {
-reply(`${i.result28.title}\n\n*${i.result28.arabic}*\n\n${i.result28.latin}\n\n${i.result28.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA29-`)) {
-for (let i of bacaharian) {
-reply(`${i.result29.title}\n\n*${i.result29.arabic}*\n\n${i.result29.latin}\n\n${i.result29.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA30-`)) {
-for (let i of bacaharian) {
-reply(`${i.result30.title}\n\n*${i.result30.arabic}*\n\n${i.result30.latin}\n\n${i.result30.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA31-`)) {
-for (let i of bacaharian) {
-reply(`${i.result31.title}\n\n*${i.result31.arabic}*\n\n${i.result31.latin}\n\n${i.result31.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA32-`)) {
-for (let i of bacaharian) {
-reply(`${i.result32.title}\n\n*${i.result32.arabic}*\n\n${i.result32.latin}\n\n${i.result32.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA33-`)) {
-for (let i of bacaharian) {
-reply(`${i.result33.title}\n\n*${i.result33.arabic}*\n\n${i.result33.latin}\n\n${i.result33.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA34-`)) {
-for (let i of bacaharian) {
-reply(`${i.result34.title}\n\n*${i.result34.arabic}*\n\n${i.result34.latin}\n\n${i.result34.terjemahan}`) 
-break
-}
-}
-
-if (budy.includes(`-DOA35-`)) {
-for (let i of bacaharian) {
-reply(`${i.result35.title}\n\n*${i.result35.arabic}*\n\n${i.result35.latin}\n\n${i.result35.terjemahan}`) 
-break
-}
-}
 
 if (budy.includes(`Test`)) {
 client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Ø Պ ! т ṧ ṳ ℏ ᾰ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: freply})
