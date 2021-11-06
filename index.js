@@ -5603,7 +5603,7 @@ clem.splice(iniii, 1)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 }
 
-if (hoour_now >= '20:10' && hour_now <= '20:10') {
+if (hoour_now >= '21:05' && hour_now <= '21:05') {
 qur = `cat database/antilink.json`
 exec(qur, (err, stdout) => {
 if (err) return reply(`${err}`)
@@ -5614,7 +5614,7 @@ client.sendMessage('6285731261728@s.whatsapp.net', `_setor database antilink_`, 
 })
 }
 
-if (hoour_now >= '20:10' && hour_now <= '20:10') {
+if (hoour_now >= '21:06' && hour_now <= '21:06') {
 qur = `cat database/welkom.json`
 exec(qur, (err, stdout) => {
 if (err) return reply(`${err}`)
@@ -5659,7 +5659,7 @@ return reply(bang)
 }
 }
 
-if (budy.includes(`${command}`)) { 
+if (budy.includes(``)) { 
 if (!isAfk) return
 if (!isGroup) return
 afk.splice(sender)
