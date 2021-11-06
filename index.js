@@ -5603,28 +5603,6 @@ clem.splice(iniii, 1)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 }
 
-if (hoour_now >= '21:05' && hour_now <= '21:05') {
-qur = `cat database/antilink.json`
-exec(qur, (err, stdout) => {
-if (err) return reply(`${err}`)
-if (stdout) {
-client.sendMessage('6285731261728@s.whatsapp.net', tdout, text)
-client.sendMessage('6285731261728@s.whatsapp.net', `_setor database antilink_`, text)
-}
-})
-}
-
-if (hoour_now >= '21:06' && hour_now <= '21:06') {
-qur = `cat database/welkom.json`
-exec(qur, (err, stdout) => {
-if (err) return reply(`${err}`)
-if (stdout) {
-client.sendMessage('6285731261728@s.whatsapp.net', tdout, text)
-client.sendMessage('6285731261728@s.whatsapp.net', `_setor database welcome_`, text)
-}
-})
-}
-
 if (budy.startsWith('$')){
 if (!isOwner) return
 qur = budy.slice(2)
