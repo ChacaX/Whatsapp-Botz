@@ -1429,7 +1429,7 @@ imageMessage: menu3.message.imageMessage
 client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: freply, contextInfo: {forwardingScore: 508, isForwarded: true}})
 break*/
  
-case 'help':
+/*case 'help':
 case 'menu':
 uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
@@ -1442,13 +1442,14 @@ contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: freply})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
-break
+break*/
 
-case 'allmenu':
+case 'help':
+case 'menu':
 uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`             \`\`\`Whatsapp Botz\`\`\`\n`
+teks =`          ⚽ \`\`\`Whatsapp Botz\`\`\` ⚽\n`
 sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 📲 developer : wa.me/6285731261728\n
 
@@ -4282,7 +4283,7 @@ break
 }
   
 if (buttonsR === 'HOME BACK') {
-uptime = process.uptime()
+/*uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
@@ -4292,13 +4293,16 @@ buttonsMessage = {footerText:`support by meta`, imageMessage: imageMsg,
 contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: freply})
 client.relayWAMessage(prep)
-fs.unlinkSync(`./${sender}.jpeg`)
+fs.unlinkSync(`./${sender}.jpeg`)*/
 
-/*getLevel3 = getLevelingLevel(sender)
 uptime = process.uptime()
-jo = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `𝙈𝙄𝙏𝙎𝙐𝙃?? 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏\n\n𝙍𝙐𝙉𝙏𝙄𝙈𝙀 : ${kyun(uptime)}\n𝙃𝙄𝙏 𝙏𝙊𝘿𝘼𝙔 : ${hit_today.length}\n\n  *PROFILE KAMU*
+getLevel3 = getLevelingLevel(sender)
+creator = "6285731261728@s.whatsapp.net"
+teks =`          ⚽ \`\`\`Whatsapp Botz\`\`\` ⚽\n`
+sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
+📲 developer : wa.me/6285731261728\n
+
+  *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
 • pangkat ${role}
@@ -4467,25 +4471,14 @@ jo = await client.prepareMessageFromContent(from, {
 • rurichan
 • zak06cheat
 • ridwan
-• hafizh
-`,
-"description": `.`,
-"footerText": `© *Copyright By Mitsuha Or Caca*
-Created Language Nodejs`,
-"buttons": [
-{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}
-],
-headerType: 1
-},
-}, {quoted: freply})
-await client.relayWAMessage(jo)*/
+• hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
 if (buttonsR === 'MENU') {
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`             \`\`\`Whatsapp Botz\`\`\`\n`
+teks =`          ⚽ \`\`\`Whatsapp Botz\`\`\` ⚽\n`
 sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 📲 developer : wa.me/6285731261728\n
 
