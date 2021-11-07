@@ -132,14 +132,6 @@ kunci = setting.kunci
 respon = setting.respon
 blocked = []
 hit_today = []
-i = "62857312617285@s.whatsapp.net"
-ii = "62857312617285@s.whatsapp.net"
-iii = "62857312617285@s.whatsapp.net"
-iiii = "62857312617285@s.whatsapp.net"
-         room1 = "1⃣"
-		 room2 = "2⃣"
-		 room3 = "3⃣"
-		 room4 = "4⃣"
 
 /*_________________
 BAGIAN FUNCTION
@@ -4138,7 +4130,7 @@ getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`       ⚽ \`\`\`Whatsapp Botz\`\`\` ⚽\n`
 sendButLocation(from, `${teks}`, `??️ runtime : ${kyun(uptime)}
-📲 developer : wa.me/6285731261728
+?? developer : wa.me/6285731261728
 🎗 jumlah hit : ${hit_today.length}\n
 
   *PROFILE KAMU*
