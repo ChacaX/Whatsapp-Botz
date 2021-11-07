@@ -564,7 +564,7 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			const isWelkom = isGroup ? welkom.includes(from) : false
 			const isNsfw = isGroup ? nsfw.includes(from) : false
 			const isSimi = isGroup ? samih.includes(from) : false
-			const isOwner = ownerNumber.includes(sender)
+			const isOwner = ownerNumber.includes(sender) false
 			const isPote = isGroup ? yes.includes(sender) : false
 			const isDepot = isGroup ? no.includes(sender) : false
 			const isLek = isGroup ? like.includes(sender) : false
