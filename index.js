@@ -616,7 +616,7 @@ message: {
 "title": 'WhatsappBotz', 
 "description": "WhatsappBotz", 
 "currencyCode": "IDR",
-"priceAmount1000": "1500000",
+"priceAmount1000": "15000000",
 "retailerId": 'WhatsappBotz',
 "productImageCount": 1
 },
