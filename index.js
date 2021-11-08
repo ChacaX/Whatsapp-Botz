@@ -1274,7 +1274,7 @@ ___________________*/
 sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(from, kma, location)
- buttonMessages = {
+buttonMessages = {
 locationMessage: mhan.message.locationMessage,
 contentText: text1,
 footerText: desc1,
@@ -1417,7 +1417,6 @@ client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break*/
 
-case 'help':
 case 'menu':
 uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
@@ -1984,7 +1983,7 @@ case 'antitoxic 1':
 case 'antitoxic 0':
 if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
+if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
 let gwekkkj1e = await client.prepareMessageFromContent(from, {
@@ -3813,7 +3812,7 @@ reply(`${i.result34.title}\n\n*${i.result34.arabic}*\n\n${i.result34.latin}\n\n$
 for(let i of bacaharian) {
 reply(`${i.result35.title}\n\n*${i.result35.arabic}*\n\n${i.result35.latin}\n\n${i.result35.terjemahan}`) 
 }
-} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan ketik #doa 1 sampai 35_`)}
+} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan pilih #doa 1 sampai 35_`)}
 break
 
 case 'hadist':
@@ -5355,7 +5354,7 @@ break
 }
 
 if (buttonsR === '❎') {
-if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)  
+if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)  
 if (isDepot) return reply('Kamu Sudah Melakukan Vote')
 for (let i of vote) {
 no.push(sender)
