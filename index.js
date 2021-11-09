@@ -1352,7 +1352,7 @@ teks =`Hai ${pushname} ${ucapanWaktu} saya mitsuha bot whatsapp akan membantu un
 sendButLocation(from, `${teks}`, `*_© Mitsuha Official_* Whatsapp`, {jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`LIST MENU`,buttonText:{displayText:'LIST MENU'},type:1},{buttonId:`PLAY GAME`,buttonText:{displayText:'PLAY GAME'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break*/
 
-case 'menu':
+/*case 'menu':
 case 'help':
 getLevel3 = getLevelingLevel(sender)
 mani = fs.readFileSync('./lib/odc.jpeg')
@@ -1560,7 +1560,7 @@ mentionedJid: [hai, num],
 }},
 quoted: 
 floc2 })
-break
+break*/
 
 /*case perintah_help:
 case 'menu':
@@ -1595,11 +1595,12 @@ client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break*/
 
-/*case 'menu':
+case 'help':
+case 'menu':
 uptime = process.uptime()
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`       ⚽ \`\`\`Whatsapp Botz\`\`\` ⚽\n`
+teks =`*M I T S U H A - W A B O T*\n`
 sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 📲 dev : wa.me/6285731261728
 🎗 jumlah hit : ${hit_today.length}\n
@@ -4319,17 +4320,9 @@ break
   
 if (buttonsR === 'HOME BACK') {
 getLevel3 = getLevelingLevel(sender)
-mani = fs.readFileSync('./lib/odc.jpeg')
-num = `${sender.split("@")[0]}@s.whatsapp.net`
 creator = "6285731261728@s.whatsapp.net"
-hai = `*M I T S U H A - W A B O T*
-`
-gbutsanguy = [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}]
-mhan1 = await client.prepareMessage(from, mani, image)
-gbuttonan = {
-imageMessage: mhan1.message.imageMessage,
-contentText: `${hai}`,
-footerText: `🏖️ runtime : ${kyun(uptime)}
+teks =`*M I T S U H A - W A B O T*\n`
+sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 📲 dev : wa.me/6285731261728
 🎗 jumlah hit : ${hit_today.length}\n
 
@@ -4504,32 +4497,14 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • rurichan
 • zak06cheat
 • ridwan
-• hafizh`,
-buttons: gbutsanguy,
-headerType: 4
-}             
-await client.sendMessage(from, gbuttonan, MessageType.buttonsMessage, {
-thumbnail: fs.readFileSync('./lib/fake.jpeg'),
-caption: `${hai}`,
-"contextInfo": {
-mentionedJid: [hai, num],
-"externalAdReply": {
-"title": `BOT BY MITSUHA`,
-"body": `Time: ${time}`,
-"mediaType": 2,
-"previewType": `https://youtu.be/dQw4w9WgXcQ`,
-"thumbnail": fs.readFileSync('./lib/fake.jpeg'),
-"mediaUrl": `https://youtu.be/dQw4w9WgXcQ`,
-"sourceUrl": ""
-}},
-quoted: 
-floc2 })
+• hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+break
 }
 
 if (buttonsR === 'MENU') {
 getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`       ⚽ \`\`\`Whatsapp Botz\`\`\` ⚽\n`
+teks =`*M I T S U H A - W A B O T*\n`
 sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 📲 dev : wa.me/6285731261728
 🎗 jumlah hit : ${hit_today.length}\n
