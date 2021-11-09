@@ -1777,7 +1777,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • zak06cheat
 • ridwan
 • hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-break*/
+break
 
 /*_________________
 ALL FEATURE BOT
