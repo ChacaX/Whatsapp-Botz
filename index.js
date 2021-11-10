@@ -3652,10 +3652,12 @@ reply('Tag Media Yang Udah Dikirim')
 		case 'dburl':
 		if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-		for (let i of url) {
-iis = `⬡ ${i}\n\n---------------------------\n\n`
+		teks = 'DATABASE JSON URL:\n\n'
+for (let i of url) {
+teks += `⬡ ${i}\n\n---------------------------\n\n`
 }
-client.sendMessage(from, iis.trim(), extendedText, {quoted: floc2})
+teks += `Total : ${url.length}`
+client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
 break
 
 case 'vote':
