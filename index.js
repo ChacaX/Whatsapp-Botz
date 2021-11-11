@@ -242,10 +242,22 @@ return _badword[position].badword
 }
 }
 
+const getBadwordId = (userid) => {
+let position = false
+Object.keys(_badword).forEach((i) => {
+if (_badword[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _badword[position].id
+}
+}
+
 const badwordnya = (sender) => {
 let position = false
 Object.keys(_badword).forEach((i) => {
-if (_badword[i].id === s0ender) {
+if (_badword[i].id === sender) {
 position = i
 }
 })
@@ -3566,7 +3578,7 @@ addSaldoUser(sender, -50)
 break
 					
 case 'daftar':
-if (getSaldoId(sender)) return reply(`_kamu sudah ada sebelumnya_`)
+if (getSaldoId(sender)) return reply(`_kamu sudah daftar sebelumnya_`)
 addSaldoId(sender)
 addBadwordId(sender)
 reply(`succes membuat akun`)
@@ -5878,8 +5890,8 @@ return reply(bang)
 }
 }
 
-if (budy.includes(`body.includes(1)`)) { 
-if (getBadwordUser(sender)) return
+if (budy.includes(`${body.includes(1)}`)) { 
+if (getBadwordId(sender)) return
 addBadwordId(sender)
 }
 	
