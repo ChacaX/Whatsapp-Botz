@@ -199,7 +199,7 @@ return _saldo[position].saldo
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, saldo: 500}
+const obj = {id: userid, saldo: 1000}
 _saldo.push(obj)
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
@@ -3566,14 +3566,14 @@ addSaldoUser(sender, -50)
 break
 					
 case 'daftar':
-if (getSaldoId(sender)) return reply(`_daftar kamu sudah ada sebelumnya_`)
+if (getSaldoId(sender)) return reply(`_kamu sudah ada sebelumnya_`)
 addSaldoId(sender)
 addBadwordId(sender)
-reply(`succes membuat daftar`)
+reply(`succes membuat akun`)
 break
 
 case 'saldo':
-if (!getSaldoId(sender)) return reply(`_﹝🍺﹞kamu belum mempunyai daftar_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞kamu belum daftar_`)     
 saldonya = getSaldoUser(sender)
 reply(`_Saldo kamu : Rp. ${saldonya}_`)
 break
