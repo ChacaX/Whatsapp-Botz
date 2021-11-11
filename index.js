@@ -2834,7 +2834,6 @@ break
 case 'iklan':
 if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
 if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
-if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 let gwmkkee = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -2987,7 +2986,6 @@ break*/
 case 'info':
 if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
 if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
-if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
