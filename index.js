@@ -5890,7 +5890,7 @@ return reply(bang)
 }
 }
 
-if (budy.includes(`${body.includes(1)}`)) { 
+if (budy.includes(`${body.slice(3)}`)) { 
 if (getBadwordId(sender)) return
 addBadwordId(sender)
 }
