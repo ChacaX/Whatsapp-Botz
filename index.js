@@ -61,6 +61,7 @@ const loli = new lolis()*/
 CONST JSON & JS
 ___________________*/
 
+const _saldo = JSON.parse(fs.readFileSync('./lib/saldo.json'))
 const afk = JSON.parse(fs.readFileSync('./src/afk.json'))
 const url = JSON.parse(fs.readFileSync('./src/url.json'))
 const tebak = JSON.parse(fs.readFileSync('./lib/tebakgambar.js'))
@@ -86,8 +87,6 @@ const produk = JSON.parse(fs.readFileSync('./lib/produk.js'))
 const _komentar = JSON.parse(fs.readFileSync('./lib/komentar.js'))
 const like = JSON.parse(fs.readFileSync('./src/Star1.json'))
 const dislike = JSON.parse(fs.readFileSync('./src/Star2.json'))
-const _leveling = JSON.parse(fs.readFileSync('./src/leveling.json'))
-const _level = JSON.parse(fs.readFileSync('./src/level.json'))
 const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
 const nsfw = JSON.parse(fs.readFileSync('./src/nsfw.json'))
 const samih = JSON.parse(fs.readFileSync('./src/simi.json'))
@@ -133,6 +132,7 @@ kunci = setting.kunci
 respon = setting.respon
 blocked = []
 hit_today = []
+saldoawal = 500
 
 /*_________________
 BAGIAN FUNCTION
@@ -149,72 +149,71 @@ var seconds = Math.floor(seconds % 60);
 return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
 }
 
-const getLevelingXp = (sender) => {
+const isSaldo = (sender) =>{ 
+		      let position = false
+              for (let i of _saldo) {
+              if (i.id === sender) {
+              	let saldonye = i.saldo
+              if (saldonye >= saldoawal ) {
+              	  position = true
+                    client.sendMessage(from, `_Yah Saldo Kamu Abis, Datang Lagi Besok Untuk Mendapatkan Saldo Sebesar 3K_`, text, {quoted: mek})
+                    return true
+              } else {
+              	_saldo
+                  position = true
+                  return false
+               }
+             }
+           }
+           if (position === false) {
+           	const o0bj = { id: sender, saldo: 0 }
+                _saldo.push(o0bj)
+                fs.writeFileSync('./lib/saldo.json',JSON.stringify(_saldo))
+           return false
+     	  }
+     	}
+     
+const getSaldoId = (userid) => {
 let position = false
-Object.keys(_level).forEach((i) => {
-if (_level[i].id === sender) {
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
 position = i
 }
 })
 if (position !== false) {
-return _level[position].xp
-}
-}
-        
-const getLevelingLevel = (sender) => {
-let position = false
-Object.keys(_level).forEach((i) => {
-if (_level[i].id === sender) {
-position = i
-}
-})
-if (position !== false) {
-return _level[position].level
+return _saldo[position].id
 }
 }
 
-const getLevelingId = (sender) => {
+const getSaldoUser = (userid) => {
 let position = false
-Object.keys(_level).forEach((i) => {
-if (_level[i].id === sender) {
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
 position = i
 }
 })
 if (position !== false) {
-return _level[position].id
+return _saldo[position].saldo
 }
 }
 
-const addLevelingXp = (sender, amount) => {
-let position = false
-Object.keys(_level).forEach((i) => {
-if (_level[i].id === sender) {
-position = i
-}
-})
-if (position !== false) {
-_level[position].xp += amount
-fs.writeFileSync('./src/level.json', JSON.stringify(_level))
-}
+const addSaldoId = (userid) => {
+const obj = {id: userid, saldo: 500}
+_saldo.push(obj)
+fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 
-const addLevelingLevel = (sender, amount) => {
+const addSaldoUser = (userid, amount) => {
 let position = false
-Object.keys(_level).forEach((i) => {
-if (_level[i].id === sender) {
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
 position = i
 }
 })
 if (position !== false) {
-_level[position].level += amount
-fs.writeFileSync('./src/level.json', JSON.stringify(_level))
+_saldo[position].saldo += amount
+fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
-}
-        
-const addLevelingId = (sender) => {
-const obj = {id: sender, xp: 1, level: 1}
-_level.push(obj)
-fs.writeFileSync('./src/level.json', JSON.stringify(_level))
 }
 
 async function starts() {
@@ -424,7 +423,7 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
-teks =`🍃 *LEAVE MESSAGES* ??`
+teks =`🍃 *LEAVE MESSAGES* 🍃`
 sendButLocation(mdata.id, `${teks}`, `Selamat tinggal ${num.split("@")[0]} dari group ini semoga kamu sehat dan tetap bernafas ya. Jangan balik lagi ke group ini yo 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
@@ -550,7 +549,6 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 			const groupDesc = isGroup ? groupMetadata.desc : ''
 			const isAntiLink = isGroup ? antilink.includes(from) : false
             const isAntiToxic = isGroup ? antitoxic.includes(from) : false
-			const isLevelingOn = isGroup ? _leveling.includes(from) : false
 			const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
 			const isGroupAdmins = groupAdmins.includes(sender) || false
 			const isWelkom = isGroup ? welkom.includes(from) : false
@@ -885,299 +883,9 @@ tingkat ='🏚️ 🚗     🌳'
 tingkat ='*PENCAPAIAN SELESAI 🌳'
 }
         
-const levelRole = getLevelingLevel(sender)
-var role ='Newbie'
-if (levelRole <= 2) {
-role ='Newbie'
-} else if (levelRole <= 4) {
-role ='Beginner Grade 1'
-} else if (levelRole <= 6) {
-role ='Beginner Grade 2'
-} else if (levelRole <= 8) {
-role ='Beginner Grade 3'
-} else if (levelRole <= 10) {
-role ='Beginner Grade 4'
-} else if (levelRole <= 12) {
-role ='Private Grade 1'
-} else if (levelRole <= 14) {
-role ='Private Grade 2'
-} else if (levelRole <= 16) {
-role ='Private Grade 3'
-} else if (levelRole <= 18) {
-role ='Private Grade 4'
-} else if (levelRole <= 20) {
-role ='Private Grade 5'
-} else if (levelRole <= 22) {
-role ='Corporal Grade 1'
-} else if (levelRole <= 24) {
-role ='Corporal Grade 2'
-} else if (levelRole <= 26) {
-role ='Corporal Grade 3'
-} else if (levelRole <= 28) {
-role ='Corporal Grade 4'
-} else if (levelRole <= 30) {
-role ='Corporal Grade 5'
-} else if (levelRole <= 32) {
-role ='Sergeant Grade 1'
-} else if (levelRole <= 34) {
-role ='Sergeant Grade 2'
-} else if (levelRole <= 36) {
-role ='Sergeant Grade 3'
-} else if (levelRole <= 38) {
-role ='Sergeant Grade 4'
-} else if (levelRole <= 40) {
-role ='Sergeant Grade 5'
-} else if (levelRole <= 42) {
-role ='Staff Grade 1'
-} else if (levelRole <= 44) {
-role ='Staff Grade 2'
-} else if (levelRole <= 46) {
-role ='Staff Grade 3'
-} else if (levelRole <= 48) {
-role ='Staff Grade 4'
-} else if (levelRole <= 50) {
-role ='Staff Grade 5'
-} else if (levelRole <= 52) {
-role ='Sergeant Grade 1'
-} else if (levelRole <= 54) {
-role ='Sergeant Grade 2'
-} else if (levelRole <= 56) {
-role ='Sergeant Grade 3'
-} else if (levelRole <= 58) {
-role ='Sergeant Grade 4'
-} else if (levelRole <= 60) {
-role ='Sergeant Grade 5'
-} else if (levelRole <= 62) {
-role ='2nd Lt. Grade 1 '
-} else if (levelRole <= 64) {
-role ='2nd Lt. Grade 2'
-} else if (levelRole <= 66) {
-role ='2nd Lt. Grade 3'
-} else if (levelRole <= 68) {
-role ='2nd Lt. Grade 4'
-} else if (levelRole <= 70) {
-role ='2nd Lt. Grade 5'
-} else if (levelRole <= 72) {
-role ='1st Lt. Grade 1'
-} else if (levelRole <= 74) {
-role ='1st Lt. Grade 2'
-} else if (levelRole <= 76) {
-role ='1st Lt. Grade 3'
-} else if (levelRole <= 78) {
-role ='1st Lt. Grade 4'
-} else if (levelRole <= 80) {
-role ='1st Lt. Grade 5'
-} else if (levelRole <= 82) {
-role ='Major Grade 1'
-} else if (levelRole <= 84) {
-role ='Major Grade 2'
-} else if (levelRole <= 86) {
-role ='Major Grade 3'
-} else if (levelRole <= 88) {
-role ='Major Grade 4'
-} else if (levelRole <= 90) {
-role ='Major Grade 5'
-} else if (levelRole <= 92) {
-role ='Colonel Grade 1'
-} else if (levelRole <= 94) {
-role ='Colonel Grade 2'
-} else if (levelRole <= 96) {
-role ='Colonel Grade 3'
-} else if (levelRole <= 98) {
-role ='Colonel Grade 4'
-} else if (levelRole <= 100) {
-role ='Colonel Grade 5'
-} else if (levelRole <= 102) {
-role ='Brigadier Early'
-} else if (levelRole <= 104) {
-role ='Brigadier Silver'
-} else if (levelRole <= 106) {
-role ='Brigadier gold'
-} else if (levelRole <= 108) {
-role ='Brigadier Platinum'
-} else if (levelRole <= 110) {
-role ='Brigadier Diamond'
-} else if (levelRole <= 112) {
-role ='Major General Early'
-} else if (levelRole <= 114) {
-role ='Major General Silver'
-} else if (levelRole <= 116) {
-role ='Major General gold'
-} else if (levelRole <= 118) {
-role ='Major General Platinum'
-} else if (levelRole <= 120) {
-role ='Major General Diamond'
-} else if (levelRole <= 122) {
-role ='Lt. General Early'
-} else if (levelRole <= 124) {
-role ='Lt. General Silver'
-} else if (levelRole <= 126) {
-role ='Lt. General gold'
-} else if (levelRole <= 128) {
-role ='Lt. General Platinum'
-} else if (levelRole <= 130) {
-role ='Lt. General Diamond'
-} else if (levelRole <= 132) {
-role ='General Early'
-} else if (levelRole <= 134) {
-role ='General Silver'
-} else if (levelRole <= 136) {
-role ='General gold'
-} else if (levelRole <= 138) {
-role ='General Platinum'
-} else if (levelRole <= 140) {
-role ='General Diamond'
-} else if (levelRole <= 142) {
-role ='Commander Early'
-} else if (levelRole <= 144) {
-role ='Commander Intermediate'
-} else if (levelRole <= 146) {
-role ='Commander Elite'
-} else if (levelRole <= 148) {
-role ='The Commander Hero'
-} else if (levelRole <= 152) {
-role ='Legends'
-} else if (levelRole <= 154) {
-role ='Legends'
-} else if (levelRole <= 156) {
-role ='Legends'
-} else if (levelRole <= 158) {
-role ='Legends'
-} else if (levelRole <= 160) {
-role ='Legends'
-} else if (levelRole <= 162) {
-role ='Legends'
-} else if (levelRole <= 164) {
-role ='Legends'
-} else if (levelRole <= 166) {
-role ='Legends'
-} else if (levelRole <= 168) {
-role ='Legends'
-} else if (levelRole <= 170) {
-role ='Legends'
-} else if (levelRole <= 172) {
-role ='Legends'
-} else if (levelRole <= 174) {
-role ='Legends'
-} else if (levelRole <= 176) {
-role ='Legends'
-} else if (levelRole <= 178) {
-role ='Legends'
-} else if (levelRole <= 180) {
-role ='Legends'
-} else if (levelRole <= 182) {
-role ='Legends'
-} else if (levelRole <= 184) {
-role ='Legends'
-} else if (levelRole <= 186) {
-role ='Legends'
-} else if (levelRole <= 188) {
-role ='Legends'
-} else if (levelRole <= 190) {
-role ='Legends'
-} else if (levelRole <= 192) {
-role ='Legends'
-} else if (levelRole <= 194) {
-role ='Legends'
-} else if (levelRole <= 196) {
-role ='Legends'
-} else if (levelRole <= 198) {
-role ='Legends'
-} else if (levelRole <= 200) {
-role ='Legends'
-} else if (levelRole <= 210) {
-role ='Legends'
-} else if (levelRole <= 220) {
-role ='Legends'
-} else if (levelRole <= 230) {
-role ='Legends'
-} else if (levelRole <= 240) {
-role ='Legends'
-} else if (levelRole <= 250) {
-role ='Legends'
-} else if (levelRole <= 260) {
-role ='Legends'
-} else if (levelRole <= 270) {
-role ='Legends'
-} else if (levelRole <= 280) {
-role ='Legends'
-} else if (levelRole <= 290) {
-role ='Legends'
-} else if (levelRole <= 300) {
-role ='Legends'
-} else if (levelRole <= 310) {
-role ='Legends'
-} else if (levelRole <= 320) {
-role ='Legends'
-} else if (levelRole <= 330) {
-role ='Legends'
-} else if (levelRole <= 340) {
-role ='Legends'
-} else if (levelRole <= 350) {
-role ='Legends'
-} else if (levelRole <= 360) {
-role ='Legends'
-} else if (levelRole <= 370) {
-role ='Legends'
-} else if (levelRole <= 380) {
-role ='Legends'
-} else if (levelRole <= 390) {
-role ='Legends'
-} else if (levelRole <= 400) {
-role ='Legends'
-} else if (levelRole <= 410) {
-role ='Legends'
-} else if (levelRole <= 420) {
-role ='Legends'
-} else if (levelRole <= 430) {
-role ='Legends'
-} else if (levelRole <= 440) {
-role ='Legends'
-} else if (levelRole <= 450) {
-role ='Legends'
-} else if (levelRole <= 460) {
-role ='Legends'
-} else if (levelRole <= 470) {
-role ='Legends'
-} else if (levelRole <= 480) {
-role ='Legends'
-} else if (levelRole <= 490) {
-role ='Legends'
-} else if (levelRole <= 500) {
-role ='Legends'
-} else if (levelRole <= 600) {
-role ='Legends'
-} else if (levelRole <= 700) {
-role ='Legends'
-} else if (levelRole <= 800) {
-role ='Legends'
-} else if (levelRole <= 900) {
-role ='Legends'
-} else if (levelRole <= 1000) {
-role ='Legends'
-} else if (levelRole <= 2000) {
-role ='Legends'
-} else if (levelRole <= 3000) {
-role ='Legends'
-} else if (levelRole <= 4000) {
-role ='Legends'
-} else if (levelRole <= 5000) {
-role ='Legends'
-} else if (levelRole <= 6000) {
-role ='Legends'
-} else if (levelRole <= 7000) {
-role ='Legends'
-} else if (levelRole <= 8000) {
-role ='Legends'
-} else if (levelRole <= 9000) {
-role ='Legends'
-} else if (levelRole <= 10000) {
-role ='Legends'
-}
-	
     const hewan = [
 	'🐡 : 🐬 : 🐋',
-	'🐋 : 🐋 : ??',
+	'🐋 : 🐋 : 🐚',
     '🐬 : 🐬 : 🐬',
 	'🐟 : 🦐 : 🦈',
     '🦑 : 🐟 : 🐲',
@@ -1187,7 +895,7 @@ role ='Legends'
     '🐡 : ?? : 🐠',
     '🦀 : 🦀 : 🦀',
     '🦀 : 🐬 : 🐠',
-    '?? : 🐡 : 🐋',
+    '🐚 : 🐡 : 🐋',
     '🐃 : 🦔 : 🐏',
 	'🐏 : 🐏 : 🐏',
 	'🦔 : 🦔 : 🦔',
@@ -1197,7 +905,7 @@ role ='Legends'
     '🐃 : 🦔 : 🐏',
     '🦔 : ?? : 🐂',
     '🐃 : 🐎 : 🐎',
-    '🐕 : 🐕 : ??',
+    '🐕 : 🐕 : 🐕',
     '🐕 : 🦔 : 🐎',
     '🐂 : 🐃 : 🐏'
   ]
@@ -1218,36 +926,8 @@ role ='Legends'
              if (isAntiToxic) {
              anto = 'On'
 }
-             var lepel = 'Off'
-             if (isLevelingOn) {
-             lepel = 'On'
-}
              
-            if (isGroup && isLevelingOn) {
-            const currentLevel = getLevelingLevel(sender)
-            const checkId = getLevelingId(sender)
-            try {
-                if (currentLevel === undefined && checkId === undefined) addLevelingId(sender)
-                const amountXp = Math.floor(Math.random() * 10) + 500
-                const requiredXp = 5000 * (Math.pow(2, currentLevel) - 1)
-                const getLevel = getLevelingLevel(sender)
-                addLevelingXp(sender, amountXp)
-                if (requiredXp <= getLevelingXp(sender)) {
-                    addLevelingLevel(sender, 1)
-                    await reply(`「 _*SELAMAT*_ 」
-❏ Nama : ${pushname}
-❏ Nomer : ${sender.split("@")[0]}
-❏ Xp : ${getLevelingXp(sender)}
-❏ Pangkat : ${role}
-❏ Level : ${getLevel} ⊱ ${getLevelingLevel(sender)}
-╰┈─────────────────➣
-`)
-}
-} catch (err) {
-                console.error(err)
-}
-}
-
+           
                     
 		async function sendFileFromUrl(from, url, caption, miku, mek, men) {
             let mime = '';
@@ -1267,7 +947,7 @@ role ='Legends'
 }
             return client.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: floc2, thumbnail: miku, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
 }
-        
+        	
 /*_________________
 BAGIAN FUNC GRUP
 ___________________*/
@@ -1299,7 +979,9 @@ reply(`_jangan tag dia kak, dia lagi afk_`)
 }
 
 if (budy.includes(`${prefix2}join`)){
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`) 
 await client.query({json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]})
@@ -1346,15 +1028,14 @@ FITUR MENU BOT
 ___________________*/
 
 /*case 'menu':
-getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`Hai ${pushname} ${ucapanWaktu} saya mitsuha bot whatsapp akan membantu untuk membuat sticker dll`
 sendButLocation(from, `${teks}`, `*_© Mitsuha Official_* Whatsapp`, {jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`LIST MENU`,buttonText:{displayText:'LIST MENU'},type:1},{buttonId:`PLAY GAME`,buttonText:{displayText:'PLAY GAME'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+addSaldoUser(sender, -50)
 break*/
 
 /*case 'menu':
 case 'help':
-getLevel3 = getLevelingLevel(sender)
 mani = fs.readFileSync('./lib/odc.jpeg')
 num = `${sender.split("@")[0]}@s.whatsapp.net`
 creator = "6285731261728@s.whatsapp.net"
@@ -1372,9 +1053,7 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
   *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
-• pangkat ${role}
-• level ${getLevel3}
-• xp ${getLevelingXp(sender)}
+• saldo ${getSaldoUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1382,6 +1061,11 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}iklan
 • ${prefix2}donasi
 • ${prefix2}request
+
+
+  *BOT PAY MENU*
+• ${prefix2}akun
+• ${prefix2}botpay
 
 
   *EVENT GAMES BOT*
@@ -1437,7 +1121,6 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}tagall
 • ${prefix2}antilink
 • ${prefix2}antitoxic
-• ${prefix2}leveling
 • ${prefix2}welcome
 
 
@@ -1560,11 +1243,14 @@ mentionedJid: [hai, num],
 }},
 quoted: 
 floc2 })
+addSaldoUser(sender, -50)
 break*/
 
 /*case perintah_help:
 case 'menu':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 uptime = process.uptime()
 menu2 = fs.readFileSync('./lib/odc.jpeg') 
@@ -1578,12 +1264,12 @@ headerType: 4,
 imageMessage: menu3.message.imageMessage
 }
 client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: floc2, contextInfo: {forwardingScore: 508, isForwarded: true}})
+addSaldoUser(sender, -50)
 break*/
  
 /*case 'help':
 case 'menu':
 uptime = process.uptime()
-getLevel3 = getLevelingLevel(sender)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
@@ -1593,12 +1279,12 @@ contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break*/
 
 case 'help':
 case 'menu':
 uptime = process.uptime()
-getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n`
 sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
@@ -1608,9 +1294,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
   *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
-• pangkat ${role}
-• level ${getLevel3}
-• xp ${getLevelingXp(sender)}
+• saldo ${getSaldoUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1618,6 +1302,11 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}iklan
 • ${prefix2}donasi
 • ${prefix2}request
+
+
+  *BOT PAY MENU*
+• ${prefix2}akun
+• ${prefix2}botpay
 
 
   *EVENT GAMES BOT*
@@ -1673,7 +1362,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}tagall
 • ${prefix2}antilink
 • ${prefix2}antitoxic
-• ${prefix2}leveling
 • ${prefix2}welcome
 
 
@@ -1777,6 +1465,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • zak06cheat
 • ridwan
 • hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+addSaldoUser(sender, -50)
 break
 
 /*_________________
@@ -1784,7 +1473,9 @@ ALL FEATURE BOT
 ___________________*/
 
 case 'lotre':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (args[0]=="1") {
@@ -1792,49 +1483,33 @@ if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event 
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
 ini = `❌`
 lotre1 = ini
-reply(`_slot nomor 1 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+reply(`zonk`)
 } else if (args[0]=="2") {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
 ini = `❌`
 lotre2 = ini
-reply(`_slot nomor 2 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+reply(`zonk`)
 } else if (args[0]=="3") {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
 ini = `❌`
 lotre3 = ini
-reply(`_slot nomor 3 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+reply(`zonk`)
 } else if (args[0]=="4") {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
 ini = `❌`
 lotre4 = ini
-reply(`_slot nomor 4 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+reply(`zonk`)
 } else if (args[0]=="5") {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
@@ -1860,43 +1535,34 @@ if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event 
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
 ini = `❌`
 lotre7 = ini
-reply(`_slot nomor 7 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+reply(`zonk`)
 } else if (args[0]=="8") {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
 ini = `❌`
 lotre8 = ini
-reply(`_slot nomor 8 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+reply(`zonk`)
 } else if (args[0]=="9") {
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
 if (isClem) return reply(`_kamu sudah pernah membuka slot ini sebelum nya, silahkan kembali lagi besok ya_`)
 clem.push(sender)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-vs = ["1","10","100"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-addLevelingLevel(sender, mk)
-addLevelingXp(sender, mk)
 ini = `❌`
 lotre9 = ini
-reply(`_slot nomor 9 terbuka_\n_kamu mendapatkan xp & level sebanyak ${mk}_`)
+reply(`zonk`)
 } else {return reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan pilih #lotre 1 sampai 9_`)}
+addSaldoUser(sender, -50)
 break
 
 case 'kudet':
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)     
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
 if(!q) return reply(`teksnya mana kak? contoh:\n\n#kudet nama|desc`)
@@ -1922,19 +1588,25 @@ contextInfo: { mentionedJid: mem },
 quoted: floc2
 }
 client.sendMessage(from, options, text, {quoted: faketag})
+addSaldoUser(sender, -50)
 break
 
 case 'revoke':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
 client.revokeInvite(from)
+addSaldoUser(sender, -50)
 break
 
 case 'produk':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 data = fs.readFileSync('./lib/produk.js');
 jsonData = JSON.parse(data);
@@ -1946,11 +1618,14 @@ buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol T
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
+addSaldoUser(sender, -50)
 break
 
 case '+tambah':
 case 'tambah':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
@@ -1970,10 +1645,13 @@ produk.push(H1)
 fs.writeFileSync(`./lib/${nmorpro}.jpeg`, delb)
 fs.writeFileSync('./lib/produk.js', JSON.stringify(produk))
 client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
+addSaldoUser(sender, -50)
 break
 
 case 'fitnah':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
 if (args.length < 1) return reply(`Usage :\n${prefix}fitnah [@tag|pesan|balasanbot]\n\nEx : \n${prefix}fitnah @tagmember|hai|hai juga`)
@@ -1984,10 +1662,13 @@ var target = ainegs.split("|")[1];
 var bot = ainegs.split("|")[2];
 client.sendMessage(from, `${bot}`, text, {quoted: { key: { fromMe: false, participant: `${mentioned}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target}` }}})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
+addSaldoUser(sender, -50)
 break
 
 case 'quiz':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(Soalnya.gambar))
 buttons = [{buttonId:`BENAR`,buttonText:{displayText:`BENAR`},type:1},{buttonId:`SALAH`,buttonText:{displayText:`SALAH`},type:1}]
@@ -1997,10 +1678,13 @@ contentText:`*QUIZ HARIAN BERHADIAH*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 					
 case 'hidetag':                 
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)
@@ -2017,11 +1701,14 @@ contextInfo: { mentionedJid: mem },
 quoted: floc2
 }
 client.sendMessage(from, options, text, {quoted: faketag})
+addSaldoUser(sender, -50)
 break
 					
 /*case 'close-grup':
 case 'close-grub':      
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
@@ -2033,11 +1720,14 @@ contextInfo: { mentionedJid: [nomor] }
 }
 client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 reply(close)
+addSaldoUser(sender, -50)
 break
 
 case 'open-grup':
 case 'open-grub':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2047,6 +1737,7 @@ text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta*
 }
 client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+addSaldoUser(sender, -50)
 break*/
 
 case 'grub':
@@ -2055,7 +1746,9 @@ case 'group':
 case 'change':
 case 'settings':
 case 'setting':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2072,10 +1765,13 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwekke)
+addSaldoUser(sender, -50)
 break
 
 case 'timer':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 client.updatePresence(from, Presence.composing) 
 if (args[1]=="detik") {var timer = args[0]+"000"
@@ -2089,10 +1785,13 @@ sendButLocation(from, `JEDA ALARM ⏰`, `TIMER - BOTZ`, {jpegThumbnail:fakeimage
 setTimeout( () => {
 reply(`_﹝🍺﹞berhasil di aktifkan_`)
 }, 0)
+addSaldoUser(sender, -50)
 break
       
 /*case 'welcome-enable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2101,10 +1800,13 @@ if (isWelkom) return reply('_﹝🍺﹞berhasil di aktifkan_')
 welkom.push(from)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
 reply('_﹝🍺﹞berhasil di aktifkan_')
+addSaldoUser(sender, -50)
 break
 						
 case 'welcome-disable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝??﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)    
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2113,12 +1815,15 @@ var ini = welkom.indexOf(from)
 welkom.splice(ini, 1)
 fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
 reply('_﹝🍺﹞berhasil di matikan_')
+addSaldoUser(sender, -50)
 break*/
 
 case 'welcome':
 case 'welcome 1':
 case 'welcome 0':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2135,12 +1840,15 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(gwekkje)
+addSaldoUser(sender, -50)
 break
 
 case 'antilink':
 case 'antilink 1':
 case 'antilink 0':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2157,12 +1865,15 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkkje)
+addSaldoUser(sender, -50)
 break
 
 case 'antitoxic':
 case 'antitoxic 1':
 case 'antitoxic 0':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2179,33 +1890,14 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkkj1e)
-break
-
-case 'leveling':
-case 'leveling 1':
-case 'leveling 0':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
-if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
-if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
-if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
-let gwekkkjiie = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `\`\`\`SILAHKAN PILIH SATU\`\`\``,
-"footerText": `_jika tidak muncul tombol silahkan ketik .enable atau .disable kemudian pilih query_`,
-"buttons": [
-{buttonId: 'Enable L1', buttonText: {displayText: 'Enable L1'}, type: 1},
-{buttonId: 'Disable L0', buttonText: {displayText: 'Disable L0'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2})
-await client.relayWAMessage(gwekkkjiie)
+addSaldoUser(sender, -50)
 break
 
 case 'tagall':
 case 'tagall1':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 members_id = []
@@ -2216,10 +1908,13 @@ teks += `*-->* @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
 mentions(teks, members_id, true)
+addSaldoUser(sender, -50)
 break
           
 /*case 'antilink-enable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})     
@@ -2228,10 +1923,13 @@ if (isAntiLink) return reply('_﹝🍺﹞berhasil di aktifkan_')
 antilink.push(from)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('_﹝🍺﹞berhasil di aktifkan_')
+addSaldoUser(sender, -50)
 break
 					
 case 'antilink-disable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)    
@@ -2241,10 +1939,13 @@ var ini = antilink.indexOf(from)
 antilink.splice(ini, 1)
 fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 reply('_﹝🍺﹞berhasil di matikan_')
+addSaldoUser(sender, -50)
 break
 
 case 'antitoxic-disable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2253,10 +1954,13 @@ var ini = antitoxic.indexOf(from)
 antitoxic.splice(ini, 1)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 reply('_﹝🍺﹞berhasil di matikan_')
+addSaldoUser(sender, -50)
 break
 						
 case 'antitoxic-enable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2265,32 +1969,9 @@ if (isAntiToxic) return reply('「 SUDAH AKTIF 」')
 antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 reply('_﹝🍺﹞berhasil di aktifkan_')
-break
-
-case 'leveling-enable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
-if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
-if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
-if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
-if (isLevelingOn) return reply('fitur level sudah aktif sebelum nya')
-_leveling.push(from)
-fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
-reply('_﹝🍺﹞berhasil di aktifkan_')
-break
-
-case 'leveling-disable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
-if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
-if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
-if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
-var ini = _leveling.indexOf(from)
-_leveling.splice(ini, 1)
-fs.writeFileSync('./lib/leveling.json', JSON.stringify(_leveling))
-('_﹝🍺﹞berhasil di matikan_')
+addSaldoUser(sender, -50)
 break*/
-        
+
 case 'sider':
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
 infom = await client.messageInfo(from, mek.message.extendedTextMessage.contextInfo.stanzaId)
@@ -2302,11 +1983,14 @@ teks += `Waktu : ` + moment(`${i.t}` * 1000).tz('Asia/Jakarta').format('DD/MM/YY
 tagg.push(i.jid)
 }
 mentions(teks, tagg, true)
+addSaldoUser(sender, -50)
 break
                                 
 case 'promote':          
 reply(`_maaf fitur ini tidak bisa di akses sementara_`)                   
-/*if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+/*if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2324,11 +2008,14 @@ client.groupRemove(from, mentioned)
 mentions(`Berhasil Promote @${mentioned[0].split('@')[0]} Sebagai Admin Group!`, mentioned, true)
 client.groupMakeAdmin(from, mentioned)
 }*/
+addSaldoUser(sender, -50)
 break
 
 case 'demote':   
 reply(`_maaf fitur ini tidak bisa di akses sementara_`)
-/*if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+/*if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2346,10 +2033,13 @@ client.groupRemove(from, mentioned)
 mentions(`Berhasil Demote @${mentioned[0].split('@')[0]} Menjadi Member Group!`, mentioned, true)
 client.groupDemoteAdmin(from, mentioned)
 }*/
+addSaldoUser(sender, -50)
 break
 				
 /*case 'add':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2363,6 +2053,7 @@ client.groupAdd(from, [num])
 console.log('Error :', e)
 reply('Gagal menambahkan target, mungkin karena di private')
 }
+addSaldoUser(sender, -50)
 break*/
 
 case 'add':
@@ -2377,12 +2068,15 @@ await client.groupAdd(from, [quotedis])
 console.log('Error :', e)
 reply('_reply pesan chat member yang keluar lalu ketik #add_')
 }*/
+addSaldoUser(sender, -50)
 break
 
 case 'kick':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
+if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
 mem = body.slice(6)
@@ -2399,16 +2093,20 @@ client.groupRemove(from, mentioned)
 } else {
 client.groupRemove(from, mentioned)
 }
+addSaldoUser(sender, -50)
 break
             
 /*case 'join':
 await client.query({json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]})
 reply(`_succes join_`)
+addSaldoUser(sender, -50)
 break*/
 
 /*case 'simih':
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)     
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
@@ -2425,10 +2123,13 @@ reply('Sukes menonaktifkan mode simi di group ini ✔️')
 } else {
 reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 }
+addSaldoUser(sender, -50)
 break*/
 
 case 'addprem':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)    
 if (args.length < 1) return reply(`contoh ${prefix + command} 6285298595430\n\natau bisa juga dengan ${prefix + command} tag target`)
@@ -2436,25 +2137,32 @@ adpr = body.slice(10)
 premium.push(`${adpr}@s.whatsapp.net`)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 reply(`Berhasil Menambahkan ${adpr} Ke Daftar Premium`)
+addSaldoUser(sender, -50)
 break
 					
 case 'dellprem':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(ind.ownerB())
 din02 = body.slice(11)
 premium.splice(`${din02}@s.whatsapp.net`, 1)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 reply(`Berhasil Menghapus ${din02} Dari Daftar Premium`)
+addSaldoUser(sender, -50)
 break
 
 case 'bangrup':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
 banchat.push(from)
 fs.writeFileSync('./src/banchat.json', JSON.stringify(banchat))
 reply(`Berhasil Membanned ${groupName}`)
+addSaldoUser(sender, -50)
 break
 
 case 'unbangrup':
@@ -2463,10 +2171,13 @@ if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)
 banchat.splice(from)
 fs.writeFileSync('./src/banchat.json', JSON.stringify(banchat))
 reply(`Berhasil Membuka Banned ${groupName}`)
+addSaldoUser(sender, -50)
 break
 
 case 'ban':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
 if (args.length < 1) return reply(`*Format Salah*\n\n*Tag target yang ingin di Ban*\n*Ex : #ban @tag*`)
@@ -2474,10 +2185,13 @@ adpr = body.slice(6)
 ban.push(`${adpr}@s.whatsapp.net`)
 fs.writeFileSync('./src/ban.json', JSON.stringify(ban))
 reply(`Berhasil Menambahkan ${adpr} Ke Daftar Banned`)
+addSaldoUser(sender, -50)
 break
 					
 case 'unban':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2486,10 +2200,13 @@ din02 = body.slice(6)
 ban.splice(`${din02}@s.whatsapp.net`, 1)
 fs.writeFileSync('./src/ban.json', JSON.stringify(ban))
 reply(`Berhasil Menghapus ${din02} Dari Daftar Banned`)
+addSaldoUser(sender, -50)
 break
 				
 case 'leave':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)
@@ -2505,10 +2222,13 @@ headerType: 1
 },
 }, {quoted:mek})
 await client.relayWAMessage(gwetkkkke)
+addSaldoUser(sender, -50)
 break
                     
 case 'clone':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -2525,10 +2245,13 @@ mentions(`Foto profile Berhasil di perbarui menggunakan foto profile @${id.split
 } catch (e) {
 reply('Gagal om')
 }
+addSaldoUser(sender, -50)
 break
 
 case 'attp':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 					ranp = getRandom('.gif')
@@ -2542,7 +2265,8 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 						client.sendMessage(from, buffer, sticker, {quoted: floc2})
 						fs.unlinkSync(rano)
 					})
-			break
+			addSaldoUser(sender, -50)
+break
 			
 case 'ttp':
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
@@ -2557,10 +2281,13 @@ case 'ttp':
 						client.sendMessage(from, buffer, sticker, {quoted: floc2})
 						fs.unlinkSync(rano)
 					})
-			break
+			addSaldoUser(sender, -50)
+break
 			
 /*case 'bc':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)     
 if (args.length < 1) return reply('.......')
@@ -2578,10 +2305,13 @@ sendMess(_.jid, `${body.slice(4)}\n\n_*BROADCAST*_`)
 }
 reply('Suksess broadcast ')
 }
+addSaldoUser(sender, -50)
 break*/
 
 case 'bc':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)     
 bc = body.slice(3)
@@ -2602,10 +2332,13 @@ sendButLocation(_.jid, `${teks}`, `${bc}`, {jpegThumbnail:fakeimage}, [{buttonId
 }
 reply('Suksess broadcast ')
 }
+addSaldoUser(sender, -50)
 break
 
 case 'setbudy':   
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)
 if (args.length < 1) return
@@ -2615,11 +2348,14 @@ setting.kunci = kunci
 setting.respon = respon
 fs.writeFileSync('./src/settings.json', JSON.stringify(setting, null, '\t'))
 reply(`SUKSES KAYAK MIE SUKSES`)
+addSaldoUser(sender, -50)
 break
 
 case 'ppcouple':
 client.updatePresence(from, Presence.composing) 
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 data = fs.readFileSync('./lib/couple.js');
@@ -2643,11 +2379,14 @@ prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: flo
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan')) 
+addSaldoUser(sender, -50)
 break
 
 case 'cerpen':
 client.updatePresence(from, Presence.composing) 
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/cerpen.js');
 jsonData = JSON.parse(data);
@@ -2655,10 +2394,13 @@ randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 reply(`*Tittle*: ${randKey.result.title}\n\n*Creator*: ${randKey.result.creator}\n\n*Cerpen*: ${randKey.result.cerpen}`)
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan')) 
+addSaldoUser(sender, -50)
 break
 
 case 'fake_data':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/fdata.js');
 jsonData = JSON.parse(data);
@@ -2676,10 +2418,13 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(o)
+addSaldoUser(sender, -50)
 break
 
 case 'beasiswa':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/beasiswa.js');
 jsonData = JSON.parse(data);
@@ -2701,10 +2446,13 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(ok)
+addSaldoUser(sender, -50)
 break
 
 case 'news':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/berita.js');
 jsonData = JSON.parse(data);
@@ -2722,10 +2470,13 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(oo)
+addSaldoUser(sender, -50)
 break
 
 case 'save':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if(!q) return reply(`Ingin Menemui Seseorang Diluar Sana? Yuk Ketik\n\n${prefix}.save nama|nomor\n\nGunakan Tanda | Sebagai Pembatas, Nomor Harus Berupa Kode Negara 62xxx`)
 nma = q.split('|')[0]
@@ -2740,10 +2491,13 @@ snder : sender
 save.push(H1)
 fs.writeFileSync('./lib/sv.js', JSON.stringify(save))
 client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
+addSaldoUser(sender, -50)
 break
 
 case 'mutual':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/sv.js');
 jsonData = JSON.parse(data);
@@ -2766,10 +2520,13 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(oo)
+addSaldoUser(sender, -50)
 break
 
 case 'cerita_horor':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/horor.js');
 jsonData = JSON.parse(data);
@@ -2784,10 +2541,13 @@ contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 
 case 'cecan':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/apirandom.js');
 jsonData = JSON.parse(data);
@@ -2802,10 +2562,13 @@ contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,h
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 
 case 'darkjokes':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/dark.js');
 jsonData = JSON.parse(data);
@@ -2820,10 +2583,13 @@ contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,h
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 
 case 'cogan':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/apirandom.js');
 jsonData = JSON.parse(data);
@@ -2838,11 +2604,14 @@ contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,h
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 
 case 'asupan':
 client.updatePresence(from, Presence.composing) 
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 reply(`_Butuh Beberapa Menit Untuk Mengirim, Harap Menunggu_`)
@@ -2850,13 +2619,16 @@ data = fs.readFileSync('./lib/asupan.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
-buff = await getBuffer(randKey.result)
+buff = await getBuffer(randKey.url)
 client.sendMessage(from, buff, video, {quoted: floc2, caption: `Farming Dosa?:v`})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan')) 
+addSaldoUser(sender, -50)
 break
 
 case 'film':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/film.js');
 jsonData = JSON.parse(data);
@@ -2871,6 +2643,7 @@ contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 
 case 'sharelock':
@@ -2879,10 +2652,13 @@ ppp = `${args.join(' ')}`
 send = ppp.split("|")[0];
 lok = ppp.split("|")[1];
 client.sendMessage(from, {degreesLatitude: 24.121231, degreesngitude: 55.1121221, name:send,address:lok}, MessageType.location)
+addSaldoUser(sender, -50)
 break
 			
 case  'trigger':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -2905,10 +2681,13 @@ fs.unlinkSync(rano)
 } else {
 reply('Gunakan foto!')
 }
+addSaldoUser(sender, -50)
 break
 		
 case  'passed':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -2931,10 +2710,13 @@ fs.unlinkSync(rano)
 } else {
 reply('Gunakan foto!')
 }
+addSaldoUser(sender, -50)
 break
 
 case  'jail':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -2957,10 +2739,13 @@ fs.unlinkSync(rano)
 } else {
 reply('Gunakan foto!')
 }
+addSaldoUser(sender, -50)
 break
 
 case  'comrade':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -2983,10 +2768,13 @@ fs.unlinkSync(rano)
 } else {
 reply('Gunakan foto!')
 }
+addSaldoUser(sender, -50)
 break
 
 case  'wasted':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -3009,10 +2797,13 @@ fs.unlinkSync(rano)
 } else {
 reply('Gunakan foto!')
 }
+addSaldoUser(sender, -50)
 break 
 		
 case 'makegroup':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
@@ -3022,10 +2813,13 @@ const ainenihh = aineloh.split("|")[0]
 const okelahh = aineloh.split("|")[1].replace("@","")
 client.groupCreate(`${ainenihh}`, [`62858266304780@s.whatsapp.net`,`${okelahh}@s.whatsapp.net`])
 reply('_Sucses creategroup_')
+addSaldoUser(sender, -50)
 break
 
 case 'pesan':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (args.length < 1) return reply(`_example : #pesan 62...|pesan_`)
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
@@ -3034,10 +2828,13 @@ var F1 = FG.split("|")[0];
 var F2 = FG.split("|")[1];
 client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 reply('Berhasil mengirim pesan...')
+addSaldoUser(sender, -50)
 break
 				
 case 'iklan':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 let gwmkkee = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -3073,10 +2870,13 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwmkkee)
+addSaldoUser(sender, -50)
 break
             
 case 'dungeon':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId:`START`,buttonText:{displayText:'START'},type:1}]
@@ -3085,19 +2885,22 @@ buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
 contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
+addSaldoUser(sender, -50)
 break
 
 case 'slot':  
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+addSaldoUser(sender, 200)
 youke = fs.readFileSync('./lib/odc.jpeg')
 const p = hewan[Math.floor(Math.random() * hewan.length)]
 const p2 = hewan[Math.floor(Math.random() * hewan.length)]
 const p3 = hewan[Math.floor(Math.random() * hewan.length)]
-buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1},{buttonId:`GET`,buttonText:{displayText:'GET'},type:1}]
+buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMessage: imageMsg,
-contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  ?? | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : ??<=====`,buttons,headerType:4}
+contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[ 🎟 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
 break
@@ -3105,7 +2908,9 @@ break
 case 'author':
 case 'owner':
 case 'creator':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)    
 await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
 let hot = await client.prepareMessageFromContent(from, {
@@ -3121,10 +2926,13 @@ headerType: 1
 },
 }, {quoted: fakeimage}) 
 await client.relayWAMessage(hot)
+addSaldoUser(sender, -50)
 break
                  
 case 'toimg':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isQuotedSticker) return reply('❌ reply stickernya um ❌')
 reply(mess.wait)
@@ -3138,10 +2946,13 @@ buffer = fs.readFileSync(ran)
 client.sendMessage(from, buffer, MessageType.image)
 fs.unlinkSync(ran)
 })
+addSaldoUser(sender, -50)
 break
 
 case 'donasi':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
@@ -3150,10 +2961,13 @@ buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
+addSaldoUser(sender, -50)
 break
 
 /*case 'wait':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 reply(mess.wait)
@@ -3167,10 +2981,13 @@ reply(err)
 } else {
 reply('Foto aja mas')
 }
+addSaldoUser(sender, -50)
 break*/
 					
 case 'info':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
@@ -3195,21 +3012,22 @@ teks =`*( INFO MITSUHA WHATSAPP )*\n
 *( INFO GROUP WHATSAPP )*\n
 \`\`\`status antilink : ${anlink}\`\`\`
 \`\`\`status antitoxic : ${anto}\`\`\`
-\`\`\`status leveling : ${lepel}\`\`\`
 \`\`\`status simisimi : ${sim}\`\`\`
 \`\`\`user antilink : ${antilink.length}\`\`\`
 \`\`\`user antitoxic : ${antitoxic.length}\`\`\`
-\`\`\`user leveling : ${_leveling.length}\`\`\`
 \`\`\`user simisimi : ${samih.length}\`\`\`
 \`\`\`member grup : ${groupMembers.length}\`\`\`
 \`\`\`admin grup : ${groupAdmins.length}\`\`\`
 \`\`\`group id : ${G1.id}\`\`\`
 \`\`\`link grup : https://chat.whatsapp.com/${linkgc}\`\`\``
 sendButLocation(from, `${teks}`, `INFO BOT - INFO GROUP`,{jpegThumbnail:ppnya}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+addSaldoUser(sender, -50)
 break
 
 case 'ocr':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -3227,18 +3045,24 @@ fs.unlinkSync(media)
 } else {
 reply('Foto aja mas')
 }
+addSaldoUser(sender, -50)
 break
 			
 case 'del':
 case 'hapus':
 case 'delete':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
+addSaldoUser(sender, -50)
 break
 				
 case 'neko':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
 E2 = E1[Math.floor(Math.random() * E1.length)]
@@ -3252,11 +3076,14 @@ contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,h
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2, thumbnail: thumb})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 				
 case 'truth':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+addSaldoUser(sender, 200)
 const trut = ['Pernah suka sama siapa aja? berapa lama?', 'Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)', 'apa ketakutan terbesar kamu?', 'pernah suka sama orang dan merasa orang itu suka sama kamu juga?', 'Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?', 'pernah gak nyuri uang nyokap atau bokap? Alesanya?', 'hal yang bikin seneng pas lu lagi sedih apa', 'pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?', 'pernah jadi selingkuhan orang?', 'hal yang paling ditakutin', 'siapa orang yang paling berpengaruh kepada kehidupanmu', 'hal membanggakan apa yang kamu dapatkan di tahun ini', 'siapa orang yang bisa membuatmu sange', 'siapa orang yang pernah buatmu sange', '(bgi yg muslim) pernah ga solat seharian?', 'Siapa yang paling mendekati tipe pasangan idealmu di sini', 'suka mabar(main bareng)sama siapa?', 'pernah nolak orang? alasannya kenapa?', 'Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget', 'pencapaian yang udah didapet apa aja ditahun ini?', 'kebiasaan terburuk lo pas di sekolah apa?']
 const ttrth = trut[Math.floor(Math.random() * trut.length)]
 truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -3264,8 +3091,10 @@ client.sendMessage(from, truteh, image, { caption: '*Truth*\n\n' + ttrth, quoted
 break
 
 case 'dare':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
+addSaldoUser(sender, 200)
 const dare = ['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu', 'telfon crush/pacar sekarang dan ss ke pemain', 'pap ke salah satu anggota grup', 'Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo', 'ss recent call whatsapp', 'drop emot 🤥 setiap ngetik di gc/pc selama 1 hari', 'kirim voice note bilang can i call u baby?', 'drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu', 'pake foto sule sampe 3 hari', 'ketik pake bahasa daerah 24 jam', 'ganti nama menjadi "gue anak lucinta luna" selama 5 jam', 'chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you', 'prank chat mantan dan bilang " i love u, pgn balikan', 'record voice baca surah al-kautsar', 'bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini', 'sebutkan tipe pacar mu!', 'snap/post foto pacar/crush', 'teriak gajelas lalu kirim pake vn kesini', 'pap mukamu lalu kirim ke salah satu temanmu', 'kirim fotomu dengan caption, aku anak pungut', 'teriak pake kata kasar sambil vn trus kirim kesini', 'teriak " anjimm gabutt anjimmm " di depan rumah mu', 'ganti nama jadi " BOWO " selama 24 jam', 'Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 const der = dare[Math.floor(Math.random() * dare.length)]
 tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -3273,7 +3102,9 @@ client.sendMessage(from, tod, image, { quoted: floc2, caption: '*Dare*\n\n' + de
 break
 			
 case 'waifu':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
@@ -3284,10 +3115,13 @@ contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,h
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 
 case 'nulis':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(`https://api.zeks.xyz/api/nulis?text=${body.slice(7)}&apikey=apikeyaine`))
@@ -3298,10 +3132,13 @@ contentText:`_Dah Jadi Stah_`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
            
 case 'pinterest':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 client.updatePresence(from, Presence.composing)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
@@ -3312,6 +3149,7 @@ n = JSON.parse(JSON.stringify(ahu));
 nimek = n[Math.floor(Math.random() * n.length)];
 pok = await getBuffer(nimek)
 client.sendMessage(from, pok, image, { quoted: floc2, caption: `*PINTEREST*` })
+addSaldoUser(sender, -50)
 break
 
 /*case 'pinterest':
@@ -3368,10 +3206,13 @@ break
                     console.log(color('[Pinterest]', 'red'), err)
                     reply(mess.error.api)
 })
-                break*/
+                addSaldoUser(sender, -50)
+break*/
 					
 case 'slow':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -3383,10 +3224,13 @@ hah = fs.readFileSync(ran)
 client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
+addSaldoUser(sender, -50)
 break
 				
 case 'gemuk':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -3398,10 +3242,13 @@ hah = fs.readFileSync(ran)
 client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
+addSaldoUser(sender, -50)
 break
 				
 case 'tomp3':              
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)              
 if (isQuotedVideo || isQuotedAudio){
 reply(mess.wait)
@@ -3418,10 +3265,13 @@ fs.unlinkSync(ran)
 } else {
 reply(mess.wrongFormat)
 }
+addSaldoUser(sender, -50)
 break
 
 case 'tupai':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -3433,10 +3283,13 @@ hah = fs.readFileSync(ran)
 client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
+addSaldoUser(sender, -50)
 break
 
 case 'fast':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -3448,13 +3301,16 @@ uhh = fs.readFileSync(ran)
 client.sendMessage(from, uhh, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
 fs.unlinkSync(ran)
 })
+addSaldoUser(sender, -50)
 break
 					
 case 'stiker':
 case 'sticker':
 case 'stikergif':
 case 'stickergif':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -3521,10 +3377,13 @@ fs.unlinkSync(ran)
 } else {
 reply(`Kirim gambar dengan caption ${prefix2}sticker atau tag gambar yang sudah dikirim`)
 }
+addSaldoUser(sender, -50)
 break
 				
 case 'report':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 const pesan = body.slice(8)
 if (pesan.length > 300) return client.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text)
@@ -3536,10 +3395,13 @@ contextInfo: {mentionedJid: [nomor]},
 }
 client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
 reply('Maaf ketidak nyamanan nya, kami akan memperbaikin nya secepatnya.\n\n-> Laporan main main akan dibanned dan ditegur Owner bot')
+addSaldoUser(sender, -50)
 break 
                   
 case 'ulasan':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/komentar.js');
 jsonData = JSON.parse(data);
@@ -3554,10 +3416,13 @@ buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
+addSaldoUser(sender, -50)
 break
          
 case 'komentar':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 if (args.length < 1) return reply('TEKS NYA MANA?')
 bodi = body.slice(9)
@@ -3571,6 +3436,7 @@ Time : tem
 _komentar.push(teks)
 fs.writeFileSync('./lib/komentar.js', JSON.stringify(_komentar))
 client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})
+addSaldoUser(sender, -50)
 break
 
 case 'bug':
@@ -3582,11 +3448,14 @@ prepareMessageFromContent(from, client.
 prepareDisappearingMessageSettingContent(0),
 {}),{waitForAck:!0})
 }
+addSaldoUser(sender, -50)
 break
 
 case 'voting':
 case 'votting':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)  
 /*if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)*/
@@ -3630,8 +3499,21 @@ no.splice(ini2, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
 }, waktu) 
+addSaldoUser(sender, -50)
 break
 					
+case 'akun':
+if (getSaldoId(sender)) return reply(`_akun kamu sudah ada sebelumnya_`)
+addSaldoId(sender)
+reply(`succes membuat akun`)
+break
+
+case 'botpay':
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+saldonya = getSaldoUser(sender)
+reply(`_Saldo kamu : ${saldonya}_`)
+break
+
 					case 'tourl':
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 				 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -3647,10 +3529,13 @@ fs.writeFileSync('./src/url.json', JSON.stringify(url))
 				 } else {
 reply('Tag Media Yang Udah Dikirim')
 }
-		break
+		addSaldoUser(sender, -50)
+break
 		
 		case 'dburl':
-		if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+		if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 		teks = 'DATABASE JSON URL:\n\n'
 for (let i of url) {
@@ -3658,10 +3543,13 @@ teks += `⬡ ${i}\n\n---------------------------\n\n`
 }
 teks += `Total : ${url.length}`
 client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
+addSaldoUser(sender, -50)
 break
 
 case 'vote':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝??﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 for (let i of vote) {
@@ -3678,11 +3566,14 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhhhkje)
 }
+addSaldoUser(sender, -50)
 break
 
 case 'dellvote':
 case 'delvote':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 ini = yes.indexOf(from)
@@ -3692,11 +3583,14 @@ no.splice(ini2, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
 reply(`${vote}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
+addSaldoUser(sender, -50)
 break
 
 case 'absensi':
 client.updatePresence(from, Presence.composing) 
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)  
 if (isAbsen) return reply(`_kamu sudah absensi tadi_`)
@@ -3709,11 +3603,14 @@ teks += `=-> @${sensi.split('@')[0]} ✅\n`
 }
 teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
 client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2, contextInfo: {"mentionedJid": absen}})
+addSaldoUser(sender, -50)
 break
 
 case 'absen':
 client.updatePresence(from, Presence.composing) 
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 client.updatePresence(from, Presence.composing) 
 if (args[1]=="detik") {var tem = args[0]+"000"
@@ -3740,10 +3637,13 @@ ini = absen.indexOf(from)
 absen.splice(ini, 1)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 }, tem)
+addSaldoUser(sender, -50)
 break
 
 case 'svmess':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
@@ -3756,15 +3656,19 @@ waktu : date
 berbintang.push(st)
 fs.writeFileSync('./src/berbintang.json', JSON.stringify(berbintang))
 reply(`Woke, Sudah Di Bintangin Bot!`)
+addSaldoUser(sender, -50)
 break
 
 case 'afk':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)  
 afk.push(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
 reply(`*{ AFK MODE ACTIVE }*\n\nnama : ${pushname}\nalasan : ${body.slice(4)}`)
+addSaldoUser(sender, -50)
 break
 
 case 'gtts':
@@ -3779,6 +3683,7 @@ dtt.length > 600
 client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: floc2, mimetype: 'audio/mp4', ptt:true})
 fs.unlinkSync(ranm)
 })
+addSaldoUser(sender, -50)
 break
 					
 case 'listmess':
@@ -3790,10 +3695,13 @@ teks += `⬡ *Pesan : ${i.name} > ${i.waktu}*\n${i.teks}\n\n--------------------
 teks += `Total : ${berbintang.length}`
 client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
+addSaldoUser(sender, -50)
 break
 			
 case 'request':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)   
 teks = 'LIST REQUETS BOT:\n\n'
 for (let i of req) {
@@ -3818,6 +3726,7 @@ text: teks2,
 contextInfo: {mentionedJid: [nomor2]},
 }
 client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
+addSaldoUser(sender, -50)
 break
 
 case 'tebakgambar':
@@ -3832,6 +3741,7 @@ client.sendMessage(from, gambar, image, { caption: `Jawablah pertanyaan dengan w
 setTimeout( () => {
 client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text, { quoted: floc2 })
 }, 30000)
+addSaldoUser(sender, 200)
 break
 
 case 'carspeed':
@@ -3842,6 +3752,7 @@ tingkatan.push(sender)
 fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
 reply(`_berhasil claim ticket!_`)
 } else {return reply(`_ketik #carspeed on unuk mendapatkan ticket_`)}
+addSaldoUser(sender, -50)
 break
 
 case 'niatsholat':
@@ -3878,6 +3789,7 @@ for (let i of bacasholat) {
 reply(`${i.result8.name}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
 }
 } else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan pilih #niatsholat 1 sampai 8_`)}
+addSaldoUser(sender, -50)
 break
 
 case 'doa':
@@ -4022,6 +3934,7 @@ for(let i of bacaharian) {
 reply(`${i.result35.title}\n\n*${i.result35.arabic}*\n\n${i.result35.latin}\n\n${i.result35.terjemahan}`) 
 }
 } else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan pilih #doa 1 sampai 35_`)}
+addSaldoUser(sender, -50)
 break
 
 case 'hadist':
@@ -4106,12 +4019,14 @@ for (let i of hadist) {
 reply(`${i.result20.message}\n\n*${i.result20.arabic}*\n\n${i.result20.id}`) 
 } 
 } else {return reply(`_silahkan pilih #hadist 1 sampai 20_`)}
+addSaldoUser(sender, -50)
 break
 
 case 'urltoimg':
 if (args.length < 1) return reply(`_tambahkan link pada perintah_`)
 linknya = await getBuffer(`${args.join(" ")}`)
 client.sendMessage(from, linknya, image)
+addSaldoUser(sender, -50)
 break
 
 case 'upswtext':
@@ -4120,6 +4035,7 @@ if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 client.updatePresence(from, Presence.composing)
 client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedText)
 reply(`Berhasil Membuat Status`)
+addSaldoUser(sender, -50)
 break
 
 case 'upswimg':
@@ -4132,6 +4048,7 @@ sweb = await client.downloadMediaMessage(swew)
 client.sendMessage('status@broadcast', sweb, image, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
 }
 reply(`Berhasil Membuat Status`)
+addSaldoUser(sender, -50)
 break
 
 case 'upswvideo':
@@ -4144,10 +4061,13 @@ sweb = await client.downloadMediaMessage(swew)
 client.sendMessage('status@broadcast', sweb, video, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
 }
 reply(`Berhasil Membuat Status`)
+addSaldoUser(sender, -50)
 break
 
 case 'enable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
@@ -4161,18 +4081,18 @@ reply('_﹝🍺﹞berhasil di aktifkan_')
 } else if (args[0]=="antitoxic") {antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 reply('_﹝🍺﹞berhasil di aktifkan_')
-} else if (args[0]=="leveling") {_leveling.push(from)
-fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-reply('_﹝🍺﹞berhasil di aktifkan_')
 } else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 reply('_﹝🍺﹞berhasil di aktifkan_')
-} else {return reply(`_pilihan enable :_\n\n_• .enable antilink_\n_• .enable welcome_\n_• .enable antitoxic_\n_• .enable leveling_\n_• .enable grup_`)}
+} else {return reply(`_pilihan enable :_\n\n_• .enable antilink_\n_• .enable welcome_\n_• .enable antitoxic_\n_• .enable grup_`)}
+addSaldoUser(sender, -50)
 break
 
 case 'disable':
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
+if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
 if (args[0]=="antilink") {antilink.splice(from)
@@ -4184,12 +4104,10 @@ reply('_﹝🍺﹞berhasil di matikan_')
 } else if (args[0]=="antitoxic") {antitoxic.splice(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 reply('_﹝🍺﹞berhasil di matikan_')
-} else if (args[0]=="leveling") {_leveling.splice(from)
-fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-reply('_﹝🍺﹞berhasil di matikan_')
 } else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, true);
 reply('_﹝🍺﹞berhasil di matikan_')
-} else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable leveling_\n_• .disable grup_`)}
+} else {return reply(`_pilihan disable :_\n\n_• .disable antilink_\n_• .disable welcome_\n_• .disable antitoxic_\n_• .disable grup_`)}
+addSaldoUser(sender, -50)
 break
 
 /*_________________
@@ -4200,21 +4118,26 @@ default:
 	
 if (buttonsR === 'Pulsa') {
 reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM SALDO ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'Gopay') {
 reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM SALDO ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285826630478_`)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'Dana') {
 reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM SALDO ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'DONASI') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 uptime = process.uptime()
 youke = fs.readFileSync('./lib/odc.jpeg')
@@ -4224,6 +4147,7 @@ buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
+addSaldoUser(sender, -50)
 break
 }
 	
@@ -4242,11 +4166,13 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(hot)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'OWNER BOT') {
 await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -4261,6 +4187,7 @@ headerType: 1
 },
 }, {quoted: floc2})
 client.relayWAMessage(gwkee)
+addSaldoUser(sender, -50)
 break
 }
 
@@ -4278,6 +4205,7 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwee)
+addSaldoUser(sender, -50)
 break
 }
 						
@@ -4295,6 +4223,7 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwee)
+addSaldoUser(sender, -50)
 break
 }
 							
@@ -4311,17 +4240,18 @@ headerType: 1
 },
 }, {quoted: floc2})
 client.relayWAMessage(gwkee)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'Hubungi Pusat') {
 client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
 reply(`punya masalah dengan bot? silahkan hubungi saya`)
+addSaldoUser(sender, -50)
 break
 }
   
 if (buttonsR === 'HOME BACK') {
-getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n`
 sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
@@ -4331,9 +4261,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
   *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
-• pangkat ${role}
-• level ${getLevel3}
-• xp ${getLevelingXp(sender)}
+• saldo ${getSaldoUser(sender)}
 
 
   *INFORMASI MENU*
@@ -4341,6 +4269,11 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}iklan
 • ${prefix2}donasi
 • ${prefix2}request
+
+
+  *BOT PAY MENU*
+• ${prefix2}akun
+• ${prefix2}botpay
 
 
   *EVENT GAMES BOT*
@@ -4396,7 +4329,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}tagall
 • ${prefix2}antilink
 • ${prefix2}antitoxic
-• ${prefix2}leveling
 • ${prefix2}welcome
 
 
@@ -4500,11 +4432,11 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • zak06cheat
 • ridwan
 • hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'MENU') {
-getLevel3 = getLevelingLevel(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n`
 sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
@@ -4514,16 +4446,18 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
   *PROFILE KAMU*
 • nama ${pushname}
 • setatus ${premi}
-• pangkat ${role}
-• level ${getLevel3}
-• xp ${getLevelingXp(sender)}
-
+• saldo ${getSaldoUser(sender)}
 
   *INFORMASI MENU*
 • ${prefix2}info
 • ${prefix2}iklan
 • ${prefix2}donasi
 • ${prefix2}request
+
+
+  *BOT PAY MENU*
+• ${prefix2}akun
+• ${prefix2}botpay
 
 
   *EVENT GAMES BOT*
@@ -4579,7 +4513,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}tagall
 • ${prefix2}antilink
 • ${prefix2}antitoxic
-• ${prefix2}leveling
 • ${prefix2}welcome
 
 
@@ -4683,6 +4616,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • zak06cheat
 • ridwan
 • hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -4691,7 +4625,9 @@ reply(`_hei welkom tu my event!_\n\n1. car speed\n2. lotre berhadiah\n\n_untuk m
 }
 
 if (buttonsR === 'IKLAN BOT') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 let gwmkkeje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -4727,11 +4663,14 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwmkkeje)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'IKLAN') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 let gwmgkkeje = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
@@ -4767,23 +4706,27 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwmgkkeje)
+addSaldoUser(sender, -50)
 break
 }
                 
 /*if (body.startsWith(`.${command}`)) 
 opp = `*「 COMMAND IS NOT FOUND 」*`
 client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22})  
+addSaldoUser(sender, -50)
 break
 }*/
 
 /*if (body.startsWith(`X${command}`)) {
 opp = `*「 COMMAND IS NOT FOUND 」*`
 client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22})  
+addSaldoUser(sender, -50)
 break
 }*/
 
 if (budy.includes(`Test`)) {
 client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+addSaldoUser(sender, -50)
 break
 }
    
@@ -4793,7 +4736,8 @@ break
 			  uptime = process.uptime()
 					client.setStatus(`Runtime ${kyun(uptime)}`)
 					reply(`Sukses mengganti bio`)
-					break
+					addSaldoUser(sender, -50)
+break
 					}
 					
                    if (budy.includes(`SEWA`)) {        
@@ -4850,7 +4794,8 @@ headerType: 1
  
 await client.relayWAMessage(gwmee)
 
-            break
+            addSaldoUser(sender, -50)
+break
 }
             
                     if (budy.includes(`🦄`)) {
@@ -4869,16 +4814,20 @@ await client.relayWAMessage(gwmee)
 					quoted: floc2
 					}
 					client.sendMessage(from, options, text, {quoted: faketag3})
-					break
+					addSaldoUser(sender, -50)
+break
 }
 
 if (budy.includes(`${kunci}`)) {
 reply(`${respon}`)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'Tutup') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 					
@@ -4891,10 +4840,13 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 }
               client.groupSettingChange (from, GroupSettingChange.messageSend, true);
               reply(close)
-              break
+              addSaldoUser(sender, -50)
+break
 }
               if (buttonsR === 'Buka') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 					
@@ -4906,10 +4858,13 @@ open = {
 }
               client.groupSettingChange (from, GroupSettingChange.messageSend, false)
               client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
-              break
+              addSaldoUser(sender, -50)
+break
 }
               if (buttonsR === 'Enable W1') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝??﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 					
@@ -4919,10 +4874,13 @@ if (isBan) return reply(`_﹝??﹞kamu telah dibanned bot_`)
 						welkom.push(from)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
 						reply('_﹝🍺﹞berhasil di aktifkan_')
-						break
+						addSaldoUser(sender, -50)
+break
 						}
 						if (buttonsR === 'Disable W0') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 					
@@ -4932,10 +4890,13 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 						welkom.splice(ini, 1)
 						fs.writeFileSync('./database/welkom.json', JSON.stringify(welkom))
 						reply('_﹝🍺﹞berhasil di matikan_')
-						break
+						addSaldoUser(sender, -50)
+break
 						}
 						if (buttonsR === 'Enable A1') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 					
@@ -4945,11 +4906,14 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 						antilink.push(from)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 						reply('_﹝🍺﹞berhasil di aktifkan_')
-						break
+						addSaldoUser(sender, -50)
+break
 						}
 						
 						if (buttonsR === 'Disable A0') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
                     if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
 					
@@ -4960,13 +4924,16 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 						antilink.splice(ini, 1)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 						reply('_﹝🍺﹞berhasil di matikan_')
-						break 
+						addSaldoUser(sender, -50)
+break 
 						}
 						
 						
 						
 						if (buttonsR === 'Disable T0') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 					
@@ -4976,10 +4943,13 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 						antitoxic.splice(ini, 1)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 						reply('_﹝🍺﹞berhasil di matikan_')
-						break
+						addSaldoUser(sender, -50)
+break
 						}
 						if (buttonsR === 'Enable T1') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 					
@@ -4989,70 +4959,35 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 						antitoxic.push(from)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 						reply('_﹝🍺﹞berhasil di aktifkan_')
-						break
+						addSaldoUser(sender, -50)
+break
 						}
-						if (buttonsR === 'Enable L1') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
-if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-                    if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
-					
-					if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
-					if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
-					if (isLevelingOn) return reply('_﹝🍺﹞berhasil di aktifkan_')
-                    _leveling.push(from)
-                    fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-                     reply('_﹝🍺﹞berhasil di aktifkan_')
-                     break
-}
-                     
-                     if (buttonsR === 'Disable L0') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
-if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
-                    if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
-					
-					if (!isGroupAdmins) return reply(`_﹝🍺﹞hanya untuk admin grup_`)     
-					if (!isBotGroupAdmins) return reply(`_﹝🍺﹞error, jadikan bot admin_`)
-					var ini = _leveling.indexOf(from)
-						_leveling.splice(ini, 1)
-                    fs.writeFileSync('./src/leveling.json', JSON.stringify(_leveling))
-                     reply('_﹝🍺﹞berhasil di matikan_')
-                     break
-}
-                     
-
-              
-              
-  
+						
      if (buttonsR === 'SPIN') {
      
               youke = fs.readFileSync('./lib/odc.jpeg')
             const p = hewan[Math.floor(Math.random() * hewan.length)]
               const p2 = hewan[Math.floor(Math.random() * hewan.length)]
               const p3 = hewan[Math.floor(Math.random() * hewan.length)]
-		      buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1},{buttonId:`GET`,buttonText:{displayText:'GET'},type:1}]
+		      buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMessage: imageMsg,
               contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
               client.relayWAMessage(prep)
               
-              break
+              addSaldoUser(sender, 200)
+break
 }
-
-if (buttonsR === 'GET') {
-	getLevel2 = getLevelingLevel(sender)
-	addLevelingLevel(sender, 2) 
-	addLevelingXp(sender, 10)
-	reply(`Usaha Yg Bagus Level Mu Naik Menjadi ${getLevel2} 🍷Dan Xp Mu Bertambah Menjadi ${getLevelingXp(sender)}🔥`)
-	break
-	}
 	
 	
 				 
 
 
 if (buttonsR === '10 Menit <') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)
@@ -5065,10 +5000,13 @@ setTimeout( () => {
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
-				break
+				addSaldoUser(sender, -50)
+break
 }
 if (buttonsR === '14 Menit <') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)
@@ -5081,10 +5019,13 @@ setTimeout( () => {
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
-				break
+				addSaldoUser(sender, -50)
+break
 }
 if (buttonsR === '30 Menit <') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)
@@ -5097,7 +5038,8 @@ setTimeout( () => {
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text, { quoted: floc2 })
 				}, 0)
-				break
+				addSaldoUser(sender, -50)
+break
 }
 
 				if (buttonsR === 'PLAY GAME') {
@@ -5109,7 +5051,8 @@ setTimeout( () => {
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               
-              break
+              addSaldoUser(sender, 200)
+break
 }
               if (buttonsR === 'START') {
               E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
@@ -5123,7 +5066,8 @@ setTimeout( () => {
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
-              break
+              addSaldoUser(sender, 200)
+break
 }        
              if (buttonsR === 'LANTAI 2') {
               E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
@@ -5137,7 +5081,8 @@ setTimeout( () => {
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
-              break
+              addSaldoUser(sender, 200)
+break
 }
 
 if (buttonsR === 'SERANG ⚔') {
@@ -5147,8 +5092,8 @@ buttons = [{buttonId:`BUY`,buttonText:{displayText:'BUY'},type:1}]
               contentText:`*PERALATAN PERANG*`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
-              addLevelingXp(sender, -1000)
-              break
+              addSaldoUser(sender, 200)
+break
 }
 
 if (buttonsR === 'BUY') {
@@ -5160,19 +5105,18 @@ setTimeout( () => {
 teks =`*PERTEMPURAN SELESAI*`
 sendButLocation(from, `${teks}`, `Hasil Pertempuran Kamu Adalah ( *${mk}* ) Silahkan Kamu Claim Hadiah Yang Sudah Di Sediakan`, {jpegThumbnail:fakeimage}, [{buttonId:`${mk}`,buttonText:{displayText:`${mk}`},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 			}, 15000)
+addSaldoUser(sender, 200)
 break
 }
 if (buttonsR === 'LOSE') {
-addLevelingLevel(sender, -1)
-addLevelingXp(sender, -1000)
-reply(`Karna Kamu Kalah Maka Xp Kamu Hilang -1000 Dan Levelmu Turun -1`)
+reply(`Karna Kamu Kalah Coba Lagi`)
+addSaldoUser(sender, 200)
 break
 }
 
 if (buttonsR === 'WIN') {
-addLevelingLevel(sender, 1)
-addLevelingXp(sender, 1500)
-reply(`Kamu Mendapatkan Xp Sebanyak 1500, Dan Levelmu Naik 1`)
+reply(`Keberuntunganmu Meningkat`)
+addSaldoUser(sender, 200)
 break
 }
               
@@ -5188,7 +5132,7 @@ buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol T
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
-             break
+break
 }
              
              if (budy.includes(`READY`)){
@@ -5203,11 +5147,14 @@ buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol T
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
-             break
+             addSaldoUser(sender, -50)
+break
 }
              
            if (buttonsR === '么 cecan 么') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 			    data = fs.readFileSync('./lib/apirandom.js');
 				jsonData = JSON.parse(data);
@@ -5222,10 +5169,13 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
-              break
+              addSaldoUser(sender, -50)
+break
 }
               if (buttonsR === '么 cogan 么') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 			    data = fs.readFileSync('./lib/apirandom.js');
 				jsonData = JSON.parse(data);
@@ -5240,11 +5190,14 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
-              break
+              addSaldoUser(sender, -50)
+break
 }
   
 if (buttonsR === '么 darkjokes 么') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/dark.js');
 jsonData = JSON.parse(data);
@@ -5262,7 +5215,9 @@ fs.unlinkSync(`./${sender}.jpeg`)
 }
 
 				if (buttonsR === '么 waifu 么') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
               b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
@@ -5273,7 +5228,8 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
-              break
+              addSaldoUser(sender, -50)
+break
              
 }
 
@@ -5285,6 +5241,7 @@ fs.writeFileSync('./src/Star2.json', JSON.stringify(dislike))
 like.push(sender)
 fs.writeFileSync('./src/Star1.json', JSON.stringify(like))
 reply(`Terimkasih Atas Ulasannya Kami Harap Kamu Dapat Menikmati Bot Dengan Bijak Dan Baik`)
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5295,10 +5252,13 @@ fs.writeFileSync('./src/Star1.json', JSON.stringify(like))
 dislike.push(sender)
 fs.writeFileSync('./src/Star2.json', JSON.stringify(dislike))
 reply(`Terimkasih Atas Ulasannya Kami Harap Kamu Dapat Menikmati Bot Dengan Bijak Dan Baik`)
+addSaldoUser(sender, -50)
 break
 }
 if (buttonsR === '么 neko 么') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 			  E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
@@ -5312,10 +5272,13 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2, thumbnail: thumb})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
-			break
+			addSaldoUser(sender, -50)
+break
 }
 				if (buttonsR === 'TAMBAH 📦') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`) 
 if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
@@ -5333,10 +5296,13 @@ produk.push(H1)
 fs.writeFileSync(`./lib/${randKey.nomor}.jpeg`, delb)
 fs.writeFileSync('./src/produk.js', JSON.stringify(produk))
 client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	 
+addSaldoUser(sender, -50)
 break
 }
 if (buttonsR === 'NEXT 📦') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/produk.js');
 jsonData = JSON.parse(data);
@@ -5348,12 +5314,15 @@ buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol T
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
-              break
+              addSaldoUser(sender, -50)
+break
 }
               
               if (buttonsR === 'LEAVE NOW') {
               	    
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
                     if (isGroupAdmins || isOwner) {
@@ -5361,11 +5330,14 @@ if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 } else {
                         reply(mess.only.admin)
 }
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'LEAVE TIME') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝🍺﹞hanya bisa di grup_`)
 if (!isOwner) return reply(`_﹝🍺﹞hanya untuk owner_`)
@@ -5382,11 +5354,14 @@ headerType: 1
 },
 }, {quoted:mek})
 await client.relayWAMessage(gwetkhhkkke)
+addSaldoUser(sender, -50)
 break
 }
       
 if (buttonsR === '么 cerita_horor 么') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/horor.js');
 jsonData = JSON.parse(data);
@@ -5401,11 +5376,14 @@ contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 }
               
 if (buttonsR === 'BERI NILAI') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/komentar.js');
 jsonData = JSON.parse(data);
@@ -5420,11 +5398,14 @@ buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'SEARCHING') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/film.js');
 jsonData = JSON.parse(data);
@@ -5439,11 +5420,14 @@ contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'NEWS') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/berita.js');
 jsonData = JSON.parse(data);
@@ -5461,11 +5445,14 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(oo)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'SELANJUTNYA') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/fdata.js');
 jsonData = JSON.parse(data);
@@ -5483,6 +5470,7 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(ot)
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5490,11 +5478,14 @@ if (buttonsR === 'MY INFO') {
 creator = "6285731261728@s.whatsapp.net"
 teks =`*HELLO ${pushname} ${ucapanWaktu} BERIKUT INFO DARI OWNERKU*`
 sendButLocation(from, `${teks}`, `nama : chacha\nlahir tahun : 2007\nbulan : april\ntanggal : 10\nalamat : yogyakarta\ndesa : guyangan\ngender : cowo\nhobi : nonton anime\ndeveloper bot : chacha\ncreator bot : chacha`, {jpegThumbnail:fakeimage}, [{buttonId:`BERI NILAI`,buttonText:{displayText:'BERI NILAI'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'MUTUAL') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/sv.js');
 jsonData = JSON.parse(data);
@@ -5517,18 +5508,24 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(oo)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'SAVE') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if(!q) return reply(`Ingin Menemui Seseorang Diluar Sana? Yuk Ketik\n\n${prefix}.save nama|nomor\n\nGunakan Tanda | Sebagai Pembatas, Nomor Harus Berupa Kode Negara 62xxx`)
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'CARI LAGI') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/beasiswa.js');
 jsonData = JSON.parse(data);
@@ -5550,6 +5547,7 @@ headerType: 1
 },
 }, {quoted: floc2}) 
 await client.relayWAMessage(io)
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5563,6 +5561,7 @@ yes.splice(ini, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
 }
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5576,16 +5575,20 @@ no.splice(ini, 1)
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
 reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
 }
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'MATIKAN') {
 reply('TIMER DIMATIKAN')
+addSaldoUser(sender, -50)
 break
 }
 
 if (buttonsR === 'JEDA 1 MENIT') {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 creator = "6285731261728@s.whatsapp.net"
 setTimeout( () => {
@@ -5594,6 +5597,7 @@ sendButLocation(from, `JEDA ALARM ⏰`, `TIMER - BOTZ`, {jpegThumbnail:fakeimage
 setTimeout( () => {
 reply(`Alarm Akan Bunyi 1 Menit Lagi`)
 }, 0)
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5618,6 +5622,7 @@ if (isGroupAdmins) return
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5642,6 +5647,7 @@ if (isGroupAdmins) return
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5666,6 +5672,7 @@ if (isGroupAdmins) return
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5690,6 +5697,7 @@ if (isGroupAdmins) return
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5714,6 +5722,7 @@ if (isGroupAdmins) return
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5738,6 +5747,7 @@ if (isGroupAdmins) return
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
+addSaldoUser(sender, -50)
 break
 }
 
@@ -5762,32 +5772,38 @@ if (isGroupAdmins) return
 client.updatePresence(from, Presence.composing)
 var kic = `${sender.split("@")[0]}@s.whatsapp.net`      
 client.groupRemove(from, [kic]).catch((e)=>{reply(`_﹝🍺﹞error, jadikan bot admin_`)})
+addSaldoUser(sender, -50)
 break
 }
 		 
 if (buttonsR === `${Soalnya.jawaban}`) {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝??﹞kamu telah dibanned bot_`)  
 if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
 if (isSalah) return reply(`_kamu sudah menjawab sebelumnya_`)
 benar.push(sender)
 fs.writeFileSync('./src/benar.json', JSON.stringify(benar))
 reply('Jawaban Anda Benar ✔️')
-addLevelingLevel(sender, 2)
 premium.push(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
-reply('Kamu Mendapat Hak Akses Premium + 2 Level')
+reply('Kamu Mendapat Hak Akses Premium')
+addSaldoUser(sender, -50)
 break
 }
 						
 if (buttonsR === `${Soalnya.salahnya}`) {
-if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)     
+if (!getSaldoId(sender)) return reply(`_﹝🍺﹞yah kamu belum login di botpay, yuk ketik #akun kemudian kamu akan mendapatakn saldo, setiap fitur yang kamu pakai akan memakan saldo_`)
+if (isBanChat) return reply(`_﹝🍺﹞grup ini telah dibanned bot_`)
+if (isSaldo(sender)) return reply(`_﹝🍺﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
 if (isBan) return reply(`_﹝🍺﹞kamu telah dibanned bot_`)     
 if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
 if (isSalah) return reply(`_kamu sudah menjawab sebelumnya_`)
 salah.push(sender)
 fs.writeFileSync('./src/salah.json', JSON.stringify(sender))
 reply('Jawaban Anda Salah ❌')
+addSaldoUser(sender, -50)
 break
 }
 
