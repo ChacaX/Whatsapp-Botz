@@ -3581,6 +3581,7 @@ case 'daftar':
 if (getSaldoId(sender)) return reply(`_kamu sudah daftar sebelumnya_`)
 addSaldoId(sender)
 addBadwordId(sender)
+addBadwordId(sender)
 reply(`succes membuat akun`)
 break
 
@@ -5888,11 +5889,6 @@ bang = util.format(sul)
 }
 return reply(bang)
 }
-}
-
-if (budy.includes(`${body.slice(3)}`)) { 
-if (getBadwordId(sender)) return
-addBadwordId(sender)
 }
 	
 if (budy.includes(``)) { 
