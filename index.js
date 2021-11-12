@@ -3617,7 +3617,7 @@ if(!q) return reply(`*example*: #transfer @tag|jumlah saldo`)
 abiez = q.split("|")[1];
 korban = `${args[0].replace('@','')}@s.whatsapp.net`
 addSaldoUser(korban, abiez)
-addSaldoUser(sender, -abiez)
+addSaldoUser(sender, - abiez)
 reply(`success transfer saldo ke nomor ${body.slice(10)}, transaksi selesai`)
 break
 
@@ -3631,7 +3631,7 @@ reply(`_gagal merampok, kasian dancuk saldonya dibawah Rp. 1000 masih ae lu ramp
 jumlah = ["50","100","200","300"]
 yt = jumlah[Math.floor(Math.random() * jumlah.length)]
 korban = `${args[0].replace('@','')}@s.whatsapp.net`
-addSaldoUser(korban, -yt)
+addSaldoUser(korban, - yt)
 addSaldoUser(sender, yt)
 reply(`succes merampok korban dengan hasil rampokan Rp. ${yt}`)
 break
