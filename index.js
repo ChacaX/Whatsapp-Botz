@@ -1137,8 +1137,6 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
-• ${prefix2}transfer
-• ${prefix2}rampok
 
 
   *EVENT GAMES BOT*
@@ -1382,8 +1380,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
-• ${prefix2}transfer
-• ${prefix2}rampok
 
 
   *EVENT GAMES BOT*
@@ -3612,30 +3608,6 @@ teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN TELAH TERSIMPAN DI DATABASE`
 sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
-case 'transfer':
-if(!q) return reply(`*example*: #transfer @tag|jumlah saldo`)
-abiez = q.split("|")[1];
-korban = `${args[0].replace('@','')}@s.whatsapp.net`
-addSaldoUser(korban, abiez)
-addSaldoUser(sender, - abiez)
-reply(`success transfer saldo ke nomor ${body.slice(10)}, transaksi selesai`)
-break
-
-case 'rampok':
-if(!q) return reply(`*example*: #rampok @tag`)
-for (let i of _saldo) {
-if (i.id.saldo < 1000) {
-reply(`_gagal merampok, kasian dancuk saldonya dibawah Rp. 1000 masih ae lu rampok`)
-}
-}
-jumlah = ["50","100","200","300"]
-yt = jumlah[Math.floor(Math.random() * jumlah.length)]
-korban = `${args[0].replace('@','')}@s.whatsapp.net`
-addSaldoUser(korban, - yt)
-addSaldoUser(sender, yt)
-reply(`succes merampok korban dengan hasil rampokan Rp. ${yt}`)
-break
-
 					case 'tourl':
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 				 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -4385,8 +4357,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
-• ${prefix2}transfer
-• ${prefix2}rampok
 
 
   *EVENT GAMES BOT*
@@ -4571,8 +4541,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
-• ${prefix2}transfer
-• ${prefix2}rampok
 
 
   *EVENT GAMES BOT*
