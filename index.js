@@ -3615,23 +3615,25 @@ break
 case 'transfer':
 if(!q) return reply(`*example*: #transfer @tag|jumlah saldo`)
 abiez = q.split("|")[1];
-addSaldoUser(`${body.slice(10)}@s.whatsapp.net`, `${abiez}`)
-addSaldoUser(sender, `-${abiez}`)
+korban = `${args[0].replace('@','')}@s.whatsapp.net`
+addSaldoUser(korban, abiez)
+addSaldoUser(sender, -abiez)
 reply(`success transfer saldo ke nomor ${body.slice(10)}, transaksi selesai`)
 break
 
 case 'rampok':
 if(!q) return reply(`*example*: #rampok @tag`)
 for (let i of _saldo) {
-if (i.id.saldo < 5) {
+if (i.id.saldo < 1000) {
 reply(`_gagal merampok, kasian dancuk saldonya dibawah Rp. 1000 masih ae lu rampok`)
 }
 }
 jumlah = ["50","100","200","300"]
 yt = jumlah[Math.floor(Math.random() * jumlah.length)]
-addSaldoUser(`${body.slice(8)}@s.whatsapp.net`, `-${yt}`)
-addSaldoUser(sender, `${yt}`)
-reply(`succes merampok ${body.slice(8)} dengan hasil rampokan Rp. ${yt}`)
+korban = `${args[0].replace('@','')}@s.whatsapp.net`
+addSaldoUser(korban, -yt)
+addSaldoUser(sender, yt)
+reply(`succes merampok korban dengan hasil rampokan Rp. ${yt}`)
 break
 
 					case 'tourl':
@@ -3650,7 +3652,6 @@ fs.writeFileSync('./src/url.json', JSON.stringify(url))
 reply('Tag Media Yang Udah Dikirim')
 }
 		addSaldoUser(sender, -50)
-addSaldoUser(sender, -50)
 break
 		
 		case 'dburl':
