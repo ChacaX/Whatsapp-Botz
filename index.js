@@ -3594,7 +3594,9 @@ break
 case 'saldo':
 if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)     
 saldonya = getSaldoUser(sender)
-reply(`_Saldo kamu : Rp. ${saldonya}_`)
+creator = "6285731261728@s.whatsapp.net"
+teks =`💵 saldo kamu : Rp. ${saldonya}`
+sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SALDO`,buttonText:{displayText:'SALDO'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 case 'claim':
@@ -5910,6 +5912,9 @@ return reply(bang)
 }
 	
 if (budy.includes(``)) { 
+if (addSaldoId) {
+addSaldoId(sender)
+}
 if (!isAfk) return
 if (!isGroup) return
 afk.splice(sender)
