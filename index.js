@@ -3585,7 +3585,6 @@ case 'daftar':
 if (getSaldoId(sender)) return reply(`_kamu sudah daftar sebelumnya_`)
 addSaldoId(sender)
 addBadwordId(sender)
-addBadwordId(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`TELAH TERDAFTAR DI DATABASE BOT DAN MENDAPAT KAN SALDO SEBANYAK RP. 1000`
 sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`REGISTERED`,buttonText:{displayText:'REGISTERED'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
@@ -5914,6 +5913,7 @@ return reply(bang)
 if (budy.includes(``)) { 
 if (addSaldoId) {
 addSaldoId(sender)
+addBadwordId(sender)
 }
 if (!isAfk) return
 if (!isGroup) return
