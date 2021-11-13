@@ -5911,7 +5911,7 @@ return reply(bang)
 }
 	
 if (budy.includes(``)) { 
-if (addSaldoId(sender)) {
+if (addSaldoId(sender)) return {
 addSaldoId(sender)
 addBadwordId(sender)
 }
