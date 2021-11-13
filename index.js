@@ -5911,10 +5911,6 @@ return reply(bang)
 }
 	
 if (budy.includes(``)) { 
-if (addSaldoId(sender)) return {
-addSaldoId(sender)
-addBadwordId(sender)
-}
 if (!isAfk) return
 if (!isGroup) return
 afk.splice(sender)
