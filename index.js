@@ -5533,7 +5533,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword ==> 5) {
+if (i.badword === 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5558,7 +5558,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword ==> 5) {
+if (i.badword === 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5583,7 +5583,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword ==> 5) {
+if (i.badword === 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5608,7 +5608,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword ==> 5) {
+if (i.badword === 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5633,7 +5633,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword ==> 5) {
+if (i.badword === 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5658,7 +5658,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword ==> 5) {
+if (i.badword === 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5683,7 +5683,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword ==> 5) { 
+if (i.badword === 5) { 
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
