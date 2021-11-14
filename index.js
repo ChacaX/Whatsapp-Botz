@@ -3075,7 +3075,7 @@ if (!q) return reply(`*example*: #undang 628xxx`)
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
 var nomore = mek.participant
 linkgc = await client.groupInviteCode (from)
-ppimg = await client.getProfilePicture(from)
+ppnya = await client.getProfilePicture(from)
 sendButLocation(`${args.join(" ")}@s.whatsapp.net`, `Undangan grup chat dari @${nomore.split("@s.whatsapp.net")[0]}\n\n${linkgc}\n\nKetuk link diatas untuk bergabung ke dalam grup chat Whatsapp`, `Group Invit`,{jpegThumbnail:ppnya}, [{buttonId:`BOT WHATSAPP`,buttonText:{displayText:'BOT WHATSAPP'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 addSaldoUser(sender, -50)
 break
