@@ -2903,6 +2903,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args.length < 1) return reply(`_example : #pesan 62...|pesan_`)
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
+if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - dan tanpa spasi contoh\n\n#undang 628573126xxx')
 var FG = body.slice(8)
 var F1 = FG.split("|")[0];
 var F2 = FG.split("|")[1];
@@ -3073,10 +3074,13 @@ if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
 if (!q) return reply(`*example*: #undang 628xxx`)
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
-var nomore = mek.participant
-linkgc = await client.groupInviteCode (from)
-ppnya = await client.getProfilePicture(from)
-sendButLocation(`${args.join(" ")}@s.whatsapp.net`, `Undangan grup chat dari @${nomore.split("@s.whatsapp.net")[0]}\n\n${linkgc}\n\nKetuk link diatas untuk bergabung ke dalam grup chat Whatsapp`, `Group Invit`,{jpegThumbnail:ppnya}, [{buttonId:`BOT WHATSAPP`,buttonText:{displayText:'BOT WHATSAPP'},type:1}], {contextInfo: { mentionedJid: [sender]}})
+if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - dan tanpa spasi contoh\n\n#undang 628573126xxx')
+linkgc =  await client.groupInviteCode (from)
+ppimg =  client.getProfilePicture(from)
+ppnya = await getBuffer(ppimg)
+creator = "6285731261728@s.whatsapp.net"
+sendButLocation(`${args.join(``)}@s.whatsapp.net`, `Undangan grup chat dari @${sender.split("@s.whatsapp.net")}\n\nhttps://chat.whatsapp.com/${linkgc}\n\nKetuk link diatas untuk bergabung ke dalam grup chat Whatsapp`, `Group Invit`,{jpegThumbnail: thumb}, [{buttonId:`BOT WHATSAPP`,buttonText:{displayText:'BOT WHATSAPP'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+reply(`Berhasil Mengirimkan Undangan Ke Target`)
 addSaldoUser(sender, -50)
 break
 
