@@ -53,6 +53,8 @@ const moment = require('moment-timezone')
 const { exec } = require('child_process')
 const fetch = require('node-fetch')
 const ffmpeg = require('fluent-ffmpeg')
+const { EmojiAPI } = require("emoji-api")
+const emoji = new EmojiAPI()
 /*const { removeBackgroundFromImageFile } = require('remove.bg')
 const lolis = require('lolis.life')
 const loli = new lolis()*/
@@ -1006,6 +1008,25 @@ tingkat ='*PENCAPAIAN SELESAI 🌳'
             return client.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: floc2, thumbnail: miku, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
 }
         	
+        const sendWebp = async(from, url) => {
+                var names = Date.now() / 10000;
+                var download = function (uri, filename, callback) {
+                    request.head(uri, function (err, res, body) {
+                        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+                    });
+                };
+                download(url, './temp' + names + '.png', async function () {
+                    console.log('selesai');
+                    let ajg = './temp' + names + '.png'
+                    let palak = './temp' + names + '.webp'
+                    exec(`ffmpeg -i ${ajg} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${palak}`, (err) => {
+                        let media = fs.readFileSync(palak)
+                        client.sendMessage(from, media, MessageType.sticker,{quoted:mek})
+                        fs.unlinkSync(ajg)
+                        fs.unlinkSync(palak)
+                    });
+                });
+            }
 /*_________________
 BAGIAN FUNC GRUP
 ___________________*/
@@ -1229,6 +1250,7 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
+• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
@@ -1473,6 +1495,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
+• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
@@ -1547,6 +1570,16 @@ break
 ALL FEATURE BOT
 ___________________*/
 
+case 'semoji':
+			if (args === 0) return reply('tambahkan emoji pada perintah!')   
+		   aku4 = args.join(' ')
+           emoji.get(`${aku4}`).then(emoji => {
+           link = `${emoji.images[10].url}`
+		   sendWebp(from, `${link}`).catch(() => reply('gagal'))
+           })
+           addSaldoUser(sender, -50)
+    	   break
+    
 case 'lotre':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
@@ -2983,9 +3016,8 @@ buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMe
 contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[ 🎟 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
-addSaldoUser(sender, 100)
 break
-              
+
 case 'author':
 case 'owner':
 case 'creator':
@@ -4472,6 +4504,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
+• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
@@ -4657,6 +4690,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
+• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
