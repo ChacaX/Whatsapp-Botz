@@ -1378,13 +1378,13 @@ case 'menu':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
-teks =`*M I T S U H A - W A B O T*\n`
-sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
+teks =`*M I T S U H A - W A B O T*\n
+🏖️ runtime : ${kyun(uptime)}
 📲 dev : wa.me/6285731261728
 🎗 jumlah hit : ${hit_today.length}\n
 
   *PROFILE KAMU*
-• nama ${pushname}
+•nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
 
@@ -1558,8 +1558,8 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • rurichan
 • zak06cheat
 • ridwan
-• hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-addSaldoUser(sender, -50)
+• hafizh`
+sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*_________________
@@ -4375,14 +4375,15 @@ break
 }
   
 if (buttonsR === 'HOME BACK') {
+uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
-teks =`*M I T S U H A - W A B O T*\n`
-sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
+teks =`*M I T S U H A - W A B O T*\n
+🏖️ runtime : ${kyun(uptime)}
 📲 dev : wa.me/6285731261728
 🎗 jumlah hit : ${hit_today.length}\n
 
   *PROFILE KAMU*
-• nama ${pushname}
+•nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
 
@@ -4556,192 +4557,8 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 • rurichan
 • zak06cheat
 • ridwan
-• hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-break
-}
-
-if (buttonsR === 'MENU') {
-creator = "6285731261728@s.whatsapp.net"
-teks =`*M I T S U H A - W A B O T*\n`
-sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
-📲 dev : wa.me/6285731261728
-🎗 jumlah hit : ${hit_today.length}\n
-
-  *PROFILE KAMU*
-• nama ${pushname}
-• setatus ${premi}
-• saldo Rp. ${getSaldoUser(sender)}
-
-  *INFORMASI MENU*
-• ${prefix2}info
-• ${prefix2}iklan
-• ${prefix2}donasi
-• ${prefix2}request
-
-
-  *BOT PAY MENU*
-• ${prefix2}daftar
-• ${prefix2}saldo
-• ${prefix2}claim
-
-
-  *EVENT GAMES BOT*
-• ${prefix2}carspeed
-• ${prefix2}lotre
-
-
-  *URL TO MEDIA TYPE*
-• ${prefix2}urltoimg
-• ${prefix2}tourl
-• ${prefix2}dburl
-
-
-  *PRODUK & VOTING*
-• ${prefix2}produk
-• ${prefix2}tambah
-• ${prefix2}votting
-• ${prefix2}vote
-• ${prefix2}dellvote
-
-
-  *ULASAN & MUTUAL*
-• ${prefix2}ulasan
-• ${prefix2}komentar
-• ${prefix2}mutual
-• ${prefix2}save
-
-
-  *ABSEN & MESSAGES*
-• ${prefix2}absen
-• ${prefix2}absensi
-• ${prefix2}svmess
-• ${prefix2}listmess
-
-
-  *GROUP MENU*
-• ${prefix2}afk
-• ${prefix2}undang
-• ${prefix2}enable
-• ${prefix2}disable
-• ${prefix2}bangrup
-• ${prefix2}unbangrup
-• ${prefix2}ban
-• ${prefix2}unban
-• ${prefix2}sider
-• ${prefix2}hidetag
-• ${prefix2}fitnah
-• ${prefix2}settings
-• ${prefix2}revoke
-• ${prefix2}add
-• ${prefix2}kick
-• ${prefix2}promote
-• ${prefix2}demote
-• ${prefix2}tagall
-• ${prefix2}antilink
-• ${prefix2}antitoxic
-• ${prefix2}welcome
-
-
-  *ANIME MENU*
-• ${prefix2}neko
-• ${prefix2}waifu
-
-
-  *GAMES MENU*
-• ${prefix2}dungeon
-• ${prefix2}slot
-• ${prefix2}truth
-• ${prefix2}dare
-• ${prefix2}tebakgambar
-
-
-  *IMAGE MENU*
-• ${prefix2}cogan
-• ${prefix2}cecan
-• ${prefix2}darkjokes
-• ${prefix2}pinterest
-• ${prefix2}ocr
-
-
-  *RANDOM MENU*
-• ${prefix2}cerpen
-• ${prefix2}ceritahoror
-• ${prefix2}film
-• ${prefix2}fakedata
-• ${prefix2}news
-• ${prefix2}beasiswa
-• ${prefix2}ppcouple
-
-
-  *STICKER MENU*
-• ${prefix2}sticker
-• ${prefix2}ttp
-• ${prefix2}attp
-• ${prefix2}wasted
-• ${prefix2}comrade
-• ${prefix2}jail
-• ${prefix2}passed
-• ${prefix2}trigger
-• ${prefix2}toimg
-
-
-  *EDUCATION MENU*
-• ${prefix2}quiz
-• ${prefix2}nulis
-• ${prefix2}niatsholat
-• ${prefix2}doa
-• ${prefix2}hadist
-
-
-  *AUDIO/VN MENU*
-• ${prefix2}fast
-• ${prefix2}tupai
-• ${prefix2}gemuk
-• ${prefix2}slow
-• ${prefix2}tomp3
-
-
-  *PREMIUM MENU*
-• ${prefix2}asupan
-• ${prefix2}upswtext
-• ${prefix2}upswimg
-• ${prefix2}upswvideo
-
-
-  *OTHER MENU*
-• ${prefix2}sharelock
-• ${prefix2}delete
-• ${prefix2}pesan
-• ${prefix2}owner
-• ${prefix2}report
-• ${prefix2}timer
-
-
-  *OWNER MENU*
-• $
-• >
-• =>
-• ${prefix2}makegroup
-• ${prefix2}join
-• ${prefix2}kudet
-• ${prefix2}leave
-• ${prefix2}clone
-• ${prefix2}bc
-• ${prefix2}addprem
-• ${prefix2}dellprem
-• ${prefix2}setbudy
-• ${prefix2}bug
-
-
-  *THANKS TO*
-• mhankbarbar
-• mitsuhabotz
-• rimurubotz
-• dimxbotz
-• rurichan
-• zak06cheat
-• ridwan
-• hafizh`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+• hafizh`
+sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
@@ -5061,7 +4878,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 							var ini = antitoxic.indexOf(from)
 						antitoxic.splice(ini, 1)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-						reply('_berhasil di aktifkan_')
+						reply('_berhasil di matikan')
 						addSaldoUser(sender, -50)
 break
 						}
@@ -5716,7 +5533,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5741,7 +5558,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5766,7 +5583,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5791,7 +5608,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5816,7 +5633,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5841,7 +5658,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -5866,7 +5683,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 5) {
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
