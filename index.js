@@ -1174,6 +1174,7 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
   *GROUP MENU*
 • ${prefix2}afk
+• ${prefix2}undang
 • ${prefix2}enable
 • ${prefix2}disable
 • ${prefix2}bangrup
@@ -1417,6 +1418,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *GROUP MENU*
 • ${prefix2}afk
+• ${prefix2}undang
 • ${prefix2}enable
 • ${prefix2}disable
 • ${prefix2}bangrup
@@ -3062,6 +3064,22 @@ reply('Foto aja mas')
 addSaldoUser(sender, -50)
 break*/
 					
+case 'undang':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+if (!isGroup) return reply(`_hanya bisa di grup_`)
+if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
+if (!q) return reply(`*example*: #undang 628xxx`)
+if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
+var nomore = mek.participant
+linkgc = await client.groupInviteCode (from)
+ppimg = await client.getProfilePicture(from)
+sendButLocation(`${body.slice(7)}@s.whatsapp.net`, `Undangan grup chat dari @${nomore.split("@s.whatsapp.net")[0]}\n\n${linkgc}\n\nKetuk link diatas untuk bergabung ke dalam grup chat Whatsapp`, `Group Invit`,{jpegThumbnail:ppnya}, [{buttonId:`BOT WHATSAPP`,buttonText:{displayText:'BOT WHATSAPP'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+addSaldoUser(sender, -50)
+break
+
 case 'info':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
@@ -4395,6 +4413,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *GROUP MENU*
 • ${prefix2}afk
+• ${prefix2}undang
 • ${prefix2}enable
 • ${prefix2}disable
 • ${prefix2}bangrup
@@ -4579,6 +4598,7 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *GROUP MENU*
 • ${prefix2}afk
+• ${prefix2}undang
 • ${prefix2}enable
 • ${prefix2}disable
 • ${prefix2}bangrup
