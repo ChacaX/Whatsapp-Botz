@@ -53,8 +53,6 @@ const moment = require('moment-timezone')
 const { exec } = require('child_process')
 const fetch = require('node-fetch')
 const ffmpeg = require('fluent-ffmpeg')
-const { EmojiAPI } = require("emoji-api")
-const emoji = new EmojiAPI()
 /*const { removeBackgroundFromImageFile } = require('remove.bg')
 const lolis = require('lolis.life')
 const loli = new lolis()*/
@@ -1250,7 +1248,6 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
-• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
@@ -1495,7 +1492,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
-• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
@@ -1570,16 +1566,6 @@ break
 ALL FEATURE BOT
 ___________________*/
 
-case 'semoji':
-			if (args === 0) return reply('tambahkan emoji pada perintah!')   
-		   aku4 = args.join(' ')
-           emoji.get(`${aku4}`).then(emoji => {
-           link = `${emoji.images[10].url}`
-		   sendWebp(from, `${link}`).catch(() => reply('gagal'))
-           })
-           addSaldoUser(sender, -50)
-    	   break
-    
 case 'lotre':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
@@ -4504,7 +4490,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
-• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
@@ -4690,7 +4675,6 @@ sendButLocation(from, `${teks}`, `🏖️ runtime : ${kyun(uptime)}
 
   *STICKER MENU*
 • ${prefix2}sticker
-• ${prefix2}semoji
 • ${prefix2}ttp
 • ${prefix2}attp
 • ${prefix2}wasted
