@@ -1384,7 +1384,7 @@ teks =`*M I T S U H A - W A B O T*\n
 🎗 jumlah hit : ${hit_today.length}\n
 
   *PROFILE KAMU*
-•nama ${pushname}
+• nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
 
@@ -3033,7 +3033,7 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
-if (!isQuotedSticker) return reply('❌ reply stickernya um ❌')
+/*if (!isQuotedSticker) return reply('❌ reply stickernya um ❌')
 reply(mess.wait)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -3044,7 +3044,19 @@ if (err) return reply('❌ Gagal, pada saat mengkonversi sticker ke gambar ❌')
 buffer = fs.readFileSync(ran)
 client.sendMessage(from, buffer, MessageType.image)
 fs.unlinkSync(ran)
-})
+})*/
+if (!isQuotedSticker) return reply('❌ reply stickernya um ❌')
+					reply(mess.wait)
+					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await client.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.png')
+					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
+						fs.unlinkSync(media)
+						if (err) return reply('❌ Gagal, pada saat mengkonversi sticker ke gambar ❌')
+						buffer = fs.readFileSync(ran)
+						client.sendMessage(from, buffer, MessageType.image, {caption: '>//<'})
+						fs.unlinkSync(ran)
+					})
 addSaldoUser(sender, -50)
 break
 
@@ -4383,7 +4395,7 @@ teks =`*M I T S U H A - W A B O T*\n
 🎗 jumlah hit : ${hit_today.length}\n
 
   *PROFILE KAMU*
-•nama ${pushname}
+• nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
 
@@ -5522,7 +5534,7 @@ if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika melebihi 5 kali maka kamu akan otomatis terkick`,
+"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika sudah 5 kali maka kamu akan otomatis terkick`,
 "footerText": `Badword Detected`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
@@ -5547,7 +5559,7 @@ if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika melebihi 5 kali maka kamu akan otomatis terkick`,
+"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika sudah 5 kali maka kamu akan otomatis terkick`,
 "footerText": `Badword Detected`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
@@ -5572,7 +5584,7 @@ if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika melebihi 5 kali maka kamu akan otomatis terkick`,
+"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika sudah 5 kali maka kamu akan otomatis terkick`,
 "footerText": `Badword Detected`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
@@ -5597,7 +5609,7 @@ if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika melebihi 5 kali maka kamu akan otomatis terkick`,
+"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika sudah 5 kali maka kamu akan otomatis terkick`,
 "footerText": `Badword Detected`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
@@ -5622,7 +5634,7 @@ if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika melebihi 5 kali maka kamu akan otomatis terkick`,
+"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika sudah 5 kali maka kamu akan otomatis terkick`,
 "footerText": `Badword Detected`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
@@ -5647,7 +5659,7 @@ if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika melebihi 5 kali maka kamu akan otomatis terkick`,
+"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika sudah 5 kali maka kamu akan otomatis terkick`,
 "footerText": `Badword Detected`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
@@ -5672,7 +5684,7 @@ if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
-"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika melebihi 5 kali maka kamu akan otomatis terkick`,
+"contentText": `kamu berkata kasar sebanyak ${getBadwordUser(sender)}/5\nkali jika sudah 5 kali maka kamu akan otomatis terkick`,
 "footerText": `Badword Detected`,
 "buttons": [
 {buttonId: 'Enable T1', buttonText: {displayText: 'Enable T1'}, type: 1},
