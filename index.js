@@ -1404,10 +1404,10 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
-🗂 runtime : ${kyun(uptime)}
-🗂 dev : wa.me/6285731261728
-🗂 jumlah hit : ${hit_today.length}\n
-🗂 pengguna : ${_saldo.length} aktif
+📋 runtime : ${kyun(uptime)}
+📋 dev : wa.me/6285731261728
+📋 jumlah hit : ${hit_today.length}
+📋 pengguna : ${_saldo.length} aktif
 
   </PROFILE KAMU
 ┌ ❏
@@ -4472,10 +4472,10 @@ if (buttonsR === 'HOME BACK') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
-🗂 runtime : ${kyun(uptime)}
-🗂 dev : wa.me/6285731261728
-🗂 jumlah hit : ${hit_today.length}\n
-🗂 pengguna : ${_saldo.length} aktif
+📋 runtime : ${kyun(uptime)}
+📋 dev : wa.me/6285731261728
+📋 jumlah hit : ${hit_today.length}
+📋 pengguna : ${_saldo.length} aktif
 
   </PROFILE KAMU
 ┌ ❏
