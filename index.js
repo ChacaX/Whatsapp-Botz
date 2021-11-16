@@ -200,7 +200,7 @@ return _saldo[position].saldo
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, saldo: 1000, box: 0}
+const obj = {id: userid, saldo: 1000}
 _saldo.push(obj)
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
@@ -273,7 +273,7 @@ _badword.push(obj)
 fs.writeFileSync('./lib/badword.json', JSON.stringify(_badword))
 }
 
-const addBoxUser = (userid, amount) => {
+/*const addBoxUser = (userid, amount) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
 if (_saldo[i].id === userid) {
@@ -296,7 +296,7 @@ position = i
 if (position !== false) {
 return _saldo[position].box
 }
-}
+}*/
 
 async function starts() {
 const client = new WAConnection()
@@ -1168,7 +1168,6 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
-• box ${getBoxUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1182,7 +1181,6 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
-• ${prefix2}box
 
 
   *EVENT GAMES BOT*
@@ -1414,7 +1412,6 @@ teks =`*M I T S U H A - W A B O T*\n
 • nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
-• box ${getBoxUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1428,7 +1425,6 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
-• ${prefix2}box
 
 
   *EVENT GAMES BOT*
@@ -4468,7 +4464,6 @@ teks =`*M I T S U H A - W A B O T*\n
 • nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
-• box ${getBoxUser(sender)}
 
 
   *INFORMASI MENU*
@@ -4482,7 +4477,6 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
-• ${prefix2}box
 
 
   *EVENT GAMES BOT*
