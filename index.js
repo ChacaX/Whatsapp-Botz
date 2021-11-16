@@ -703,7 +703,7 @@ key: {"fromMe": false,"participant": `0@s.whatsapp.net`, "remoteJid": "628953086
 const fakebc = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `💬 *BROADCAST BOT* 💬`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
             
 const reply = (teks) => {
-client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 }
 		
 const tchat = `${totalchat.length}`   
@@ -840,7 +840,7 @@ client.sendMessage(hehe, teks, text, {quoted: falfa})
 }
 			
 const mentions = (teks, memberr, id) => {
-(id == null || id == undefined || id == false) ? client.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2, contextInfo: {"mentionedJid": memberr}})
+(id == null || id == undefined || id == false) ? client.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : client.sendMessage(from, teks.trim(), extendedText, { contextInfo: {"mentionedJid": memberr}})
 }
 			
 const costum = (pesan, tipe, target, target2) => {
@@ -848,7 +848,7 @@ client.sendMessage(from, pesan, tipe, {quoted: { key: { fromMe: false, participa
 }
 			
 const sendButton = (teks) => {
-client.sendMessage(from, teks, MessageType.buttonsMessage, {quoted: floc2})
+client.sendMessage(from, teks, MessageType.buttonsMessage)
 }
            
 const keranjang = (teks) => {
@@ -1028,7 +1028,7 @@ tingkat ='*PENCAPAIAN SELESAI 🌳'
             if(mime.split("/")[0] === "audio"){
                 mime = Mimetype.mp4Audio
 }
-            return client.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: floc2, thumbnail: miku, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
+            return client.sendMessage(from, await getBuffer(url), type, {caption: caption, thumbnail: miku, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
 }
         	
         const sendWebp = async(from, url) => {
@@ -1379,7 +1379,7 @@ buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
 }
-client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, quoted: floc2, contextInfo: {forwardingScore: 508, isForwarded: true}})
+client.sendMessage(from, menu5, MessageType.buttonsMessage, {thumbnile: thumb2, contextInfo: {forwardingScore: 508, isForwarded: true}})
 addSaldoUser(sender, -50)
 break*/
  
@@ -1392,7 +1392,7 @@ buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`O
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`support by meta`, imageMessage: imageMsg,
 contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -1763,7 +1763,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{b
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
 break
@@ -1791,7 +1791,7 @@ deskripsi : biopro
 produk.push(H1)
 fs.writeFileSync(`./lib/${nmorpro}.jpeg`, delb)
 fs.writeFileSync('./lib/produk.js', JSON.stringify(produk))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)		     	
 addSaldoUser(sender, -50)
 break
 
@@ -1822,7 +1822,7 @@ buttons = [{buttonId:`BENAR`,buttonText:{displayText:`BENAR`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`JAWABAN BENAR ${benar.length}\nJAWABAN SALAH ${salah.length}\n\n${materi}`, imageMessage: imageMsg,
 contentText:`*QUIZ HARIAN BERHADIAH*`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -1858,7 +1858,7 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 𝓜𝓲𝓽𝓼𝓾𝓱?? 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})     
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
 var nomor = mek.participant
 const close = {
@@ -1883,7 +1883,7 @@ open = {
 text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,             
 }
 client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 addSaldoUser(sender, -50)
 break*/
 
@@ -1910,7 +1910,7 @@ let gwekke = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekke)
 addSaldoUser(sender, -50)
 break
@@ -1986,7 +1986,7 @@ let gwekkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(gwekkje)
 addSaldoUser(sender, -50)
 break
@@ -2011,7 +2011,7 @@ let gwekkkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkkje)
 addSaldoUser(sender, -50)
 break
@@ -2036,7 +2036,7 @@ let gwekkkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkkj1e)
 addSaldoUser(sender, -50)
 break
@@ -2065,7 +2065,7 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})     
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}})     
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
 if (isAntiLink) return reply('_berhasil di aktifkan_')
 antilink.push(from)
@@ -2259,7 +2259,7 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
-if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})     
+if (!isGroupAdmins) return client.sendMessage(from, `\`\`\`▢ FITUR ADMIN ONLY ▢\`\`\``, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘𝓶 ??𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})     
 if (args.length < 1) return reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 if (Number(args[0]) === 1) {
 if (isSimi) return reply('Mode simi sudah aktif')
@@ -2412,7 +2412,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 						fs.unlinkSync(ranp)
 						if (err) return reply(ind.stikga())
 						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: floc2})
+						client.sendMessage(from, buffer, sticker)
 						fs.unlinkSync(rano)
 					})
 			addSaldoUser(sender, -50)
@@ -2429,7 +2429,7 @@ case 'ttp':
 						fs.unlinkSync(ranp)
 						if (err) return reply(ind.stikga())
 						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: floc2})
+						client.sendMessage(from, buffer, sticker)
 						fs.unlinkSync(rano)
 					})
 			addSaldoUser(sender, -50)
@@ -2519,7 +2519,7 @@ buttons = [{buttonId:`NIH COWOK`,buttonText:{displayText:`NIH COWOK`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.female))
@@ -2527,7 +2527,7 @@ buttons = [{buttonId:`NIH CEWEK`,buttonText:{displayText:`NIH CEWEK`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
@@ -2568,7 +2568,7 @@ let o = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(o)
 addSaldoUser(sender, -50)
 break
@@ -2596,7 +2596,7 @@ let ok = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(ok)
 addSaldoUser(sender, -50)
 break
@@ -2620,7 +2620,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(oo)
 addSaldoUser(sender, -50)
 break
@@ -2642,7 +2642,7 @@ snder : sender
 }
 save.push(H1)
 fs.writeFileSync('./lib/sv.js', JSON.stringify(save))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)		     	
 addSaldoUser(sender, -50)
 break
 
@@ -2670,7 +2670,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(oo)
 addSaldoUser(sender, -50)
 break
@@ -2690,7 +2690,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2711,7 +2711,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2732,7 +2732,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'DARKJOKES', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2753,7 +2753,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2772,7 +2772,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 buff = await getBuffer(randKey.url)
-client.sendMessage(from, buff, video, {quoted: floc2, caption: `Farming Dosa?:v`})
+client.sendMessage(from, buff, video, { caption: `Farming Dosa?:v`})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 addSaldoUser(sender, -50)
 break
@@ -2792,7 +2792,7 @@ buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2826,7 +2826,7 @@ anu1 = `https://some-random-api.ml/canvas/triggered?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
+client.sendMessage(from, fs.readFileSync(rano), sticker)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2855,7 +2855,7 @@ anu1 = `https://some-random-api.ml/canvas/passed?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
+client.sendMessage(from, fs.readFileSync(rano), sticker)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2884,7 +2884,7 @@ anu1 = `https://some-random-api.ml/canvas/jail?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
+client.sendMessage(from, fs.readFileSync(rano), sticker)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2913,7 +2913,7 @@ anu1 = `https://some-random-api.ml/canvas/comrade?avatar=${teks}`
 exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
+client.sendMessage(from, fs.readFileSync(rano), sticker)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2942,7 +2942,7 @@ anu2 = `https://some-random-api.ml/canvas/wasted?avatar=${teks}`
 exec(`wget ${anu2} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 fs.unlinkSync(ranp)
 if (err) return reply(mess.error.stick)
-client.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: floc2})
+client.sendMessage(from, fs.readFileSync(rano), sticker)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker...'))
 fs.unlinkSync(rano)
 })
@@ -2979,7 +2979,7 @@ if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - d
 var FG = body.slice(8)
 var F1 = FG.split("|")[0];
 var F2 = FG.split("|")[1];
-client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 reply('Berhasil mengirim pesan...')
 addSaldoUser(sender, -50)
 break
@@ -3021,7 +3021,7 @@ let gwmkkee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwmkkee)
 addSaldoUser(sender, -50)
 break
@@ -3035,7 +3035,7 @@ buttons = [{buttonId:`START`,buttonText:{displayText:'START'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
 contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 addSaldoUser(sender, 100)
 break
@@ -3053,7 +3053,7 @@ buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[ 🎟 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 client.relayWAMessage(prep)
 break
 
@@ -3064,7 +3064,7 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)    
-await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact)
 let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `Apakah Kamu Butuh Info Dari Owner Ku?`,
@@ -3123,7 +3123,7 @@ buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonI
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
 break
@@ -3138,7 +3138,7 @@ reply(mess.wait)
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 media = await client.downloadMediaMessage(encmedia)
 await wait(media).then(res => {
-client.sendMessage(from, res.video, video, {quoted: floc2, caption: res.teks.trim()})
+client.sendMessage(from, res.video, video, { caption: res.teks.trim()})
 }).catch(err => {
 reply(err)
 })
@@ -3269,7 +3269,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 const trut = ['Pernah suka sama siapa aja? berapa lama?', 'Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)', 'apa ketakutan terbesar kamu?', 'pernah suka sama orang dan merasa orang itu suka sama kamu juga?', 'Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?', 'pernah gak nyuri uang nyokap atau bokap? Alesanya?', 'hal yang bikin seneng pas lu lagi sedih apa', 'pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?', 'pernah jadi selingkuhan orang?', 'hal yang paling ditakutin', 'siapa orang yang paling berpengaruh kepada kehidupanmu', 'hal membanggakan apa yang kamu dapatkan di tahun ini', 'siapa orang yang bisa membuatmu sange', 'siapa orang yang pernah buatmu sange', '(bgi yg muslim) pernah ga solat seharian?', 'Siapa yang paling mendekati tipe pasangan idealmu di sini', 'suka mabar(main bareng)sama siapa?', 'pernah nolak orang? alasannya kenapa?', 'Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget', 'pencapaian yang udah didapet apa aja ditahun ini?', 'kebiasaan terburuk lo pas di sekolah apa?']
 const ttrth = trut[Math.floor(Math.random() * trut.length)]
 truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-client.sendMessage(from, truteh, image, { caption: '*Truth*\n\n' + ttrth, quoted: floc2 })
+client.sendMessage(from, truteh, image, { caption: '*Truth*\n\n' + ttrth })
 addSaldoUser(sender, 100)
 break
 
@@ -3295,7 +3295,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -3312,7 +3312,7 @@ buttons = [{buttonId:`么`,buttonText:{displayText:`么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`_Dah Jadi Stah_`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -3405,7 +3405,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=0.7,asetrate=44100" ${ran}`, (err, st
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 hah = fs.readFileSync(ran)
-client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
+client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true})
 fs.unlinkSync(ran)
 })
 addSaldoUser(sender, -50)
@@ -3423,7 +3423,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=1.6,asetrate=22100" ${ran}`, (err, st
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 hah = fs.readFileSync(ran)
-client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
+client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true})
 fs.unlinkSync(ran)
 })
 addSaldoUser(sender, -50)
@@ -3443,7 +3443,7 @@ exec(`ffmpeg -i ${media} ${ran}`, (err) => {
 fs.unlinkSync(media)
 if (err) return reply(`Err: ${err}`)
 buffer453 = fs.readFileSync(ran)
-client.sendMessage(from, buffer453, audio, { mimetype: 'audio/mp4', quoted: floc2 })
+client.sendMessage(from, buffer453, audio, { mimetype: 'audio/mp4' })
 fs.unlinkSync(ran)
 })
 } else {
@@ -3464,7 +3464,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=0.5,asetrate=65100" ${ran}`, (err, st
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 hah = fs.readFileSync(ran)
-client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
+client.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true})
 fs.unlinkSync(ran)
 })
 addSaldoUser(sender, -50)
@@ -3482,7 +3482,7 @@ exec(`ffmpeg -i ${media} -filter:a "atempo=1.63,asetrate=44100" ${ran}`, (err, s
 fs.unlinkSync(media)
 if (err) return reply('Error!')
 uhh = fs.readFileSync(ran)
-client.sendMessage(from, uhh, audio, {mimetype: 'audio/mp4', ptt:true, quoted: floc2})
+client.sendMessage(from, uhh, audio, {mimetype: 'audio/mp4', ptt:true})
 fs.unlinkSync(ran)
 })
 addSaldoUser(sender, -50)
@@ -3577,7 +3577,7 @@ var options = {
 text: teks1,
 contextInfo: {mentionedJid: [nomor]},
 }
-client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}})
 reply('Maaf ketidak nyamanan nya, kami akan memperbaikin nya secepatnya.\n\n-> Laporan main main akan dibanned dan ditegur Owner bot')
 addSaldoUser(sender, -50)
 break 
@@ -3598,7 +3598,7 @@ buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
 break
@@ -3619,7 +3619,7 @@ Time : tem
 }
 _komentar.push(teks)
 fs.writeFileSync('./lib/komentar.js', JSON.stringify(_komentar))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)
 addSaldoUser(sender, -50)
 break
 
@@ -3743,7 +3743,7 @@ for (let i of url) {
 teks += `⬡ ${i}\n\n---------------------------\n\n`
 }
 teks += `Total : ${url.length}`
-client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
+client.sendMessage(from, teks.trim(), extendedText)
 addSaldoUser(sender, -50)
 break
 
@@ -3762,7 +3762,7 @@ gwekkhhhkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhhhkje)
 }
 addSaldoUser(sender, -50)
@@ -3801,7 +3801,7 @@ for (let sensi of absen) {
 teks += `=-> @${sensi.split('@')[0]} ✅\n`
 }
 teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
-client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2, contextInfo: {"mentionedJid": absen}})
+client.sendMessage(from, teks.trim(), extendedText, { contextInfo: {"mentionedJid": absen}})
 addSaldoUser(sender, -50)
 break
 
@@ -3829,7 +3829,7 @@ teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen
 reply(`List Presentasi Hadir Telah Siap\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`)
 setTimeout( () => {
 reply(`Waktu Absensi Telah Habis`)
-client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2, contextInfo: {"mentionedJid": absen}})
+client.sendMessage(from, teks.trim(), extendedText, { contextInfo: {"mentionedJid": absen}})
 }, tem)
 setTimeout( () => {
 ini = absen.indexOf(from)
@@ -3871,15 +3871,15 @@ addSaldoUser(sender, -50)
 break
 
 case 'gtts':
-if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text, {quoted: floc2})
+if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text)
 const gtts = require('./lib/gtts')(args[0])
-if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text, {quoted: floc2})
+if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text)
 dtt = body.slice(9)
 ranm = getRandom('.mp3')
 dtt.length > 600
 ? reply('Textnya kebanyakan om')
 : gtts.save(ranm, dtt, function() {
-client.sendMessage(from, fs.readFileSync(ranm), audio, {quoted: floc2, mimetype: 'audio/mp4', ptt:true})
+client.sendMessage(from, fs.readFileSync(ranm), audio, { mimetype: 'audio/mp4', ptt:true})
 fs.unlinkSync(ranm)
 })
 addSaldoUser(sender, -50)
@@ -3892,7 +3892,7 @@ for (let i of berbintang) {
 teks += `⬡ *Pesan : ${i.name} > ${i.waktu}*\n${i.teks}\n\n---------------------------\n\n`
 }
 teks += `Total : ${berbintang.length}`
-client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
+client.sendMessage(from, teks.trim(), extendedText)
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 addSaldoUser(sender, -50)
 break
@@ -3907,7 +3907,7 @@ for (let i of req) {
 teks += `⬡ *${i.name} > ${i.waktu}*\nPesan : ${i.teks}\n\n---------------------------\n\n`
 }
 teks += `Total : ${req.length}`
-client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
+client.sendMessage(from, teks.trim(), extendedText)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
 st = { 
@@ -3924,7 +3924,7 @@ var options = {
 text: teks2,
 contextInfo: {mentionedJid: [nomor2]},
 }
-client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc2})
+client.sendMessage('6285731261728@s.whatsapp.net', options, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `*_© Mitsuha Official_*`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}})
 addSaldoUser(sender, -50)
 break
 
@@ -3938,7 +3938,7 @@ setTimeout( () => {
 client.sendMessage(from, gambar, image, { caption: `Jawablah pertanyaan dengan waktu yang sudah di tentukan _Waktu + 30 second_\n\n*TebakGambar*`})
 }, 0)
 setTimeout( () => {
-client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text, { quoted: floc2 })
+client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text)
 }, 30000)
 addSaldoUser(sender, 100)
 break
@@ -4349,13 +4349,13 @@ buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonI
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 break
 }
 	
 if (buttonsR === 'OWNER') {
-await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact)
 let hot = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `Apakah Kamu Butuh Info Dari Owner Ku?`,
@@ -4367,13 +4367,13 @@ let hot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(hot)
 break
 }
 
 if (buttonsR === 'OWNER BOT') {
-await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
+await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact)
 break
 }
 
@@ -4386,7 +4386,7 @@ let gwkee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 client.relayWAMessage(gwkee)
 break
 }
@@ -4403,7 +4403,7 @@ let gwee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwee)
 break
 }
@@ -4420,7 +4420,7 @@ let gwee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwee)
 break
 }
@@ -4436,13 +4436,13 @@ let gwkee = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 client.relayWAMessage(gwkee)
 break
 }
 
 if (buttonsR === 'Hubungi Pusat') {
-client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: floc2})
+client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact)
 reply(`punya masalah dengan bot? silahkan hubungi saya`)
 break
 }
@@ -4678,7 +4678,7 @@ let gwmkkeje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwmkkeje)
 break
 }
@@ -4720,25 +4720,25 @@ let gwmgkkeje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwmgkkeje)
 break
 }
                 
 /*if (body.startsWith(`.${command}`)) 
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22}) 
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}2}) 
 break
 }*/
 
 /*if (body.startsWith(`X${command}`)) {
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}},quoted: floc22}) 
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}2}) 
 break
 }*/
 
 if (budy.includes(`Test`)) {
-client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 break
 }
    
@@ -4801,7 +4801,7 @@ headerType: 1
 },
 					
 
-}, {quoted: floc2})
+})
 					
  
 await client.relayWAMessage(gwmee)
@@ -4868,7 +4868,7 @@ open = {
               contextInfo: { mentionedJid: [sender] }
 }
               client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
               addSaldoUser(sender, -50)
 break
 }
@@ -4984,7 +4984,7 @@ break
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMessage: imageMsg,
               contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
               client.relayWAMessage(prep)
               
               addSaldoUser(sender, 200)
@@ -5006,10 +5006,10 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 				}, 500000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text, { quoted: floc2 })
+				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text)
 				}, 0)
 				
 break
@@ -5025,10 +5025,10 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,200,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 				}, 1,100,000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text, { quoted: floc2 })
+				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text)
 				}, 0)
 break
 }
@@ -5043,10 +5043,10 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,800,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 				}, 1,700,000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text, { quoted: floc2 })
+				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text)
 				}, 0)
 break
 }
@@ -5057,7 +5057,7 @@ break
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
               contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage})
               client.relayWAMessage(prep)
               
               
@@ -5066,14 +5066,14 @@ break
               if (buttonsR === 'START') {
               E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
-				await client.sendMessage(from, `Searching Monster...`, MessageType.text, { quoted: floc2 })
+				await client.sendMessage(from, `Searching Monster...`, MessageType.text)
 				
 			   youke = fs.readFileSync('./lib/odc.jpeg')
 		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1},{buttonId:`LANTAI 2`,buttonText:{displayText:'LANTAI 2'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Skull.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Monster Tipe Pengguna Pedang Yang Ahli, Konon Pada Tahun 1567 Di Amerika Serikat Seorang Kesatria Berjuang Sendiri Melawan Penjajahan`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage})
               client.relayWAMessage(prep)
               
 break
@@ -5081,14 +5081,14 @@ break
              if (buttonsR === 'LANTAI 2') {
               E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
               E2 = E1[Math.floor(Math.random() * E1.length)]
-				await client.sendMessage(from, `Searching Monster...`, MessageType.text, { quoted: floc2 })
+				await client.sendMessage(from, `Searching Monster...`, MessageType.text)
 				
 			   youke = fs.readFileSync('./lib/odc.jpeg')
 		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Slime.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Slime Atau Sering Disebut Juga Lendir Memiliki Skill Hebat Ia Mampu Membelah Dirinya Menjadi Banyak Hingga Membuat Lawan Kuwalahan Menghadapinya`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage})
               client.relayWAMessage(prep)
               
 break
@@ -5099,7 +5099,7 @@ buttons = [{buttonId:`BUY`,buttonText:{displayText:'BUY'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`HARGA 1 PERALATAN DI BANDROL DENGAN HARGA 1000 XP`, imageMessage: imageMsg,
               contentText:`*PERALATAN PERANG*`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage})
               client.relayWAMessage(prep)
               
 break
@@ -5138,7 +5138,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{b
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 client.relayWAMessage(prep)
 break
 }
@@ -5153,7 +5153,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{b
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `𝓗𝓪𝓲 𝓘?? 𝓜𝓲𝓽𝓼𝓾𝓱𝓪 👋`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 client.relayWAMessage(prep)
              addSaldoUser(sender, -50)
 break
@@ -5174,7 +5174,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
               buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               addSaldoUser(sender, -50)
@@ -5195,7 +5195,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
               buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               addSaldoUser(sender, -50)
@@ -5217,7 +5217,7 @@ buttons = [{buttonId:`么 darkjokes 么`,buttonText:{displayText:`么 darkjokes 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'DARKJOKES', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 }
@@ -5233,7 +5233,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
               buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               addSaldoUser(sender, -50)
@@ -5302,7 +5302,7 @@ deskripsi : biopro
 produk.push(H1)
 fs.writeFileSync(`./lib/${randKey.nomor}.jpeg`, delb)
 fs.writeFileSync('./src/produk.js', JSON.stringify(produk))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})		     	
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)		     	
 break
 }
 if (buttonsR === 'NEXT 📦') {
@@ -5318,7 +5318,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT ??'},type:1},{but
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `ミツハ`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}}})
 client.relayWAMessage(prep)
               addSaldoUser(sender, -50)
 break
@@ -5377,7 +5377,7 @@ buttons = [{buttonId:`么 cerita_horor 么`,buttonText:{displayText:`么 cerita_
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -5399,7 +5399,7 @@ buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 break
 }
@@ -5419,7 +5419,7 @@ buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -5444,7 +5444,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(oo)
 break
 }
@@ -5468,7 +5468,7 @@ let ot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(ot)
 break
 }
@@ -5504,7 +5504,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(oo)
 break
 }
@@ -5541,7 +5541,7 @@ let io = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2}) 
+}) 
 await client.relayWAMessage(io)
 break
 }
@@ -5605,7 +5605,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5630,7 +5630,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5655,7 +5655,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5680,7 +5680,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5705,7 +5705,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5730,7 +5730,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5755,7 +5755,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-}, {quoted: floc2})
+})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) { 
@@ -5827,7 +5827,7 @@ reply(stdout)
 if (budy.startsWith('>')){
 if (!isOwner) return
 try {
-return client.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: floc2})
+return client.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text)
 } catch(err) {
 e = String(err)
 reply(e)
