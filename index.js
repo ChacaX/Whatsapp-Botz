@@ -200,15 +200,15 @@ return _saldo[position].saldo
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, saldo: 1000}
+const obj = {id: userid, saldo: 1000, box: 0}
 _saldo.push(obj)
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 
-const addSaldoUser = (userid, amount) => {
+const addSaldoUser = (sender, amount) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
-if (_saldo[i].id === userid) {
+if (_saldo[i].id === sender) {
 position = i
 }
 })
@@ -271,6 +271,31 @@ const addBadwordId = (userid) => {
 const obj = {id: userid, badword: 0}
 _badword.push(obj)
 fs.writeFileSync('./lib/badword.json', JSON.stringify(_badword))
+}
+
+const addBoxUser = (userid, amount) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_saldo[position].box += amount
+fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
+}
+}
+
+const getBoxUser = (sender) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === sender) {
+position = i
+}
+})
+if (position !== false) {
+return _saldo[position].box
+}
 }
 
 async function starts() {
@@ -1143,6 +1168,7 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
+• box ${getBoxUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1156,6 +1182,7 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
+• ${prefix2}box
 
 
   *EVENT GAMES BOT*
@@ -1387,6 +1414,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
+• box ${getBoxUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1400,6 +1428,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
+• ${prefix2}box
 
 
   *EVENT GAMES BOT*
@@ -1566,6 +1595,32 @@ break
 ALL FEATURE BOT
 ___________________*/
 
+case 'box':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)     
+if (args[0]=="1") {
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
+addSaldoUser(sender, 1000)
+reply(`selamat kamu mendapatkan saldo sebanyak Rp. 1000`)
+addBoxUser(sender, -1)
+} else if (args[0]=="2") {
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
+addSaldoUser(sender, 1500)
+reply(`selamat kamu mendapatkan saldo sebanyak Rp. 1500`)
+addBoxUser(sender, -1)
+} else if (args[0]=="3") {
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
+addSaldoUser(sender, 800)
+reply(`selamat kamu mendapatkan saldo sebanyak Rp. 800`)
+addBoxUser(sender, -1)
+} else {return reply(`silahkan pilih box salah satu yang berada di bawah ini\n\n1⃣2⃣3⃣\n\nsilahkan pilih #box 1 sampai 3`)}
+break
+	
 case 'lotre':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
@@ -1773,6 +1828,7 @@ prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: flo
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
+addBoxUser(sender, 1)
 break
 					
 case 'hidetag':                 
@@ -3548,6 +3604,7 @@ contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot 
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
+addBoxUser(sender, 1)
 break
          
 case 'komentar':
@@ -3568,6 +3625,7 @@ _komentar.push(teks)
 fs.writeFileSync('./lib/komentar.js', JSON.stringify(_komentar))
 client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})
 addSaldoUser(sender, -50)
+addBoxUser(sender, 1)
 break
 
 case 'bug':
@@ -3646,7 +3704,7 @@ case 'saldo':
 if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)     
 saldonya = getSaldoUser(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`💵 saldo kamu : Rp. ${saldonya}`
+teks =`💵 saldo kamu : Rp. ${saldonya}\n📦 box kamu : ${getBoxUser(sender)}`
 sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SALDO`,buttonText:{displayText:'SALDO'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -4169,6 +4227,8 @@ addSaldoUser(sender, -50)
 break
 
 case 'urltoimg':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (args.length < 1) return reply(`_tambahkan link pada perintah_`)
 linknya = await getBuffer(`${args.join(" ")}`)
 client.sendMessage(from, linknya, image)
@@ -4176,15 +4236,20 @@ addSaldoUser(sender, -50)
 break
 
 case 'upswtext':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 client.updatePresence(from, Presence.composing)
 client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedText)
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, -50)
+addBoxUser(sender, 1)
 break
 
 case 'upswimg':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (!isQuotedImage) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik #${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
@@ -4195,9 +4260,12 @@ client.sendMessage('status@broadcast', sweb, image, {caption: `*UPDATE STATUS*: 
 }
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, -50)
+addBoxUser(sender, 1)
 break
 
 case 'upswvideo':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (!isQuotedVideo) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik #${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
@@ -4208,6 +4276,7 @@ client.sendMessage('status@broadcast', sweb, video, {caption: `*UPDATE STATUS*: 
 }
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, -50)
+addBoxUser(sender, 1)
 break
 
 case 'enable':
@@ -4398,6 +4467,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • nama ${pushname}
 • setatus ${premi}
 • saldo Rp. ${getSaldoUser(sender)}
+• box ${getBoxUser(sender)}
 
 
   *INFORMASI MENU*
@@ -4411,6 +4481,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
+• ${prefix2}box
 
 
   *EVENT GAMES BOT*
