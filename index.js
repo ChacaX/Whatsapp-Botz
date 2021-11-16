@@ -205,10 +205,10 @@ _saldo.push(obj)
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 
-const addSaldoUser = (sender, amount) => {
+const addSaldoUser = (userid, amount) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
-if (_saldo[i].id === sender) {
+if (_saldo[i].id === userid) {
 position = i
 }
 })
@@ -255,10 +255,10 @@ return _badword[position].id
 }
 }
 
-const badwordnya = (sender) => {
+const badwordnya = (userid) => {
 let position = false
 Object.keys(_badword).forEach((i) => {
-if (_badword[i].id === sender) {
+if (_badword[i].id === userid) {
 position = i
 }
 })
