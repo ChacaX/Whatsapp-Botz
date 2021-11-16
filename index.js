@@ -1824,7 +1824,6 @@ prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: flo
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
-addBoxUser(sender, 1)
 break
 					
 case 'hidetag':                 
@@ -3600,7 +3599,6 @@ contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot 
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
-addBoxUser(sender, 1)
 break
          
 case 'komentar':
@@ -3621,7 +3619,6 @@ _komentar.push(teks)
 fs.writeFileSync('./lib/komentar.js', JSON.stringify(_komentar))
 client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, { quoted: floc2})
 addSaldoUser(sender, -50)
-addBoxUser(sender, 1)
 break
 
 case 'bug':
@@ -3700,7 +3697,7 @@ case 'saldo':
 if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)     
 saldonya = getSaldoUser(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`💵 saldo kamu : Rp. ${saldonya}\n📦 box kamu : ${getBoxUser(sender)}`
+teks =`💵 saldo kamu : Rp. ${saldonya}`
 sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SALDO`,buttonText:{displayText:'SALDO'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -3708,11 +3705,10 @@ case 'claim':
 if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)     
 if (isClaim) return reply(`kamu telah mengambil hadiah ini coba sesaat lagi`)
 addSaldoUser(sender, 2000)
-addBoxUser(sender, 1)
 claim.push(sender)
 fs.writeFileSync('./src/claim.json', JSON.stringify(claim))
 creator = "6285731261728@s.whatsapp.net"
-teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN MENDAPATKAN 1 BOX YANG TELAH TERSIMPAN DI DATABASE`
+teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN YANG TELAH TERSIMPAN DI DATABASE`
 sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -4241,7 +4237,6 @@ client.updatePresence(from, Presence.composing)
 client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedText)
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, -50)
-addBoxUser(sender, 1)
 break
 
 case 'upswimg':
@@ -4257,7 +4252,6 @@ client.sendMessage('status@broadcast', sweb, image, {caption: `*UPDATE STATUS*: 
 }
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, -50)
-addBoxUser(sender, 1)
 break
 
 case 'upswvideo':
@@ -4273,7 +4267,6 @@ client.sendMessage('status@broadcast', sweb, video, {caption: `*UPDATE STATUS*: 
 }
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, -50)
-addBoxUser(sender, 1)
 break
 
 case 'enable':
