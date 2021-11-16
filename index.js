@@ -205,7 +205,7 @@ _saldo.push(obj)
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 
-const addSaldoUser = (userid, amount * 50) => {
+const addSaldoUser = (userid, amount) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
 if (_saldo[i].id === userid) {
@@ -213,12 +213,12 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].saldo += amount * 50
+_saldo[position].saldo += amount * 1
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 }
 
-const addBadwordUser = (userid, amount * 50) => {
+const addBadwordUser = (userid, amount) => {
 let position = false
 Object.keys(_badword).forEach((i) => {
 if (_badword[i].id === userid) {
@@ -226,7 +226,7 @@ position = i
 }
 })
 if (position !== false) {
-_badword[position].badword += amount * 50
+_badword[position].badword += amount
 fs.writeFileSync('./lib/badword.json', JSON.stringify(_badword))
 }
 }
@@ -273,7 +273,7 @@ _badword.push(obj)
 fs.writeFileSync('./lib/badword.json', JSON.stringify(_badword))
 }
 
-const addBoxUser = (userid, amount * 50) => {
+const addBoxUser = (userid, amount) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
 if (_saldo[i].id === userid) {
@@ -281,7 +281,7 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].box += amount * 50
+_saldo[position].box += amount
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 }
