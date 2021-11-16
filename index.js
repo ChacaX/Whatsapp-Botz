@@ -1930,7 +1930,8 @@ let gwekke = await client.prepareMessageFromContent(from, {
 {buttonId: 'Tutup', buttonText: {displayText: 'Tutup'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekke)
 addSaldoUser(sender, -50)
 break
@@ -2030,7 +2031,8 @@ let gwekkkje = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable A0', buttonText: {displayText: 'Disable A0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkkje)
 addSaldoUser(sender, -50)
 break
@@ -2054,7 +2056,8 @@ let gwekkkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkkj1e)
 addSaldoUser(sender, -50)
 break
@@ -3038,7 +3041,8 @@ let gwmkkee = await client.prepareMessageFromContent(from, {
 {buttonId: 'OWNER', buttonText: {displayText: 'OWNER'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwmkkee)
 addSaldoUser(sender, -50)
 break
@@ -3778,7 +3782,8 @@ gwekkhhhkje = await client.prepareMessageFromContent(from, {
 {buttonId: '✅', buttonText: {displayText: '✅'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhhhkje)
 }
 addSaldoUser(sender, -50)
@@ -4401,7 +4406,8 @@ let gwkee = await client.prepareMessageFromContent(from, {
 {buttonId: 'HOME BACK', buttonText: {displayText: 'HOME BACK'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 client.relayWAMessage(gwkee)
 break
 }
@@ -4417,7 +4423,8 @@ let gwee = await client.prepareMessageFromContent(from, {
 {buttonId: 'Tidak', buttonText: {displayText: 'Tidak'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwee)
 break
 }
@@ -4433,7 +4440,8 @@ let gwee = await client.prepareMessageFromContent(from, {
 {buttonId: 'Tidak', buttonText: {displayText: 'Tidak'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwee)
 break
 }
@@ -4448,7 +4456,8 @@ let gwkee = await client.prepareMessageFromContent(from, {
 {buttonId: 'Hubungi Pusat', buttonText: {displayText: 'Hubungi Pusat'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 client.relayWAMessage(gwkee)
 break
 }
@@ -4710,7 +4719,8 @@ let gwmkkeje = await client.prepareMessageFromContent(from, {
 {buttonId: 'OWNER', buttonText: {displayText: 'OWNER'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwmkkeje)
 break
 }
@@ -4751,7 +4761,8 @@ let gwmgkkeje = await client.prepareMessageFromContent(from, {
 {buttonId: 'OWNER', buttonText: {displayText: 'OWNER'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwmgkkeje)
 break
 }
@@ -5635,7 +5646,8 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5659,7 +5671,8 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5683,7 +5696,8 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5707,7 +5721,8 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5731,7 +5746,8 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5755,7 +5771,8 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5779,7 +5796,8 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},{ quoted: mek })
+},
+}, {quoted: mek})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) { 
