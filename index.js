@@ -151,10 +151,10 @@ var seconds = Math.floor(seconds % 60);
 return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
 }
 
-const isSaldo = (sender) =>{ 
+const isSaldo = (userid) =>{ 
 		      let position = false
               for (let i of _saldo) {
-              if (i.id === sender) {
+              if (i.id === userid) {
               	let saldonye = i.saldo
               if (saldonye >= saldoawal ) {
               	  position = true
@@ -205,7 +205,7 @@ _saldo.push(obj)
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 
-const addSaldoUser = (userid, amount) => {
+const addSaldoUser = (userid, amount * 50) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
 if (_saldo[i].id === userid) {
@@ -213,12 +213,12 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].saldo += amount
+_saldo[position].saldo += amount * 50
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 }
 
-const addBadwordUser = (userid, amount) => {
+const addBadwordUser = (userid, amount * 50) => {
 let position = false
 Object.keys(_badword).forEach((i) => {
 if (_badword[i].id === userid) {
@@ -226,7 +226,7 @@ position = i
 }
 })
 if (position !== false) {
-_badword[position].badword += amount
+_badword[position].badword += amount * 50
 fs.writeFileSync('./lib/badword.json', JSON.stringify(_badword))
 }
 }
@@ -273,7 +273,7 @@ _badword.push(obj)
 fs.writeFileSync('./lib/badword.json', JSON.stringify(_badword))
 }
 
-const addBoxUser = (userid, amount) => {
+const addBoxUser = (userid, amount * 50) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
 if (_saldo[i].id === userid) {
@@ -281,15 +281,15 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].box += amount
+_saldo[position].box += amount * 50
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 }
 
-const getBoxUser = (sender) => {
+const getBoxUser = (userid) => {
 let position = false
 Object.keys(_saldo).forEach((i) => {
-if (_saldo[i].id === sender) {
+if (_saldo[i].id === userid) {
 position = i
 }
 })
@@ -688,7 +688,7 @@ message: {
 "title": 'WhatsappBotz', 
 "description": "WhatsappBotz", 
 "currencyCode": "IDR",
-"priceAmount1000": "15000000",
+"priceAmount": "15000000",
 "retailerId": 'WhatsappBotz',
 "productImageCount": 1
 },
@@ -1603,19 +1603,19 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args[0]=="1") {
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
-addSaldoUser(sender, 1000)
+await addSaldoUser(sender, 1000)
 reply(`selamat kamu mendapatkan saldo sebanyak Rp. 1000`)
 addBoxUser(sender, -1)
 } else if (args[0]=="2") {
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
-addSaldoUser(sender, 1500)
+await addSaldoUser(sender, 1500)
 reply(`selamat kamu mendapatkan saldo sebanyak Rp. 1500`)
 addBoxUser(sender, -1)
 } else if (args[0]=="3") {
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
-addSaldoUser(sender, 800)
+await addSaldoUser(sender, 800)
 reply(`selamat kamu mendapatkan saldo sebanyak Rp. 800`)
 addBoxUser(sender, -1)
 } else {return reply(`silahkan pilih box salah satu yang berada di bawah ini\n\n1⃣2⃣3⃣\n\nsilahkan pilih #box 1 sampai 3`)}
