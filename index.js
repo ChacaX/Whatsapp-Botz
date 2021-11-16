@@ -3712,10 +3712,11 @@ case 'claim':
 if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)     
 if (isClaim) return reply(`kamu telah mengambil hadiah ini coba sesaat lagi`)
 addSaldoUser(sender, 2000)
+addBoxUser(sender, 1)
 claim.push(sender)
 fs.writeFileSync('./src/claim.json', JSON.stringify(claim))
 creator = "6285731261728@s.whatsapp.net"
-teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN TELAH TERSIMPAN DI DATABASE`
+teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN MENDAPATKAN 1 BOX YANG TELAH TERSIMPAN DI DATABASE`
 sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
