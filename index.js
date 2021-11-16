@@ -1392,7 +1392,7 @@ buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`O
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`support by meta`, imageMessage: imageMsg,
 contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -1404,189 +1404,210 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
-🏖️ runtime : ${kyun(uptime)}
-📲 dev : wa.me/6285731261728
-🎗 jumlah hit : ${hit_today.length}\n
+🗂 runtime : ${kyun(uptime)}
+🗂 dev : wa.me/6285731261728
+🗂 jumlah hit : ${hit_today.length}\n
+🗂 pengguna : ${_saldo.length} aktif
 
-╭────⧉ *PROFILE KAMU*
-│›│ nama ${pushname}
-│›│ setatus ${premi}
-│›│ saldo Rp. ${getSaldoUser(sender)}
-╰────────────────────
+  </PROFILE KAMU
+┌ ❏
+├ ❏  nama ${pushname}
+├ ❏  setatus ${premi}
+├ ❏  saldo Rp. ${getSaldoUser(sender)}
+└ ❏
 
-╭────⧉ *INFORMASI MENU*
-│›│ ${prefix2}info
-│›│ ${prefix2}iklan
-│›│ ${prefix2}donasi
-│›│ ${prefix2}request
-╰────────────────────
+  </INFORMASI MENU
+┌ ❏
+├ ❏  ${prefix2}info
+├ ❏  ${prefix2}iklan
+├ ❏  ${prefix2}donasi
+├ ❏  ${prefix2}request
+└ ❏
 
-╭────⧉ *BOT PAY MENU*
-│›│ ${prefix2}daftar
-│›│ ${prefix2}saldo
-│›│ ${prefix2}claim
-╰────────────────────
+  </BOT PAY MENU
+┌ ❏
+├ ❏  ${prefix2}daftar
+├ ❏  ${prefix2}saldo
+├ ❏  ${prefix2}claim
+└ ❏
 
-╭────⧉ *EVENT GAMES BOT*
-│›│ ${prefix2}carspeed
-│›│ ${prefix2}lotre
-╰────────────────────
+  </EVENT GAMES BOT
+┌ ❏
+├ ❏  ${prefix2}carspeed
+├ ❏  ${prefix2}lotre
+└ ❏
 
-╭────⧉ *URL TO MEDIA TYPE*
-│›│ ${prefix2}urltoimg
-│›│ ${prefix2}tourl
-│›│ ${prefix2}dburl
-╰────────────────────
+  </URL TO MEDIA TYPE
+┌ ❏
+├ ❏  ${prefix2}urltoimg
+├ ❏  ${prefix2}tourl
+├ ❏  ${prefix2}dburl
+└ ❏
 
-╭────⧉ *PRODUK & VOTING*
-│›│ ${prefix2}produk
-│›│ ${prefix2}tambah
-│›│ ${prefix2}votting
-│›│ ${prefix2}vote
-│›│ ${prefix2}dellvote
-╰────────────────────
+  </PRODUK & VOTING
+┌ ❏
+├ ❏  ${prefix2}produk
+├ ❏  ${prefix2}tambah
+├ ❏  ${prefix2}votting
+├ ❏  ${prefix2}vote
+├ ❏  ${prefix2}dellvote
+└ ❏
 
-╭────⧉ *ULASAN & MUTUAL*
-│›│ ${prefix2}ulasan
-│›│ ${prefix2}komentar
-│›│ ${prefix2}mutual
-│›│ ${prefix2}save
-╰────────────────────
+  </ULASAN & MUTUAL
+┌ ❏
+├ ❏  ${prefix2}ulasan
+├ ❏  ${prefix2}komentar
+├ ❏  ${prefix2}mutual
+├ ❏  ${prefix2}save
+└ ❏
 
-╭────⧉ *ABSEN & MESSAGES*
-│›│ ${prefix2}absen
-│›│ ${prefix2}absensi
-│›│ ${prefix2}svmess
-│›│ ${prefix2}listmess
-╰────────────────────
+  </ABSEN & MESSAGES
+┌ ❏
+├ ❏  ${prefix2}absen
+├ ❏  ${prefix2}absensi
+├ ❏  ${prefix2}svmess
+├ ❏  ${prefix2}listmess
+└ ❏
 
-╭────⧉ *GROUP MENU*
-│›│ ${prefix2}afk
-│›│ ${prefix2}undang
-│›│ ${prefix2}enable
-│›│ ${prefix2}disable
-│›│ ${prefix2}bangrup
-│›│ ${prefix2}unbangrup
-│›│ ${prefix2}ban
-│›│ ${prefix2}unban
-│›│ ${prefix2}sider
-│›│ ${prefix2}hidetag
-│›│ ${prefix2}fitnah
-│›│ ${prefix2}settings
-│›│ ${prefix2}revoke
-│›│ ${prefix2}add
-│›│ ${prefix2}kick
-│›│ ${prefix2}promote
-│›│ ${prefix2}demote
-│›│ ${prefix2}tagall
-│›│ ${prefix2}antilink
-│›│ ${prefix2}antitoxic
-│›│ ${prefix2}welcome
-╰────────────────────
+  </GROUP MENU
+┌ ❏
+├ ❏  ${prefix2}afk
+├ ❏  ${prefix2}undang
+├ ❏  ${prefix2}enable
+├ ❏  ${prefix2}disable
+├ ❏  ${prefix2}bangrup
+├ ❏  ${prefix2}unbangrup
+├ ❏  ${prefix2}ban
+├ ❏  ${prefix2}unban
+├ ❏  ${prefix2}sider
+├ ❏  ${prefix2}hidetag
+├ ❏  ${prefix2}fitnah
+├ ❏  ${prefix2}settings
+├ ❏  ${prefix2}revoke
+├ ❏  ${prefix2}add
+├ ❏  ${prefix2}kick
+├ ❏  ${prefix2}promote
+├ ❏  ${prefix2}demote
+├ ❏  ${prefix2}tagall
+├ ❏  ${prefix2}antilink
+├ ❏  ${prefix2}antitoxic
+├ ❏  ${prefix2}welcome
+└ ❏
 
-╭────⧉ *ANIME MENU*
-│›│ ${prefix2}neko
-│›│ ${prefix2}waifu
-╰────────────────────
+  </ANIME MENU
+┌ ❏
+├ ❏  ${prefix2}neko
+├ ❏  ${prefix2}waifu
+└ ❏
 
-╭────⧉ *GAMES MENU*
-│›│ ${prefix2}dungeon
-│›│ ${prefix2}slot
-│›│ ${prefix2}truth
-│›│ ${prefix2}dare
-│›│ ${prefix2}tebakgambar
-╰────────────────────
+  </GAMES MENU
+┌ ❏
+├ ❏  ${prefix2}dungeon
+├ ❏  ${prefix2}slot
+├ ❏  ${prefix2}truth
+├ ❏  ${prefix2}dare
+├ ❏  ${prefix2}tebakgambar
+└ ❏
 
-╭────⧉ *IMAGE MENU*
-│›│ ${prefix2}cogan
-│›│ ${prefix2}cecan
-│›│ ${prefix2}darkjokes
-│›│ ${prefix2}pinterest
-│›│ ${prefix2}ocr
-╰────────────────────
+  </IMAGE MENU
+┌ ❏
+├ ❏  ${prefix2}cogan
+├ ❏  ${prefix2}cecan
+├ ❏  ${prefix2}darkjokes
+├ ❏  ${prefix2}pinterest
+├ ❏  ${prefix2}ocr
+└ ❏
 
-╭────⧉ *RANDOM MENU*
-│›│ ${prefix2}cerpen
-│›│ ${prefix2}ceritahoror
-│›│ ${prefix2}film
-│›│ ${prefix2}fakedata
-│›│ ${prefix2}news
-│›│ ${prefix2}beasiswa
-│›│ ${prefix2}ppcouple
-╰────────────────────
+  </RANDOM MENU
+┌ ❏
+├ ❏  ${prefix2}cerpen
+├ ❏  ${prefix2}ceritahoror
+├ ❏  ${prefix2}film
+├ ❏  ${prefix2}fakedata
+├ ❏  ${prefix2}news
+├ ❏  ${prefix2}beasiswa
+├ ❏  ${prefix2}ppcouple
+└ ❏
 
-╭────⧉ *STICKER MENU*
-│›│ ${prefix2}sticker
-│›│ ${prefix2}ttp
-│›│ ${prefix2}attp
-│›│ ${prefix2}wasted
-│›│ ${prefix2}comrade
-│›│ ${prefix2}jail
-│›│ ${prefix2}passed
-│›│ ${prefix2}trigger
-│›│ ${prefix2}toimg
-╰────────────────────
+  </STICKER MENU
+┌ ❏
+├ ❏  ${prefix2}sticker
+├ ❏  ${prefix2}ttp
+├ ❏  ${prefix2}attp
+├ ❏  ${prefix2}wasted
+├ ❏  ${prefix2}comrade
+├ ❏  ${prefix2}jail
+├ ❏  ${prefix2}passed
+├ ❏  ${prefix2}trigger
+├ ❏  ${prefix2}toimg
+└ ❏
 
-╭────⧉ *EDUCATION MENU*
-│›│ ${prefix2}quiz
-│›│ ${prefix2}nulis
-│›│ ${prefix2}niatsholat
-│›│ ${prefix2}doa
-│›│ ${prefix2}hadist
-╰────────────────────
+  </EDUCATION MENU
+┌ ❏
+├ ❏  ${prefix2}quiz
+├ ❏  ${prefix2}nulis
+├ ❏  ${prefix2}niatsholat
+├ ❏  ${prefix2}doa
+├ ❏  ${prefix2}hadist
+└ ❏
 
-╭────⧉ *AUDIO/VN MENU*
-│›│ ${prefix2}fast
-│›│ ${prefix2}tupai
-│›│ ${prefix2}gemuk
-│›│ ${prefix2}slow
-│›│ ${prefix2}tomp3
-╰────────────────────
+  </AUDIO MENU
+┌ ❏
+├ ❏  ${prefix2}fast
+├ ❏  ${prefix2}tupai
+├ ❏  ${prefix2}gemuk
+├ ❏  ${prefix2}slow
+├ ❏  ${prefix2}tomp3
+└ ❏
 
-╭────⧉ *PREMIUM MENU*
-│›│ ${prefix2}asupan
-│›│ ${prefix2}upswtext
-│›│ ${prefix2}upswimg
-│›│ ${prefix2}upswvideo
-╰────────────────────
+  </PREMIUM MENU
+┌ ❏
+├ ❏  ${prefix2}asupan
+├ ❏  ${prefix2}upswtext
+├ ❏  ${prefix2}upswimg
+├ ❏  ${prefix2}upswvideo
+└ ❏
 
-╭────⧉ *OTHER MENU*
-│›│ ${prefix2}sharelock
-│›│ ${prefix2}delete
-│›│ ${prefix2}pesan
-│›│ ${prefix2}owner
-│›│ ${prefix2}report
-│›│ ${prefix2}timer
-╰────────────────────
+  </OTHER MENU
+┌ ❏ 
+├ ❏  ${prefix2}sharelock
+├ ❏  ${prefix2}delete
+├ ❏  ${prefix2}pesan
+├ ❏  ${prefix2}owner
+├ ❏  ${prefix2}report
+├ ❏  ${prefix2}timer
+└ ❏
 
-╭────⧉ *OWNER MENU*
-│›│ $
-│›│ >
-│›│ =>
-│›│ ${prefix2}makegroup
-│›│ ${prefix2}join
-│›│ ${prefix2}kudet
-│›│ ${prefix2}leave
-│›│ ${prefix2}clone
-│›│ ${prefix2}bc
-│›│ ${prefix2}addprem
-│›│ ${prefix2}dellprem
-│›│ ${prefix2}setbudy
-│›│ ${prefix2}bug
-╰────────────────────
+  </OWNER MENU
+┌ ❏
+├ ❏  $
+├ ❏  >
+├ ❏  =>
+├ ❏  ${prefix2}makegroup
+├ ❏  ${prefix2}join
+├ ❏  ${prefix2}kudet
+├ ❏  ${prefix2}leave
+├ ❏  ${prefix2}clone
+├ ❏  ${prefix2}bc
+├ ❏  ${prefix2}addprem
+├ ❏  ${prefix2}dellprem
+├ ❏  ${prefix2}setbudy
+├ ❏  ${prefix2}bug
+└ ❏
 
-╭────⧉ *THANKS TO*
-│›│ mhankbarbar
-│›│ mitsuhabotz
-│›│ rimurubotz
-│›│ dimxbotz
-│›│ rurichan
-│›│ zak06cheat
-│›│ ridwan
-│›│ hafizh
-╰────────────────────`
+  </THANKS TO
+┌ ❏
+├ ❏  mhankbarbar
+├ ❏  mitsuhabotz
+├ ❏  rimurubotz
+├ ❏  dimxbotz
+├ ❏  rurichan
+├ ❏  zak06cheat
+├ ❏  ridwan
+├ ❏  hafizh
+└ ❏`
 sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
-`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*_________________
@@ -1822,7 +1843,7 @@ buttons = [{buttonId:`BENAR`,buttonText:{displayText:`BENAR`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`JAWABAN BENAR ${benar.length}\nJAWABAN SALAH ${salah.length}\n\n${materi}`, imageMessage: imageMsg,
 contentText:`*QUIZ HARIAN BERHADIAH*`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -1909,8 +1930,7 @@ let gwekke = await client.prepareMessageFromContent(from, {
 {buttonId: 'Tutup', buttonText: {displayText: 'Tutup'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekke)
 addSaldoUser(sender, -50)
 break
@@ -2010,8 +2030,7 @@ let gwekkkje = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable A0', buttonText: {displayText: 'Disable A0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkkje)
 addSaldoUser(sender, -50)
 break
@@ -2035,8 +2054,7 @@ let gwekkkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkkj1e)
 addSaldoUser(sender, -50)
 break
@@ -2519,7 +2537,7 @@ buttons = [{buttonId:`NIH COWOK`,buttonText:{displayText:`NIH COWOK`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.female))
@@ -2527,7 +2545,7 @@ buttons = [{buttonId:`NIH CEWEK`,buttonText:{displayText:`NIH CEWEK`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
@@ -2690,7 +2708,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2711,7 +2729,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2732,7 +2750,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'DARKJOKES', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2753,7 +2771,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -2792,7 +2810,7 @@ buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -3020,8 +3038,7 @@ let gwmkkee = await client.prepareMessageFromContent(from, {
 {buttonId: 'OWNER', buttonText: {displayText: 'OWNER'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwmkkee)
 addSaldoUser(sender, -50)
 break
@@ -3035,7 +3052,7 @@ buttons = [{buttonId:`START`,buttonText:{displayText:'START'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
 contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 addSaldoUser(sender, 100)
 break
@@ -3123,7 +3140,7 @@ buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonI
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
 break
@@ -3295,7 +3312,7 @@ buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -3312,7 +3329,7 @@ buttons = [{buttonId:`么`,buttonText:{displayText:`么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`_Dah Jadi Stah_`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 addSaldoUser(sender, -50)
@@ -3598,7 +3615,7 @@ buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
 break
@@ -3761,8 +3778,7 @@ gwekkhhhkje = await client.prepareMessageFromContent(from, {
 {buttonId: '✅', buttonText: {displayText: '✅'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhhhkje)
 }
 addSaldoUser(sender, -50)
@@ -4349,7 +4365,7 @@ buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonI
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 break
 }
@@ -4385,8 +4401,7 @@ let gwkee = await client.prepareMessageFromContent(from, {
 {buttonId: 'HOME BACK', buttonText: {displayText: 'HOME BACK'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 client.relayWAMessage(gwkee)
 break
 }
@@ -4402,8 +4417,7 @@ let gwee = await client.prepareMessageFromContent(from, {
 {buttonId: 'Tidak', buttonText: {displayText: 'Tidak'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwee)
 break
 }
@@ -4419,8 +4433,7 @@ let gwee = await client.prepareMessageFromContent(from, {
 {buttonId: 'Tidak', buttonText: {displayText: 'Tidak'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwee)
 break
 }
@@ -4435,8 +4448,7 @@ let gwkee = await client.prepareMessageFromContent(from, {
 {buttonId: 'Hubungi Pusat', buttonText: {displayText: 'Hubungi Pusat'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 client.relayWAMessage(gwkee)
 break
 }
@@ -4451,187 +4463,208 @@ if (buttonsR === 'HOME BACK') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
-🏖️ runtime : ${kyun(uptime)}
-📲 dev : wa.me/6285731261728
-🎗 jumlah hit : ${hit_today.length}\n
+🗂 runtime : ${kyun(uptime)}
+🗂 dev : wa.me/6285731261728
+🗂 jumlah hit : ${hit_today.length}\n
+🗂 pengguna : ${_saldo.length} aktif
 
-╭────⧉ *PROFILE KAMU*
-│›│ nama ${pushname}
-│›│ setatus ${premi}
-│›│ saldo Rp. ${getSaldoUser(sender)}
-╰────────────────────
+  </PROFILE KAMU
+┌ ❏
+├ ❏  nama ${pushname}
+├ ❏  setatus ${premi}
+├ ❏  saldo Rp. ${getSaldoUser(sender)}
+└ ❏
 
-╭────⧉ *INFORMASI MENU*
-│›│ ${prefix2}info
-│›│ ${prefix2}iklan
-│›│ ${prefix2}donasi
-│›│ ${prefix2}request
-╰────────────────────
+  </INFORMASI MENU
+┌ ❏
+├ ❏  ${prefix2}info
+├ ❏  ${prefix2}iklan
+├ ❏  ${prefix2}donasi
+├ ❏  ${prefix2}request
+└ ❏
 
-╭────⧉ *BOT PAY MENU*
-│›│ ${prefix2}daftar
-│›│ ${prefix2}saldo
-│›│ ${prefix2}claim
-╰────────────────────
+  </BOT PAY MENU
+┌ ❏
+├ ❏  ${prefix2}daftar
+├ ❏  ${prefix2}saldo
+├ ❏  ${prefix2}claim
+└ ❏
 
-╭────⧉ *EVENT GAMES BOT*
-│›│ ${prefix2}carspeed
-│›│ ${prefix2}lotre
-╰────────────────────
+  </EVENT GAMES BOT
+┌ ❏
+├ ❏  ${prefix2}carspeed
+├ ❏  ${prefix2}lotre
+└ ❏
 
-╭────⧉ *URL TO MEDIA TYPE*
-│›│ ${prefix2}urltoimg
-│›│ ${prefix2}tourl
-│›│ ${prefix2}dburl
-╰────────────────────
+  </URL TO MEDIA TYPE
+┌ ❏
+├ ❏  ${prefix2}urltoimg
+├ ❏  ${prefix2}tourl
+├ ❏  ${prefix2}dburl
+└ ❏
 
-╭────⧉ *PRODUK & VOTING*
-│›│ ${prefix2}produk
-│›│ ${prefix2}tambah
-│›│ ${prefix2}votting
-│›│ ${prefix2}vote
-│›│ ${prefix2}dellvote
-╰────────────────────
+  </PRODUK & VOTING
+┌ ❏
+├ ❏  ${prefix2}produk
+├ ❏  ${prefix2}tambah
+├ ❏  ${prefix2}votting
+├ ❏  ${prefix2}vote
+├ ❏  ${prefix2}dellvote
+└ ❏
 
-╭────⧉ *ULASAN & MUTUAL*
-│›│ ${prefix2}ulasan
-│›│ ${prefix2}komentar
-│›│ ${prefix2}mutual
-│›│ ${prefix2}save
-╰────────────────────
+  </ULASAN & MUTUAL
+┌ ❏
+├ ❏  ${prefix2}ulasan
+├ ❏  ${prefix2}komentar
+├ ❏  ${prefix2}mutual
+├ ❏  ${prefix2}save
+└ ❏
 
-╭────⧉ *ABSEN & MESSAGES*
-│›│ ${prefix2}absen
-│›│ ${prefix2}absensi
-│›│ ${prefix2}svmess
-│›│ ${prefix2}listmess
-╰────────────────────
+  </ABSEN & MESSAGES
+┌ ❏
+├ ❏  ${prefix2}absen
+├ ❏  ${prefix2}absensi
+├ ❏  ${prefix2}svmess
+├ ❏  ${prefix2}listmess
+└ ❏
 
-╭────⧉ *GROUP MENU*
-│›│ ${prefix2}afk
-│›│ ${prefix2}undang
-│›│ ${prefix2}enable
-│›│ ${prefix2}disable
-│›│ ${prefix2}bangrup
-│›│ ${prefix2}unbangrup
-│›│ ${prefix2}ban
-│›│ ${prefix2}unban
-│›│ ${prefix2}sider
-│›│ ${prefix2}hidetag
-│›│ ${prefix2}fitnah
-│›│ ${prefix2}settings
-│›│ ${prefix2}revoke
-│›│ ${prefix2}add
-│›│ ${prefix2}kick
-│›│ ${prefix2}promote
-│›│ ${prefix2}demote
-│›│ ${prefix2}tagall
-│›│ ${prefix2}antilink
-│›│ ${prefix2}antitoxic
-│›│ ${prefix2}welcome
-╰────────────────────
+  </GROUP MENU
+┌ ❏
+├ ❏  ${prefix2}afk
+├ ❏  ${prefix2}undang
+├ ❏  ${prefix2}enable
+├ ❏  ${prefix2}disable
+├ ❏  ${prefix2}bangrup
+├ ❏  ${prefix2}unbangrup
+├ ❏  ${prefix2}ban
+├ ❏  ${prefix2}unban
+├ ❏  ${prefix2}sider
+├ ❏  ${prefix2}hidetag
+├ ❏  ${prefix2}fitnah
+├ ❏  ${prefix2}settings
+├ ❏  ${prefix2}revoke
+├ ❏  ${prefix2}add
+├ ❏  ${prefix2}kick
+├ ❏  ${prefix2}promote
+├ ❏  ${prefix2}demote
+├ ❏  ${prefix2}tagall
+├ ❏  ${prefix2}antilink
+├ ❏  ${prefix2}antitoxic
+├ ❏  ${prefix2}welcome
+└ ❏
 
-╭────⧉ *ANIME MENU*
-│›│ ${prefix2}neko
-│›│ ${prefix2}waifu
-╰────────────────────
+  </ANIME MENU
+┌ ❏
+├ ❏  ${prefix2}neko
+├ ❏  ${prefix2}waifu
+└ ❏
 
-╭────⧉ *GAMES MENU*
-│›│ ${prefix2}dungeon
-│›│ ${prefix2}slot
-│›│ ${prefix2}truth
-│›│ ${prefix2}dare
-│›│ ${prefix2}tebakgambar
-╰────────────────────
+  </GAMES MENU
+┌ ❏
+├ ❏  ${prefix2}dungeon
+├ ❏  ${prefix2}slot
+├ ❏  ${prefix2}truth
+├ ❏  ${prefix2}dare
+├ ❏  ${prefix2}tebakgambar
+└ ❏
 
-╭────⧉ *IMAGE MENU*
-│›│ ${prefix2}cogan
-│›│ ${prefix2}cecan
-│›│ ${prefix2}darkjokes
-│›│ ${prefix2}pinterest
-│›│ ${prefix2}ocr
-╰────────────────────
+  </IMAGE MENU
+┌ ❏
+├ ❏  ${prefix2}cogan
+├ ❏  ${prefix2}cecan
+├ ❏  ${prefix2}darkjokes
+├ ❏  ${prefix2}pinterest
+├ ❏  ${prefix2}ocr
+└ ❏
 
-╭────⧉ *RANDOM MENU*
-│›│ ${prefix2}cerpen
-│›│ ${prefix2}ceritahoror
-│›│ ${prefix2}film
-│›│ ${prefix2}fakedata
-│›│ ${prefix2}news
-│›│ ${prefix2}beasiswa
-│›│ ${prefix2}ppcouple
-╰────────────────────
+  </RANDOM MENU
+┌ ❏
+├ ❏  ${prefix2}cerpen
+├ ❏  ${prefix2}ceritahoror
+├ ❏  ${prefix2}film
+├ ❏  ${prefix2}fakedata
+├ ❏  ${prefix2}news
+├ ❏  ${prefix2}beasiswa
+├ ❏  ${prefix2}ppcouple
+└ ❏
 
-╭────⧉ *STICKER MENU*
-│›│ ${prefix2}sticker
-│›│ ${prefix2}ttp
-│›│ ${prefix2}attp
-│›│ ${prefix2}wasted
-│›│ ${prefix2}comrade
-│›│ ${prefix2}jail
-│›│ ${prefix2}passed
-│›│ ${prefix2}trigger
-│›│ ${prefix2}toimg
-╰────────────────────
+  </STICKER MENU
+┌ ❏
+├ ❏  ${prefix2}sticker
+├ ❏  ${prefix2}ttp
+├ ❏  ${prefix2}attp
+├ ❏  ${prefix2}wasted
+├ ❏  ${prefix2}comrade
+├ ❏  ${prefix2}jail
+├ ❏  ${prefix2}passed
+├ ❏  ${prefix2}trigger
+├ ❏  ${prefix2}toimg
+└ ❏
 
-╭────⧉ *EDUCATION MENU*
-│›│ ${prefix2}quiz
-│›│ ${prefix2}nulis
-│›│ ${prefix2}niatsholat
-│›│ ${prefix2}doa
-│›│ ${prefix2}hadist
-╰────────────────────
+  </EDUCATION MENU
+┌ ❏
+├ ❏  ${prefix2}quiz
+├ ❏  ${prefix2}nulis
+├ ❏  ${prefix2}niatsholat
+├ ❏  ${prefix2}doa
+├ ❏  ${prefix2}hadist
+└ ❏
 
-╭────⧉ *AUDIO/VN MENU*
-│›│ ${prefix2}fast
-│›│ ${prefix2}tupai
-│›│ ${prefix2}gemuk
-│›│ ${prefix2}slow
-│›│ ${prefix2}tomp3
-╰────────────────────
+  </AUDIO MENU
+┌ ❏
+├ ❏  ${prefix2}fast
+├ ❏  ${prefix2}tupai
+├ ❏  ${prefix2}gemuk
+├ ❏  ${prefix2}slow
+├ ❏  ${prefix2}tomp3
+└ ❏
 
-╭────⧉ *PREMIUM MENU*
-│›│ ${prefix2}asupan
-│›│ ${prefix2}upswtext
-│›│ ${prefix2}upswimg
-│›│ ${prefix2}upswvideo
-╰────────────────────
+  </PREMIUM MENU
+┌ ❏
+├ ❏  ${prefix2}asupan
+├ ❏  ${prefix2}upswtext
+├ ❏  ${prefix2}upswimg
+├ ❏  ${prefix2}upswvideo
+└ ❏
 
-╭────⧉ *OTHER MENU*
-│›│ ${prefix2}sharelock
-│›│ ${prefix2}delete
-│›│ ${prefix2}pesan
-│›│ ${prefix2}owner
-│›│ ${prefix2}report
-│›│ ${prefix2}timer
-╰────────────────────
+  </OTHER MENU
+┌ ❏ 
+├ ❏  ${prefix2}sharelock
+├ ❏  ${prefix2}delete
+├ ❏  ${prefix2}pesan
+├ ❏  ${prefix2}owner
+├ ❏  ${prefix2}report
+├ ❏  ${prefix2}timer
+└ ❏
 
-╭────⧉ *OWNER MENU*
-│›│ $
-│›│ >
-│›│ =>
-│›│ ${prefix2}makegroup
-│›│ ${prefix2}join
-│›│ ${prefix2}kudet
-│›│ ${prefix2}leave
-│›│ ${prefix2}clone
-│›│ ${prefix2}bc
-│›│ ${prefix2}addprem
-│›│ ${prefix2}dellprem
-│›│ ${prefix2}setbudy
-│›│ ${prefix2}bug
-╰────────────────────
+  </OWNER MENU
+┌ ❏
+├ ❏  $
+├ ❏  >
+├ ❏  =>
+├ ❏  ${prefix2}makegroup
+├ ❏  ${prefix2}join
+├ ❏  ${prefix2}kudet
+├ ❏  ${prefix2}leave
+├ ❏  ${prefix2}clone
+├ ❏  ${prefix2}bc
+├ ❏  ${prefix2}addprem
+├ ❏  ${prefix2}dellprem
+├ ❏  ${prefix2}setbudy
+├ ❏  ${prefix2}bug
+└ ❏
 
-╭────⧉ *THANKS TO*
-│›│ mhankbarbar
-│›│ mitsuhabotz
-│›│ rimurubotz
-│›│ dimxbotz
-│›│ rurichan
-│›│ zak06cheat
-│›│ ridwan
-│›│ hafizh
-╰────────────────────`
+  </THANKS TO
+┌ ❏
+├ ❏  mhankbarbar
+├ ❏  mitsuhabotz
+├ ❏  rimurubotz
+├ ❏  dimxbotz
+├ ❏  rurichan
+├ ❏  zak06cheat
+├ ❏  ridwan
+├ ❏  hafizh
+└ ❏`
 sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
 `,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -4677,8 +4710,7 @@ let gwmkkeje = await client.prepareMessageFromContent(from, {
 {buttonId: 'OWNER', buttonText: {displayText: 'OWNER'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwmkkeje)
 break
 }
@@ -4719,8 +4751,7 @@ let gwmgkkeje = await client.prepareMessageFromContent(from, {
 {buttonId: 'OWNER', buttonText: {displayText: 'OWNER'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwmgkkeje)
 break
 }
@@ -5057,7 +5088,7 @@ break
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/dg.png`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
               contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
               client.relayWAMessage(prep)
               
               
@@ -5073,7 +5104,7 @@ break
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Skull.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Monster Tipe Pengguna Pedang Yang Ahli, Konon Pada Tahun 1567 Di Amerika Serikat Seorang Kesatria Berjuang Sendiri Melawan Penjajahan`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
               client.relayWAMessage(prep)
               
 break
@@ -5088,7 +5119,7 @@ break
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Slime.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Slime Atau Sering Disebut Juga Lendir Memiliki Skill Hebat Ia Mampu Membelah Dirinya Menjadi Banyak Hingga Membuat Lawan Kuwalahan Menghadapinya`, imageMessage: imageMsg,
               contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
               client.relayWAMessage(prep)
               
 break
@@ -5099,7 +5130,7 @@ buttons = [{buttonId:`BUY`,buttonText:{displayText:'BUY'},type:1}]
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`HARGA 1 PERALATAN DI BANDROL DENGAN HARGA 1000 XP`, imageMessage: imageMsg,
               contentText:`*PERALATAN PERANG*`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
               client.relayWAMessage(prep)
               
 break
@@ -5174,7 +5205,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
               buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               addSaldoUser(sender, -50)
@@ -5195,7 +5226,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
               buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               addSaldoUser(sender, -50)
@@ -5217,7 +5248,7 @@ buttons = [{buttonId:`么 darkjokes 么`,buttonText:{displayText:`么 darkjokes 
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'DARKJOKES', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 }
@@ -5233,7 +5264,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
               buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
               client.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               addSaldoUser(sender, -50)
@@ -5377,7 +5408,7 @@ buttons = [{buttonId:`么 cerita_horor 么`,buttonText:{displayText:`么 cerita_
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -5399,7 +5430,7 @@ buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId:
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 break
 }
@@ -5419,7 +5450,7 @@ buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage, quoted: mek})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 break
@@ -5604,8 +5635,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5629,8 +5659,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5654,8 +5683,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5679,8 +5707,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5704,8 +5731,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5729,8 +5755,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) {
@@ -5754,8 +5779,7 @@ gwekkhkj1e = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable T0', buttonText: {displayText: 'Disable T0'}, type: 1}
 ],
 headerType: 1
-},
-})
+},{ quoted: mek })
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.badword === 5) { 
