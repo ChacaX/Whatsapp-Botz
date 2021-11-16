@@ -213,7 +213,7 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].saldo += amount * 1
+_saldo[position].saldo += amount
 fs.writeFileSync('./lib/saldo.json', JSON.stringify(_saldo))
 }
 }
