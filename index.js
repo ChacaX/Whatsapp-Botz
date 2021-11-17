@@ -118,14 +118,14 @@ ___________________*/
 	     lotre9 = "9⃣"
 	
 prefix = setting.prefix
-prefix2 = `#`
+prefix2 = `${prefix2}`
 owner = setting.ownerNumber
 namaowner = setting.nama
 namabot = setting.bot
 nobot = setting.nobot
-thumb = fs.readFileSync(`./lib/Img.jpg`)
+thumb = fs.readFileSync(`./lib/odc.jpg`)
 thumb2 = fs.readFileSync(`./lib/odc.jpeg`)
-fakeimage = fs.readFileSync(`./lib/Img.jpg`)
+fakeimage = fs.readFileSync(`./lib/odc.jpg`)
 namo = ``
 ator = ``
 numbernye = '0'
@@ -655,7 +655,7 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
 
 const freply =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 0, status: 200, thumbnail: thumb, surface: 200, message: `support from meta`, orderTitle: 'support from meta', sellerJid: '0@s.whatsapp.net'} } } 
 
-const fdoc = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "title": `「 *MITSUHA BOTZ* 」`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('./lib/Img.jpg')}}}
+const fdoc = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "title": `「 *MITSUHA BOTZ* 」`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('./lib/odc.jpg')}}}
 
 const fvn = {
 key: { 
@@ -1111,7 +1111,7 @@ client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)}
 }
 
 /*if (budy == '.kick'
-|| (budy == '#kick')) {
+|| (budy == '${prefix2}kick')) {
 if (!isGroup) return reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
 if (!isGroupAdmins) return reply(`khusus admin`)
 if (!isBotGroupAdmins) return reply(`bot harus jadi admin`)	
@@ -1121,7 +1121,7 @@ console.log(color('[COMMAND]', 'blue'), color('Kick', 'yellow'), color(time, 'wh
 }*/
 
 /*if (budy == '.add'
-|| (budy == '#add')) {
+|| (budy == '${prefix2}add')) {
 try {
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
@@ -1373,7 +1373,7 @@ menu3 = await client.prepareMessage(from, menu2, MessageType.image, {thumbnile: 
 menu4 = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
 menu5 = {
 contentText: `*hello saya mitsuha akan membantumu dalam membuat sticker dan lain lain*\n\n*runtime : ${kyun(uptime)}*\n*chats : ${tchat}*\n*hit : ${hit_today.length}*\n\n  *THANKS TO*\n• mitsuha\n• mhankbarbar\n• nayla\n• zaky\n• all creator`,
-footerText: `_jika tidak muncul tombol silahkan ketik manual #allmenu untuk memunculkan list menu_`,
+footerText: `_jika tidak muncul tombol silahkan ketik manual ${prefix2}allmenu untuk memunculkan list menu_`,
 buttons: menu4,
 headerType: 4,
 imageMessage: menu3.message.imageMessage
@@ -1408,203 +1408,163 @@ teks =`*M I T S U H A - W A B O T*\n
 📋 jumlah hit : ${hit_today.length}
 📋 pengguna : ${_saldo.length} aktif
 
-  *</PROFILE KAMU*
-┌ ❏
-├ ❏  nama ${pushname}
-├ ❏  setatus ${premi}
-├ ❏  saldo Rp. ${getSaldoUser(sender)}
-└ ❏
+*PROFILE KAMU*
+-  nama ${pushname}
+-  setatus ${premi}
+-  saldo Rp. ${getSaldoUser(sender)}
 
-  *</INFORMASI MENU*
-┌ ❏
-├ ❏  ${prefix2}info
-├ ❏  ${prefix2}iklan
-├ ❏  ${prefix2}donasi
-├ ❏  ${prefix2}request
-└ ❏
+*INFORMASI MENU*
+-  ${prefix2}info
+-  ${prefix2}iklan
+-  ${prefix2}donasi
+-  ${prefix2}request
 
-  *</BOT PAY MENU*
-┌ ❏
-├ ❏  ${prefix2}daftar
-├ ❏  ${prefix2}saldo
-├ ❏  ${prefix2}claim
-└ ❏
+*BOT PAY MENU*
+-  ${prefix2}daftar
+-  ${prefix2}saldo
+-  ${prefix2}claim
 
-  *</EVENT GAMES BOT*
-┌ ❏
-├ ❏  ${prefix2}carspeed
-├ ❏  ${prefix2}lotre
-└ ❏
+*EVENT GAMES BOT*
+-  ${prefix2}carspeed
+-  ${prefix2}lotre
 
-  *</URL TO MEDIA TYPE*
-┌ ❏
-├ ❏  ${prefix2}urltoimg
-├ ❏  ${prefix2}tourl
-├ ❏  ${prefix2}dburl
-└ ❏
+*URL TO MEDIA TYPE*
+-  ${prefix2}urltoimg
+-  ${prefix2}tourl
+-  ${prefix2}dburl
 
-  *</PRODUK & VOTING*
-┌ ❏
-├ ❏  ${prefix2}produk
-├ ❏  ${prefix2}tambah
-├ ❏  ${prefix2}votting
-├ ❏  ${prefix2}vote
-├ ❏  ${prefix2}dellvote
-└ ❏
+*PRODUK & VOTING*
+-  ${prefix2}produk
+-  ${prefix2}tambah
+-  ${prefix2}votting
+-  ${prefix2}vote
+-  ${prefix2}dellvote
 
-  *</ULASAN & MUTUAL*
-┌ ❏
-├ ❏  ${prefix2}ulasan
-├ ❏  ${prefix2}komentar
-├ ❏  ${prefix2}mutual
-├ ❏  ${prefix2}save
-└ ❏
+*ULASAN & MUTUAL*
+-  ${prefix2}ulasan
+-  ${prefix2}komentar
+-  ${prefix2}mutual
+-  ${prefix2}save
 
-  *</ABSEN & MESSAGES*
-┌ ❏
-├ ❏  ${prefix2}absen
-├ ❏  ${prefix2}absensi
-├ ❏  ${prefix2}svmess
-├ ❏  ${prefix2}listmess
-└ ❏
+*ABSEN & MESSAGES*
+-  ${prefix2}absen
+-  ${prefix2}absensi
+-  ${prefix2}svmess
+-  ${prefix2}listmess
 
-  *</GROUP MENU*
-┌ ❏
-├ ❏  ${prefix2}afk
-├ ❏  ${prefix2}undang
-├ ❏  ${prefix2}enable
-├ ❏  ${prefix2}disable
-├ ❏  ${prefix2}bangrup
-├ ❏  ${prefix2}unbangrup
-├ ❏  ${prefix2}ban
-├ ❏  ${prefix2}unban
-├ ❏  ${prefix2}sider
-├ ❏  ${prefix2}hidetag
-├ ❏  ${prefix2}fitnah
-├ ❏  ${prefix2}settings
-├ ❏  ${prefix2}revoke
-├ ❏  ${prefix2}add
-├ ❏  ${prefix2}kick
-├ ❏  ${prefix2}promote
-├ ❏  ${prefix2}demote
-├ ❏  ${prefix2}tagall
-├ ❏  ${prefix2}antilink
-├ ❏  ${prefix2}antitoxic
-├ ❏  ${prefix2}welcome
-└ ❏
+*GROUP MENU*
+-  ${prefix2}afk
+-  ${prefix2}undang
+-  ${prefix2}enable
+-  ${prefix2}disable
+-  ${prefix2}bangrup
+-  ${prefix2}unbangrup
+-  ${prefix2}ban
+-  ${prefix2}unban
+-  ${prefix2}sider
+-  ${prefix2}hidetag
+-  ${prefix2}fitnah
+-  ${prefix2}settings
+-  ${prefix2}revoke
+-  ${prefix2}add
+-  ${prefix2}kick
+-  ${prefix2}promote
+-  ${prefix2}demote
+-  ${prefix2}tagall
+-  ${prefix2}antilink
+-  ${prefix2}antitoxic
+-  ${prefix2}welcome
 
-  *</ANIME MENU*
-┌ ❏
-├ ❏  ${prefix2}neko
-├ ❏  ${prefix2}waifu
-└ ❏
+*ANIME MENU*
+-  ${prefix2}neko
+-  ${prefix2}waifu
 
-  *</GAMES MENU*
-┌ ❏
-├ ❏  ${prefix2}dungeon
-├ ❏  ${prefix2}slot
-├ ❏  ${prefix2}truth
-├ ❏  ${prefix2}dare
-├ ❏  ${prefix2}tebakgambar
-└ ❏
+*GAMES MENU*
+-  ${prefix2}dungeon
+-  ${prefix2}slot
+-  ${prefix2}truth
+-  ${prefix2}dare
+-  ${prefix2}tebakgambar
 
-  *</IMAGE MENU*
-┌ ❏
-├ ❏  ${prefix2}cogan
-├ ❏  ${prefix2}cecan
-├ ❏  ${prefix2}darkjokes
-├ ❏  ${prefix2}pinterest
-├ ❏  ${prefix2}ocr
-└ ❏
+*IMAGE MENU*
+-  ${prefix2}cogan
+-  ${prefix2}cecan
+-  ${prefix2}darkjokes
+-  ${prefix2}pinterest
+-  ${prefix2}ocr
 
-  *</RANDOM MENU*
-┌ ❏
-├ ❏  ${prefix2}cerpen
-├ ❏  ${prefix2}ceritahoror
-├ ❏  ${prefix2}film
-├ ❏  ${prefix2}fakedata
-├ ❏  ${prefix2}news
-├ ❏  ${prefix2}beasiswa
-├ ❏  ${prefix2}ppcouple
-└ ❏
+*RANDOM MENU*
+-  ${prefix2}cerpen
+-  ${prefix2}ceritahoror
+-  ${prefix2}film
+-  ${prefix2}fakedata
+-  ${prefix2}news
+-  ${prefix2}beasiswa
+-  ${prefix2}ppcouple
 
-  *</STICKER MENU*
-┌ ❏
-├ ❏  ${prefix2}sticker
-├ ❏  ${prefix2}ttp
-├ ❏  ${prefix2}attp
-├ ❏  ${prefix2}wasted
-├ ❏  ${prefix2}comrade
-├ ❏  ${prefix2}jail
-├ ❏  ${prefix2}passed
-├ ❏  ${prefix2}trigger
-├ ❏  ${prefix2}toimg
-└ ❏
+*STICKER MENU*
+-  ${prefix2}sticker
+-  ${prefix2}ttp
+-  ${prefix2}attp
+-  ${prefix2}wasted
+-  ${prefix2}comrade
+-  ${prefix2}jail
+-  ${prefix2}passed
+-  ${prefix2}trigger
+-  ${prefix2}toimg
 
-  *</EDUCATION MENU*
-┌ ❏
-├ ❏  ${prefix2}quiz
-├ ❏  ${prefix2}nulis
-├ ❏  ${prefix2}niatsholat
-├ ❏  ${prefix2}doa
-├ ❏  ${prefix2}hadist
-└ ❏
+*EDUCATION MENU*
+-  ${prefix2}quiz
+-  ${prefix2}nulis
+-  ${prefix2}niatsholat
+-  ${prefix2}doa
+-  ${prefix2}hadist
 
-  *</AUDIO MENU*
-┌ ❏
-├ ❏  ${prefix2}fast
-├ ❏  ${prefix2}tupai
-├ ❏  ${prefix2}gemuk
-├ ❏  ${prefix2}slow
-├ ❏  ${prefix2}tomp3
-└ ❏
+*AUDIO MENU*
+-  ${prefix2}fast
+-  ${prefix2}tupai
+-  ${prefix2}gemuk
+-  ${prefix2}slow
+-  ${prefix2}tomp3
 
-  *</PREMIUM MENU*
-┌ ❏
-├ ❏  ${prefix2}asupan
-├ ❏  ${prefix2}upswtext
-├ ❏  ${prefix2}upswimg
-├ ❏  ${prefix2}upswvideo
-└ ❏
+*PREMIUM MENU*
+-  ${prefix2}asupan
+-  ${prefix2}upswtext
+-  ${prefix2}upswimg
+-  ${prefix2}upswvideo
 
-  *</OTHER MENU*
-┌ ❏ 
-├ ❏  ${prefix2}sharelock
-├ ❏  ${prefix2}delete
-├ ❏  ${prefix2}pesan
-├ ❏  ${prefix2}owner
-├ ❏  ${prefix2}report
-├ ❏  ${prefix2}timer
-└ ❏
+*OTHER MENU* 
+-  ${prefix2}sharelock
+-  ${prefix2}delete
+-  ${prefix2}pesan
+-  ${prefix2}owner
+-  ${prefix2}report
+-  ${prefix2}timer
 
-  *</OWNER MENU*
-┌ ❏
-├ ❏  $
-├ ❏  >
-├ ❏  =>
-├ ❏  ${prefix2}makegroup
-├ ❏  ${prefix2}join
-├ ❏  ${prefix2}kudet
-├ ❏  ${prefix2}leave
-├ ❏  ${prefix2}clone
-├ ❏  ${prefix2}bc
-├ ❏  ${prefix2}addprem
-├ ❏  ${prefix2}dellprem
-├ ❏  ${prefix2}setbudy
-├ ❏  ${prefix2}bug
-└ ❏
+*OWNER MENU*
+-  $
+-  >
+-  =>
+-  ${prefix2}makegroup
+-  ${prefix2}join
+-  ${prefix2}kudet
+-  ${prefix2}leave
+-  ${prefix2}clone
+-  ${prefix2}bc
+-  ${prefix2}addprem
+-  ${prefix2}dellprem
+-  ${prefix2}setbudy
+-  ${prefix2}bug
 
-  *</THANKS TO*
-┌ ❏
-├ ❏  mhankbarbar
-├ ❏  mitsuhabotz
-├ ❏  rimurubotz
-├ ❏  dimxbotz
-├ ❏  rurichan
-├ ❏  zak06cheat
-├ ❏  ridwan
-├ ❏  hafizh
-└ ❏`
+*THANKS TO*
+-  mhankbarbar
+-  mitsuhabotz
+-  rimurubotz
+-  dimxbotz
+-  rurichan
+-  zak06cheat
+-  ridwan
+-  hafizh`
 sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
 `,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -1636,7 +1596,7 @@ if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan k
 await addSaldoUser(sender, 800)
 reply(`selamat kamu mendapatkan saldo sebanyak Rp. 800`)
 addBoxUser(sender, -1)
-} else {return reply(`silahkan pilih box salah satu yang berada di bawah ini\n\n1⃣2⃣3⃣\n\nsilahkan pilih #box 1 sampai 3`)}
+} else {return reply(`silahkan pilih box salah satu yang berada di bawah ini\n\n1⃣2⃣3⃣\n\nsilahkan pilih ${prefix2}box 1 sampai 3`)}
 break
 	
 case 'lotre':
@@ -1721,7 +1681,7 @@ fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
 ini = `❌`
 lotre9 = ini
 reply(`zonk`)
-} else {return reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan pilih #lotre 1 sampai 9_`)}
+} else {return reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan pilih ${prefix2}lotre 1 sampai 9_`)}
 addSaldoUser(sender, 100)
 break
 
@@ -1732,7 +1692,7 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
-if(!q) return reply(`teksnya mana kak? contoh:\n\n#kudet nama|desc`)
+if(!q) return reply(`teksnya mana kak? contoh:\n\n${prefix2}kudet nama|desc`)
 ppp = `${args.join(' ')}`
 send = ppp.split("|")[0];
 lok = ppp.split("|")[1];
@@ -1794,8 +1754,8 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
-if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
-if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
+if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
 biopro = q.split('|')[2]
@@ -1944,7 +1904,7 @@ client.updatePresence(from, Presence.composing)
 if (args[1]=="detik") {var timer = args[0]+"000"
 } else if (args[1]=="menit") {var timer = args[0]+"0000"
 } else if (args[1]=="jam") {var timer = args[0]+"00000"
-} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #timer 1 menit_`)}
+} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : ${prefix2}timer 1 menit_`)}
 creator = "6285731261728@s.whatsapp.net"
 setTimeout( () => {
 sendButLocation(from, `JEDA ALARM ⏰`, `TIMER - BOTZ`, {jpegThumbnail:fakeimage}, [{buttonId:`JEDA 1 MENIT`,buttonText:{displayText:'JEDA 1 MENIT'},type:1},{buttonId:`MATIKAN`,buttonText:{displayText:'MATIKAN'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
@@ -2236,7 +2196,7 @@ quotedis = mek.message.extendedTextMessage.contextInfo.participant
 await client.groupAdd(from, [quotedis])
 } catch (e) {
 console.log('Error :', e)
-reply('_reply pesan chat member yang keluar lalu ketik #add_')
+reply('_reply pesan chat member yang keluar lalu ketik ${prefix2}add_')
 }*/
 addSaldoUser(sender, -50)
 break
@@ -2251,8 +2211,8 @@ if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
 mem = body.slice(6)
 if (mem.length > 15) return ('Hanya Bisa Ngekick 1 Nomor') 
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
-if (mek.message.extendedTextMessage.contextInfo.participant) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : #kick @tag*`) 
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : ${prefix2}kick @tag*`) 
+if (mek.message.extendedTextMessage.contextInfo.participant) return reply(`*Format Salah*\n\n*Tag target yang ingin di Kick*\n*Ex : ${prefix2}kick @tag*`) 
 mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 if (mentioned.length > 1) {
 for (let _ of mentioned) {
@@ -2350,7 +2310,7 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
-if (args.length < 1) return reply(`*Format Salah*\n\n*Tag target yang ingin di Ban*\n*Ex : #ban @tag*`)
+if (args.length < 1) return reply(`*Format Salah*\n\n*Tag target yang ingin di Ban*\n*Ex : ${prefix2}ban @tag*`)
 adpr = body.slice(6)
 ban.push(`${adpr}@s.whatsapp.net`)
 fs.writeFileSync('./src/ban.json', JSON.stringify(ban))
@@ -2365,7 +2325,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
-if (args.length < 1) return reply(`*Format Salah*\n\n*Tag target yang ingin di unban*\n*Ex : #unban @tag*`)
+if (args.length < 1) return reply(`*Format Salah*\n\n*Tag target yang ingin di unban*\n*Ex : ${prefix2}unban @tag*`)
 din02 = body.slice(6)
 ban.splice(`${din02}@s.whatsapp.net`, 1)
 fs.writeFileSync('./src/ban.json', JSON.stringify(ban))
@@ -2993,9 +2953,9 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
-if (args.length < 1) return reply(`_example : #pesan 62...|pesan_`)
+if (args.length < 1) return reply(`_example : ${prefix2}pesan 62...|pesan_`)
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
-if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - dan tanpa spasi contoh\n\n#undang 628573126xxx')
+if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - dan tanpa spasi contoh\n\n${prefix2}undang 628573126xxx')
 var FG = body.slice(8)
 var F1 = FG.split("|")[0];
 var F2 = FG.split("|")[1];
@@ -3175,9 +3135,9 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
-if (!q) return reply(`*example*: #undang 628xxx`)
+if (!q) return reply(`*example*: ${prefix2}undang 628xxx`)
 if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
-if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - dan tanpa spasi contoh\n\n#undang 628573126xxx')
+if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - dan tanpa spasi contoh\n\n${prefix2}undang 628573126xxx')
 linkgc =  await client.groupInviteCode (from)
 ppimg =  client.getProfilePicture(from)
 ppnya = await getBuffer(ppimg)
@@ -3201,28 +3161,34 @@ me = client.user
 uptime = process.uptime()
 var G1 = await client.groupMetadata(from)
 creator = "6285731261728@s.whatsapp.net"
-teks =`*( INFO MITSUHA WHATSAPP )*\n
-\`\`\`nama : ${me.name}\`\`\`
-\`\`\`nomor : ${me.jid.split('@')[0]}\`\`\`
-\`\`\`prefix : MULTI PREFIX\`\`\`
-\`\`\`runtime : ${kyun(uptime)}\`\`\`
-\`\`\`total hit : ${hit_today.length}\`\`\`
-\`\`\`user premium : ${premium.length}\`\`\`
-\`\`\`total hit : ${hit_today.length}\`\`\`
-\`\`\`total chat : ${tchat}\`\`\`
-\`\`\`block kontak : ${blocked.length}\`\`\`
+teks =`*INFO MITSUHA WHATSAPP*
+- nama : ${me.name}
+- nomor : ${me.jid.split('@')[0]}
+- prefix : MULTI PREFIX
+- runtime : ${kyun(uptime)}
 
-*( INFO GROUP WHATSAPP )*\n
-\`\`\`status antilink : ${anlink}\`\`\`
-\`\`\`status antitoxic : ${anto}\`\`\`
-\`\`\`status simisimi : ${sim}\`\`\`
-\`\`\`user antilink : ${antilink.length}\`\`\`
-\`\`\`user antitoxic : ${antitoxic.length}\`\`\`
-\`\`\`user simisimi : ${samih.length}\`\`\`
-\`\`\`member grup : ${groupMembers.length}\`\`\`
-\`\`\`admin grup : ${groupAdmins.length}\`\`\`
-\`\`\`group id : ${G1.id}\`\`\`
-\`\`\`link grup : https://chat.whatsapp.com/${linkgc}\`\`\``
+*INFO DATABASE BOT*
+- total hit : ${hit_today.length}
+- user premium : ${premium.length}
+- total hit : ${hit_today.length}
+- total chat : ${tchat}
+- block kontak : ${blocked.length}
+
+*STATUS GROUP WHATSAPP*
+- status antilink : ${anlink}
+- status antitoxic : ${anto}
+- status simisimi : ${sim}
+- member grup : ${groupMembers.length}
+- admin grup : ${groupAdmins.length}
+
+*DATABASE SETTINGS*
+- user antilink : ${antilink.length}
+- user antitoxic : ${antitoxic.length}
+- user simisimi : ${samih.length}
+- user welcome : ${welkom.length}
+
+*URL GROUP WHATSAPP*
+- url : https://chat.whatsapp.com/${linkgc}`
 sendButLocation(from, `${teks}`, `INFO BOT - INFO GROUP`,{jpegThumbnail:ppnya}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 addSaldoUser(sender, -50)
 break
@@ -3667,7 +3633,7 @@ client.updatePresence(from, Presence.composing)
 if (args[1]=="detik") {var waktu = args[0]+"000"
 } else if (args[1]=="menit") {var waktu = args[0]+"0000"
 } else if (args[1]=="jam") {var waktu = args[0]+"00000"
-} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #votting 1 menit alasan_\n_note : alasan gunakan "." sebagai pengganti sepasi_`)}
+} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : ${prefix2}votting 1 menit alasan_\n_note : alasan gunakan "." sebagai pengganti sepasi_`)}
 /*ppp = `${args.join(' ')}`*/
 /*waktu = ppp.split("|")[0];*/
 votenya= args[2]
@@ -3691,7 +3657,7 @@ setTimeout( () => {
 ini3 = vote.indexOf(from)
 vote.splice(ini3, 1)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
-vote.push(`_saat ini sedang tidak ada votting silahkan ketik #votting untuk memulai votting_`)
+vote.push(`_saat ini sedang tidak ada votting silahkan ketik ${prefix2}votting untuk memulai votting_`)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
 }, waktu)
 }
@@ -3813,14 +3779,14 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_hanya bisa di grup_`)  
 if (isAbsen) return reply(`_kamu sudah absensi tadi_`)
-if (!isRabsen) return reply(`_belum buat daftar absen, silahkan ketik #absen terlebih dahulu_`)
+if (!isRabsen) return reply(`_belum buat daftar absen, silahkan ketik ${prefix2}absen terlebih dahulu_`)
 absen.push(sender)
 fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 teks = `*LIST DAFTAR HADIR ABSEN*:\n`
 for (let sensi of absen) {
 teks += `=-> @${sensi.split('@')[0]} ✅\n`
 }
-teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
+teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik ${prefix2}absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
 client.sendMessage(from, teks.trim(), extendedText, { contextInfo: {"mentionedJid": absen}})
 addSaldoUser(sender, -50)
 break
@@ -3835,7 +3801,7 @@ client.updatePresence(from, Presence.composing)
 if (args[1]=="detik") {var tem = args[0]+"000"
 } else if (args[1]=="menit") {var tem = args[0]+"0000"
 } else if (args[1]=="jam") {var tem = args[0]+"00000"
-} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : #absen 1 menit_`)}
+} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : ${prefix2}absen 1 menit_`)}
 rabsen.push(from)
 fs.writeFileSync('./src/rabsen.json', JSON.stringify(rabsen))
 ini = absen.indexOf(from)
@@ -3845,8 +3811,8 @@ teks = `*LIST DAFTAR HADIR ABSEN*:\n`
 for (let sensi of absen) {
 teks += `=-> @${sensi.split('@')[0]} ✅\n`
 }
-teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
-reply(`List Presentasi Hadir Telah Siap\n\nKetik #absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`)
+teks += `TOTAL PENGGUNA YG ABSEN : ${absen.length}\n\nKetik ${prefix2}absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`
+reply(`List Presentasi Hadir Telah Siap\n\nKetik ${prefix2}absensi untuk absen, Daftar list absen akan dikumpulkan setelah waktu yang diberikan telah berakhir!`)
 setTimeout( () => {
 reply(`Waktu Absensi Telah Habis`)
 client.sendMessage(from, teks.trim(), extendedText, { contextInfo: {"mentionedJid": absen}})
@@ -3964,13 +3930,13 @@ addSaldoUser(sender, 100)
 break
 
 case 'carspeed':
-reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *#carspeed on* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
+reply(`${tingkat}\n\nyuk bantu mobil ini menuju rumahnya dengan cara ketik *${prefix2}carspeed on* dan dapatkan tiket event lain!!! event terbatas\n\n${tingkatan.length} | 13`)
 if (args[0]=="on") {
 if (isCar) return reply(`_kamu telah meng claim daily ini mohon untuk menyelasaikan event lain dahulu dan dapatkan hadiah_`)
 tingkatan.push(sender)
 fs.writeFileSync('./src/tingkatan.json', JSON.stringify(tingkatan))
 reply(`_berhasil claim ticket!_`)
-} else {return reply(`_ketik #carspeed on unuk mendapatkan ticket_`)}
+} else {return reply(`_ketik ${prefix2}carspeed on unuk mendapatkan ticket_`)}
 addSaldoUser(sender, 100)
 break
 
@@ -4007,7 +3973,7 @@ reply(`${i.result7.name}\n\n*${i.result7.arabic}*\n\n${i.result7.latin}\n\n${i.r
 for (let i of bacasholat) {
 reply(`${i.result8.name}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
 }
-} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan pilih #niatsholat 1 sampai 8_`)}
+} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan pilih ${prefix2}niatsholat 1 sampai 8_`)}
 addSaldoUser(sender, -50)
 break
 
@@ -4152,7 +4118,7 @@ reply(`${i.result34.title}\n\n*${i.result34.arabic}*\n\n${i.result34.latin}\n\n$
 for(let i of bacaharian) {
 reply(`${i.result35.title}\n\n*${i.result35.arabic}*\n\n${i.result35.latin}\n\n${i.result35.terjemahan}`) 
 }
-} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan pilih #doa 1 sampai 35_`)}
+} else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Doa Sebelum Makan\n2. Doa Sesudah Makan\n3. Doa Sesudah  Minum\n4. Doa Ketika Makan Lupa Membaca Doa\n5. Doa Sebelum Tidur\n6. Doa Ketika Mimpi Buruk\n7. Doa Ketika Mendapat Mimpi Baik\n8. Doa Bangun Tidur\n9. Doa Masuk Kamar Mandi Atau Toilet\n\n10. Doa Istinja\n11. Doa Keluar Kamar Mandi Atau Toilet\n12. Doa Menjelang Sholat Shubuh\n13. Doa Menyambut Pagi Hari\n14. Doa Menyambut Sore Hari\n15. Doa Ketika Bercermin\n16. Doa Masuk Rumah\n17. Doa Keluar Rumah / Doa Bepergian\n18. Doa Memakai Pakaian\n19. Doa Memakai Pakaian Baru\n20. Doa Melepas Pakaian\n21. Doa Memohon Ilmu Yang Bermanfaat\n22. Doa Sebelum Belajar\n23. Doa Sesudah Belajar\n24. Doa Berpergian\n25. Doa Naik Kendaraan\n26. Doa Naik Kapal\n27. Doa Ketika Sampai di Tempat Tujuan\n28. Doa Ketika Menuju Masjid\n29. Doa Masuk Masjid\n30. Doa Keluar Masjid\n31. Doa Akan Membaca Al-Qur'an\n32. Doa Setelah Membaca Al-Qur'an\n33. Doa Niat Wudhu\n34. Doa Setelah Wudhu\n35. Doa Akan Mandi\n\n_silahkan pilih ${prefix2}doa 1 sampai 35_`)}
 addSaldoUser(sender, -50)
 break
 
@@ -4237,7 +4203,7 @@ reply(`${i.result19.message}\n\n*${i.result19.arabic}*\n\n${i.result19.id}`)
 for (let i of hadist) {
 reply(`${i.result20.message}\n\n*${i.result20.arabic}*\n\n${i.result20.id}`) 
 } 
-} else {return reply(`_silahkan pilih #hadist 1 sampai 20_`)}
+} else {return reply(`_silahkan pilih ${prefix2}hadist 1 sampai 20_`)}
 addSaldoUser(sender, -50)
 break
 
@@ -4265,7 +4231,7 @@ case 'upswimg':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
-if (!isQuotedImage) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik #${command} dengan caption_`)
+if (!isQuotedImage) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik ${prefix2}${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
 if (isQuotedImage) {
 swew = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -4280,7 +4246,7 @@ case 'upswvideo':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
-if (!isQuotedVideo) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik #${command} dengan caption_`)
+if (!isQuotedVideo) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik ${prefix2}${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
 if (isQuotedVideo) {
 swew = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -4476,203 +4442,163 @@ teks =`*M I T S U H A - W A B O T*\n
 📋 jumlah hit : ${hit_today.length}
 📋 pengguna : ${_saldo.length} aktif
 
-  *</PROFILE KAMU*
-┌ ❏
-├ ❏  nama ${pushname}
-├ ❏  setatus ${premi}
-├ ❏  saldo Rp. ${getSaldoUser(sender)}
-└ ❏
+*PROFILE KAMU*
+-  nama ${pushname}
+-  setatus ${premi}
+-  saldo Rp. ${getSaldoUser(sender)}
 
-  *</INFORMASI MENU*
-┌ ❏
-├ ❏  ${prefix2}info
-├ ❏  ${prefix2}iklan
-├ ❏  ${prefix2}donasi
-├ ❏  ${prefix2}request
-└ ❏
+*INFORMASI MENU*
+-  ${prefix2}info
+-  ${prefix2}iklan
+-  ${prefix2}donasi
+-  ${prefix2}request
 
-  *</BOT PAY MENU*
-┌ ❏
-├ ❏  ${prefix2}daftar
-├ ❏  ${prefix2}saldo
-├ ❏  ${prefix2}claim
-└ ❏
+*BOT PAY MENU*
+-  ${prefix2}daftar
+-  ${prefix2}saldo
+-  ${prefix2}claim
 
-  *</EVENT GAMES BOT*
-┌ ❏
-├ ❏  ${prefix2}carspeed
-├ ❏  ${prefix2}lotre
-└ ❏
+*EVENT GAMES BOT*
+-  ${prefix2}carspeed
+-  ${prefix2}lotre
 
-  *</URL TO MEDIA TYPE*
-┌ ❏
-├ ❏  ${prefix2}urltoimg
-├ ❏  ${prefix2}tourl
-├ ❏  ${prefix2}dburl
-└ ❏
+*URL TO MEDIA TYPE*
+-  ${prefix2}urltoimg
+-  ${prefix2}tourl
+-  ${prefix2}dburl
 
-  *</PRODUK & VOTING*
-┌ ❏
-├ ❏  ${prefix2}produk
-├ ❏  ${prefix2}tambah
-├ ❏  ${prefix2}votting
-├ ❏  ${prefix2}vote
-├ ❏  ${prefix2}dellvote
-└ ❏
+*PRODUK & VOTING*
+-  ${prefix2}produk
+-  ${prefix2}tambah
+-  ${prefix2}votting
+-  ${prefix2}vote
+-  ${prefix2}dellvote
 
-  *</ULASAN & MUTUAL*
-┌ ❏
-├ ❏  ${prefix2}ulasan
-├ ❏  ${prefix2}komentar
-├ ❏  ${prefix2}mutual
-├ ❏  ${prefix2}save
-└ ❏
+*ULASAN & MUTUAL*
+-  ${prefix2}ulasan
+-  ${prefix2}komentar
+-  ${prefix2}mutual
+-  ${prefix2}save
 
-  *</ABSEN & MESSAGES*
-┌ ❏
-├ ❏  ${prefix2}absen
-├ ❏  ${prefix2}absensi
-├ ❏  ${prefix2}svmess
-├ ❏  ${prefix2}listmess
-└ ❏
+*ABSEN & MESSAGES*
+-  ${prefix2}absen
+-  ${prefix2}absensi
+-  ${prefix2}svmess
+-  ${prefix2}listmess
 
-  *</GROUP MENU*
-┌ ❏
-├ ❏  ${prefix2}afk
-├ ❏  ${prefix2}undang
-├ ❏  ${prefix2}enable
-├ ❏  ${prefix2}disable
-├ ❏  ${prefix2}bangrup
-├ ❏  ${prefix2}unbangrup
-├ ❏  ${prefix2}ban
-├ ❏  ${prefix2}unban
-├ ❏  ${prefix2}sider
-├ ❏  ${prefix2}hidetag
-├ ❏  ${prefix2}fitnah
-├ ❏  ${prefix2}settings
-├ ❏  ${prefix2}revoke
-├ ❏  ${prefix2}add
-├ ❏  ${prefix2}kick
-├ ❏  ${prefix2}promote
-├ ❏  ${prefix2}demote
-├ ❏  ${prefix2}tagall
-├ ❏  ${prefix2}antilink
-├ ❏  ${prefix2}antitoxic
-├ ❏  ${prefix2}welcome
-└ ❏
+*GROUP MENU*
+-  ${prefix2}afk
+-  ${prefix2}undang
+-  ${prefix2}enable
+-  ${prefix2}disable
+-  ${prefix2}bangrup
+-  ${prefix2}unbangrup
+-  ${prefix2}ban
+-  ${prefix2}unban
+-  ${prefix2}sider
+-  ${prefix2}hidetag
+-  ${prefix2}fitnah
+-  ${prefix2}settings
+-  ${prefix2}revoke
+-  ${prefix2}add
+-  ${prefix2}kick
+-  ${prefix2}promote
+-  ${prefix2}demote
+-  ${prefix2}tagall
+-  ${prefix2}antilink
+-  ${prefix2}antitoxic
+-  ${prefix2}welcome
 
-  *</ANIME MENU*
-┌ ❏
-├ ❏  ${prefix2}neko
-├ ❏  ${prefix2}waifu
-└ ❏
+*ANIME MENU*
+-  ${prefix2}neko
+-  ${prefix2}waifu
 
-  *</GAMES MENU*
-┌ ❏
-├ ❏  ${prefix2}dungeon
-├ ❏  ${prefix2}slot
-├ ❏  ${prefix2}truth
-├ ❏  ${prefix2}dare
-├ ❏  ${prefix2}tebakgambar
-└ ❏
+*GAMES MENU*
+-  ${prefix2}dungeon
+-  ${prefix2}slot
+-  ${prefix2}truth
+-  ${prefix2}dare
+-  ${prefix2}tebakgambar
 
-  *</IMAGE MENU*
-┌ ❏
-├ ❏  ${prefix2}cogan
-├ ❏  ${prefix2}cecan
-├ ❏  ${prefix2}darkjokes
-├ ❏  ${prefix2}pinterest
-├ ❏  ${prefix2}ocr
-└ ❏
+*IMAGE MENU*
+-  ${prefix2}cogan
+-  ${prefix2}cecan
+-  ${prefix2}darkjokes
+-  ${prefix2}pinterest
+-  ${prefix2}ocr
 
-  *</RANDOM MENU*
-┌ ❏
-├ ❏  ${prefix2}cerpen
-├ ❏  ${prefix2}ceritahoror
-├ ❏  ${prefix2}film
-├ ❏  ${prefix2}fakedata
-├ ❏  ${prefix2}news
-├ ❏  ${prefix2}beasiswa
-├ ❏  ${prefix2}ppcouple
-└ ❏
+*RANDOM MENU*
+-  ${prefix2}cerpen
+-  ${prefix2}ceritahoror
+-  ${prefix2}film
+-  ${prefix2}fakedata
+-  ${prefix2}news
+-  ${prefix2}beasiswa
+-  ${prefix2}ppcouple
 
-  *</STICKER MENU*
-┌ ❏
-├ ❏  ${prefix2}sticker
-├ ❏  ${prefix2}ttp
-├ ❏  ${prefix2}attp
-├ ❏  ${prefix2}wasted
-├ ❏  ${prefix2}comrade
-├ ❏  ${prefix2}jail
-├ ❏  ${prefix2}passed
-├ ❏  ${prefix2}trigger
-├ ❏  ${prefix2}toimg
-└ ❏
+*STICKER MENU*
+-  ${prefix2}sticker
+-  ${prefix2}ttp
+-  ${prefix2}attp
+-  ${prefix2}wasted
+-  ${prefix2}comrade
+-  ${prefix2}jail
+-  ${prefix2}passed
+-  ${prefix2}trigger
+-  ${prefix2}toimg
 
-  *</EDUCATION MENU*
-┌ ❏
-├ ❏  ${prefix2}quiz
-├ ❏  ${prefix2}nulis
-├ ❏  ${prefix2}niatsholat
-├ ❏  ${prefix2}doa
-├ ❏  ${prefix2}hadist
-└ ❏
+*EDUCATION MENU*
+-  ${prefix2}quiz
+-  ${prefix2}nulis
+-  ${prefix2}niatsholat
+-  ${prefix2}doa
+-  ${prefix2}hadist
 
-  *</AUDIO MENU*
-┌ ❏
-├ ❏  ${prefix2}fast
-├ ❏  ${prefix2}tupai
-├ ❏  ${prefix2}gemuk
-├ ❏  ${prefix2}slow
-├ ❏  ${prefix2}tomp3
-└ ❏
+*AUDIO MENU*
+-  ${prefix2}fast
+-  ${prefix2}tupai
+-  ${prefix2}gemuk
+-  ${prefix2}slow
+-  ${prefix2}tomp3
 
-  *</PREMIUM MENU*
-┌ ❏
-├ ❏  ${prefix2}asupan
-├ ❏  ${prefix2}upswtext
-├ ❏  ${prefix2}upswimg
-├ ❏  ${prefix2}upswvideo
-└ ❏
+*PREMIUM MENU*
+-  ${prefix2}asupan
+-  ${prefix2}upswtext
+-  ${prefix2}upswimg
+-  ${prefix2}upswvideo
 
-  *</OTHER MENU*
-┌ ❏ 
-├ ❏  ${prefix2}sharelock
-├ ❏  ${prefix2}delete
-├ ❏  ${prefix2}pesan
-├ ❏  ${prefix2}owner
-├ ❏  ${prefix2}report
-├ ❏  ${prefix2}timer
-└ ❏
+*OTHER MENU* 
+-  ${prefix2}sharelock
+-  ${prefix2}delete
+-  ${prefix2}pesan
+-  ${prefix2}owner
+-  ${prefix2}report
+-  ${prefix2}timer
 
-  *</OWNER MENU*
-┌ ❏
-├ ❏  $
-├ ❏  >
-├ ❏  =>
-├ ❏  ${prefix2}makegroup
-├ ❏  ${prefix2}join
-├ ❏  ${prefix2}kudet
-├ ❏  ${prefix2}leave
-├ ❏  ${prefix2}clone
-├ ❏  ${prefix2}bc
-├ ❏  ${prefix2}addprem
-├ ❏  ${prefix2}dellprem
-├ ❏  ${prefix2}setbudy
-├ ❏  ${prefix2}bug
-└ ❏
+*OWNER MENU*
+-  $
+-  >
+-  =>
+-  ${prefix2}makegroup
+-  ${prefix2}join
+-  ${prefix2}kudet
+-  ${prefix2}leave
+-  ${prefix2}clone
+-  ${prefix2}bc
+-  ${prefix2}addprem
+-  ${prefix2}dellprem
+-  ${prefix2}setbudy
+-  ${prefix2}bug
 
-  *</THANKS TO*
-┌ ❏
-├ ❏  mhankbarbar
-├ ❏  mitsuhabotz
-├ ❏  rimurubotz
-├ ❏  dimxbotz
-├ ❏  rurichan
-├ ❏  zak06cheat
-├ ❏  ridwan
-├ ❏  hafizh
-└ ❏`
+*THANKS TO*
+-  mhankbarbar
+-  mitsuhabotz
+-  rimurubotz
+-  dimxbotz
+-  rurichan
+-  zak06cheat
+-  ridwan
+-  hafizh`
 sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
 `,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -4994,7 +4920,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 							var ini = antitoxic.indexOf(from)
 						antitoxic.splice(ini, 1)
 						fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
-						reply('_berhasil di matikan')
+						reply('_berhasil di matikan_')
 						addSaldoUser(sender, -50)
 break
 						}
@@ -5328,8 +5254,8 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`) 
-if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
-if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n#tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
+if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
 biopro = q.split('|')[2]
@@ -5614,7 +5540,7 @@ break
 }
 
 if (buttonsR === 'MATIKAN') {
-reply('TIMER DIMATIKAN')
+reply('TIMER dimatikan_')
 break
 }
 
