@@ -95,7 +95,6 @@ const setting = JSON.parse(fs.readFileSync('./src/settings.json'))
 const antilink = JSON.parse(fs.readFileSync('./src/antilink.json'))
 const antitoxic = JSON.parse(fs.readFileSync('./src/antitoxic.json'))
 const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
-const peserta = JSON.parse(fs.readFileSync('./src/peserta.json'))
 
               vcard = 'BEGIN:VCARD\n' 
               + 'VERSION:3.0\n' 
@@ -5774,8 +5773,6 @@ fs.writeFileSync('./src/salah.json', JSON.stringify(salah))
 var iniii = clem.indexOf(from)
 clem.splice(iniii, 1)
 fs.writeFileSync('./src/clem.json', JSON.stringify(clem))
-peserta.splice(from)
-fs.writeFileSync('./src/peserta.json', JSON.stringify(peserta))
 var iiiniii = claim.indexOf(from)
 claim.splice(iniii, 1)
 fs.writeFileSync('./src/claim.json', JSON.stringify(claim))
