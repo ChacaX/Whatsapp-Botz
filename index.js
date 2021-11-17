@@ -95,6 +95,7 @@ const setting = JSON.parse(fs.readFileSync('./src/settings.json'))
 const antilink = JSON.parse(fs.readFileSync('./src/antilink.json'))
 const antitoxic = JSON.parse(fs.readFileSync('./src/antitoxic.json'))
 const premium = JSON.parse(fs.readFileSync('./src/premium.json'))
+const peserta = JSON.parse(fs.readFileSync('./src/peserta.json'))
 
               vcard = 'BEGIN:VCARD\n' 
               + 'VERSION:3.0\n' 
