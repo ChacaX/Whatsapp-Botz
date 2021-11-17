@@ -1986,8 +1986,7 @@ let gwekkje = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-},
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(gwekkje)
 addSaldoUser(sender, -50)
 break
