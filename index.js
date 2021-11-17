@@ -118,7 +118,7 @@ ___________________*/
 	     lotre9 = "9⃣"
 	
 prefix = setting.prefix
-prefix2 = `${prefix2}`
+prefix2 = `/`
 owner = setting.ownerNumber
 namaowner = setting.nama
 namabot = setting.bot
