@@ -3876,7 +3876,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)  
 afk.push(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-reply(`@${sender.split("@s.whatsapp.net")} telah afk\nalasan : ${body.slice(4)}`)
+reply(`@${sender.split("@s.whatsapp.net")} sedang afk\nalasan : ${body.slice(4)}`)
 addSaldoUser(sender, -50)
 break
 
@@ -5861,9 +5861,7 @@ if (!isAfk) return
 if (!isGroup) return
 afk.splice(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-for (let x of afk) {
-reply(`@${x.split('@s.whatsapp.net')[0]} telah kembali`)
-}
+reply(`@${sender.split('@s.whatsapp.net')[0]} telah kembali`)
 }
 	
 /*if (budy.includes(``)) {
