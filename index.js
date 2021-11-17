@@ -702,7 +702,7 @@ key: {"fromMe": false,"participant": `0@s.whatsapp.net`, "remoteJid": "628953086
 const fakebc = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `💬 *BROADCAST BOT* 💬`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
             
 const reply = (teks) => {
-client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(from, teks, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 }
 		
 const tchat = `${totalchat.length}`   
@@ -1408,163 +1408,183 @@ teks =`*M I T S U H A - W A B O T*\n
 📋 jumlah hit : ${hit_today.length}
 📋 pengguna : ${_saldo.length} aktif
 
-*PROFILE KAMU*
--  nama ${pushname}
--  setatus ${premi}
--  saldo Rp. ${getSaldoUser(sender)}
 
-*INFORMASI MENU*
--  ${prefix2}info
--  ${prefix2}iklan
--  ${prefix2}donasi
--  ${prefix2}request
+  *PROFILE KAMU*
+• nama ${pushname}
+• setatus ${premi}
+• saldo Rp. ${getSaldoUser(sender)}
 
-*BOT PAY MENU*
--  ${prefix2}daftar
--  ${prefix2}saldo
--  ${prefix2}claim
 
-*EVENT GAMES BOT*
--  ${prefix2}carspeed
--  ${prefix2}lotre
+  *INFORMASI MENU*
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
 
-*URL TO MEDIA TYPE*
--  ${prefix2}urltoimg
--  ${prefix2}tourl
--  ${prefix2}dburl
 
-*PRODUK & VOTING*
--  ${prefix2}produk
--  ${prefix2}tambah
--  ${prefix2}votting
--  ${prefix2}vote
--  ${prefix2}dellvote
+  *BOT PAY MENU*
+• ${prefix2}daftar
+• ${prefix2}saldo
+• ${prefix2}claim
 
-*ULASAN & MUTUAL*
--  ${prefix2}ulasan
--  ${prefix2}komentar
--  ${prefix2}mutual
--  ${prefix2}save
 
-*ABSEN & MESSAGES*
--  ${prefix2}absen
--  ${prefix2}absensi
--  ${prefix2}svmess
--  ${prefix2}listmess
+  *EVENT GAMES BOT*
+• ${prefix2}carspeed
+• ${prefix2}lotre
 
-*GROUP MENU*
--  ${prefix2}afk
--  ${prefix2}undang
--  ${prefix2}enable
--  ${prefix2}disable
--  ${prefix2}bangrup
--  ${prefix2}unbangrup
--  ${prefix2}ban
--  ${prefix2}unban
--  ${prefix2}sider
--  ${prefix2}hidetag
--  ${prefix2}fitnah
--  ${prefix2}settings
--  ${prefix2}revoke
--  ${prefix2}add
--  ${prefix2}kick
--  ${prefix2}promote
--  ${prefix2}demote
--  ${prefix2}tagall
--  ${prefix2}antilink
--  ${prefix2}antitoxic
--  ${prefix2}welcome
 
-*ANIME MENU*
--  ${prefix2}neko
--  ${prefix2}waifu
+  *URL TO MEDIA TYPE*
+• ${prefix2}urltoimg
+• ${prefix2}tourl
+• ${prefix2}dburl
 
-*GAMES MENU*
--  ${prefix2}dungeon
--  ${prefix2}slot
--  ${prefix2}truth
--  ${prefix2}dare
--  ${prefix2}tebakgambar
 
-*IMAGE MENU*
--  ${prefix2}cogan
--  ${prefix2}cecan
--  ${prefix2}darkjokes
--  ${prefix2}pinterest
--  ${prefix2}ocr
+  *PRODUK & VOTING*
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
 
-*RANDOM MENU*
--  ${prefix2}cerpen
--  ${prefix2}ceritahoror
--  ${prefix2}film
--  ${prefix2}fakedata
--  ${prefix2}news
--  ${prefix2}beasiswa
--  ${prefix2}ppcouple
 
-*STICKER MENU*
--  ${prefix2}sticker
--  ${prefix2}ttp
--  ${prefix2}attp
--  ${prefix2}wasted
--  ${prefix2}comrade
--  ${prefix2}jail
--  ${prefix2}passed
--  ${prefix2}trigger
--  ${prefix2}toimg
+  *ULASAN & MUTUAL*
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
 
-*EDUCATION MENU*
--  ${prefix2}quiz
--  ${prefix2}nulis
--  ${prefix2}niatsholat
--  ${prefix2}doa
--  ${prefix2}hadist
 
-*AUDIO MENU*
--  ${prefix2}fast
--  ${prefix2}tupai
--  ${prefix2}gemuk
--  ${prefix2}slow
--  ${prefix2}tomp3
+  *ABSEN & MESSAGES*
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
 
-*PREMIUM MENU*
--  ${prefix2}asupan
--  ${prefix2}upswtext
--  ${prefix2}upswimg
--  ${prefix2}upswvideo
 
-*OTHER MENU* 
--  ${prefix2}sharelock
--  ${prefix2}delete
--  ${prefix2}pesan
--  ${prefix2}owner
--  ${prefix2}report
--  ${prefix2}timer
+  *GROUP MENU*
+• ${prefix2}afk
+• ${prefix2}undang
+• ${prefix2}enable
+• ${prefix2}disable
+• ${prefix2}bangrup
+• ${prefix2}unbangrup
+• ${prefix2}ban
+• ${prefix2}unban
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}settings
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}welcome
 
-*OWNER MENU*
--  $
--  >
--  =>
--  ${prefix2}makegroup
--  ${prefix2}join
--  ${prefix2}kudet
--  ${prefix2}leave
--  ${prefix2}clone
--  ${prefix2}bc
--  ${prefix2}addprem
--  ${prefix2}dellprem
--  ${prefix2}setbudy
--  ${prefix2}bug
 
-*THANKS TO*
--  mhankbarbar
--  mitsuhabotz
--  rimurubotz
--  dimxbotz
--  rurichan
--  zak06cheat
--  ridwan
--  hafizh`
+  *ANIME MENU*
+• ${prefix2}neko
+• ${prefix2}waifu
+
+
+  *GAMES MENU*
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
+
+
+  *IMAGE MENU*
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}darkjokes
+• ${prefix2}pinterest
+• ${prefix2}ocr
+
+
+  *RANDOM MENU*
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
+
+
+  *STICKER MENU*
+• ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
+
+
+  *EDUCATION MENU*
+• ${prefix2}quiz
+• ${prefix2}nulis
+• ${prefix2}niatsholat
+• ${prefix2}doa
+• ${prefix2}hadist
+
+
+  *AUDIO MENU*
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
+
+
+  *PREMIUM MENU*
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
+
+
+  *OTHER MENU* 
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+
+
+  *OWNER MENU*
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}join
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
+
+
+  *THANKS TO*
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh`
 sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
 `,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -1743,7 +1763,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT 📦'},type:1},{b
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
 break
@@ -1863,7 +1883,7 @@ open = {
 text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,             
 }
 client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 addSaldoUser(sender, -50)
 break*/
 
@@ -1965,6 +1985,7 @@ let gwekkje = await client.prepareMessageFromContent(from, {
 {buttonId: 'Disable W0', buttonText: {displayText: 'Disable W0'}, type: 1}
 ],
 headerType: 1
+},
 },
 quoted: floc2}) 
 await client.relayWAMessage(gwekkje)
@@ -2959,7 +2980,7 @@ if (args[0].startsWith('+')) return reply('nomor tidak perlu memakai tanda + - d
 var FG = body.slice(8)
 var F1 = FG.split("|")[0];
 var F2 = FG.split("|")[1];
-client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(`${F1}@s.whatsapp.net`, `Pengirim : ${pushname}\nPesan : ${F2}`, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 reply('Berhasil mengirim pesan...')
 addSaldoUser(sender, -50)
 break
@@ -3033,7 +3054,7 @@ buttons = [{buttonId:`SPIN`,buttonText:{displayText:'SPIN'},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[ 🎟 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
 break
 
@@ -3167,27 +3188,31 @@ teks =`*INFO MITSUHA WHATSAPP*
 - prefix : MULTI PREFIX
 - runtime : ${kyun(uptime)}
 
-*INFO DATABASE BOT*
+
+  *INFO DATABASE BOT*
 - total hit : ${hit_today.length}
 - user premium : ${premium.length}
 - total hit : ${hit_today.length}
 - total chat : ${tchat}
 - block kontak : ${blocked.length}
 
-*STATUS GROUP WHATSAPP*
+
+  *STATUS GROUP WHATSAPP*
 - status antilink : ${anlink}
 - status antitoxic : ${anto}
 - status simisimi : ${sim}
 - member grup : ${groupMembers.length}
 - admin grup : ${groupAdmins.length}
 
-*DATABASE SETTINGS*
+
+  *DATABASE SETTINGS*
 - user antilink : ${antilink.length}
 - user antitoxic : ${antitoxic.length}
 - user simisimi : ${samih.length}
 - user welcome : ${welkom.length}
 
-*URL GROUP WHATSAPP*
+
+  *URL GROUP WHATSAPP*
 - url : https://chat.whatsapp.com/${linkgc}`
 sendButLocation(from, `${teks}`, `INFO BOT - INFO GROUP`,{jpegThumbnail:ppnya}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 addSaldoUser(sender, -50)
@@ -3852,7 +3877,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)  
 afk.push(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-reply(`*{ AFK MODE ACTIVE }*\n\nnama : ${pushname}\nalasan : ${body.slice(4)}`)
+reply(`@${sender.split("@s.whatsapp.net")} telah afk\nalasan : ${body.slice(4)}`)
 addSaldoUser(sender, -50)
 break
 
@@ -4442,163 +4467,183 @@ teks =`*M I T S U H A - W A B O T*\n
 📋 jumlah hit : ${hit_today.length}
 📋 pengguna : ${_saldo.length} aktif
 
-*PROFILE KAMU*
--  nama ${pushname}
--  setatus ${premi}
--  saldo Rp. ${getSaldoUser(sender)}
 
-*INFORMASI MENU*
--  ${prefix2}info
--  ${prefix2}iklan
--  ${prefix2}donasi
--  ${prefix2}request
+  *PROFILE KAMU*
+• nama ${pushname}
+• setatus ${premi}
+• saldo Rp. ${getSaldoUser(sender)}
 
-*BOT PAY MENU*
--  ${prefix2}daftar
--  ${prefix2}saldo
--  ${prefix2}claim
 
-*EVENT GAMES BOT*
--  ${prefix2}carspeed
--  ${prefix2}lotre
+  *INFORMASI MENU*
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
 
-*URL TO MEDIA TYPE*
--  ${prefix2}urltoimg
--  ${prefix2}tourl
--  ${prefix2}dburl
 
-*PRODUK & VOTING*
--  ${prefix2}produk
--  ${prefix2}tambah
--  ${prefix2}votting
--  ${prefix2}vote
--  ${prefix2}dellvote
+  *BOT PAY MENU*
+• ${prefix2}daftar
+• ${prefix2}saldo
+• ${prefix2}claim
 
-*ULASAN & MUTUAL*
--  ${prefix2}ulasan
--  ${prefix2}komentar
--  ${prefix2}mutual
--  ${prefix2}save
 
-*ABSEN & MESSAGES*
--  ${prefix2}absen
--  ${prefix2}absensi
--  ${prefix2}svmess
--  ${prefix2}listmess
+  *EVENT GAMES BOT*
+• ${prefix2}carspeed
+• ${prefix2}lotre
 
-*GROUP MENU*
--  ${prefix2}afk
--  ${prefix2}undang
--  ${prefix2}enable
--  ${prefix2}disable
--  ${prefix2}bangrup
--  ${prefix2}unbangrup
--  ${prefix2}ban
--  ${prefix2}unban
--  ${prefix2}sider
--  ${prefix2}hidetag
--  ${prefix2}fitnah
--  ${prefix2}settings
--  ${prefix2}revoke
--  ${prefix2}add
--  ${prefix2}kick
--  ${prefix2}promote
--  ${prefix2}demote
--  ${prefix2}tagall
--  ${prefix2}antilink
--  ${prefix2}antitoxic
--  ${prefix2}welcome
 
-*ANIME MENU*
--  ${prefix2}neko
--  ${prefix2}waifu
+  *URL TO MEDIA TYPE*
+• ${prefix2}urltoimg
+• ${prefix2}tourl
+• ${prefix2}dburl
 
-*GAMES MENU*
--  ${prefix2}dungeon
--  ${prefix2}slot
--  ${prefix2}truth
--  ${prefix2}dare
--  ${prefix2}tebakgambar
 
-*IMAGE MENU*
--  ${prefix2}cogan
--  ${prefix2}cecan
--  ${prefix2}darkjokes
--  ${prefix2}pinterest
--  ${prefix2}ocr
+  *PRODUK & VOTING*
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
 
-*RANDOM MENU*
--  ${prefix2}cerpen
--  ${prefix2}ceritahoror
--  ${prefix2}film
--  ${prefix2}fakedata
--  ${prefix2}news
--  ${prefix2}beasiswa
--  ${prefix2}ppcouple
 
-*STICKER MENU*
--  ${prefix2}sticker
--  ${prefix2}ttp
--  ${prefix2}attp
--  ${prefix2}wasted
--  ${prefix2}comrade
--  ${prefix2}jail
--  ${prefix2}passed
--  ${prefix2}trigger
--  ${prefix2}toimg
+  *ULASAN & MUTUAL*
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
 
-*EDUCATION MENU*
--  ${prefix2}quiz
--  ${prefix2}nulis
--  ${prefix2}niatsholat
--  ${prefix2}doa
--  ${prefix2}hadist
 
-*AUDIO MENU*
--  ${prefix2}fast
--  ${prefix2}tupai
--  ${prefix2}gemuk
--  ${prefix2}slow
--  ${prefix2}tomp3
+  *ABSEN & MESSAGES*
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
 
-*PREMIUM MENU*
--  ${prefix2}asupan
--  ${prefix2}upswtext
--  ${prefix2}upswimg
--  ${prefix2}upswvideo
 
-*OTHER MENU* 
--  ${prefix2}sharelock
--  ${prefix2}delete
--  ${prefix2}pesan
--  ${prefix2}owner
--  ${prefix2}report
--  ${prefix2}timer
+  *GROUP MENU*
+• ${prefix2}afk
+• ${prefix2}undang
+• ${prefix2}enable
+• ${prefix2}disable
+• ${prefix2}bangrup
+• ${prefix2}unbangrup
+• ${prefix2}ban
+• ${prefix2}unban
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}settings
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}welcome
 
-*OWNER MENU*
--  $
--  >
--  =>
--  ${prefix2}makegroup
--  ${prefix2}join
--  ${prefix2}kudet
--  ${prefix2}leave
--  ${prefix2}clone
--  ${prefix2}bc
--  ${prefix2}addprem
--  ${prefix2}dellprem
--  ${prefix2}setbudy
--  ${prefix2}bug
 
-*THANKS TO*
--  mhankbarbar
--  mitsuhabotz
--  rimurubotz
--  dimxbotz
--  rurichan
--  zak06cheat
--  ridwan
--  hafizh`
+  *ANIME MENU*
+• ${prefix2}neko
+• ${prefix2}waifu
+
+
+  *GAMES MENU*
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
+
+
+  *IMAGE MENU*
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}darkjokes
+• ${prefix2}pinterest
+• ${prefix2}ocr
+
+
+  *RANDOM MENU*
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
+
+
+  *STICKER MENU*
+• ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
+
+
+  *EDUCATION MENU*
+• ${prefix2}quiz
+• ${prefix2}nulis
+• ${prefix2}niatsholat
+• ${prefix2}doa
+• ${prefix2}hadist
+
+
+  *AUDIO MENU*
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
+
+
+  *PREMIUM MENU*
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
+
+
+  *OTHER MENU* 
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+
+
+  *OWNER MENU*
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}join
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
+
+
+  *THANKS TO*
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh`
 sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
 `,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -4694,18 +4739,18 @@ break
                 
 /*if (body.startsWith(`.${command}`)) 
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}2}) 
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}2}) 
 break
 }*/
 
 /*if (body.startsWith(`X${command}`)) {
 opp = `*「 COMMAND IS NOT FOUND 」*`
-client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}2}) 
+client.sendMessage(from, opp, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": `https://f.top4top.io/p_21083n2ea0.jpg`,"thumbnail": "","sourceUrl": ""}}2}) 
 break
 }*/
 
 if (budy.includes(`Test`)) {
-client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+client.sendMessage(from, 'active', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 break
 }
    
@@ -4835,7 +4880,7 @@ open = {
               contextInfo: { mentionedJid: [sender] }
 }
               client.groupSettingChange (from, GroupSettingChange.messageSend, false)
-              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+              client.sendMessage(from, open, text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
               addSaldoUser(sender, -50)
 break
 }
@@ -4951,7 +4996,7 @@ break
               imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
               buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMessage: imageMsg,
               contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[  🎰 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
               client.relayWAMessage(prep)
               
               addSaldoUser(sender, 200)
@@ -4973,7 +5018,7 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 600000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 500000)
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text)
@@ -4992,7 +5037,7 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,200,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 1,100,000)
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text)
@@ -5010,7 +5055,7 @@ setTimeout( () => {
 				client.groupLeave(from)
 				}, 1,800,000)
 				setTimeout( () => {
-				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 1,700,000)
 				setTimeout( () => {
 				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text)
@@ -5285,7 +5330,7 @@ buttons = [{buttonId:`NEXT 📦`,buttonText:{displayText:'NEXT ??'},type:1},{but
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/${randKey.nomor}.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
 buttonsMessage = {footerText:`Ingin Produk Mu Di Pajang Juga? Yuk Ketik Tombol Tambah`, imageMessage: imageMsg,
 contentText:`*NAMA PRODUK*: ${randKey.nama}\n\n*DESCRIPSI*: ${randKey.deskripsi}\n\n*PENJUAL*: ${randKey.nomor}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `Whatsapp Bot 2021`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
               addSaldoUser(sender, -50)
 break
@@ -5817,7 +5862,9 @@ if (!isAfk) return
 if (!isGroup) return
 afk.splice(sender)
 fs.writeFileSync('./src/afk.json', JSON.stringify(afk))
-reply(`_${pushname} telah kembali dari *AFK* sampai jam ${hoour_now}_`)
+for (let x of afk) {
+reply(`@${x.split('@s.whatsapp.net')[0]} telah kembali`)
+}
 }
 	
 /*if (budy.includes(``)) {
