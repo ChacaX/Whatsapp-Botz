@@ -1403,10 +1403,10 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
-📋 runtime : ${kyun(uptime)}
-📋 dev : wa.me/6285731261728
-📋 jumlah hit : ${hit_today.length}
-📋 pengguna : ${_saldo.length} aktif
+📚 runtime : ${kyun(uptime)}
+📚 dev : wa.me/6285731261728
+📚 jumlah hit : ${hit_today.length}
+📚 pengguna : ${_saldo.length} aktif
 
 
   *PROFILE KAMU*
@@ -2266,7 +2266,7 @@ if (isSimi) return reply('Mode simi sudah aktif')
 samih.push(from)
 fs.writeFileSync('./src/simi.json', JSON.stringify(samih))
 reply('Sukses mengaktifkan mode simi di group ini ✔️')
-} else if (Number(args[0]) === 0) {
+} else if (Number(args[0])) {
 samih.splice(from, 1)
 fs.writeFileSync('./src/simi.json', JSON.stringify(samih))
 reply('Sukes menonaktifkan mode simi di group ini ✔️')
@@ -3607,7 +3607,7 @@ youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `👎`,buttonText:{displayText: `👎`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
-contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
+contentText:`            *TENTANG BOT INI*\n\n📚 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 addSaldoUser(sender, -50)
@@ -4461,10 +4461,10 @@ if (buttonsR === 'HOME BACK') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
-📋 runtime : ${kyun(uptime)}
-📋 dev : wa.me/6285731261728
-📋 jumlah hit : ${hit_today.length}
-📋 pengguna : ${_saldo.length} aktif
+📚 runtime : ${kyun(uptime)}
+📚 dev : wa.me/6285731261728
+📚 jumlah hit : ${hit_today.length}
+📚 pengguna : ${_saldo.length} aktif
 
 
   *PROFILE KAMU*
@@ -4652,10 +4652,10 @@ if (buttonsR === 'MENU') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
-📋 runtime : ${kyun(uptime)}
-📋 dev : wa.me/6285731261728
-📋 jumlah hit : ${hit_today.length}
-📋 pengguna : ${_saldo.length} aktif
+📚 runtime : ${kyun(uptime)}
+📚 dev : wa.me/6285731261728
+📚 jumlah hit : ${hit_today.length}
+📚 pengguna : ${_saldo.length} aktif
 
 
   *PROFILE KAMU*
@@ -5267,14 +5267,14 @@ break
 }
   
 if (buttonsR === 'START') {
-function pickRandom(list) {
+/*function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]
 }
-let pasukan = `${pickRandom(['50','100','150','200','50','100','150','50'])}`.trim()
-const gata = ["Monster Mengalahkanmu Tapi Dia Baik Hati Dan Memberimu","Kamu Menang Melawan Monster Sebagai Imbalan Kamu Mendapatkan"]
+const pasukan = `${pickRandom(['50','100','150','200','50','100','150','50'])}`.trim()*/
+const gata = ["Monster Mengalahkanmu Tapi Dia Baik Hati Dan Memberimu Hadiah Yang Sudah Disimpan Di Database","Kamu Menang Melawan Monster Sebagai Imbalan Kamu Mendapatkan Saldo Lebih, Cek Saldo Untuk Memastikan Saldo Telah Masuk"]
 const persus = gata[Math.floor(Math.random() * gata.length)]
-reply(`${persus} *+${pasukan}* Saldo`)
-addSaldoUser(sender, pasukan)
+reply(`${persus}`)
+addSaldoUser(sender, 200)
 break
 }
               
@@ -5548,7 +5548,7 @@ youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `👎`,buttonText:{displayText: `👎`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
-contentText:`            *TENTANG BOT INI*\n\n📋 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
+contentText:`            *TENTANG BOT INI*\n\n📚 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 break
