@@ -2568,7 +2568,7 @@ let o = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(o)
 addSaldoUser(sender, -50)
 break
@@ -2596,7 +2596,7 @@ let ok = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(ok)
 addSaldoUser(sender, -50)
 break
@@ -2620,7 +2620,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 addSaldoUser(sender, -50)
 break
@@ -2670,7 +2670,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 addSaldoUser(sender, -50)
 break
@@ -3701,8 +3701,8 @@ if (getSaldoId(sender)) return reply(`_kamu sudah daftar sebelumnya_`)
 addSaldoId(sender)
 addBadwordId(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`TELAH TERDAFTAR DI DATABASE BOT DAN MENDAPAT KAN SALDO SEBANYAK RP. 1000`
-sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`REGISTERED`,buttonText:{displayText:'REGISTERED'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+teks =`TELAH TERDAFTAR DI DATABASE BOT DAN MENDAPAT KAN SALDO AWAL SEBANYAK RP. 1000`
+sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 case 'saldo':
@@ -3710,7 +3710,7 @@ if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)
 saldonya = getSaldoUser(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`💵 saldo kamu : Rp. ${saldonya}`
-sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SALDO`,buttonText:{displayText:'SALDO'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`CLAIM`,buttonText:{displayText:'CLAIM'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 case 'claim':
@@ -4377,7 +4377,7 @@ let hot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(hot)
 break
 }
@@ -4458,6 +4458,197 @@ break
 }
   
 if (buttonsR === 'HOME BACK') {
+uptime = process.uptime()
+creator = "6285731261728@s.whatsapp.net"
+teks =`*M I T S U H A - W A B O T*\n
+📋 runtime : ${kyun(uptime)}
+📋 dev : wa.me/6285731261728
+📋 jumlah hit : ${hit_today.length}
+📋 pengguna : ${_saldo.length} aktif
+
+
+  *PROFILE KAMU*
+• nama ${pushname}
+• setatus ${premi}
+• saldo Rp. ${getSaldoUser(sender)}
+
+
+  *INFORMASI MENU*
+• ${prefix2}info
+• ${prefix2}iklan
+• ${prefix2}donasi
+• ${prefix2}request
+
+
+  *BOT PAY MENU*
+• ${prefix2}daftar
+• ${prefix2}saldo
+• ${prefix2}claim
+
+
+  *EVENT GAMES BOT*
+• ${prefix2}carspeed
+• ${prefix2}lotre
+
+
+  *URL TO MEDIA TYPE*
+• ${prefix2}urltoimg
+• ${prefix2}tourl
+• ${prefix2}dburl
+
+
+  *PRODUK & VOTING*
+• ${prefix2}produk
+• ${prefix2}tambah
+• ${prefix2}votting
+• ${prefix2}vote
+• ${prefix2}dellvote
+
+
+  *ULASAN & MUTUAL*
+• ${prefix2}ulasan
+• ${prefix2}komentar
+• ${prefix2}mutual
+• ${prefix2}save
+
+
+  *ABSEN & MESSAGES*
+• ${prefix2}absen
+• ${prefix2}absensi
+• ${prefix2}svmess
+• ${prefix2}listmess
+
+
+  *GROUP MENU*
+• ${prefix2}afk
+• ${prefix2}undang
+• ${prefix2}enable
+• ${prefix2}disable
+• ${prefix2}bangrup
+• ${prefix2}unbangrup
+• ${prefix2}ban
+• ${prefix2}unban
+• ${prefix2}sider
+• ${prefix2}hidetag
+• ${prefix2}fitnah
+• ${prefix2}settings
+• ${prefix2}revoke
+• ${prefix2}add
+• ${prefix2}kick
+• ${prefix2}promote
+• ${prefix2}demote
+• ${prefix2}tagall
+• ${prefix2}antilink
+• ${prefix2}antitoxic
+• ${prefix2}welcome
+
+
+  *ANIME MENU*
+• ${prefix2}neko
+• ${prefix2}waifu
+
+
+  *GAMES MENU*
+• ${prefix2}dungeon
+• ${prefix2}slot
+• ${prefix2}truth
+• ${prefix2}dare
+• ${prefix2}tebakgambar
+
+
+  *IMAGE MENU*
+• ${prefix2}cogan
+• ${prefix2}cecan
+• ${prefix2}darkjokes
+• ${prefix2}pinterest
+• ${prefix2}ocr
+
+
+  *RANDOM MENU*
+• ${prefix2}cerpen
+• ${prefix2}ceritahoror
+• ${prefix2}film
+• ${prefix2}fakedata
+• ${prefix2}news
+• ${prefix2}beasiswa
+• ${prefix2}ppcouple
+
+
+  *STICKER MENU*
+• ${prefix2}sticker
+• ${prefix2}ttp
+• ${prefix2}attp
+• ${prefix2}wasted
+• ${prefix2}comrade
+• ${prefix2}jail
+• ${prefix2}passed
+• ${prefix2}trigger
+• ${prefix2}toimg
+
+
+  *EDUCATION MENU*
+• ${prefix2}quiz
+• ${prefix2}nulis
+• ${prefix2}niatsholat
+• ${prefix2}doa
+• ${prefix2}hadist
+
+
+  *AUDIO MENU*
+• ${prefix2}fast
+• ${prefix2}tupai
+• ${prefix2}gemuk
+• ${prefix2}slow
+• ${prefix2}tomp3
+
+
+  *PREMIUM MENU*
+• ${prefix2}asupan
+• ${prefix2}upswtext
+• ${prefix2}upswimg
+• ${prefix2}upswvideo
+
+
+  *OTHER MENU* 
+• ${prefix2}sharelock
+• ${prefix2}delete
+• ${prefix2}pesan
+• ${prefix2}owner
+• ${prefix2}report
+• ${prefix2}timer
+
+
+  *OWNER MENU*
+• $
+• >
+• =>
+• ${prefix2}makegroup
+• ${prefix2}join
+• ${prefix2}kudet
+• ${prefix2}leave
+• ${prefix2}clone
+• ${prefix2}bc
+• ${prefix2}addprem
+• ${prefix2}dellprem
+• ${prefix2}setbudy
+• ${prefix2}bug
+
+
+  *THANKS TO*
+• mhankbarbar
+• mitsuhabotz
+• rimurubotz
+• dimxbotz
+• rurichan
+• zak06cheat
+• ridwan
+• hafizh`
+sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
+`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+break
+}
+
+if (buttonsR === 'MENU') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n
@@ -5074,68 +5265,16 @@ break
               
 break
 }
-              if (buttonsR === 'START') {
-              E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
-              E2 = E1[Math.floor(Math.random() * E1.length)]
-				await client.sendMessage(from, `Searching Monster...`, MessageType.text)
-				
-			   youke = fs.readFileSync('./lib/odc.jpeg')
-		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1},{buttonId:`LANTAI 2`,buttonText:{displayText:'LANTAI 2'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Skull.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-              buttonsMessage = {footerText:`Monster Tipe Pengguna Pedang Yang Ahli, Konon Pada Tahun 1567 Di Amerika Serikat Seorang Kesatria Berjuang Sendiri Melawan Penjajahan`, imageMessage: imageMsg,
-              contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
-              client.relayWAMessage(prep)
-              
-break
-}        
-             if (buttonsR === 'LANTAI 2') {
-              E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
-              E2 = E1[Math.floor(Math.random() * E1.length)]
-				await client.sendMessage(from, `Searching Monster...`, MessageType.text)
-				
-			   youke = fs.readFileSync('./lib/odc.jpeg')
-		      buttons = [{buttonId:`SERANG ⚔`,buttonText:{displayText:'SERANG ⚔'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/Slime.jpg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-              buttonsMessage = {footerText:`Slime Atau Sering Disebut Juga Lendir Memiliki Skill Hebat Ia Mampu Membelah Dirinya Menjadi Banyak Hingga Membuat Lawan Kuwalahan Menghadapinya`, imageMessage: imageMsg,
-              contentText:`*RATE* ${E2}`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
-              client.relayWAMessage(prep)
-              
-break
+  
+if (buttonsR === 'START') {
+function pickRandom(list) {
+return list[Math.floor(Math.random() * list.length)]
 }
-
-if (buttonsR === 'SERANG ⚔') {
-buttons = [{buttonId:`BUY`,buttonText:{displayText:'BUY'},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`),'imageMessage', {thumbnail: thumb})).message.imageMessage
-              buttonsMessage = {footerText:`HARGA 1 PERALATAN DI BANDROL DENGAN HARGA 1000 XP`, imageMessage: imageMsg,
-              contentText:`*PERALATAN PERANG*`,buttons,headerType:4}
-              prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
-              client.relayWAMessage(prep)
-              
-break
-}
-
-if (buttonsR === 'BUY') {
-vs = ["WIN","LOSE","LOSE"]
-mk = vs[Math.floor(Math.random() * vs.length)]
-await reply(`Memulai Pertempuran...`)
-setTimeout( () => {
-			  creator = "6285731261728@s.whatsapp.net"
-teks =`*PERTEMPURAN SELESAI*`
-sendButLocation(from, `${teks}`, `Hasil Pertempuran Kamu Adalah ( *${mk}* ) Silahkan Kamu Claim Hadiah Yang Sudah Di Sediakan`, {jpegThumbnail:fakeimage}, [{buttonId:`${mk}`,buttonText:{displayText:`${mk}`},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-			}, 15000)
-break
-}
-if (buttonsR === 'LOSE') {
-reply(`Karna Kamu Kalah Coba Lagi`)
-addSaldoUser(sender, 100)
-break
-}
-
-if (buttonsR === 'WIN') {
-reply(`Keberuntunganmu Meningkat`)
-addSaldoUser(sender, 200)
+let pasukan = `${pickRandom(['50','100','150','200','50','100','150','50'])}`.trim()
+const gata = ["Monster Mengalahkanmu Tapi Dia Baik Hati Dan Memberimu","Kamu Menang Melawan Monster Sebagai Imbalan Kamu Mendapatkan"]
+const persus = gata[Math.floor(Math.random() * gata.length)]
+reply(`${persus} *+${pasukan}* Saldo`)
+addSaldoUser(sender, pasukan)
 break
 }
               
@@ -5455,7 +5594,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 break
 }
@@ -5479,7 +5618,7 @@ let ot = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(ot)
 break
 }
@@ -5515,7 +5654,7 @@ oo = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(oo)
 break
 }
@@ -5552,7 +5691,7 @@ let io = await client.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-quoted: floc2}) 
+}, {quoted: floc2}) 
 await client.relayWAMessage(io)
 break
 }
@@ -5775,6 +5914,18 @@ kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
     }
 }
+break
+}
+
+if (buttonsR === `CLAIM`) {
+if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)     
+if (isClaim) return reply(`kamu telah mengambil hadiah ini coba sesaat lagi`)
+addSaldoUser(sender, 2000)
+claim.push(sender)
+fs.writeFileSync('./src/claim.json', JSON.stringify(claim))
+creator = "6285731261728@s.whatsapp.net"
+teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN YANG TELAH TERSIMPAN DI DATABASE`
+sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
