@@ -199,7 +199,7 @@ return _saldo[position].saldo
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, saldo: 1000}
+const obj = {id: userid, saldo: 1000, emas: 0, perak: 0}
 _saldo.push(obj)
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
@@ -217,6 +217,56 @@ fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
 }
 
+const addEmasUser = (userid, amount) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_saldo[position].emas += amount
+fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
+}
+}
+
+const getEmasUser = (userid) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _saldo[position].emas
+}
+}
+
+const addPerakUser = (userid, amount) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_saldo[position].perak += amount
+fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
+}
+}
+
+const getPerakUser = (userid) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _saldo[position].perak
+}
+}
+
 const addBadwordUser = (userid, amount) => {
 let position = false
 Object.keys(_badword).forEach((i) => {
@@ -229,6 +279,8 @@ _badword[position].badword += amount
 fs.writeFileSync('./src/badword.json', JSON.stringify(_badword))
 }
 }
+
+
 
 const getBadwordUser = (userid) => {
 let position = false
@@ -573,7 +625,7 @@ blocked.push(i.replace('c.us','s.whatsapp.net'))
             mek = mek.messages.all()[0]
 			if (!mek.message) return
 			if (mek.key && mek.key.remoteJid == 'status@broadcast') return
-            if (mek.key.fromMe) return 
+            if (mek.key.fromMe) return
 			global.prefix
 			global.blocked
 			mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
@@ -1169,6 +1221,11 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • saldo Rp. ${getSaldoUser(sender)}
 
 
+  *CADANGAN SDA KAMU*
+• 💵 emas ${getEmasUser(sender)} batang
+• 💴 perak ${getPerakUser(sender)} batang
+
+
   *INFORMASI MENU*
 • ${prefix2}info
 • ${prefix2}iklan
@@ -1180,6 +1237,9 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
+• ${prefix2}shop
+• ${prefix2}buy
+• ${prefix2}sell
 
 
   *EVENT GAMES BOT*
@@ -1415,6 +1475,11 @@ teks =`*M I T S U H A - W A B O T*\n
 • saldo Rp. ${getSaldoUser(sender)}
 
 
+  *CADANGAN SDA KAMU*
+• 💵 emas ${getEmasUser(sender)} batang
+• 💴 perak ${getPerakUser(sender)} batang
+
+
   *INFORMASI MENU*
 • ${prefix2}info
 • ${prefix2}iklan
@@ -1426,6 +1491,9 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
+• ${prefix2}shop
+• ${prefix2}buy
+• ${prefix2}sell
 
 
   *EVENT GAMES BOT*
@@ -2120,6 +2188,130 @@ reply('_berhasil di aktifkan_')
 addSaldoUser(sender, -50)
 break*/
 
+case 'shop':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+reply(`💰 *SELL && BUY PREMIUM*
+
+Pengertian: Jika kamu melakukan pembelian premium makan kami membutuhkan saldo sebesar Rp. 5000. Dan apabila kamu menjual premium kembali maka akses premium kamu otomatis akan menghilang, Dan kamu hanya mendapatkan saldo sebanyak Rp.4000.
+Harga beli: Rp.5000
+Harga jual: Rp.4000
+
+💰 *SELL && BUY EMAS*
+
+Pengertian: Jika kamu melakukan pembelian emas maka saldo yang harus kamu keluarkan Rp. 3500. Apabila kamu menjual kembali sebuah batang emas maka kamu akam balik modal sebesar Rp.1000. Pembelian sumber daya sangat cocok untuk investasi.
+Harga beli: Rp.3500
+Harga jual: Rp.4500
+
+💰 *SELL && BUY PERAK*
+Pengertian: Jika kamu membeli sebatang perak maka saldo kamu harus berjumlah Rp.2000. Dan apabila kamu menjual sebatang perak maka saldo yang kamu dapat berjumlah Rp. 2500, Sama halnya emas perak juga cocok sebagai investasi saldo
+Harga beli: Rp.2000
+Harga jual: Rp.2500
+`)
+break
+
+case 'buy':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+if (args[0]=="premium") {
+if (isPrem) return reply(`_kamu sudah menjadi member premium sebelumnya_`)
+payout = 1
+const duit = 5000
+const totalprem = duit * payout
+if (getSaldoUser(sender) <= totalprem) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+if (getSaldoUser(sender) >= totalprem ) {
+addSaldoUser(sender, -5000)
+premium.push(sender)
+fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`)
+client.sendMessage('6285731261728@s.whatsapp.net',`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`, text)
+} 
+} else if (args[0]=="emas") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payout = ppp.split(" ")[1];
+const duit1 = 3500
+const totalduit = duit1 * payout
+if (getSaldoUser(sender) <= totalduit) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+if (getSaldoUser(sender) >= totalduit ) {
+addSaldoUser(sender, -totalduit)
+addEmasUser(sender, 1)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${duit1}`)
+}
+} else if (args[0]=="perak") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payout = ppp.split(" ")[1];
+const duit4 = 2000
+const totalduit4 = duit4 * payout
+if (getSaldoUser(sender) <= totalduit4) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+if (getSaldoUser(sender) >= totalduit4) {
+addSaldoUser(sender, -totalduit4)
+addPerakUser(sender, 1)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga perak* : ${duit4}`)
+}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• ${prefix2}buy premiun\n• ${prefix2}buy emas\n• ${prefix2}buy perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+break
+
+case 'sell':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+if (args[0]=="emas") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payout = ppp.split(" ")[1];
+const duit2 = 0
+const duity2 = 4500
+const totalduit2 = duit2 * payout
+const totalduitt2 = duity2 * payout
+if (getEmasUser(sender) <= totalduit2) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal emas yang harus di tukarkan ada 1`)
+addSaldoUser(sender, totalduitt2)
+addEmasUser(sender, -payout)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduitt2}`)
+} else if (args[0]=="premium") {
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+if (!isPrem) return reply(`_kamu harus menjadi member premium terlebih dahulu_`)
+addSaldoUser(sender, 4000)
+premium.splice(sender)
+fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : 4000`)
+} else if (args[0]=="perak") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payout = ppp.split(" ")[1];
+const duit3 = 0
+const duity3 = 2500
+const totalduit3 = duit3 * payout
+const ttotalduitt3= duity3 * payout
+if (getPerakUser(sender) <= totalduit3) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
+addSaldoUser(sender, totalduitt3)
+addPerakUser(sender, -payout)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga perak* : ${totalduitt2}`)
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell premiun\n• ${prefix2}sell emas\n• ${prefix2}sell perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+break
+
 case 'sider':
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
 infom = await client.messageInfo(from, mek.message.extendedTextMessage.contextInfo.stanzaId)
@@ -2316,6 +2508,8 @@ addSaldoUser(sender, -50)
 break
 
 case 'unbangrup':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
 banchat.splice(from)
@@ -3191,7 +3385,6 @@ teks =`*INFO MITSUHA WHATSAPP*
   *INFO DATABASE BOT*
 - total hit : ${hit_today.length}
 - user premium : ${premium.length}
-- total hit : ${hit_today.length}
 - total chat : ${tchat}
 - block kontak : ${blocked.length}
 
@@ -3702,7 +3895,7 @@ addSaldoId(sender)
 addBadwordId(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`TELAH TERDAFTAR DI DATABASE BOT DAN MENDAPAT KAN SALDO AWAL SEBANYAK RP. 1000`
-sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 case 'saldo':
@@ -3710,7 +3903,7 @@ if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)
 saldonya = getSaldoUser(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`💵 saldo kamu : Rp. ${saldonya}`
-sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`CLAIM`,buttonText:{displayText:'CLAIM'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 case 'claim':
@@ -4289,13 +4482,19 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
-if (args[0]=="antilink") {antilink.push(from)
+if (args[0]=="antilink") {
+if (isAntiLink) return reply('_berhasil di aktifkan_')
+antilink.push(from)
 fs.writeFileSync('./src/antilink.json', JSON.stringify(antilink))
 reply('_berhasil di aktifkan_')
-} else if (args[0]=="welcome") {welkom.push(from)
+} else if (args[0]=="welcome") {
+if (isWelkom) return reply('_berhasil di aktifkan_')
+welkom.push(from)
 fs.writeFileSync('./src/welkom.json', JSON.stringify(welkom))
 reply('_berhasil di aktifkan_')
-} else if (args[0]=="antitoxic") {antitoxic.push(from)
+} else if (args[0]=="antitoxic") {
+if (isAntiToxic) return reply('_berhasil di aktifkan_')
+antitoxic.push(from)
 fs.writeFileSync('./src/antitoxic.json', JSON.stringify(antitoxic))
 reply('_berhasil di aktifkan_')
 } else if (args[0]=="grup") {client.groupSettingChange (from, GroupSettingChange.messageSend, false)
@@ -4473,195 +4672,9 @@ teks =`*M I T S U H A - W A B O T*\n
 • saldo Rp. ${getSaldoUser(sender)}
 
 
-  *INFORMASI MENU*
-• ${prefix2}info
-• ${prefix2}iklan
-• ${prefix2}donasi
-• ${prefix2}request
-
-
-  *BOT PAY MENU*
-• ${prefix2}daftar
-• ${prefix2}saldo
-• ${prefix2}claim
-
-
-  *EVENT GAMES BOT*
-• ${prefix2}carspeed
-• ${prefix2}lotre
-
-
-  *URL TO MEDIA TYPE*
-• ${prefix2}urltoimg
-• ${prefix2}tourl
-• ${prefix2}dburl
-
-
-  *PRODUK & VOTING*
-• ${prefix2}produk
-• ${prefix2}tambah
-• ${prefix2}votting
-• ${prefix2}vote
-• ${prefix2}dellvote
-
-
-  *ULASAN & MUTUAL*
-• ${prefix2}ulasan
-• ${prefix2}komentar
-• ${prefix2}mutual
-• ${prefix2}save
-
-
-  *ABSEN & MESSAGES*
-• ${prefix2}absen
-• ${prefix2}absensi
-• ${prefix2}svmess
-• ${prefix2}listmess
-
-
-  *GROUP MENU*
-• ${prefix2}afk
-• ${prefix2}undang
-• ${prefix2}enable
-• ${prefix2}disable
-• ${prefix2}bangrup
-• ${prefix2}unbangrup
-• ${prefix2}ban
-• ${prefix2}unban
-• ${prefix2}sider
-• ${prefix2}hidetag
-• ${prefix2}fitnah
-• ${prefix2}settings
-• ${prefix2}revoke
-• ${prefix2}add
-• ${prefix2}kick
-• ${prefix2}promote
-• ${prefix2}demote
-• ${prefix2}tagall
-• ${prefix2}antilink
-• ${prefix2}antitoxic
-• ${prefix2}welcome
-
-
-  *ANIME MENU*
-• ${prefix2}neko
-• ${prefix2}waifu
-
-
-  *GAMES MENU*
-• ${prefix2}dungeon
-• ${prefix2}slot
-• ${prefix2}truth
-• ${prefix2}dare
-• ${prefix2}tebakgambar
-
-
-  *IMAGE MENU*
-• ${prefix2}cogan
-• ${prefix2}cecan
-• ${prefix2}darkjokes
-• ${prefix2}pinterest
-• ${prefix2}ocr
-
-
-  *RANDOM MENU*
-• ${prefix2}cerpen
-• ${prefix2}ceritahoror
-• ${prefix2}film
-• ${prefix2}fakedata
-• ${prefix2}news
-• ${prefix2}beasiswa
-• ${prefix2}ppcouple
-
-
-  *STICKER MENU*
-• ${prefix2}sticker
-• ${prefix2}ttp
-• ${prefix2}attp
-• ${prefix2}wasted
-• ${prefix2}comrade
-• ${prefix2}jail
-• ${prefix2}passed
-• ${prefix2}trigger
-• ${prefix2}toimg
-
-
-  *EDUCATION MENU*
-• ${prefix2}quiz
-• ${prefix2}nulis
-• ${prefix2}niatsholat
-• ${prefix2}doa
-• ${prefix2}hadist
-
-
-  *AUDIO MENU*
-• ${prefix2}fast
-• ${prefix2}tupai
-• ${prefix2}gemuk
-• ${prefix2}slow
-• ${prefix2}tomp3
-
-
-  *PREMIUM MENU*
-• ${prefix2}asupan
-• ${prefix2}upswtext
-• ${prefix2}upswimg
-• ${prefix2}upswvideo
-
-
-  *OTHER MENU* 
-• ${prefix2}sharelock
-• ${prefix2}delete
-• ${prefix2}pesan
-• ${prefix2}owner
-• ${prefix2}report
-• ${prefix2}timer
-
-
-  *OWNER MENU*
-• $
-• >
-• =>
-• ${prefix2}makegroup
-• ${prefix2}join
-• ${prefix2}kudet
-• ${prefix2}leave
-• ${prefix2}clone
-• ${prefix2}bc
-• ${prefix2}addprem
-• ${prefix2}dellprem
-• ${prefix2}setbudy
-• ${prefix2}bug
-
-
-  *THANKS TO*
-• mhankbarbar
-• mitsuhabotz
-• rimurubotz
-• dimxbotz
-• rurichan
-• zak06cheat
-• ridwan
-• hafizh`
-sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
-`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
-break
-}
-
-if (buttonsR === 'MENU') {
-uptime = process.uptime()
-creator = "6285731261728@s.whatsapp.net"
-teks =`*M I T S U H A - W A B O T*\n
-📚 runtime : ${kyun(uptime)}
-📚 dev : wa.me/6285731261728
-📚 jumlah hit : ${hit_today.length}
-📚 pengguna : ${_saldo.length} aktif
-
-
-  *PROFILE KAMU*
-• nama ${pushname}
-• setatus ${premi}
-• saldo Rp. ${getSaldoUser(sender)}
+  *CADANGAN SDA KAMU*
+• 💵 emas ${getEmasUser(sender)} batang
+• 💴 perak ${getPerakUser(sender)} batang
 
 
   *INFORMASI MENU*
@@ -4675,6 +4688,9 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}daftar
 • ${prefix2}saldo
 • ${prefix2}claim
+• ${prefix2}shop
+• ${prefix2}buy
+• ${prefix2}sell
 
 
   *EVENT GAMES BOT*
@@ -5128,7 +5144,7 @@ if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan 
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
-                    if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
+                    if (!isGroup) return reply(`_hanya bisa di grup_`)
 					
 					if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
 					if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
@@ -5914,18 +5930,6 @@ kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
     }
 }
-break
-}
-
-if (buttonsR === `CLAIM`) {
-if (!getSaldoId(sender)) return reply(`_kamu belum daftar_`)     
-if (isClaim) return reply(`kamu telah mengambil hadiah ini coba sesaat lagi`)
-addSaldoUser(sender, 2000)
-claim.push(sender)
-fs.writeFileSync('./src/claim.json', JSON.stringify(claim))
-creator = "6285731261728@s.whatsapp.net"
-teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN YANG TELAH TERSIMPAN DI DATABASE`
-sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
