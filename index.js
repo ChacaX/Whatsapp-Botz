@@ -3850,13 +3850,11 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)  
 /*if (args.length < 1) return reply(`Cara Memulai Voting Silahkan Ketik\n\n.voting menit|alasan\n\nlist menit yang tersedia.\n\n600000 | 1200000 | 1800000\n\njadi .voting 600000|ahok wibu`)*/
 client.updatePresence(from, Presence.composing) 
-if (args[1]=="detik") {var waktu = args[0]+"000"
+/*if (args[1]=="detik") {var waktu = args[0]+"000"
 } else if (args[1]=="menit") {var waktu = args[0]+"0000"
 } else if (args[1]=="jam") {var waktu = args[0]+"00000"
-} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : ${prefix2}votting 1 menit alasan_\n_note : alasan gunakan "." sebagai pengganti sepasi_`)}
-/*ppp = `${args.join(' ')}`*/
-/*waktu = ppp.split("|")[0];*/
-votenya= args[2]
+} else {return reply(`_pilih waktu : detik/menit/jam_\n_ex : ${prefix2}votting 1 menit alasan_\n_note : alasan gunakan "." sebagai pengganti sepasi_`)}*/
+votenya= args.join(" ")
 ini = yes.indexOf(from)
 ini2 = no.indexOf(from)
 ini3 = vote.indexOf(from)
@@ -3872,14 +3870,14 @@ for (let i of vote) {
 reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk me votting dan ${prefix2}delvote untuk menghapus vote kamu`)
 setTimeout( () => {
 reply(`*VOTING TELAH BERAKHIR*\n\n${votenya}\n\n✅ ${yes.length}\n❎ ${no.length}`)
-}, waktu)
+}, 100000)
 setTimeout( () => {
 ini3 = vote.indexOf(from)
 vote.splice(ini3, 1)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
 vote.push(`_saat ini sedang tidak ada votting silahkan ketik ${prefix2}votting untuk memulai votting_`)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
-}, waktu)
+}, 100000)
 }
 setTimeout( () => {
 ini = yes.indexOf(from)
@@ -3888,7 +3886,7 @@ yes.splice(ini, 1)
 no.splice(ini2, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
-}, waktu)
+}, 100000)
 addSaldoUser(sender, -50)
 break
 					
