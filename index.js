@@ -2240,7 +2240,7 @@ const totalduit = duit1 * payout
 if (getSaldoUser(sender) <= totalduit) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit ) {
 addSaldoUser(sender, -totalduit)
-addEmasUser(sender, 1)
+addEmasUser(sender, payout)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${duit1}`)
 }
 } else if (args[0]=="perak") {
@@ -2256,7 +2256,7 @@ const totalduit4 = duit4 * payout
 if (getSaldoUser(sender) <= totalduit4) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit4) {
 addSaldoUser(sender, -totalduit4)
-addPerakUser(sender, 1)
+addPerakUser(sender, payout)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga perak* : ${duit4}`)
 }
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• ${prefix2}buy premiun\n• ${prefix2}buy emas\n• ${prefix2}buy perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
