@@ -1222,8 +1222,8 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
 
   *CADANGAN SDA KAMU*
-• 💵 emas ${getEmasUser(sender)} batang
-• 💴 perak ${getPerakUser(sender)} batang
+• 🥇 emas ${getEmasUser(sender)} batang
+• 🥈 perak ${getPerakUser(sender)} batang
 
 
   *INFORMASI MENU*
@@ -1476,8 +1476,8 @@ teks =`*M I T S U H A - W A B O T*\n
 
 
   *CADANGAN SDA KAMU*
-• 💵 emas ${getEmasUser(sender)} batang
-• 💴 perak ${getPerakUser(sender)} batang
+• 🥇 emas ${getEmasUser(sender)} batang
+• 🥈 perak ${getPerakUser(sender)} batang
 
 
   *INFORMASI MENU*
@@ -2240,8 +2240,9 @@ const totalduit = duit1 * payout
 if (getSaldoUser(sender) <= totalduit) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit ) {
 addSaldoUser(sender, -totalduit)
-addEmasUser(sender, payout)
-await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${duit1}`)
+payoutnye = payout * 1
+addEmasUser(sender, payoutnye)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduit1}`)
 }
 } else if (args[0]=="perak") {
 if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
@@ -2250,14 +2251,15 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
-payout = ppp.split(" ")[1];
+const payoutu = ppp.split(" ")[1];
 const duit4 = 2000
-const totalduit4 = duit4 * payout
+const totalduit4 = duit4 * payoutu
 if (getSaldoUser(sender) <= totalduit4) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit4) {
 addSaldoUser(sender, -totalduit4)
-addPerakUser(sender, payout)
-await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga perak* : ${duit4}`)
+payoutnye = payoutu * 1
+addPerakUser(sender, payoutnye)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutu} \n*Harga perak* : ${totalduit4}`)
 }
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• ${prefix2}buy premiun\n• ${prefix2}buy emas\n• ${prefix2}buy perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
@@ -2300,15 +2302,15 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
-payout = ppp.split(" ")[1];
+const payouti = ppp.split(" ")[1];
 const duit3 = 0
 const duity3 = 2500
-const totalduit3 = duit3 * payout
-const totalduitt3= duity3 * payout
+const totalduit3 = duit3 * payouti
+const totalduitt3= duity3 * payouti
 if (getPerakUser(sender) <= totalduit3) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt3)
-addPerakUser(sender, -payout)
-await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga perak* : ${totalduitt3}`)
+addPerakUser(sender, -payouti)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payouti} \n*Harga perak* : ${totalduitt3}`)
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell premiun\n• ${prefix2}sell emas\n• ${prefix2}sell perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
 
@@ -4673,8 +4675,8 @@ teks =`*M I T S U H A - W A B O T*\n
 
 
   *CADANGAN SDA KAMU*
-• 💵 emas ${getEmasUser(sender)} batang
-• 💴 perak ${getPerakUser(sender)} batang
+• 🥇 emas ${getEmasUser(sender)} batang
+• 🥈 perak ${getPerakUser(sender)} batang
 
 
   *INFORMASI MENU*
