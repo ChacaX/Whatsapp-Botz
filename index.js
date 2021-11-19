@@ -64,7 +64,6 @@ const claim = JSON.parse(fs.readFileSync('./src/claim.json'))
 const _saldo = JSON.parse(fs.readFileSync('./src/saldo.json'))
 const _badword = JSON.parse(fs.readFileSync('./src/badword.json'))
 const afk = JSON.parse(fs.readFileSync('./src/afk.json'))
-const url = JSON.parse(fs.readFileSync('./src/url.json'))
 const tebak = JSON.parse(fs.readFileSync('./lib/tebakgambar.js'))
 const ban = JSON.parse(fs.readFileSync('./src/ban.json'))
 const banchat = JSON.parse(fs.readFileSync('./src/banchat.json'))
@@ -1060,7 +1059,10 @@ tingkat ='*PENCAPAIAN SELESAI 🌳'
              if (isAntiToxic) {
              anto = 'On'
 }
-             
+             var wel = 'Off'
+             if (isWelkom) {
+             wel = 'On'
+}
            
                     
 		async function sendFileFromUrl(from, url, caption, miku, mek, men) {
@@ -1250,7 +1252,6 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
   *URL TO MEDIA TYPE*
 • ${prefix2}urltoimg
 • ${prefix2}tourl
-• ${prefix2}dburl
 
 
   *PRODUK & VOTING*
@@ -1504,7 +1505,6 @@ teks =`*M I T S U H A - W A B O T*\n
   *URL TO MEDIA TYPE*
 • ${prefix2}urltoimg
 • ${prefix2}tourl
-• ${prefix2}dburl
 
 
   *PRODUK & VOTING*
@@ -1859,7 +1859,7 @@ deskripsi : biopro
 produk.push(H1)
 fs.writeFileSync(`./lib/${nmorpro}.jpeg`, delb)
 fs.writeFileSync('./lib/produk.js', JSON.stringify(produk))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)		     	
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, {quoted: floc2})		     	
 addSaldoUser(sender, -50)
 break
 
@@ -2225,7 +2225,7 @@ addSaldoUser(sender, -5000)
 premium.push(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`)
-client.sendMessage('6285731261728@s.whatsapp.net',`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`, text)
+client.sendMessage('6285731261728@s.whatsapp.net',`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`, text, {quoted: floc2})
 } 
 } else if (args[0]=="emas") {
 if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
@@ -2242,7 +2242,7 @@ if (getSaldoUser(sender) >= totalduit ) {
 addSaldoUser(sender, -totalduit)
 payoutnye = payout * 1
 addEmasUser(sender, payoutnye)
-await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduit1}`)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduit}`)
 }
 } else if (args[0]=="perak") {
 if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
@@ -2838,7 +2838,7 @@ snder : sender
 }
 save.push(H1)
 fs.writeFileSync('./lib/sv.js', JSON.stringify(save))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)		     	
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, {quoted: floc2})		     	
 addSaldoUser(sender, -50)
 break
 
@@ -3395,6 +3395,7 @@ teks =`*INFO MITSUHA WHATSAPP*
 - status antilink : ${anlink}
 - status antitoxic : ${anto}
 - status simisimi : ${sim}
+- status welcome : ${wel}
 - member grup : ${groupMembers.length}
 - admin grup : ${groupAdmins.length}
 
@@ -3775,7 +3776,7 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 const pesan = body.slice(8)
-if (pesan.length > 300) return client.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text)
+if (pesan.length > 300) return client.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: floc2})
 var nomor = mek.participant
 const teks1 = `*REPORT*\nUser : @${nomor.split("@s.whatsapp.net")[0]}\nNomor : ${sender.split("@")[0]}\nPesan : ${pesan}`
 var options = {
@@ -3824,7 +3825,7 @@ Time : tem
 }
 _komentar.push(teks)
 fs.writeFileSync('./lib/komentar.js', JSON.stringify(_komentar))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, {quoted: floc2})
 addSaldoUser(sender, -50)
 break
 
@@ -3937,21 +3938,6 @@ reply('Tag Media Yang Udah Dikirim')
 		addSaldoUser(sender, -50)
 break
 		
-		case 'dburl':
-		if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
-if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
-if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)     
-		teks = 'DATABASE JSON URL:\n\n'
-for (let i of url) {
-teks += `⬡ ${i}\n\n---------------------------\n\n`
-}
-teks += `Total : ${url.length}`
-client.sendMessage(from, teks.trim(), extendedText)
-addSaldoUser(sender, -50)
-break
-
 case 'vote':
 if (isBanChat) return reply(`_﹝??﹞grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
@@ -4076,9 +4062,9 @@ addSaldoUser(sender, -50)
 break
 
 case 'gtts':
-if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text)
+if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text, {quoted: floc2})
 const gtts = require('./lib/gtts')(args[0])
-if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text)
+if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text, {quoted: floc2})
 dtt = body.slice(9)
 ranm = getRandom('.mp3')
 dtt.length > 600
@@ -4097,7 +4083,7 @@ for (let i of berbintang) {
 teks += `⬡ *Pesan : ${i.name} > ${i.waktu}*\n${i.teks}\n\n---------------------------\n\n`
 }
 teks += `Total : ${berbintang.length}`
-client.sendMessage(from, teks.trim(), extendedText)
+client.sendMessage(from, teks.trim(), extendedtext, {quoted: floc2})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 addSaldoUser(sender, -50)
 break
@@ -4112,7 +4098,7 @@ for (let i of req) {
 teks += `⬡ *${i.name} > ${i.waktu}*\nPesan : ${i.teks}\n\n---------------------------\n\n`
 }
 teks += `Total : ${req.length}`
-client.sendMessage(from, teks.trim(), extendedText)
+client.sendMessage(from, teks.trim(), extendedtext, {quoted: floc2})
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
 st = { 
@@ -4143,7 +4129,7 @@ setTimeout( () => {
 client.sendMessage(from, gambar, image, { caption: `Jawablah pertanyaan dengan waktu yang sudah di tentukan _Waktu + 30 second_\n\n*TebakGambar*`})
 }, 0)
 setTimeout( () => {
-client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text)
+client.sendMessage(from, `_Waktu habis jawaban : ${randKey.result.jawaban}_`, text, {quoted: floc2})
 }, 30000)
 addSaldoUser(sender, 100)
 break
@@ -4441,7 +4427,7 @@ if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk d
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 client.updatePresence(from, Presence.composing)
-client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedText)
+client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedtext, {quoted: floc2})
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, -50)
 break
@@ -4703,7 +4689,6 @@ teks =`*M I T S U H A - W A B O T*\n
   *URL TO MEDIA TYPE*
 • ${prefix2}urltoimg
 • ${prefix2}tourl
-• ${prefix2}dburl
 
 
   *PRODUK & VOTING*
@@ -5229,7 +5214,7 @@ setTimeout( () => {
 				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 500000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text)
+				client.sendMessage(from, `Bot Akan Keluar Dalam 10 Menit`, MessageType.text, {quoted: floc2})
 				}, 0)
 				
 break
@@ -5248,7 +5233,7 @@ setTimeout( () => {
 				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 1,100,000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text)
+				client.sendMessage(from, `Bot Akan Keluar Dalam 20 Menit`, MessageType.text, {quoted: floc2})
 				}, 0)
 break
 }
@@ -5266,7 +5251,7 @@ setTimeout( () => {
 				client.sendMessage(from, 'Waktu Habis Bot Akan Keluar!', text, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 				}, 1,700,000)
 				setTimeout( () => {
-				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text)
+				client.sendMessage(from, `Bot Akan Keluar Dalam 30 Menit`, MessageType.text, {quoted: floc2})
 				}, 0)
 break
 }
@@ -5470,7 +5455,7 @@ deskripsi : biopro
 produk.push(H1)
 fs.writeFileSync(`./lib/${randKey.nomor}.jpeg`, delb)
 fs.writeFileSync('./src/produk.js', JSON.stringify(produk))
-client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text)		     	
+client.sendMessage(from, `Oke Sudag Tersimpan`, MessageType.text, {quoted: floc2})		     	
 break
 }
 if (buttonsR === 'NEXT 📦') {
@@ -5993,7 +5978,7 @@ reply(stdout)
 if (budy.startsWith('>')){
 if (!isOwner) return
 try {
-return client.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text)
+return client.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: floc2})
 } catch(err) {
 e = String(err)
 reply(e)
