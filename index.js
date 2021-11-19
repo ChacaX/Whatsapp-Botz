@@ -2304,11 +2304,11 @@ payout = ppp.split(" ")[1];
 const duit3 = 0
 const duity3 = 2500
 const totalduit3 = duit3 * payout
-const ttotalduitt3= duity3 * payout
+const totalduitt3= duity3 * payout
 if (getPerakUser(sender) <= totalduit3) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt3)
 addPerakUser(sender, -payout)
-await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga perak* : ${totalduitt2}`)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga perak* : ${totalduitt3}`)
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell premiun\n• ${prefix2}sell emas\n• ${prefix2}sell perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
 
