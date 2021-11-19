@@ -266,6 +266,56 @@ return _saldo[position].perak
 }
 }
 
+const addBijihPerakUser = (userid, amount) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_saldo[position].bijih_perak += amount
+fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
+}
+}
+
+const addBijihEmasUser = (userid, amount) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_saldo[position].bijih_emas += amount
+fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
+}
+}
+
+const getBijihEmasUser = (userid) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _saldo[position].bijih_emas
+}
+}
+
+const getBijihPerakUser = (userid) => {
+let position = false
+Object.keys(_saldo).forEach((i) => {
+if (_saldo[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _saldo[position].bijih_perak
+}
+}
+
 const addBadwordUser = (userid, amount) => {
 let position = false
 Object.keys(_badword).forEach((i) => {
@@ -278,8 +328,6 @@ _badword[position].badword += amount
 fs.writeFileSync('./src/badword.json', JSON.stringify(_badword))
 }
 }
-
-
 
 const getBadwordUser = (userid) => {
 let position = false
@@ -1226,6 +1274,8 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
   *CADANGAN SDA KAMU*
 • 🥇 emas ${getEmasUser(sender)} batang
 • 🥈 perak ${getPerakUser(sender)} batang
+• 📀 bijih emas ${getBijihEmasUser(sender)}
+• 💿 bijih perak ${getBijihPerakUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1242,6 +1292,8 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • ${prefix2}shop
 • ${prefix2}buy
 • ${prefix2}sell
+• ${prefix2}tukar
+• ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
@@ -1479,6 +1531,8 @@ teks =`*M I T S U H A - W A B O T*\n
   *CADANGAN SDA KAMU*
 • 🥇 emas ${getEmasUser(sender)} batang
 • 🥈 perak ${getPerakUser(sender)} batang
+• 📀 bijih emas ${getBijihEmasUser(sender)}
+• 💿 bijih perak ${getBijihPerakUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1495,6 +1549,8 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}shop
 • ${prefix2}buy
 • ${prefix2}sell
+• ${prefix2}tukar
+• ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
@@ -1661,32 +1717,61 @@ break
 ALL FEATURE BOT
 ___________________*/
 
-case 'box':
+case 'nambang':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
-if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
-if (args[0]=="1") {
-if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
-if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
-await addSaldoUser(sender, 1000)
-reply(`selamat kamu mendapatkan saldo sebanyak Rp. 1000`)
-addBoxUser(sender, -1)
-} else if (args[0]=="2") {
-if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
-if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
-await addSaldoUser(sender, 1500)
-reply(`selamat kamu mendapatkan saldo sebanyak Rp. 1500`)
-addBoxUser(sender, -1)
-} else if (args[0]=="3") {
-if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
-if (!getBoxUser(sender)) return reply(`_yah kamu belum menemukan box, silahkan kamu temukan dulu di salah satu fitur bot_`)
-await addSaldoUser(sender, 800)
-reply(`selamat kamu mendapatkan saldo sebanyak Rp. 800`)
-addBoxUser(sender, -1)
-} else {return reply(`silahkan pilih box salah satu yang berada di bawah ini\n\n1⃣2⃣3⃣\n\nsilahkan pilih ${prefix2}box 1 sampai 3`)}
+yoi = ["1","2","1","4","1","1","2","3","1"]
+kya = yoi[Math.floor(Math.random() * yoi.length)]
+kyi = yoi[Math.floor(Math.random() * yoi.length)]
+kye = kya * 1
+kyu = kyi * 1
+addBijihEmasUser(sender, kye)
+addBijihPerakUser(sender, kyu)
+reply(`kamu mendapatkan *${kya}* bijih emas dan *${kyi}* bijih perak\n\njika bijih yang kamu sudah kumpulkan mencampai 10 maka kamu bisa tukarkan dengan batangan`)
+addSaldoUser(sender, -100)
 break
-	
+
+case 'tukar':
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)     
+if (args[0]=="emas") {
+if (args.length < 2) return reply(`_example : ${prefix2}tukar ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payout = ppp.split(" ")[1];
+duit5= 0
+duity5 = 10
+totalduit5 = duit5 * payout
+totalduitt5 = duity5 * payout
+if (getBijihEmasUser(sender) <= totalduit5) return reply(`Maaf bijih emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih emas yang harus di tukarkan ada 10`)
+addBijihEmasUser(sender, -totalduitt5)
+addEmasUser(sender, payout)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduitt5}`)
+} else if (args[0]=="perak") {
+if (args.length < 2) return reply(`_example : ${prefix2}tukar ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
+if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payout = ppp.split(" ")[1];
+duit5= 0
+duity5 = 10
+totalduit5 = duit5 * payout
+totalduitt5 = duity5 * payout
+if (getBijihPerakUser(sender) <= totalduit5) return reply(`Maaf bijih perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih perak yang harus di tukarkan ada 10`)
+addBijihPerakUser(sender, -totalduitt5)
+addPerakUser(sender, payout)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduitt5}`)
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• ${prefix2}tukar emas\n• ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+break
+
 case 'lotre':
 if (!getSaldoId(sender)) return reply(`_kamu belum mendaftar, ketik /daftar dan dapatkan saldo untuk akses fitur_`)
 if (!getSaldoUser(sender)) return reply(`_saldo mu abis, maini game menu untuk dapetin saldo ya_`)
@@ -2206,6 +2291,11 @@ Harga jual: Rp.4500
 Pengertian: Jika kamu membeli sebatang perak maka saldo kamu harus berjumlah Rp.2000. Dan apabila kamu menjual sebatang perak maka saldo yang kamu dapat berjumlah Rp. 2500, Sama halnya emas perak juga cocok sebagai investasi saldo
 Harga beli: Rp.2000
 Harga jual: Rp.2500
+
+💰 *BARTER BIJIH SDA*
+Pengertian: Jika kamu telah mendapatkan 10 bijih sda kamu dapat tukarkan dengan 1 batangan yang dimana kamu bisa jual kembali sebagai saldo limit. Kamu bisa dapatkan bijih emas dan nikel di fitur ${prefix2}nambang dengan membayar Rp. 100 saldo dari bot kamu
+Harga tukar: 10 bijih
+Jumlah item: 1 batangan
 `)
 break
 
@@ -2261,7 +2351,7 @@ payoutnye = payoutu * 1
 addPerakUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutu} \n*Harga perak* : ${totalduit4}`)
 }
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• ${prefix2}buy premiun\n• ${prefix2}buy emas\n• ${prefix2}buy perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• ${prefix2}buy premium\n• ${prefix2}buy emas\n• ${prefix2}buy perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
 
 case 'sell':
@@ -2311,7 +2401,13 @@ if (getPerakUser(sender) <= totalduit3) return reply(`Maaf emas kamu belum mencu
 addSaldoUser(sender, totalduitt3)
 addPerakUser(sender, -payouti)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payouti} \n*Harga perak* : ${totalduitt3}`)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell premiun\n• ${prefix2}sell emas\n• ${prefix2}sell perak\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell
+• ${prefix2}tukar
+• ${prefix2}nambang premium\n• ${prefix2}sell
+• ${prefix2}tukar
+• ${prefix2}nambang emas\n• ${prefix2}sell
+• ${prefix2}tukar
+• ${prefix2}nambang perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
 
 case 'sider':
@@ -3870,14 +3966,14 @@ for (let i of vote) {
 reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk me votting dan ${prefix2}delvote untuk menghapus vote kamu`)
 setTimeout( () => {
 reply(`*VOTING TELAH BERAKHIR*\n\n${votenya}\n\n✅ ${yes.length}\n❎ ${no.length}`)
-}, 100000)
+}, 600000)
 setTimeout( () => {
 ini3 = vote.indexOf(from)
 vote.splice(ini3, 1)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
 vote.push(`_saat ini sedang tidak ada votting silahkan ketik ${prefix2}votting untuk memulai votting_`)
 fs.writeFileSync('./src/vote.json', JSON.stringify(vote))
-}, 100000)
+}, 600000)
 }
 setTimeout( () => {
 ini = yes.indexOf(from)
@@ -3886,7 +3982,7 @@ yes.splice(ini, 1)
 no.splice(ini2, 1)
 fs.writeFileSync('./src/yes.json', JSON.stringify(yes))
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
-}, 100000)
+}, 600000)
 addSaldoUser(sender, -50)
 break
 					
@@ -4661,6 +4757,8 @@ teks =`*M I T S U H A - W A B O T*\n
   *CADANGAN SDA KAMU*
 • 🥇 emas ${getEmasUser(sender)} batang
 • 🥈 perak ${getPerakUser(sender)} batang
+• 📀 bijih emas ${getBijihEmasUser(sender)}
+• 💿 bijih perak ${getBijihPerakUser(sender)}
 
 
   *INFORMASI MENU*
@@ -4677,6 +4775,8 @@ teks =`*M I T S U H A - W A B O T*\n
 • ${prefix2}shop
 • ${prefix2}buy
 • ${prefix2}sell
+• ${prefix2}tukar
+• ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
