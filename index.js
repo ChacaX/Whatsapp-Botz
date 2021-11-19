@@ -1749,9 +1749,10 @@ duit5= 0
 duity5 = 10
 totalduit5 = duit5 * payout
 totalduitt5 = duity5 * payout
-if (getBijihEmasUser(sender) <= totalduit5) return reply(`Maaf bijih emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih emas yang harus di tukarkan ada 10`)
+if (getBijihEmasUser(sender) <= totalduitt5) return reply(`Maaf bijih emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih emas yang harus di tukarkan ada 10`)
 addBijihEmasUser(sender, -totalduitt5)
-addEmasUser(sender, payout)
+payoutnye = payout * 1
+addEmasUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduitt5}`)
 } else if (args[0]=="perak") {
 if (args.length < 2) return reply(`_example : ${prefix2}tukar ${args[0]} 1_ (jumlah bebas)`)
@@ -1765,9 +1766,10 @@ duit5= 0
 duity5 = 10
 totalduit5 = duit5 * payout
 totalduitt5 = duity5 * payout
-if (getBijihPerakUser(sender) <= totalduit5) return reply(`Maaf bijih perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih perak yang harus di tukarkan ada 10`)
+if (getBijihPerakUser(sender) <= totalduitt5) return reply(`Maaf bijih perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih perak yang harus di tukarkan ada 10`)
 addBijihPerakUser(sender, -totalduitt5)
-addPerakUser(sender, payout)
+payoutnye = payout * 1
+addPerakUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga emas* : ${totalduitt5}`)
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• ${prefix2}tukar emas\n• ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
@@ -2400,14 +2402,7 @@ const totalduitt3= duity3 * payouti
 if (getPerakUser(sender) <= totalduit3) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt3)
 addPerakUser(sender, -payouti)
-await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payouti} \n*Harga perak* : ${totalduitt3}`)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell
-• ${prefix2}tukar
-• ${prefix2}nambang premium\n• ${prefix2}sell
-• ${prefix2}tukar
-• ${prefix2}nambang emas\n• ${prefix2}sell
-• ${prefix2}tukar
-• ${prefix2}nambang perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+await reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell premium\n• ${prefix2}sell emas\n• ${prefix2}sell perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
 
 case 'sider':
