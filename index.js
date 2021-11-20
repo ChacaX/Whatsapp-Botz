@@ -346,8 +346,8 @@ fs.writeFileSync('./src/badword.json', JSON.stringify(_badword))
 }
 
 const addLimitId = (userid) => {
-const 7obj = {id: userid, limit:10}
-_limit.push(7obj)
+const iobj = {id: userid, limit:10}
+_limit.push(iobj)
 fs.writeFileSync('./src/limit.json', JSON.stringify(_limit))
 }
 
