@@ -1285,167 +1285,167 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
 
   *INFORMASI MENU*
-• ${prefix2}info
-• ${prefix2}iklan
-• ${prefix2}donasi
-• ${prefix2}request
+• 🏐 ${prefix2}info
+• 🏐 ${prefix2}iklan
+• 🏐 ${prefix2}donasi
+• 🏐 ${prefix2}request
 
 
   *BOT PAY MENU*
-• ${prefix2}daftar
-• ${prefix2}dompet
-• ${prefix2}claim
-• ${prefix2}shop
-• ${prefix2}buy
-• ${prefix2}sell
-• ${prefix2}tukar
-• ${prefix2}nambang
+• 🏐 ${prefix2}daftar
+• 🏐 ${prefix2}dompet
+• 🏐 ${prefix2}claim
+• 🏐 ${prefix2}shop
+• 🏐 ${prefix2}buy
+• 🏐 ${prefix2}sell
+• 🏐 ${prefix2}tukar
+• 🏐 ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
-• ${prefix2}carspeed
-• ${prefix2}lotre
+• 🏐 ${prefix2}carspeed
+• 🏐 ${prefix2}lotre
 
 
   *URL TO MEDIA TYPE*
-• ${prefix2}urltoimg
-• ${prefix2}tourl
+• 🏐 ${prefix2}urltoimg
+• 🏐 ${prefix2}tourl
 
 
   *PRODUK & VOTING*
-• ${prefix2}produk
-• ${prefix2}tambah
-• ${prefix2}votting
-• ${prefix2}vote
-• ${prefix2}dellvote
+• 🏐 ${prefix2}produk
+• 🏐 ${prefix2}tambah
+• 🏐 ${prefix2}votting
+• 🏐 ${prefix2}vote
+• 🏐 ${prefix2}dellvote
 
 
   *ULASAN & MUTUAL*
-• ${prefix2}ulasan
-• ${prefix2}komentar
-• ${prefix2}mutual
-• ${prefix2}save
+• 🏐 ${prefix2}ulasan
+• 🏐 ${prefix2}komentar
+• 🏐 ${prefix2}mutual
+• 🏐 ${prefix2}save
 
 
   *ABSEN & MESSAGES*
-• ${prefix2}absen
-• ${prefix2}absensi
-• ${prefix2}svmess
-• ${prefix2}listmess
+• 🏐 ${prefix2}absen
+• 🏐 ${prefix2}absensi
+• 🏐 ${prefix2}svmess
+• 🏐 ${prefix2}listmess
 
 
   *GROUP MENU*
-• ${prefix2}afk
-• ${prefix2}undang
-• ${prefix2}enable
-• ${prefix2}disable
-• ${prefix2}bangrup
-• ${prefix2}unbangrup
-• ${prefix2}ban
-• ${prefix2}unban
-• ${prefix2}sider
-• ${prefix2}hidetag
-• ${prefix2}fitnah
-• ${prefix2}settings
-• ${prefix2}revoke
-• ${prefix2}add
-• ${prefix2}kick
-• ${prefix2}promote
-• ${prefix2}demote
-• ${prefix2}tagall
-• ${prefix2}antilink
-• ${prefix2}antitoxic
-• ${prefix2}welcome
+• 🏐 ${prefix2}afk
+• 🏐 ${prefix2}undang
+• 🏐 ${prefix2}enable
+• 🏐 ${prefix2}disable
+• 🏐 ${prefix2}bangrup
+• 🏐 ${prefix2}unbangrup
+• 🏐 ${prefix2}ban
+• 🏐 ${prefix2}unban
+• 🏐 ${prefix2}sider
+• 🏐 ${prefix2}hidetag
+• 🏐 ${prefix2}fitnah
+• 🏐 ${prefix2}settings
+• 🏐 ${prefix2}revoke
+• 🏐 ${prefix2}add
+• 🏐 ${prefix2}kick
+• 🏐 ${prefix2}promote
+• 🏐 ${prefix2}demote
+• 🏐 ${prefix2}tagall
+• 🏐 ${prefix2}antilink
+• 🏐 ${prefix2}antitoxic
+• 🏐 ${prefix2}welcome
 
 
   *ANIME MENU*
-• ${prefix2}neko
-• ${prefix2}waifu
+• 🏐 ${prefix2}neko
+• 🏐 ${prefix2}waifu
 
 
   *GAMES MENU*
-• ${prefix2}dungeon
-• ${prefix2}slot
-• ${prefix2}truth
-• ${prefix2}dare
-• ${prefix2}tebakgambar
+• 🏐 ${prefix2}dungeon
+• 🏐 ${prefix2}slot
+• 🏐 ${prefix2}truth
+• 🏐 ${prefix2}dare
+• 🏐 ${prefix2}tebakgambar
 
 
   *IMAGE MENU*
-• ${prefix2}cogan
-• ${prefix2}cecan
-• ${prefix2}darkjokes
-• ${prefix2}pinterest
-• ${prefix2}ocr
+• 🏐 ${prefix2}cogan
+• 🏐 ${prefix2}cecan
+• 🏐 ${prefix2}darkjokes
+• 🏐 ${prefix2}pinterest
+• 🏐 ${prefix2}ocr
 
 
   *RANDOM MENU*
-• ${prefix2}cerpen
-• ${prefix2}ceritahoror
-• ${prefix2}film
-• ${prefix2}fakedata
-• ${prefix2}news
-• ${prefix2}beasiswa
-• ${prefix2}ppcouple
+• 🏐 ${prefix2}cerpen
+• 🏐 ${prefix2}ceritahoror
+• 🏐 ${prefix2}film
+• 🏐 ${prefix2}fakedata
+• 🏐 ${prefix2}news
+• 🏐 ${prefix2}beasiswa
+• 🏐 ${prefix2}ppcouple
 
 
   *STICKER MENU*
-• ${prefix2}sticker
-• ${prefix2}ttp
-• ${prefix2}attp
-• ${prefix2}wasted
-• ${prefix2}comrade
-• ${prefix2}jail
-• ${prefix2}passed
-• ${prefix2}trigger
-• ${prefix2}toimg
+• 🏐 ${prefix2}sticker
+• 🏐 ${prefix2}ttp
+• 🏐 ${prefix2}attp
+• 🏐 ${prefix2}wasted
+• 🏐 ${prefix2}comrade
+• 🏐 ${prefix2}jail
+• 🏐 ${prefix2}passed
+• 🏐 ${prefix2}trigger
+• 🏐 ${prefix2}toimg
 
 
   *EDUCATION MENU*
-• ${prefix2}quiz
-• ${prefix2}nulis
-• ${prefix2}niatsholat
-• ${prefix2}doa
-• ${prefix2}hadist
+• 🏐 ${prefix2}quiz
+• 🏐 ${prefix2}nulis
+• 🏐 ${prefix2}niatsholat
+• 🏐 ${prefix2}doa
+• 🏐 ${prefix2}hadist
 
 
   *AUDIO/VN MENU*
-• ${prefix2}fast
-• ${prefix2}tupai
-• ${prefix2}gemuk
-• ${prefix2}slow
-• ${prefix2}tomp3
+• 🏐 ${prefix2}fast
+• 🏐 ${prefix2}tupai
+• 🏐 ${prefix2}gemuk
+• 🏐 ${prefix2}slow
+• 🏐 ${prefix2}tomp3
 
 
   *PREMIUM MENU*
-• ${prefix2}asupan
-• ${prefix2}upswtext
-• ${prefix2}upswimg
-• ${prefix2}upswvideo
+• 🏐 ${prefix2}asupan
+• 🏐 ${prefix2}upswtext
+• 🏐 ${prefix2}upswimg
+• 🏐 ${prefix2}upswvideo
 
 
   *OTHER MENU*
-• ${prefix2}sharelock
-• ${prefix2}delete
-• ${prefix2}pesan
-• ${prefix2}owner
-• ${prefix2}report
-• ${prefix2}timer
+• 🏐 ${prefix2}sharelock
+• 🏐 ${prefix2}delete
+• 🏐 ${prefix2}pesan
+• 🏐 ${prefix2}owner
+• 🏐 ${prefix2}report
+• 🏐 ${prefix2}timer
 
 
   *OWNER MENU*
 • $
 • >
 • =>
-• ${prefix2}makegroup
-• ${prefix2}join
-• ${prefix2}kudet
-• ${prefix2}leave
-• ${prefix2}clone
-• ${prefix2}bc
-• ${prefix2}addprem
-• ${prefix2}dellprem
-• ${prefix2}bug
+• 🏐 ${prefix2}makegroup
+• 🏐 ${prefix2}join
+• 🏐 ${prefix2}kudet
+• 🏐 ${prefix2}leave
+• 🏐 ${prefix2}clone
+• 🏐 ${prefix2}bc
+• 🏐 ${prefix2}addprem
+• 🏐 ${prefix2}dellprem
+• 🏐 ${prefix2}bug
 
 
   *THANKS TO*
@@ -1542,167 +1542,167 @@ teks =`*M I T S U H A - W A B O T*\n
 
 
   *INFORMASI MENU*
-• ${prefix2}info
-• ${prefix2}iklan
-• ${prefix2}donasi
-• ${prefix2}request
+• 🏐 ${prefix2}info
+• 🏐 ${prefix2}iklan
+• 🏐 ${prefix2}donasi
+• 🏐 ${prefix2}request
 
 
   *BOT PAY MENU*
-• ${prefix2}daftar
-• ${prefix2}dompet
-• ${prefix2}claim
-• ${prefix2}shop
-• ${prefix2}buy
-• ${prefix2}sell
-• ${prefix2}tukar
-• ${prefix2}nambang
+• 🏐 ${prefix2}daftar
+• 🏐 ${prefix2}dompet
+• 🏐 ${prefix2}claim
+• 🏐 ${prefix2}shop
+• 🏐 ${prefix2}buy
+• 🏐 ${prefix2}sell
+• 🏐 ${prefix2}tukar
+• 🏐 ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
-• ${prefix2}carspeed
-• ${prefix2}lotre
+• 🏐 ${prefix2}carspeed
+• 🏐 ${prefix2}lotre
 
 
   *URL TO MEDIA TYPE*
-• ${prefix2}urltoimg
-• ${prefix2}tourl
+• 🏐 ${prefix2}urltoimg
+• 🏐 ${prefix2}tourl
 
 
   *PRODUK & VOTING*
-• ${prefix2}produk
-• ${prefix2}tambah
-• ${prefix2}votting
-• ${prefix2}vote
-• ${prefix2}dellvote
+• 🏐 ${prefix2}produk
+• 🏐 ${prefix2}tambah
+• 🏐 ${prefix2}votting
+• 🏐 ${prefix2}vote
+• 🏐 ${prefix2}dellvote
 
 
   *ULASAN & MUTUAL*
-• ${prefix2}ulasan
-• ${prefix2}komentar
-• ${prefix2}mutual
-• ${prefix2}save
+• 🏐 ${prefix2}ulasan
+• 🏐 ${prefix2}komentar
+• 🏐 ${prefix2}mutual
+• 🏐 ${prefix2}save
 
 
   *ABSEN & MESSAGES*
-• ${prefix2}absen
-• ${prefix2}absensi
-• ${prefix2}svmess
-• ${prefix2}listmess
+• 🏐 ${prefix2}absen
+• 🏐 ${prefix2}absensi
+• 🏐 ${prefix2}svmess
+• 🏐 ${prefix2}listmess
 
 
   *GROUP MENU*
-• ${prefix2}afk
-• ${prefix2}undang
-• ${prefix2}enable
-• ${prefix2}disable
-• ${prefix2}bangrup
-• ${prefix2}unbangrup
-• ${prefix2}ban
-• ${prefix2}unban
-• ${prefix2}sider
-• ${prefix2}hidetag
-• ${prefix2}fitnah
-• ${prefix2}settings
-• ${prefix2}revoke
-• ${prefix2}add
-• ${prefix2}kick
-• ${prefix2}promote
-• ${prefix2}demote
-• ${prefix2}tagall
-• ${prefix2}antilink
-• ${prefix2}antitoxic
-• ${prefix2}welcome
+• 🏐 ${prefix2}afk
+• 🏐 ${prefix2}undang
+• 🏐 ${prefix2}enable
+• 🏐 ${prefix2}disable
+• 🏐 ${prefix2}bangrup
+• 🏐 ${prefix2}unbangrup
+• 🏐 ${prefix2}ban
+• 🏐 ${prefix2}unban
+• 🏐 ${prefix2}sider
+• 🏐 ${prefix2}hidetag
+• 🏐 ${prefix2}fitnah
+• 🏐 ${prefix2}settings
+• 🏐 ${prefix2}revoke
+• 🏐 ${prefix2}add
+• 🏐 ${prefix2}kick
+• 🏐 ${prefix2}promote
+• 🏐 ${prefix2}demote
+• 🏐 ${prefix2}tagall
+• 🏐 ${prefix2}antilink
+• 🏐 ${prefix2}antitoxic
+• 🏐 ${prefix2}welcome
 
 
   *ANIME MENU*
-• ${prefix2}neko
-• ${prefix2}waifu
+• 🏐 ${prefix2}neko
+• 🏐 ${prefix2}waifu
 
 
   *GAMES MENU*
-• ${prefix2}dungeon
-• ${prefix2}slot
-• ${prefix2}truth
-• ${prefix2}dare
-• ${prefix2}tebakgambar
+• 🏐 ${prefix2}dungeon
+• 🏐 ${prefix2}slot
+• 🏐 ${prefix2}truth
+• 🏐 ${prefix2}dare
+• 🏐 ${prefix2}tebakgambar
 
 
   *IMAGE MENU*
-• ${prefix2}cogan
-• ${prefix2}cecan
-• ${prefix2}darkjokes
-• ${prefix2}pinterest
-• ${prefix2}ocr
+• 🏐 ${prefix2}cogan
+• 🏐 ${prefix2}cecan
+• 🏐 ${prefix2}darkjokes
+• 🏐 ${prefix2}pinterest
+• 🏐 ${prefix2}ocr
 
 
   *RANDOM MENU*
-• ${prefix2}cerpen
-• ${prefix2}ceritahoror
-• ${prefix2}film
-• ${prefix2}fakedata
-• ${prefix2}news
-• ${prefix2}beasiswa
-• ${prefix2}ppcouple
+• 🏐 ${prefix2}cerpen
+• 🏐 ${prefix2}ceritahoror
+• 🏐 ${prefix2}film
+• 🏐 ${prefix2}fakedata
+• 🏐 ${prefix2}news
+• 🏐 ${prefix2}beasiswa
+• 🏐 ${prefix2}ppcouple
 
 
   *STICKER MENU*
-• ${prefix2}sticker
-• ${prefix2}ttp
-• ${prefix2}attp
-• ${prefix2}wasted
-• ${prefix2}comrade
-• ${prefix2}jail
-• ${prefix2}passed
-• ${prefix2}trigger
-• ${prefix2}toimg
+• 🏐 ${prefix2}sticker
+• 🏐 ${prefix2}ttp
+• 🏐 ${prefix2}attp
+• 🏐 ${prefix2}wasted
+• 🏐 ${prefix2}comrade
+• 🏐 ${prefix2}jail
+• 🏐 ${prefix2}passed
+• 🏐 ${prefix2}trigger
+• 🏐 ${prefix2}toimg
 
 
   *EDUCATION MENU*
-• ${prefix2}quiz
-• ${prefix2}nulis
-• ${prefix2}niatsholat
-• ${prefix2}doa
-• ${prefix2}hadist
+• 🏐 ${prefix2}quiz
+• 🏐 ${prefix2}nulis
+• 🏐 ${prefix2}niatsholat
+• 🏐 ${prefix2}doa
+• 🏐 ${prefix2}hadist
 
 
   *AUDIO MENU*
-• ${prefix2}fast
-• ${prefix2}tupai
-• ${prefix2}gemuk
-• ${prefix2}slow
-• ${prefix2}tomp3
+• 🏐 ${prefix2}fast
+• 🏐 ${prefix2}tupai
+• 🏐 ${prefix2}gemuk
+• 🏐 ${prefix2}slow
+• 🏐 ${prefix2}tomp3
 
 
   *PREMIUM MENU*
-• ${prefix2}asupan
-• ${prefix2}upswtext
-• ${prefix2}upswimg
-• ${prefix2}upswvideo
+• 🏐 ${prefix2}asupan
+• 🏐 ${prefix2}upswtext
+• 🏐 ${prefix2}upswimg
+• 🏐 ${prefix2}upswvideo
 
 
   *OTHER MENU* 
-• ${prefix2}sharelock
-• ${prefix2}delete
-• ${prefix2}pesan
-• ${prefix2}owner
-• ${prefix2}report
-• ${prefix2}timer
+• 🏐 ${prefix2}sharelock
+• 🏐 ${prefix2}delete
+• 🏐 ${prefix2}pesan
+• 🏐 ${prefix2}owner
+• 🏐 ${prefix2}report
+• 🏐 ${prefix2}timer
 
 
   *OWNER MENU*
 • $
 • >
 • =>
-• ${prefix2}makegroup
-• ${prefix2}join
-• ${prefix2}kudet
-• ${prefix2}leave
-• ${prefix2}clone
-• ${prefix2}bc
-• ${prefix2}addprem
-• ${prefix2}dellprem
-• ${prefix2}bug
+• 🏐 ${prefix2}makegroup
+• 🏐 ${prefix2}join
+• 🏐 ${prefix2}kudet
+• 🏐 ${prefix2}leave
+• 🏐 ${prefix2}clone
+• 🏐 ${prefix2}bc
+• 🏐 ${prefix2}addprem
+• 🏐 ${prefix2}dellprem
+• 🏐 ${prefix2}bug
 
 
   *THANKS TO*
@@ -1778,7 +1778,7 @@ addBijihPerakUser(sender, -totalduitt5)
 payoutnye = payout * 1
 addPerakUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga tukar* : ${totalduitt5}`)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• ${prefix2}tukar emas\n• ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• 🏐 ${prefix2}tukar emas\n• 🏐 ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -2380,7 +2380,7 @@ payoutnye = payout * 1
 addLimitUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${totalduit11}`)
 }
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• ${prefix2}buy premium\n• ${prefix2}buy emas\n• ${prefix2}buy perak\n• ${prefix2}buy limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• 🏐 ${prefix2}buy premium\n• 🏐 ${prefix2}buy emas\n• 🏐 ${prefix2}buy perak\n• 🏐 ${prefix2}buy limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -2440,7 +2440,7 @@ totalduitt7= duity7 * payouti
 if (getLimitUser(sender) <= totalduit7) return reply(`Maaf limit kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal limit yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt7)
 addLimitUser(sender, -payoutiu)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• ${prefix2}sell premium\n• ${prefix2}sell emas\n• ${prefix2}sell perak\n• ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🏐 ${prefix2}sell premium\n• 🏐 ${prefix2}sell emas\n• 🏐 ${prefix2}sell perak\n• 🏐 ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -4799,167 +4799,167 @@ teks =`*M I T S U H A - W A B O T*\n
 
 
   *INFORMASI MENU*
-• ${prefix2}info
-• ${prefix2}iklan
-• ${prefix2}donasi
-• ${prefix2}request
+• 🏐 ${prefix2}info
+• 🏐 ${prefix2}iklan
+• 🏐 ${prefix2}donasi
+• 🏐 ${prefix2}request
 
 
   *BOT PAY MENU*
-• ${prefix2}daftar
-• ${prefix2}dompet
-• ${prefix2}claim
-• ${prefix2}shop
-• ${prefix2}buy
-• ${prefix2}sell
-• ${prefix2}tukar
-• ${prefix2}nambang
+• 🏐 ${prefix2}daftar
+• 🏐 ${prefix2}dompet
+• 🏐 ${prefix2}claim
+• 🏐 ${prefix2}shop
+• 🏐 ${prefix2}buy
+• 🏐 ${prefix2}sell
+• 🏐 ${prefix2}tukar
+• 🏐 ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
-• ${prefix2}carspeed
-• ${prefix2}lotre
+• 🏐 ${prefix2}carspeed
+• 🏐 ${prefix2}lotre
 
 
   *URL TO MEDIA TYPE*
-• ${prefix2}urltoimg
-• ${prefix2}tourl
+• 🏐 ${prefix2}urltoimg
+• 🏐 ${prefix2}tourl
 
 
   *PRODUK & VOTING*
-• ${prefix2}produk
-• ${prefix2}tambah
-• ${prefix2}votting
-• ${prefix2}vote
-• ${prefix2}dellvote
+• 🏐 ${prefix2}produk
+• 🏐 ${prefix2}tambah
+• 🏐 ${prefix2}votting
+• 🏐 ${prefix2}vote
+• 🏐 ${prefix2}dellvote
 
 
   *ULASAN & MUTUAL*
-• ${prefix2}ulasan
-• ${prefix2}komentar
-• ${prefix2}mutual
-• ${prefix2}save
+• 🏐 ${prefix2}ulasan
+• 🏐 ${prefix2}komentar
+• 🏐 ${prefix2}mutual
+• 🏐 ${prefix2}save
 
 
   *ABSEN & MESSAGES*
-• ${prefix2}absen
-• ${prefix2}absensi
-• ${prefix2}svmess
-• ${prefix2}listmess
+• 🏐 ${prefix2}absen
+• 🏐 ${prefix2}absensi
+• 🏐 ${prefix2}svmess
+• 🏐 ${prefix2}listmess
 
 
   *GROUP MENU*
-• ${prefix2}afk
-• ${prefix2}undang
-• ${prefix2}enable
-• ${prefix2}disable
-• ${prefix2}bangrup
-• ${prefix2}unbangrup
-• ${prefix2}ban
-• ${prefix2}unban
-• ${prefix2}sider
-• ${prefix2}hidetag
-• ${prefix2}fitnah
-• ${prefix2}settings
-• ${prefix2}revoke
-• ${prefix2}add
-• ${prefix2}kick
-• ${prefix2}promote
-• ${prefix2}demote
-• ${prefix2}tagall
-• ${prefix2}antilink
-• ${prefix2}antitoxic
-• ${prefix2}welcome
+• 🏐 ${prefix2}afk
+• 🏐 ${prefix2}undang
+• 🏐 ${prefix2}enable
+• 🏐 ${prefix2}disable
+• 🏐 ${prefix2}bangrup
+• 🏐 ${prefix2}unbangrup
+• 🏐 ${prefix2}ban
+• 🏐 ${prefix2}unban
+• 🏐 ${prefix2}sider
+• 🏐 ${prefix2}hidetag
+• 🏐 ${prefix2}fitnah
+• 🏐 ${prefix2}settings
+• 🏐 ${prefix2}revoke
+• 🏐 ${prefix2}add
+• 🏐 ${prefix2}kick
+• 🏐 ${prefix2}promote
+• 🏐 ${prefix2}demote
+• 🏐 ${prefix2}tagall
+• 🏐 ${prefix2}antilink
+• 🏐 ${prefix2}antitoxic
+• 🏐 ${prefix2}welcome
 
 
   *ANIME MENU*
-• ${prefix2}neko
-• ${prefix2}waifu
+• 🏐 ${prefix2}neko
+• 🏐 ${prefix2}waifu
 
 
   *GAMES MENU*
-• ${prefix2}dungeon
-• ${prefix2}slot
-• ${prefix2}truth
-• ${prefix2}dare
-• ${prefix2}tebakgambar
+• 🏐 ${prefix2}dungeon
+• 🏐 ${prefix2}slot
+• 🏐 ${prefix2}truth
+• 🏐 ${prefix2}dare
+• 🏐 ${prefix2}tebakgambar
 
 
   *IMAGE MENU*
-• ${prefix2}cogan
-• ${prefix2}cecan
-• ${prefix2}darkjokes
-• ${prefix2}pinterest
-• ${prefix2}ocr
+• 🏐 ${prefix2}cogan
+• 🏐 ${prefix2}cecan
+• 🏐 ${prefix2}darkjokes
+• 🏐 ${prefix2}pinterest
+• 🏐 ${prefix2}ocr
 
 
   *RANDOM MENU*
-• ${prefix2}cerpen
-• ${prefix2}ceritahoror
-• ${prefix2}film
-• ${prefix2}fakedata
-• ${prefix2}news
-• ${prefix2}beasiswa
-• ${prefix2}ppcouple
+• 🏐 ${prefix2}cerpen
+• 🏐 ${prefix2}ceritahoror
+• 🏐 ${prefix2}film
+• 🏐 ${prefix2}fakedata
+• 🏐 ${prefix2}news
+• 🏐 ${prefix2}beasiswa
+• 🏐 ${prefix2}ppcouple
 
 
   *STICKER MENU*
-• ${prefix2}sticker
-• ${prefix2}ttp
-• ${prefix2}attp
-• ${prefix2}wasted
-• ${prefix2}comrade
-• ${prefix2}jail
-• ${prefix2}passed
-• ${prefix2}trigger
-• ${prefix2}toimg
+• 🏐 ${prefix2}sticker
+• 🏐 ${prefix2}ttp
+• 🏐 ${prefix2}attp
+• 🏐 ${prefix2}wasted
+• 🏐 ${prefix2}comrade
+• 🏐 ${prefix2}jail
+• 🏐 ${prefix2}passed
+• 🏐 ${prefix2}trigger
+• 🏐 ${prefix2}toimg
 
 
   *EDUCATION MENU*
-• ${prefix2}quiz
-• ${prefix2}nulis
-• ${prefix2}niatsholat
-• ${prefix2}doa
-• ${prefix2}hadist
+• 🏐 ${prefix2}quiz
+• 🏐 ${prefix2}nulis
+• 🏐 ${prefix2}niatsholat
+• 🏐 ${prefix2}doa
+• 🏐 ${prefix2}hadist
 
 
   *AUDIO MENU*
-• ${prefix2}fast
-• ${prefix2}tupai
-• ${prefix2}gemuk
-• ${prefix2}slow
-• ${prefix2}tomp3
+• 🏐 ${prefix2}fast
+• 🏐 ${prefix2}tupai
+• 🏐 ${prefix2}gemuk
+• 🏐 ${prefix2}slow
+• 🏐 ${prefix2}tomp3
 
 
   *PREMIUM MENU*
-• ${prefix2}asupan
-• ${prefix2}upswtext
-• ${prefix2}upswimg
-• ${prefix2}upswvideo
+• 🏐 ${prefix2}asupan
+• 🏐 ${prefix2}upswtext
+• 🏐 ${prefix2}upswimg
+• 🏐 ${prefix2}upswvideo
 
 
   *OTHER MENU* 
-• ${prefix2}sharelock
-• ${prefix2}delete
-• ${prefix2}pesan
-• ${prefix2}owner
-• ${prefix2}report
-• ${prefix2}timer
+• 🏐 ${prefix2}sharelock
+• 🏐 ${prefix2}delete
+• 🏐 ${prefix2}pesan
+• 🏐 ${prefix2}owner
+• 🏐 ${prefix2}report
+• 🏐 ${prefix2}timer
 
 
   *OWNER MENU*
 • $
 • >
 • =>
-• ${prefix2}makegroup
-• ${prefix2}join
-• ${prefix2}kudet
-• ${prefix2}leave
-• ${prefix2}clone
-• ${prefix2}bc
-• ${prefix2}addprem
-• ${prefix2}dellprem
-• ${prefix2}bug
+• 🏐 ${prefix2}makegroup
+• 🏐 ${prefix2}join
+• 🏐 ${prefix2}kudet
+• 🏐 ${prefix2}leave
+• 🏐 ${prefix2}clone
+• 🏐 ${prefix2}bc
+• 🏐 ${prefix2}addprem
+• 🏐 ${prefix2}dellprem
+• 🏐 ${prefix2}bug
 
 
   *THANKS TO*
