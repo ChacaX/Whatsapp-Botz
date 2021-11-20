@@ -1274,10 +1274,10 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • 📧 nama ${pushname}
 • 📋setatus ${premi}
 • 💵 saldo Rp. ${getSaldoUser(sender)}
-• 🚬 limit ${getLimitUser(sender)}
+• 🎁 limit ${getLimitUser(sender)}
 
 
-  *CADANGAN SDA KAMU*
+  *SUMBER DAYA KAMU*
 • 🥇 emas ${getEmasUser(sender)} batang
 • 🥈 perak ${getPerakUser(sender)} batang
 • 📀 bijih emas ${getBijihEmasUser(sender)}
@@ -1291,7 +1291,7 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • 🏐 ${prefix2}request
 
 
-  *BOT PAY MENU*
+  *BELANJA KEBUTUHAN*
 • 🏐 ${prefix2}daftar
 • 🏐 ${prefix2}dompet
 • 🏐 ${prefix2}claim
@@ -1520,8 +1520,8 @@ case 'menu':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
-teks =`*M I T S U H A - W A B O T*\n
-📚 runtime : ${kyun(uptime)}
+teks =`*M I T S U H A - W A B O T*\n`
+sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 📚 dev : wa.me/6285731261728
 📚 jumlah hit : ${hit_today.length}
 📚 pengguna : ${_saldo.length} aktif
@@ -1531,10 +1531,10 @@ teks =`*M I T S U H A - W A B O T*\n
 • 📧 nama ${pushname}
 • 📋setatus ${premi}
 • 💵 saldo Rp. ${getSaldoUser(sender)}
-• 🚬 limit ${getLimitUser(sender)}
+• 🎁 limit ${getLimitUser(sender)}
 
 
-  *CADANGAN SDA KAMU*
+  *SUMBER DAYA KAMU*
 • 🥇 emas ${getEmasUser(sender)} batang
 • 🥈 perak ${getPerakUser(sender)} batang
 • 📀 bijih emas ${getBijihEmasUser(sender)}
@@ -1548,7 +1548,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • 🏐 ${prefix2}request
 
 
-  *BOT PAY MENU*
+  *BELANJA KEBUTUHAN*
 • 🏐 ${prefix2}daftar
 • 🏐 ${prefix2}dompet
 • 🏐 ${prefix2}claim
@@ -1713,8 +1713,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • 💻 rurichan
 • 💻 zak06cheat
 • 💻 ridwan
-• 💻 hafizh`
-sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
+• 💻 hafizh
 `,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -4025,7 +4024,7 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 saldonya = getSaldoUser(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks =`💵 saldo kamu : Rp. ${saldonya}
-🚬 jumlah limit ${getLimitUser(sender)}
+🎁 jumlah limit ${getLimitUser(sender)}
 🥇 emas ${getEmasUser(sender)} batang
 🥈 perak ${getPerakUser(sender)} batang
 📀 bijih emas ${getBijihEmasUser(sender)}
@@ -4777,8 +4776,8 @@ break
 if (buttonsR === 'HOME BACK') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
-teks =`*M I T S U H A - W A B O T*\n
-📚 runtime : ${kyun(uptime)}
+teks =`*M I T S U H A - W A B O T*\n`
+sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 📚 dev : wa.me/6285731261728
 📚 jumlah hit : ${hit_today.length}
 📚 pengguna : ${_saldo.length} aktif
@@ -4788,10 +4787,10 @@ teks =`*M I T S U H A - W A B O T*\n
 • 📧 nama ${pushname}
 • 📋setatus ${premi}
 • 💵 saldo Rp. ${getSaldoUser(sender)}
-• 🚬 limit ${getLimitUser(sender)}
+• 🎁 limit ${getLimitUser(sender)}
 
 
-  *CADANGAN SDA KAMU*
+  *SUMBER DAYA KAMU*
 • 🥇 emas ${getEmasUser(sender)} batang
 • 🥈 perak ${getPerakUser(sender)} batang
 • 📀 bijih emas ${getBijihEmasUser(sender)}
@@ -4805,7 +4804,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • 🏐 ${prefix2}request
 
 
-  *BOT PAY MENU*
+  *BELANJA KEBUTUHAN*
 • 🏐 ${prefix2}daftar
 • 🏐 ${prefix2}dompet
 • 🏐 ${prefix2}claim
@@ -4970,8 +4969,7 @@ teks =`*M I T S U H A - W A B O T*\n
 • 💻 rurichan
 • 💻 zak06cheat
 • 💻 ridwan
-• 💻 hafizh`
-sendButLocation(from, `${teks}`, `*Whatsapp Botz Ringan*\n*Version @^0.02*
+• 💻 hafizh
 `,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
