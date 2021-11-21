@@ -2389,7 +2389,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
-const duit2 = 0
+const duit2 = 1
 const duity2 = 4500
 const totalduit2 = duit2 * payout
 const totalduitt2 = duity2 * payout
@@ -2413,11 +2413,11 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 const payouti = ppp.split(" ")[1];
-const duit3 = 0
+const duit3 = 1
 const duity3 = 2500
 const totalduit3 = duit3 * payouti
 const totalduitt3= duity3 * payouti
-if (getPerakUser(sender) <= totalduit3) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
+if (getPerakUser(sender) <= totalduit3) return reply(`Maaf perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt3)
 addPerakUser(sender, -payouti)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : ${totalduitt3}`)
@@ -2428,7 +2428,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
-duit7 = 0
+duit7 = 1
 duity7 = 100
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
@@ -4017,6 +4017,8 @@ teks = `Success mendaftar! selamat kamu mendapatkan saldo awal sebesar Rp. 1000 
 sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
+case 'saldo':
+case 'limit':
 case 'dompet':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 saldonya = getSaldoUser(sender)
