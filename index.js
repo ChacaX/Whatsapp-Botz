@@ -78,7 +78,6 @@ const bacasholat = JSON.parse(fs.readFileSync('./lib/bacasholat.js'))
 const req = JSON.parse(fs.readFileSync('./src/req.json'))
 const benar = JSON.parse(fs.readFileSync('./src/benar.json'))
 const salah = JSON.parse(fs.readFileSync('./src/salah.json'))
-const berbintang = JSON.parse(fs.readFileSync('./src/berbintang.json'))
 const kasar = JSON.parse(fs.readFileSync('./src/kasar.json'))
 const absen = JSON.parse(fs.readFileSync('./src/absen.json'))
 const no = JSON.parse(fs.readFileSync('./src/no.json'))
@@ -1285,167 +1284,165 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
 
   *INFORMASI MENU*
-• 🏐 ${prefix2}info
-• 🏐 ${prefix2}iklan
-• 🏐 ${prefix2}donasi
-• 🏐 ${prefix2}request
+• 🐾 ${prefix2}info
+• 🐾 ${prefix2}iklan
+• 🐾 ${prefix2}donasi
+• 🐾 ${prefix2}request
 
 
   *BELANJA KEBUTUHAN*
-• 🏐 ${prefix2}daftar
-• 🏐 ${prefix2}dompet
-• 🏐 ${prefix2}claim
-• 🏐 ${prefix2}shop
-• 🏐 ${prefix2}buy
-• 🏐 ${prefix2}sell
-• 🏐 ${prefix2}tukar
-• 🏐 ${prefix2}nambang
+• 🐾 ${prefix2}daftar
+• 🐾 ${prefix2}dompet
+• 🐾 ${prefix2}claim
+• 🐾 ${prefix2}shop
+• 🐾 ${prefix2}buy
+• 🐾 ${prefix2}sell
+• 🐾 ${prefix2}tukar
+• 🐾 ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
-• 🏐 ${prefix2}carspeed
-• 🏐 ${prefix2}lotre
+• 🐾 ${prefix2}carspeed
+• 🐾 ${prefix2}lotre
 
 
   *URL TO MEDIA TYPE*
-• 🏐 ${prefix2}urltoimg
-• 🏐 ${prefix2}tourl
+• 🐾 ${prefix2}urltoimg
+• 🐾 ${prefix2}tourl
 
 
   *PRODUK & VOTING*
-• 🏐 ${prefix2}produk
-• 🏐 ${prefix2}tambah
-• 🏐 ${prefix2}votting
-• 🏐 ${prefix2}vote
-• 🏐 ${prefix2}dellvote
+• 🐾 ${prefix2}produk
+• 🐾 ${prefix2}tambah
+• 🐾 ${prefix2}votting
+• 🐾 ${prefix2}vote
+• 🐾 ${prefix2}dellvote
 
 
   *ULASAN & MUTUAL*
-• 🏐 ${prefix2}ulasan
-• 🏐 ${prefix2}komentar
-• 🏐 ${prefix2}mutual
-• 🏐 ${prefix2}save
+• 🐾 ${prefix2}ulasan
+• 🐾 ${prefix2}komentar
+• 🐾 ${prefix2}mutual
+• 🐾 ${prefix2}save
 
 
-  *ABSEN & MESSAGES*
-• 🏐 ${prefix2}absen
-• 🏐 ${prefix2}absensi
-• 🏐 ${prefix2}svmess
-• 🏐 ${prefix2}listmess
+  *PRESENSI HADIR*
+• 🐾 ${prefix2}absen
+• 🐾 ${prefix2}absensi
 
 
   *GROUP MENU*
-• 🏐 ${prefix2}afk
-• 🏐 ${prefix2}undang
-• 🏐 ${prefix2}enable
-• 🏐 ${prefix2}disable
-• 🏐 ${prefix2}bangrup
-• 🏐 ${prefix2}unbangrup
-• 🏐 ${prefix2}ban
-• 🏐 ${prefix2}unban
-• 🏐 ${prefix2}sider
-• 🏐 ${prefix2}hidetag
-• 🏐 ${prefix2}fitnah
-• 🏐 ${prefix2}settings
-• 🏐 ${prefix2}revoke
-• 🏐 ${prefix2}add
-• 🏐 ${prefix2}kick
-• 🏐 ${prefix2}promote
-• 🏐 ${prefix2}demote
-• 🏐 ${prefix2}tagall
-• 🏐 ${prefix2}antilink
-• 🏐 ${prefix2}antitoxic
-• 🏐 ${prefix2}welcome
+• 🐾 ${prefix2}afk
+• 🐾 ${prefix2}undang
+• 🐾 ${prefix2}enable
+• 🐾 ${prefix2}disable
+• 🐾 ${prefix2}bangrup
+• 🐾 ${prefix2}unbangrup
+• 🐾 ${prefix2}ban
+• 🐾 ${prefix2}unban
+• 🐾 ${prefix2}sider
+• 🐾 ${prefix2}hidetag
+• 🐾 ${prefix2}fitnah
+• 🐾 ${prefix2}settings
+• 🐾 ${prefix2}revoke
+• 🐾 ${prefix2}add
+• 🐾 ${prefix2}kick
+• 🐾 ${prefix2}promote
+• 🐾 ${prefix2}demote
+• 🐾 ${prefix2}tagall
+• 🐾 ${prefix2}antilink
+• 🐾 ${prefix2}antitoxic
+• 🐾 ${prefix2}welcome
 
 
   *ANIME MENU*
-• 🏐 ${prefix2}neko
-• 🏐 ${prefix2}waifu
+• 🐾 ${prefix2}neko
+• 🐾 ${prefix2}waifu
 
 
   *GAMES MENU*
-• 🏐 ${prefix2}dungeon
-• 🏐 ${prefix2}slot
-• 🏐 ${prefix2}truth
-• 🏐 ${prefix2}dare
-• 🏐 ${prefix2}tebakgambar
+• 🐾 ${prefix2}dungeon
+• 🐾 ${prefix2}slot
+• 🐾 ${prefix2}truth
+• 🐾 ${prefix2}dare
+• 🐾 ${prefix2}tebakgambar
 
 
   *IMAGE MENU*
-• 🏐 ${prefix2}cogan
-• 🏐 ${prefix2}cecan
-• 🏐 ${prefix2}darkjokes
-• 🏐 ${prefix2}pinterest
-• 🏐 ${prefix2}ocr
+• 🐾 ${prefix2}cogan
+• 🐾 ${prefix2}cecan
+• 🐾 ${prefix2}darkjokes
+• 🐾 ${prefix2}pinterest
+• 🐾 ${prefix2}ocr
 
 
   *RANDOM MENU*
-• 🏐 ${prefix2}cerpen
-• 🏐 ${prefix2}ceritahoror
-• 🏐 ${prefix2}film
-• 🏐 ${prefix2}fakedata
-• 🏐 ${prefix2}news
-• 🏐 ${prefix2}beasiswa
-• 🏐 ${prefix2}ppcouple
+• 🐾 ${prefix2}cerpen
+• 🐾 ${prefix2}ceritahoror
+• 🐾 ${prefix2}film
+• 🐾 ${prefix2}fakedata
+• 🐾 ${prefix2}news
+• 🐾 ${prefix2}beasiswa
+• 🐾 ${prefix2}ppcouple
 
 
   *STICKER MENU*
-• 🏐 ${prefix2}sticker
-• 🏐 ${prefix2}ttp
-• 🏐 ${prefix2}attp
-• 🏐 ${prefix2}wasted
-• 🏐 ${prefix2}comrade
-• 🏐 ${prefix2}jail
-• 🏐 ${prefix2}passed
-• 🏐 ${prefix2}trigger
-• 🏐 ${prefix2}toimg
+• 🐾 ${prefix2}sticker
+• 🐾 ${prefix2}ttp
+• 🐾 ${prefix2}attp
+• 🐾 ${prefix2}wasted
+• 🐾 ${prefix2}comrade
+• 🐾 ${prefix2}jail
+• 🐾 ${prefix2}passed
+• 🐾 ${prefix2}trigger
+• 🐾 ${prefix2}toimg
 
 
   *EDUCATION MENU*
-• 🏐 ${prefix2}quiz
-• 🏐 ${prefix2}nulis
-• 🏐 ${prefix2}niatsholat
-• 🏐 ${prefix2}doa
-• 🏐 ${prefix2}hadist
+• 🐾 ${prefix2}quiz
+• 🐾 ${prefix2}nulis
+• 🐾 ${prefix2}niatsholat
+• 🐾 ${prefix2}doa
+• 🐾 ${prefix2}hadist
 
 
   *AUDIO/VN MENU*
-• 🏐 ${prefix2}fast
-• 🏐 ${prefix2}tupai
-• 🏐 ${prefix2}gemuk
-• 🏐 ${prefix2}slow
-• 🏐 ${prefix2}tomp3
+• 🐾 ${prefix2}fast
+• 🐾 ${prefix2}tupai
+• 🐾 ${prefix2}gemuk
+• 🐾 ${prefix2}slow
+• 🐾 ${prefix2}tomp3
 
 
   *PREMIUM MENU*
-• 🏐 ${prefix2}asupan
-• 🏐 ${prefix2}upswtext
-• 🏐 ${prefix2}upswimg
-• 🏐 ${prefix2}upswvideo
+• 🐾 ${prefix2}asupan
+• 🐾 ${prefix2}upswtext
+• 🐾 ${prefix2}upswimg
+• 🐾 ${prefix2}upswvideo
 
 
   *OTHER MENU*
-• 🏐 ${prefix2}sharelock
-• 🏐 ${prefix2}delete
-• 🏐 ${prefix2}pesan
-• 🏐 ${prefix2}owner
-• 🏐 ${prefix2}report
-• 🏐 ${prefix2}timer
+• 🐾 ${prefix2}sharelock
+• 🐾 ${prefix2}delete
+• 🐾 ${prefix2}pesan
+• 🐾 ${prefix2}owner
+• 🐾 ${prefix2}report
+• 🐾 ${prefix2}timer
 
 
   *OWNER MENU*
-• $
-• >
-• =>
-• 🏐 ${prefix2}makegroup
-• 🏐 ${prefix2}join
-• 🏐 ${prefix2}kudet
-• 🏐 ${prefix2}leave
-• 🏐 ${prefix2}clone
-• 🏐 ${prefix2}bc
-• 🏐 ${prefix2}addprem
-• 🏐 ${prefix2}dellprem
-• 🏐 ${prefix2}bug
+• 🐾 $
+• 🐾 >
+• 🐾 =>
+• 🐾 ${prefix2}makegroup
+• 🐾 ${prefix2}join
+• 🐾 ${prefix2}kudet
+• 🐾 ${prefix2}leave
+• 🐾 ${prefix2}clone
+• 🐾 ${prefix2}bc
+• 🐾 ${prefix2}addprem
+• 🐾 ${prefix2}dellprem
+• 🐾 ${prefix2}bug
 
 
   *THANKS TO*
@@ -1542,167 +1539,165 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 
 
   *INFORMASI MENU*
-• 🏐 ${prefix2}info
-• 🏐 ${prefix2}iklan
-• 🏐 ${prefix2}donasi
-• 🏐 ${prefix2}request
+• 🐾 ${prefix2}info
+• 🐾 ${prefix2}iklan
+• 🐾 ${prefix2}donasi
+• 🐾 ${prefix2}request
 
 
   *BELANJA KEBUTUHAN*
-• 🏐 ${prefix2}daftar
-• 🏐 ${prefix2}dompet
-• 🏐 ${prefix2}claim
-• 🏐 ${prefix2}shop
-• 🏐 ${prefix2}buy
-• 🏐 ${prefix2}sell
-• 🏐 ${prefix2}tukar
-• 🏐 ${prefix2}nambang
+• 🐾 ${prefix2}daftar
+• 🐾 ${prefix2}dompet
+• 🐾 ${prefix2}claim
+• 🐾 ${prefix2}shop
+• 🐾 ${prefix2}buy
+• 🐾 ${prefix2}sell
+• 🐾 ${prefix2}tukar
+• 🐾 ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
-• 🏐 ${prefix2}carspeed
-• 🏐 ${prefix2}lotre
+• 🐾 ${prefix2}carspeed
+• 🐾 ${prefix2}lotre
 
 
   *URL TO MEDIA TYPE*
-• 🏐 ${prefix2}urltoimg
-• 🏐 ${prefix2}tourl
+• 🐾 ${prefix2}urltoimg
+• 🐾 ${prefix2}tourl
 
 
   *PRODUK & VOTING*
-• 🏐 ${prefix2}produk
-• 🏐 ${prefix2}tambah
-• 🏐 ${prefix2}votting
-• 🏐 ${prefix2}vote
-• 🏐 ${prefix2}dellvote
+• 🐾 ${prefix2}produk
+• 🐾 ${prefix2}tambah
+• 🐾 ${prefix2}votting
+• 🐾 ${prefix2}vote
+• 🐾 ${prefix2}dellvote
 
 
   *ULASAN & MUTUAL*
-• 🏐 ${prefix2}ulasan
-• 🏐 ${prefix2}komentar
-• 🏐 ${prefix2}mutual
-• 🏐 ${prefix2}save
+• 🐾 ${prefix2}ulasan
+• 🐾 ${prefix2}komentar
+• 🐾 ${prefix2}mutual
+• 🐾 ${prefix2}save
 
 
-  *ABSEN & MESSAGES*
-• 🏐 ${prefix2}absen
-• 🏐 ${prefix2}absensi
-• 🏐 ${prefix2}svmess
-• 🏐 ${prefix2}listmess
+  *PRESENSI HADIR*
+• 🐾 ${prefix2}absen
+• 🐾 ${prefix2}absensi
 
 
   *GROUP MENU*
-• 🏐 ${prefix2}afk
-• 🏐 ${prefix2}undang
-• 🏐 ${prefix2}enable
-• 🏐 ${prefix2}disable
-• 🏐 ${prefix2}bangrup
-• 🏐 ${prefix2}unbangrup
-• 🏐 ${prefix2}ban
-• 🏐 ${prefix2}unban
-• 🏐 ${prefix2}sider
-• 🏐 ${prefix2}hidetag
-• 🏐 ${prefix2}fitnah
-• 🏐 ${prefix2}settings
-• 🏐 ${prefix2}revoke
-• 🏐 ${prefix2}add
-• 🏐 ${prefix2}kick
-• 🏐 ${prefix2}promote
-• 🏐 ${prefix2}demote
-• 🏐 ${prefix2}tagall
-• 🏐 ${prefix2}antilink
-• 🏐 ${prefix2}antitoxic
-• 🏐 ${prefix2}welcome
+• 🐾 ${prefix2}afk
+• 🐾 ${prefix2}undang
+• 🐾 ${prefix2}enable
+• 🐾 ${prefix2}disable
+• 🐾 ${prefix2}bangrup
+• 🐾 ${prefix2}unbangrup
+• 🐾 ${prefix2}ban
+• 🐾 ${prefix2}unban
+• 🐾 ${prefix2}sider
+• 🐾 ${prefix2}hidetag
+• 🐾 ${prefix2}fitnah
+• 🐾 ${prefix2}settings
+• 🐾 ${prefix2}revoke
+• 🐾 ${prefix2}add
+• 🐾 ${prefix2}kick
+• 🐾 ${prefix2}promote
+• 🐾 ${prefix2}demote
+• 🐾 ${prefix2}tagall
+• 🐾 ${prefix2}antilink
+• 🐾 ${prefix2}antitoxic
+• 🐾 ${prefix2}welcome
 
 
   *ANIME MENU*
-• 🏐 ${prefix2}neko
-• 🏐 ${prefix2}waifu
+• 🐾 ${prefix2}neko
+• 🐾 ${prefix2}waifu
 
 
   *GAMES MENU*
-• 🏐 ${prefix2}dungeon
-• 🏐 ${prefix2}slot
-• 🏐 ${prefix2}truth
-• 🏐 ${prefix2}dare
-• 🏐 ${prefix2}tebakgambar
+• 🐾 ${prefix2}dungeon
+• 🐾 ${prefix2}slot
+• 🐾 ${prefix2}truth
+• 🐾 ${prefix2}dare
+• 🐾 ${prefix2}tebakgambar
 
 
   *IMAGE MENU*
-• 🏐 ${prefix2}cogan
-• 🏐 ${prefix2}cecan
-• 🏐 ${prefix2}darkjokes
-• 🏐 ${prefix2}pinterest
-• 🏐 ${prefix2}ocr
+• 🐾 ${prefix2}cogan
+• 🐾 ${prefix2}cecan
+• 🐾 ${prefix2}darkjokes
+• 🐾 ${prefix2}pinterest
+• 🐾 ${prefix2}ocr
 
 
   *RANDOM MENU*
-• 🏐 ${prefix2}cerpen
-• 🏐 ${prefix2}ceritahoror
-• 🏐 ${prefix2}film
-• 🏐 ${prefix2}fakedata
-• 🏐 ${prefix2}news
-• 🏐 ${prefix2}beasiswa
-• 🏐 ${prefix2}ppcouple
+• 🐾 ${prefix2}cerpen
+• 🐾 ${prefix2}ceritahoror
+• 🐾 ${prefix2}film
+• 🐾 ${prefix2}fakedata
+• 🐾 ${prefix2}news
+• 🐾 ${prefix2}beasiswa
+• 🐾 ${prefix2}ppcouple
 
 
   *STICKER MENU*
-• 🏐 ${prefix2}sticker
-• 🏐 ${prefix2}ttp
-• 🏐 ${prefix2}attp
-• 🏐 ${prefix2}wasted
-• 🏐 ${prefix2}comrade
-• 🏐 ${prefix2}jail
-• 🏐 ${prefix2}passed
-• 🏐 ${prefix2}trigger
-• 🏐 ${prefix2}toimg
+• 🐾 ${prefix2}sticker
+• 🐾 ${prefix2}ttp
+• 🐾 ${prefix2}attp
+• 🐾 ${prefix2}wasted
+• 🐾 ${prefix2}comrade
+• 🐾 ${prefix2}jail
+• 🐾 ${prefix2}passed
+• 🐾 ${prefix2}trigger
+• 🐾 ${prefix2}toimg
 
 
   *EDUCATION MENU*
-• 🏐 ${prefix2}quiz
-• 🏐 ${prefix2}nulis
-• 🏐 ${prefix2}niatsholat
-• 🏐 ${prefix2}doa
-• 🏐 ${prefix2}hadist
+• 🐾 ${prefix2}quiz
+• 🐾 ${prefix2}nulis
+• 🐾 ${prefix2}niatsholat
+• 🐾 ${prefix2}doa
+• 🐾 ${prefix2}hadist
 
 
   *AUDIO MENU*
-• 🏐 ${prefix2}fast
-• 🏐 ${prefix2}tupai
-• 🏐 ${prefix2}gemuk
-• 🏐 ${prefix2}slow
-• 🏐 ${prefix2}tomp3
+• 🐾 ${prefix2}fast
+• 🐾 ${prefix2}tupai
+• 🐾 ${prefix2}gemuk
+• 🐾 ${prefix2}slow
+• 🐾 ${prefix2}tomp3
 
 
   *PREMIUM MENU*
-• 🏐 ${prefix2}asupan
-• 🏐 ${prefix2}upswtext
-• 🏐 ${prefix2}upswimg
-• 🏐 ${prefix2}upswvideo
+• 🐾 ${prefix2}asupan
+• 🐾 ${prefix2}upswtext
+• 🐾 ${prefix2}upswimg
+• 🐾 ${prefix2}upswvideo
 
 
   *OTHER MENU* 
-• 🏐 ${prefix2}sharelock
-• 🏐 ${prefix2}delete
-• 🏐 ${prefix2}pesan
-• 🏐 ${prefix2}owner
-• 🏐 ${prefix2}report
-• 🏐 ${prefix2}timer
+• 🐾 ${prefix2}sharelock
+• 🐾 ${prefix2}delete
+• 🐾 ${prefix2}pesan
+• 🐾 ${prefix2}owner
+• 🐾 ${prefix2}report
+• 🐾 ${prefix2}timer
 
 
   *OWNER MENU*
-• $
-• >
-• =>
-• 🏐 ${prefix2}makegroup
-• 🏐 ${prefix2}join
-• 🏐 ${prefix2}kudet
-• 🏐 ${prefix2}leave
-• 🏐 ${prefix2}clone
-• 🏐 ${prefix2}bc
-• 🏐 ${prefix2}addprem
-• 🏐 ${prefix2}dellprem
-• 🏐 ${prefix2}bug
+• 🐾 $
+• 🐾 >
+• 🐾 =>
+• 🐾 ${prefix2}makegroup
+• 🐾 ${prefix2}join
+• 🐾 ${prefix2}kudet
+• 🐾 ${prefix2}leave
+• 🐾 ${prefix2}clone
+• 🐾 ${prefix2}bc
+• 🐾 ${prefix2}addprem
+• 🐾 ${prefix2}dellprem
+• 🐾 ${prefix2}bug
 
 
   *THANKS TO*
@@ -1727,7 +1722,7 @@ if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game at
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 yoi = ["1","1","1","2","1","1","1","3","1"]
-yoi = ["1","2","1","4","1","1","2","3","1"]
+yoi2 = ["1","2","1","4","1","1","2","3","1"]
 kya = yoi[Math.floor(Math.random() * yoi.length)]
 kyi = yoi2[Math.floor(Math.random() * yoi2.length)]
 kye = kya * 1
@@ -1777,7 +1772,7 @@ addBijihPerakUser(sender, -totalduitt5)
 payoutnye = payout * 1
 addPerakUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga tukar* : ${totalduitt5}`)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• 🏐 ${prefix2}tukar emas\n• 🏐 ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• 🐾 ${prefix2}tukar emas\n• 🐾 ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -2218,7 +2213,7 @@ for (let mem of groupMembers) {
 teks += `*-->* @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
-mentions(teks, members_id, true)
+mentions(teks, members_id, true, {quoted: floc2})
 addLimitUser(sender, -1)
 break
           
@@ -2364,7 +2359,7 @@ addPerakUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutu} \n*Harga perak* : ${totalduit4}`)
 }
 } else if (args[0]=="limit") {
-if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (args.length < 2) return reply(`_example : ${prefix2}buy ${args[0]} 1_ (jumlah bebas)`)
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
@@ -2379,7 +2374,7 @@ payoutnye = payout * 1
 addLimitUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${totalduit11}`)
 }
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• 🏐 ${prefix2}buy premium\n• 🏐 ${prefix2}buy emas\n• 🏐 ${prefix2}buy perak\n• 🏐 ${prefix2}buy limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• 🐾 ${prefix2}buy premium\n• 🐾 ${prefix2}buy emas\n• 🐾 ${prefix2}buy perak\n• 🐾 ${prefix2}buy limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -2425,6 +2420,7 @@ const totalduitt3= duity3 * payouti
 if (getPerakUser(sender) <= totalduit3) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt3)
 addPerakUser(sender, -payouti)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : ${totalduitt3}`)
 } else if (args[0]=="limit") {
 if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
@@ -2439,7 +2435,8 @@ totalduitt7= duity7 * payouti
 if (getLimitUser(sender) <= totalduit7) return reply(`Maaf limit kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal limit yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt7)
 addLimitUser(sender, -payoutiu)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🏐 ${prefix2}sell premium\n• 🏐 ${prefix2}sell emas\n• 🏐 ${prefix2}sell perak\n• 🏐 ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : ${totalduitt7}`)
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🐾 ${prefix2}sell premium\n• 🐾 ${prefix2}sell emas\n• 🐾 ${prefix2}sell perak\n• 🐾 ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -3630,6 +3627,7 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
+if (!q) return reply(`_teksnya mana?_`)
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(`https://api.zeks.xyz/api/nulis?text=${body.slice(7)}&apikey=apikeyaine`))
 buttons = [{buttonId:`么`,buttonText:{displayText:`么`},type:1}]
@@ -3771,7 +3769,7 @@ client.sendMessage(from, buffer453, audio, { mimetype: 'audio/mp4' })
 fs.unlinkSync(ran)
 })
 } else {
-reply(mess.wrongFormat)
+reply(`kirim video dengan caption ${prefix2}tomp3`)
 }
 addLimitUser(sender, -1)
 break
@@ -4015,7 +4013,7 @@ addSaldoId(sender)
 addBadwordId(sender)
 addLimitId(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`SUCCESS MENDAFTAR. SELAMAT KAMU MENDAPATKAN SALDO AWAL SEJUMLAH RP.1000 DAN LIMIT SEBANYAK 10 LIMIT`
+teks = `Success mendaftar! selamat kamu mendapatkan saldo awal sebesar Rp. 1000 dan limit berjumlah 10`
 sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -4154,25 +4152,6 @@ fs.writeFileSync('./src/absen.json', JSON.stringify(absen))
 addLimitUser(sender, -1)
 break
 
-case 'svmess':
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)   
-if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
-tem = args.join(" ")
-st = { 
-target : sender,
-name : pushname,
-teks : tem,
-waktu : date
-}
-berbintang.push(st)
-fs.writeFileSync('./src/berbintang.json', JSON.stringify(berbintang))
-reply(`Woke, Sudah Di Bintangin Bot!`)
-addLimitUser(sender, -1)
-break
-
 case 'afk':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
@@ -4199,18 +4178,6 @@ fs.unlinkSync(ranm)
 })
 addLimitUser(sender, -1)
 break
-					
-case 'listmess':
-case 'listmess':
-teks = 'LIST PESAN YANG DIBINTANGIN:\n\n'
-for (let i of berbintang) {
-teks += `⬡ *Pesan : ${i.name} > ${i.waktu}*\n${i.teks}\n\n---------------------------\n\n`
-}
-teks += `Total : ${berbintang.length}`
-client.sendMessage(from, teks.trim(), extendedtext, {quoted: floc2})
-console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
-addLimitUser(sender, -1)
-break
 			
 case 'request':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
@@ -4222,7 +4189,7 @@ for (let i of req) {
 teks += `⬡ *${i.name} > ${i.waktu}*\nPesan : ${i.teks}\n\n---------------------------\n\n`
 }
 teks += `Total : ${req.length}`
-client.sendMessage(from, teks.trim(), extendedtext, {quoted: floc2})
+client.sendMessage(from, teks.trim(), extendedText, {quoted: floc2})
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 tem = args.join(" ")
 st = { 
@@ -4553,7 +4520,7 @@ if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game at
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 client.updatePresence(from, Presence.composing)
-client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedtext, {quoted: floc2})
+client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedText, {quoted: floc2})
 reply(`Berhasil Membuat Status`)
 addSaldoUser(sender, 50)
 addLimitUser(sender, 1)
@@ -4798,167 +4765,165 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 
 
   *INFORMASI MENU*
-• 🏐 ${prefix2}info
-• 🏐 ${prefix2}iklan
-• 🏐 ${prefix2}donasi
-• 🏐 ${prefix2}request
+• 🐾 ${prefix2}info
+• 🐾 ${prefix2}iklan
+• 🐾 ${prefix2}donasi
+• 🐾 ${prefix2}request
 
 
   *BELANJA KEBUTUHAN*
-• 🏐 ${prefix2}daftar
-• 🏐 ${prefix2}dompet
-• 🏐 ${prefix2}claim
-• 🏐 ${prefix2}shop
-• 🏐 ${prefix2}buy
-• 🏐 ${prefix2}sell
-• 🏐 ${prefix2}tukar
-• 🏐 ${prefix2}nambang
+• 🐾 ${prefix2}daftar
+• 🐾 ${prefix2}dompet
+• 🐾 ${prefix2}claim
+• 🐾 ${prefix2}shop
+• 🐾 ${prefix2}buy
+• 🐾 ${prefix2}sell
+• 🐾 ${prefix2}tukar
+• 🐾 ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
-• 🏐 ${prefix2}carspeed
-• 🏐 ${prefix2}lotre
+• 🐾 ${prefix2}carspeed
+• 🐾 ${prefix2}lotre
 
 
   *URL TO MEDIA TYPE*
-• 🏐 ${prefix2}urltoimg
-• 🏐 ${prefix2}tourl
+• 🐾 ${prefix2}urltoimg
+• 🐾 ${prefix2}tourl
 
 
   *PRODUK & VOTING*
-• 🏐 ${prefix2}produk
-• 🏐 ${prefix2}tambah
-• 🏐 ${prefix2}votting
-• 🏐 ${prefix2}vote
-• 🏐 ${prefix2}dellvote
+• 🐾 ${prefix2}produk
+• 🐾 ${prefix2}tambah
+• 🐾 ${prefix2}votting
+• 🐾 ${prefix2}vote
+• 🐾 ${prefix2}dellvote
 
 
   *ULASAN & MUTUAL*
-• 🏐 ${prefix2}ulasan
-• 🏐 ${prefix2}komentar
-• 🏐 ${prefix2}mutual
-• 🏐 ${prefix2}save
+• 🐾 ${prefix2}ulasan
+• 🐾 ${prefix2}komentar
+• 🐾 ${prefix2}mutual
+• 🐾 ${prefix2}save
 
 
-  *ABSEN & MESSAGES*
-• 🏐 ${prefix2}absen
-• 🏐 ${prefix2}absensi
-• 🏐 ${prefix2}svmess
-• 🏐 ${prefix2}listmess
+  *PRESENSI HADIR*
+• 🐾 ${prefix2}absen
+• 🐾 ${prefix2}absensi
 
 
   *GROUP MENU*
-• 🏐 ${prefix2}afk
-• 🏐 ${prefix2}undang
-• 🏐 ${prefix2}enable
-• 🏐 ${prefix2}disable
-• 🏐 ${prefix2}bangrup
-• 🏐 ${prefix2}unbangrup
-• 🏐 ${prefix2}ban
-• 🏐 ${prefix2}unban
-• 🏐 ${prefix2}sider
-• 🏐 ${prefix2}hidetag
-• 🏐 ${prefix2}fitnah
-• 🏐 ${prefix2}settings
-• 🏐 ${prefix2}revoke
-• 🏐 ${prefix2}add
-• 🏐 ${prefix2}kick
-• 🏐 ${prefix2}promote
-• 🏐 ${prefix2}demote
-• 🏐 ${prefix2}tagall
-• 🏐 ${prefix2}antilink
-• 🏐 ${prefix2}antitoxic
-• 🏐 ${prefix2}welcome
+• 🐾 ${prefix2}afk
+• 🐾 ${prefix2}undang
+• 🐾 ${prefix2}enable
+• 🐾 ${prefix2}disable
+• 🐾 ${prefix2}bangrup
+• 🐾 ${prefix2}unbangrup
+• 🐾 ${prefix2}ban
+• 🐾 ${prefix2}unban
+• 🐾 ${prefix2}sider
+• 🐾 ${prefix2}hidetag
+• 🐾 ${prefix2}fitnah
+• 🐾 ${prefix2}settings
+• 🐾 ${prefix2}revoke
+• 🐾 ${prefix2}add
+• 🐾 ${prefix2}kick
+• 🐾 ${prefix2}promote
+• 🐾 ${prefix2}demote
+• 🐾 ${prefix2}tagall
+• 🐾 ${prefix2}antilink
+• 🐾 ${prefix2}antitoxic
+• 🐾 ${prefix2}welcome
 
 
   *ANIME MENU*
-• 🏐 ${prefix2}neko
-• 🏐 ${prefix2}waifu
+• 🐾 ${prefix2}neko
+• 🐾 ${prefix2}waifu
 
 
   *GAMES MENU*
-• 🏐 ${prefix2}dungeon
-• 🏐 ${prefix2}slot
-• 🏐 ${prefix2}truth
-• 🏐 ${prefix2}dare
-• 🏐 ${prefix2}tebakgambar
+• 🐾 ${prefix2}dungeon
+• 🐾 ${prefix2}slot
+• 🐾 ${prefix2}truth
+• 🐾 ${prefix2}dare
+• 🐾 ${prefix2}tebakgambar
 
 
   *IMAGE MENU*
-• 🏐 ${prefix2}cogan
-• 🏐 ${prefix2}cecan
-• 🏐 ${prefix2}darkjokes
-• 🏐 ${prefix2}pinterest
-• 🏐 ${prefix2}ocr
+• 🐾 ${prefix2}cogan
+• 🐾 ${prefix2}cecan
+• 🐾 ${prefix2}darkjokes
+• 🐾 ${prefix2}pinterest
+• 🐾 ${prefix2}ocr
 
 
   *RANDOM MENU*
-• 🏐 ${prefix2}cerpen
-• 🏐 ${prefix2}ceritahoror
-• 🏐 ${prefix2}film
-• 🏐 ${prefix2}fakedata
-• 🏐 ${prefix2}news
-• 🏐 ${prefix2}beasiswa
-• 🏐 ${prefix2}ppcouple
+• 🐾 ${prefix2}cerpen
+• 🐾 ${prefix2}ceritahoror
+• 🐾 ${prefix2}film
+• 🐾 ${prefix2}fakedata
+• 🐾 ${prefix2}news
+• 🐾 ${prefix2}beasiswa
+• 🐾 ${prefix2}ppcouple
 
 
   *STICKER MENU*
-• 🏐 ${prefix2}sticker
-• 🏐 ${prefix2}ttp
-• 🏐 ${prefix2}attp
-• 🏐 ${prefix2}wasted
-• 🏐 ${prefix2}comrade
-• 🏐 ${prefix2}jail
-• 🏐 ${prefix2}passed
-• 🏐 ${prefix2}trigger
-• 🏐 ${prefix2}toimg
+• 🐾 ${prefix2}sticker
+• 🐾 ${prefix2}ttp
+• 🐾 ${prefix2}attp
+• 🐾 ${prefix2}wasted
+• 🐾 ${prefix2}comrade
+• 🐾 ${prefix2}jail
+• 🐾 ${prefix2}passed
+• 🐾 ${prefix2}trigger
+• 🐾 ${prefix2}toimg
 
 
   *EDUCATION MENU*
-• 🏐 ${prefix2}quiz
-• 🏐 ${prefix2}nulis
-• 🏐 ${prefix2}niatsholat
-• 🏐 ${prefix2}doa
-• 🏐 ${prefix2}hadist
+• 🐾 ${prefix2}quiz
+• 🐾 ${prefix2}nulis
+• 🐾 ${prefix2}niatsholat
+• 🐾 ${prefix2}doa
+• 🐾 ${prefix2}hadist
 
 
   *AUDIO MENU*
-• 🏐 ${prefix2}fast
-• 🏐 ${prefix2}tupai
-• 🏐 ${prefix2}gemuk
-• 🏐 ${prefix2}slow
-• 🏐 ${prefix2}tomp3
+• 🐾 ${prefix2}fast
+• 🐾 ${prefix2}tupai
+• 🐾 ${prefix2}gemuk
+• 🐾 ${prefix2}slow
+• 🐾 ${prefix2}tomp3
 
 
   *PREMIUM MENU*
-• 🏐 ${prefix2}asupan
-• 🏐 ${prefix2}upswtext
-• 🏐 ${prefix2}upswimg
-• 🏐 ${prefix2}upswvideo
+• 🐾 ${prefix2}asupan
+• 🐾 ${prefix2}upswtext
+• 🐾 ${prefix2}upswimg
+• 🐾 ${prefix2}upswvideo
 
 
   *OTHER MENU* 
-• 🏐 ${prefix2}sharelock
-• 🏐 ${prefix2}delete
-• 🏐 ${prefix2}pesan
-• 🏐 ${prefix2}owner
-• 🏐 ${prefix2}report
-• 🏐 ${prefix2}timer
+• 🐾 ${prefix2}sharelock
+• 🐾 ${prefix2}delete
+• 🐾 ${prefix2}pesan
+• 🐾 ${prefix2}owner
+• 🐾 ${prefix2}report
+• 🐾 ${prefix2}timer
 
 
   *OWNER MENU*
-• $
-• >
-• =>
-• 🏐 ${prefix2}makegroup
-• 🏐 ${prefix2}join
-• 🏐 ${prefix2}kudet
-• 🏐 ${prefix2}leave
-• 🏐 ${prefix2}clone
-• 🏐 ${prefix2}bc
-• 🏐 ${prefix2}addprem
-• 🏐 ${prefix2}dellprem
-• 🏐 ${prefix2}bug
+• 🐾 $
+• 🐾 >
+• 🐾 =>
+• 🐾 ${prefix2}makegroup
+• 🐾 ${prefix2}join
+• 🐾 ${prefix2}kudet
+• 🐾 ${prefix2}leave
+• 🐾 ${prefix2}clone
+• 🐾 ${prefix2}bc
+• 🐾 ${prefix2}addprem
+• 🐾 ${prefix2}dellprem
+• 🐾 ${prefix2}bug
 
 
   *THANKS TO*
