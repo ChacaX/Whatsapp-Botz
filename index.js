@@ -2430,12 +2430,12 @@ ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 0
 duity7 = 100
-totalduit7 = duit7 * payouti
-totalduitt7= duity7 * payouti
+totalduit7 = duit7 * payoutiu
+totalduitt7= duity7 * payoutiu
 if (getLimitUser(sender) <= totalduit7) return reply(`Maaf limit kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal limit yang harus di tukarkan ada 1`)
 addSaldoUser(sender, totalduitt7)
 addLimitUser(sender, -payoutiu)
-await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : ${totalduitt7}`)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🐾 ${prefix2}sell premium\n• 🐾 ${prefix2}sell emas\n• 🐾 ${prefix2}sell perak\n• 🐾 ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
