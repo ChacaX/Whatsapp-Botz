@@ -125,6 +125,7 @@ nobot = setting.nobot
 thumb = fs.readFileSync(`./lib/odc.jpeg`)
 thumb2 = fs.readFileSync(`./lib/odc.jpeg`)
 fakeimage = fs.readFileSync(`./lib/odc.jpeg`)
+tch = fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`)
 namo = ``
 ator = ``
 numbernye = '0'
@@ -1069,18 +1070,18 @@ tingkat ='*PENCAPAIAN SELESAI 🌳'
 }
         
     const hewan = [
-	'🐡 : 🐬 : 🐋',
-	'🐋 : 🐋 : 🐚',
+	'🐡 : 🐬 : 🎟',
+	'🎟 : 🎟 : 🐚',
     '🐬 : 🐬 : 🐬',
 	'🐟 : 🦐 : 🦈',
     '🦑 : 🐟 : 🐲',
     '🐡 : 🐠 : 🐡',
-    '🐡 : 🦐 : 🐋',
+    '🐡 : 🦐 : 🎟',
     '🦐 : 🐬 : 🐟',
     '🐡 : ?? : 🐠',
     '🦀 : 🦀 : 🦀',
     '🦀 : 🐬 : 🐠',
-    '🐚 : 🐡 : 🐋',
+    '🐚 : 🐡 : 🎟',
     '🐃 : 🦔 : 🐏',
 	'🐏 : 🐏 : 🐏',
 	'🦔 : 🦔 : 🦔',
@@ -1284,165 +1285,165 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
 
   *INFORMASI MENU*
-• 🐾 ${prefix2}info
-• 🐾 ${prefix2}iklan
-• 🐾 ${prefix2}donasi
-• 🐾 ${prefix2}request
+• 🎟 ${prefix2}info
+• 🎟 ${prefix2}iklan
+• 🎟 ${prefix2}donasi
+• 🎟 ${prefix2}request
 
 
   *BELANJA KEBUTUHAN*
-• 🐾 ${prefix2}daftar
-• 🐾 ${prefix2}dompet
-• 🐾 ${prefix2}claim
-• 🐾 ${prefix2}shop
-• 🐾 ${prefix2}buy
-• 🐾 ${prefix2}sell
-• 🐾 ${prefix2}tukar
-• 🐾 ${prefix2}nambang
+• 🎟 ${prefix2}daftar
+• 🎟 ${prefix2}dompet
+• 🎟 ${prefix2}claim
+• 🎟 ${prefix2}shop
+• 🎟 ${prefix2}buy
+• 🎟 ${prefix2}sell
+• 🎟 ${prefix2}tukar
+• 🎟 ${prefix2}nambang
 
 
   *EVENT GAMES BOT*
-• 🐾 ${prefix2}carspeed
-• 🐾 ${prefix2}lotre
+• 🎟 ${prefix2}carspeed
+• 🎟 ${prefix2}lotre
 
 
   *URL TO MEDIA TYPE*
-• 🐾 ${prefix2}urltoimg
-• 🐾 ${prefix2}tourl
+• 🎟 ${prefix2}urltoimg
+• 🎟 ${prefix2}tourl
 
 
   *PRODUK & VOTING*
-• 🐾 ${prefix2}produk
-• 🐾 ${prefix2}tambah
-• 🐾 ${prefix2}votting
-• 🐾 ${prefix2}vote
-• 🐾 ${prefix2}dellvote
+• 🎟 ${prefix2}produk
+• 🎟 ${prefix2}tambah
+• 🎟 ${prefix2}votting
+• 🎟 ${prefix2}vote
+• 🎟 ${prefix2}dellvote
 
 
   *ULASAN & MUTUAL*
-• 🐾 ${prefix2}ulasan
-• 🐾 ${prefix2}komentar
-• 🐾 ${prefix2}mutual
-• 🐾 ${prefix2}save
+• 🎟 ${prefix2}ulasan
+• 🎟 ${prefix2}komentar
+• 🎟 ${prefix2}mutual
+• 🎟 ${prefix2}save
 
 
   *PRESENSI HADIR*
-• 🐾 ${prefix2}absen
-• 🐾 ${prefix2}absensi
+• 🎟 ${prefix2}absen
+• 🎟 ${prefix2}absensi
 
 
   *GROUP MENU*
-• 🐾 ${prefix2}afk
-• 🐾 ${prefix2}undang
-• 🐾 ${prefix2}enable
-• 🐾 ${prefix2}disable
-• 🐾 ${prefix2}bangrup
-• 🐾 ${prefix2}unbangrup
-• 🐾 ${prefix2}ban
-• 🐾 ${prefix2}unban
-• 🐾 ${prefix2}sider
-• 🐾 ${prefix2}hidetag
-• 🐾 ${prefix2}fitnah
-• 🐾 ${prefix2}settings
-• 🐾 ${prefix2}revoke
-• 🐾 ${prefix2}add
-• 🐾 ${prefix2}kick
-• 🐾 ${prefix2}promote
-• 🐾 ${prefix2}demote
-• 🐾 ${prefix2}tagall
-• 🐾 ${prefix2}antilink
-• 🐾 ${prefix2}antitoxic
-• 🐾 ${prefix2}welcome
+• 🎟 ${prefix2}afk
+• 🎟 ${prefix2}undang
+• 🎟 ${prefix2}enable
+• 🎟 ${prefix2}disable
+• 🎟 ${prefix2}bangrup
+• 🎟 ${prefix2}unbangrup
+• 🎟 ${prefix2}ban
+• 🎟 ${prefix2}unban
+• 🎟 ${prefix2}sider
+• 🎟 ${prefix2}hidetag
+• 🎟 ${prefix2}fitnah
+• 🎟 ${prefix2}settings
+• 🎟 ${prefix2}revoke
+• 🎟 ${prefix2}add
+• 🎟 ${prefix2}kick
+• 🎟 ${prefix2}promote
+• 🎟 ${prefix2}demote
+• 🎟 ${prefix2}tagall
+• 🎟 ${prefix2}antilink
+• 🎟 ${prefix2}antitoxic
+• 🎟 ${prefix2}welcome
 
 
   *ANIME MENU*
-• 🐾 ${prefix2}neko
-• 🐾 ${prefix2}waifu
+• 🎟 ${prefix2}neko
+• 🎟 ${prefix2}waifu
 
 
   *GAMES MENU*
-• 🐾 ${prefix2}dungeon
-• 🐾 ${prefix2}slot
-• 🐾 ${prefix2}truth
-• 🐾 ${prefix2}dare
-• 🐾 ${prefix2}tebakgambar
+• 🎟 ${prefix2}dungeon
+• 🎟 ${prefix2}slot
+• 🎟 ${prefix2}truth
+• 🎟 ${prefix2}dare
+• 🎟 ${prefix2}tebakgambar
 
 
   *IMAGE MENU*
-• 🐾 ${prefix2}cogan
-• 🐾 ${prefix2}cecan
-• 🐾 ${prefix2}darkjokes
-• 🐾 ${prefix2}pinterest
-• 🐾 ${prefix2}ocr
+• 🎟 ${prefix2}cogan
+• 🎟 ${prefix2}cecan
+• 🎟 ${prefix2}darkjokes
+• 🎟 ${prefix2}pinterest
+• 🎟 ${prefix2}ocr
 
 
   *RANDOM MENU*
-• 🐾 ${prefix2}cerpen
-• 🐾 ${prefix2}ceritahoror
-• 🐾 ${prefix2}film
-• 🐾 ${prefix2}fakedata
-• 🐾 ${prefix2}news
-• 🐾 ${prefix2}beasiswa
-• 🐾 ${prefix2}ppcouple
+• 🎟 ${prefix2}cerpen
+• 🎟 ${prefix2}ceritahoror
+• 🎟 ${prefix2}film
+• 🎟 ${prefix2}fakedata
+• 🎟 ${prefix2}news
+• 🎟 ${prefix2}beasiswa
+• 🎟 ${prefix2}ppcouple
 
 
   *STICKER MENU*
-• 🐾 ${prefix2}sticker
-• 🐾 ${prefix2}ttp
-• 🐾 ${prefix2}attp
-• 🐾 ${prefix2}wasted
-• 🐾 ${prefix2}comrade
-• 🐾 ${prefix2}jail
-• 🐾 ${prefix2}passed
-• 🐾 ${prefix2}trigger
-• 🐾 ${prefix2}toimg
+• 🎟 ${prefix2}sticker
+• 🎟 ${prefix2}ttp
+• 🎟 ${prefix2}attp
+• 🎟 ${prefix2}wasted
+• 🎟 ${prefix2}comrade
+• 🎟 ${prefix2}jail
+• 🎟 ${prefix2}passed
+• 🎟 ${prefix2}trigger
+• 🎟 ${prefix2}toimg
 
 
   *EDUCATION MENU*
-• 🐾 ${prefix2}quiz
-• 🐾 ${prefix2}nulis
-• 🐾 ${prefix2}niatsholat
-• 🐾 ${prefix2}doa
-• 🐾 ${prefix2}hadist
+• 🎟 ${prefix2}quiz
+• 🎟 ${prefix2}nulis
+• 🎟 ${prefix2}niatsholat
+• 🎟 ${prefix2}doa
+• 🎟 ${prefix2}hadist
 
 
   *AUDIO/VN MENU*
-• 🐾 ${prefix2}fast
-• 🐾 ${prefix2}tupai
-• 🐾 ${prefix2}gemuk
-• 🐾 ${prefix2}slow
-• 🐾 ${prefix2}tomp3
+• 🎟 ${prefix2}fast
+• 🎟 ${prefix2}tupai
+• 🎟 ${prefix2}gemuk
+• 🎟 ${prefix2}slow
+• 🎟 ${prefix2}tomp3
 
 
   *PREMIUM MENU*
-• 🐾 ${prefix2}asupan
-• 🐾 ${prefix2}upswtext
-• 🐾 ${prefix2}upswimg
-• 🐾 ${prefix2}upswvideo
+• 🎟 ${prefix2}asupan
+• 🎟 ${prefix2}upswtext
+• 🎟 ${prefix2}upswimg
+• 🎟 ${prefix2}upswvideo
 
 
   *OTHER MENU*
-• 🐾 ${prefix2}sharelock
-• 🐾 ${prefix2}delete
-• 🐾 ${prefix2}pesan
-• 🐾 ${prefix2}owner
-• 🐾 ${prefix2}report
-• 🐾 ${prefix2}timer
+• 🎟 ${prefix2}sharelock
+• 🎟 ${prefix2}delete
+• 🎟 ${prefix2}pesan
+• 🎟 ${prefix2}owner
+• 🎟 ${prefix2}report
+• 🎟 ${prefix2}timer
 
 
   *OWNER MENU*
-• 🐾 $
-• 🐾 >
-• 🐾 =>
-• 🐾 ${prefix2}makegroup
-• 🐾 ${prefix2}join
-• 🐾 ${prefix2}kudet
-• 🐾 ${prefix2}leave
-• 🐾 ${prefix2}clone
-• 🐾 ${prefix2}bc
-• 🐾 ${prefix2}addprem
-• 🐾 ${prefix2}dellprem
-• 🐾 ${prefix2}bug
+• 🎟 $
+• 🎟 >
+• 🎟 =>
+• 🎟 ${prefix2}makegroup
+• 🎟 ${prefix2}join
+• 🎟 ${prefix2}kudet
+• 🎟 ${prefix2}leave
+• 🎟 ${prefix2}clone
+• 🎟 ${prefix2}bc
+• 🎟 ${prefix2}addprem
+• 🎟 ${prefix2}dellprem
+• 🎟 ${prefix2}bug
 
 
   *THANKS TO*
@@ -1524,192 +1525,193 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 📚 pengguna : ${_saldo.length} aktif
 
 
-  *PROFILE KAMU*
-• 📧 nama ${pushname}
-• 📋setatus ${premi}
-• 💵 saldo Rp. ${getSaldoUser(sender)}
-• 🎁 limit ${getLimitUser(sender)}
+╭─❒ *PROFILE KAMU*
+│📧 nama ${pushname}
+│📋setatus ${premi}
+│💵 saldo Rp. ${getSaldoUser(sender)}
+│🎁 limit ${getLimitUser(sender)}
+╰❒ 
 
+╭─❒ *SUMBER DAYA KAMU*
+│🥇 emas ${getEmasUser(sender)} batang
+│🥈 perak ${getPerakUser(sender)} batang
+│📀 bijih emas ${getBijihEmasUser(sender)}
+│💿 bijih perak ${getBijihPerakUser(sender)}
+╰❒ 
 
-  *SUMBER DAYA KAMU*
-• 🥇 emas ${getEmasUser(sender)} batang
-• 🥈 perak ${getPerakUser(sender)} batang
-• 📀 bijih emas ${getBijihEmasUser(sender)}
-• 💿 bijih perak ${getBijihPerakUser(sender)}
+╭─❒ *INFORMASI MENU*
+│🎟 ${prefix2}info
+│🎟 ${prefix2}iklan
+│🎟 ${prefix2}donasi
+│🎟 ${prefix2}request
+╰❒ 
 
+╭─❒ *BELANJA KEBUTUHAN*
+│🎟 ${prefix2}daftar
+│🎟 ${prefix2}dompet
+│🎟 ${prefix2}claim
+│🎟 ${prefix2}shop
+│🎟 ${prefix2}buy
+│🎟 ${prefix2}sell
+│🎟 ${prefix2}tukar
+│🎟 ${prefix2}nambang
+╰❒ 
 
-  *INFORMASI MENU*
-• 🐾 ${prefix2}info
-• 🐾 ${prefix2}iklan
-• 🐾 ${prefix2}donasi
-• 🐾 ${prefix2}request
+╭─❒ *EVENT GAMES BOT*
+│🎟 ${prefix2}carspeed
+│🎟 ${prefix2}lotre
+╰❒ 
 
+╭─❒ *URL TO MEDIA TYPE*
+│🎟 ${prefix2}urltoimg
+│🎟 ${prefix2}tourl
+╰❒ 
 
-  *BELANJA KEBUTUHAN*
-• 🐾 ${prefix2}daftar
-• 🐾 ${prefix2}dompet
-• 🐾 ${prefix2}claim
-• 🐾 ${prefix2}shop
-• 🐾 ${prefix2}buy
-• 🐾 ${prefix2}sell
-• 🐾 ${prefix2}tukar
-• 🐾 ${prefix2}nambang
+╭─❒ *PRODUK & VOTING*
+│🎟 ${prefix2}produk
+│🎟 ${prefix2}tambah
+│🎟 ${prefix2}votting
+│🎟 ${prefix2}vote
+│🎟 ${prefix2}dellvote
+╰❒ 
 
+╭─❒ *ULASAN & MUTUAL*
+│🎟 ${prefix2}ulasan
+│🎟 ${prefix2}komentar
+│🎟 ${prefix2}mutual
+│🎟 ${prefix2}save
+╰❒ 
 
-  *EVENT GAMES BOT*
-• 🐾 ${prefix2}carspeed
-• 🐾 ${prefix2}lotre
+╭─❒ *PRESENSI HADIR*
+│🎟 ${prefix2}absen
+│🎟 ${prefix2}absensi
+╰❒ 
 
+╭─❒ *GROUP MENU*
+│🎟 ${prefix2}afk
+│🎟 ${prefix2}undang
+│🎟 ${prefix2}enable
+│🎟 ${prefix2}disable
+│🎟 ${prefix2}bangrup
+│🎟 ${prefix2}unbangrup
+│🎟 ${prefix2}ban
+│🎟 ${prefix2}unban
+│🎟 ${prefix2}sider
+│🎟 ${prefix2}hidetag
+│🎟 ${prefix2}fitnah
+│🎟 ${prefix2}settings
+│🎟 ${prefix2}revoke
+│🎟 ${prefix2}add
+│🎟 ${prefix2}kick
+│🎟 ${prefix2}promote
+│🎟 ${prefix2}demote
+│🎟 ${prefix2}tagall
+│🎟 ${prefix2}antilink
+│🎟 ${prefix2}antitoxic
+│🎟 ${prefix2}welcome
+╰❒ 
 
-  *URL TO MEDIA TYPE*
-• 🐾 ${prefix2}urltoimg
-• 🐾 ${prefix2}tourl
+╭─❒ *ANIME MENU*
+│🎟 ${prefix2}neko
+│🎟 ${prefix2}waifu
+╰❒ 
 
+╭─❒ *GAMES MENU*
+│🎟 ${prefix2}dungeon
+│🎟 ${prefix2}slot
+│🎟 ${prefix2}truth
+│🎟 ${prefix2}dare
+│🎟 ${prefix2}tebakgambar
+╰❒ 
 
-  *PRODUK & VOTING*
-• 🐾 ${prefix2}produk
-• 🐾 ${prefix2}tambah
-• 🐾 ${prefix2}votting
-• 🐾 ${prefix2}vote
-• 🐾 ${prefix2}dellvote
+╭─❒ *IMAGE MENU*
+│🎟 ${prefix2}cogan
+│🎟 ${prefix2}cecan
+│🎟 ${prefix2}darkjokes
+│🎟 ${prefix2}pinterest
+│🎟 ${prefix2}ocr
+╰❒ 
 
+╭─❒ *RANDOM MENU*
+│🎟 ${prefix2}cerpen
+│🎟 ${prefix2}ceritahoror
+│🎟 ${prefix2}film
+│🎟 ${prefix2}fakedata
+│🎟 ${prefix2}news
+│🎟 ${prefix2}beasiswa
+│🎟 ${prefix2}ppcouple
+╰❒ 
 
-  *ULASAN & MUTUAL*
-• 🐾 ${prefix2}ulasan
-• 🐾 ${prefix2}komentar
-• 🐾 ${prefix2}mutual
-• 🐾 ${prefix2}save
+╭─❒ *STICKER MENU*
+│🎟 ${prefix2}sticker
+│🎟 ${prefix2}ttp
+│🎟 ${prefix2}attp
+│🎟 ${prefix2}wasted
+│🎟 ${prefix2}comrade
+│🎟 ${prefix2}jail
+│🎟 ${prefix2}passed
+│🎟 ${prefix2}trigger
+│🎟 ${prefix2}toimg
+╰❒ 
 
+╭─❒ *EDUCATION MENU*
+│🎟 ${prefix2}quiz
+│🎟 ${prefix2}nulis
+│🎟 ${prefix2}niatsholat
+│🎟 ${prefix2}doa
+│🎟 ${prefix2}hadist
+╰❒ 
 
-  *PRESENSI HADIR*
-• 🐾 ${prefix2}absen
-• 🐾 ${prefix2}absensi
+╭─❒ *AUDIO MENU*
+│🎟 ${prefix2}fast
+│🎟 ${prefix2}tupai
+│🎟 ${prefix2}gemuk
+│🎟 ${prefix2}slow
+│🎟 ${prefix2}tomp3
+╰❒ 
 
+╭─❒ *PREMIUM MENU*
+│🎫 ${prefix2}asupan
+│🎫 ${prefix2}upswtext
+│🎫 ${prefix2}upswimg
+│🎫 ${prefix2}upswvideo
+╰❒ 
 
-  *GROUP MENU*
-• 🐾 ${prefix2}afk
-• 🐾 ${prefix2}undang
-• 🐾 ${prefix2}enable
-• 🐾 ${prefix2}disable
-• 🐾 ${prefix2}bangrup
-• 🐾 ${prefix2}unbangrup
-• 🐾 ${prefix2}ban
-• 🐾 ${prefix2}unban
-• 🐾 ${prefix2}sider
-• 🐾 ${prefix2}hidetag
-• 🐾 ${prefix2}fitnah
-• 🐾 ${prefix2}settings
-• 🐾 ${prefix2}revoke
-• 🐾 ${prefix2}add
-• 🐾 ${prefix2}kick
-• 🐾 ${prefix2}promote
-• 🐾 ${prefix2}demote
-• 🐾 ${prefix2}tagall
-• 🐾 ${prefix2}antilink
-• 🐾 ${prefix2}antitoxic
-• 🐾 ${prefix2}welcome
+╭─❒ *OTHER MENU* 
+│🎟 ${prefix2}sharelock
+│🎟 ${prefix2}delete
+│🎟 ${prefix2}pesan
+│🎟 ${prefix2}owner
+│🎟 ${prefix2}report
+│🎟 ${prefix2}timer
+╰❒ 
 
+╭─❒ *OWNER MENU*
+│🎟 $
+│🎟 >
+│🎟 =>
+│🎟 ${prefix2}makegroup
+│🎟 ${prefix2}join
+│🎟 ${prefix2}kudet
+│🎟 ${prefix2}leave
+│🎟 ${prefix2}clone
+│🎟 ${prefix2}bc
+│🎟 ${prefix2}addprem
+│🎟 ${prefix2}dellprem
+│🎟 ${prefix2}bug
+╰❒ 
 
-  *ANIME MENU*
-• 🐾 ${prefix2}neko
-• 🐾 ${prefix2}waifu
-
-
-  *GAMES MENU*
-• 🐾 ${prefix2}dungeon
-• 🐾 ${prefix2}slot
-• 🐾 ${prefix2}truth
-• 🐾 ${prefix2}dare
-• 🐾 ${prefix2}tebakgambar
-
-
-  *IMAGE MENU*
-• 🐾 ${prefix2}cogan
-• 🐾 ${prefix2}cecan
-• 🐾 ${prefix2}darkjokes
-• 🐾 ${prefix2}pinterest
-• 🐾 ${prefix2}ocr
-
-
-  *RANDOM MENU*
-• 🐾 ${prefix2}cerpen
-• 🐾 ${prefix2}ceritahoror
-• 🐾 ${prefix2}film
-• 🐾 ${prefix2}fakedata
-• 🐾 ${prefix2}news
-• 🐾 ${prefix2}beasiswa
-• 🐾 ${prefix2}ppcouple
-
-
-  *STICKER MENU*
-• 🐾 ${prefix2}sticker
-• 🐾 ${prefix2}ttp
-• 🐾 ${prefix2}attp
-• 🐾 ${prefix2}wasted
-• 🐾 ${prefix2}comrade
-• 🐾 ${prefix2}jail
-• 🐾 ${prefix2}passed
-• 🐾 ${prefix2}trigger
-• 🐾 ${prefix2}toimg
-
-
-  *EDUCATION MENU*
-• 🐾 ${prefix2}quiz
-• 🐾 ${prefix2}nulis
-• 🐾 ${prefix2}niatsholat
-• 🐾 ${prefix2}doa
-• 🐾 ${prefix2}hadist
-
-
-  *AUDIO MENU*
-• 🐾 ${prefix2}fast
-• 🐾 ${prefix2}tupai
-• 🐾 ${prefix2}gemuk
-• 🐾 ${prefix2}slow
-• 🐾 ${prefix2}tomp3
-
-
-  *PREMIUM MENU*
-• 🐾 ${prefix2}asupan
-• 🐾 ${prefix2}upswtext
-• 🐾 ${prefix2}upswimg
-• 🐾 ${prefix2}upswvideo
-
-
-  *OTHER MENU* 
-• 🐾 ${prefix2}sharelock
-• 🐾 ${prefix2}delete
-• 🐾 ${prefix2}pesan
-• 🐾 ${prefix2}owner
-• 🐾 ${prefix2}report
-• 🐾 ${prefix2}timer
-
-
-  *OWNER MENU*
-• 🐾 $
-• 🐾 >
-• 🐾 =>
-• 🐾 ${prefix2}makegroup
-• 🐾 ${prefix2}join
-• 🐾 ${prefix2}kudet
-• 🐾 ${prefix2}leave
-• 🐾 ${prefix2}clone
-• 🐾 ${prefix2}bc
-• 🐾 ${prefix2}addprem
-• 🐾 ${prefix2}dellprem
-• 🐾 ${prefix2}bug
-
-
-  *THANKS TO*
-• 💻 mhankbarbar
-• 💻 mitsuhabotz
-• 💻 rimurubotz
-• 💻 dimxbotz
-• 💻 rurichan
-• 💻 zak06cheat
-• 💻 ridwan
-• 💻 hafizh
-`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+╭─❒ *THANKS TO*
+│💻 mhankbarbar
+│💻 mitsuhabotz
+│💻 rimurubotz
+│💻 dimxbotz
+│💻 rurichan
+│💻 zak06cheat
+│💻 ridwan
+│💻 hafizh
+╰❒
+`,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 /*_________________
@@ -1772,7 +1774,7 @@ addBijihPerakUser(sender, -totalduitt5)
 payoutnye = payout * 1
 addPerakUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga tukar* : ${totalduitt5}`)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• 🐾 ${prefix2}tukar emas\n• 🐾 ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• 🎟 ${prefix2}tukar emas\n• 🎟 ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -2374,7 +2376,7 @@ payoutnye = payout * 1
 addLimitUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${totalduit11}`)
 }
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• 🐾 ${prefix2}buy premium\n• 🐾 ${prefix2}buy emas\n• 🐾 ${prefix2}buy perak\n• 🐾 ${prefix2}buy limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• 🎟 ${prefix2}buy premium\n• 🎟 ${prefix2}buy emas\n• 🎟 ${prefix2}buy perak\n• 🎟 ${prefix2}buy limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -2436,7 +2438,7 @@ if (getLimitUser(sender) <= totalduit7) return reply(`Maaf limit kamu belum menc
 addSaldoUser(sender, totalduitt7)
 addLimitUser(sender, -payoutiu)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🐾 ${prefix2}sell premium\n• 🐾 ${prefix2}sell emas\n• 🐾 ${prefix2}sell perak\n• 🐾 ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🎟 ${prefix2}sell premium\n• 🎟 ${prefix2}sell emas\n• 🎟 ${prefix2}sell perak\n• 🎟 ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -2596,6 +2598,72 @@ reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 addLimitUser(sender, -1)
 break*/
 
+/*case 'u':
+ imagenya = (pepe) => {
+            return {"url": "https://mmg.whatsapp.net/d/f/AvQZ55ZsZZyrhpWSfc6GFCrUg_TlTwso3wqpy1SjPJZH.enc","mimetype": "image/jpeg","caption": pepe,"fileSha256": "xdlK3ZjzXpwVfX1iXqUZEtb15jlgehEWlEV9EN5oYVY=","fileLength": "999999999999999","mediaKey": "ieif+9HzutyExM+9j0R0/V1rCDENo8gfyoNqNGzNyyg=","fileEncSha256": "dzW87sgUZAVc30wa9TdJXBazTrpLRBzgeu2dU6fO82w=","jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAEgALQMBIgACEQEDEQH/xAAvAAACAwEAAAAAAAAAAAAAAAADBAACBQEBAAMBAQAAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADcoJaOhkuV0vY4uRZCScQNmQ6qjzE0AivlIwQKGrSCN/NVnLyOWlzLkWz2RGpjyE2HIKh5Cf/EACMQAAICAgIBBAMAAAAAAAAAAAECABEDEiExUQQjQWEQExT/2gAIAQEAAT8AOaocp+TU/r0NEEwepBgyk/EOUj4hBsGZjt0ZbxAS1kxTfRhPmOdUJiPZ7iITz2IRy1GYCRan8MNqE4TP9TEiKlL0Y+Ff2Uo+zGpMgHmbVwYzUa8x/TCuDzMAcKRcxuSzWJnR2pgOoW3i+7lHgRyAp8zAKUzTVzG6M0Y8pMQK0ZwzgGCkSKbY3MjUrxchW4jrUQHlpd0ZXuGeoYdCDEXUER8JQ7XEI1ingiOL67hwGvsxE1FT/8QAGBEAAgMAAAAAAAAAAAAAAAAAAREAECD/2gAIAQIBAT8AcZjOEaNnH//EABwRAAMAAwEBAQAAAAAAAAAAAAABAhEhMQMSEP/aAAgBAwEBPwCfOR+UHws8Fxk+lOh72VTVJIzukQ8jWW2SukYXRbn8+mf/2Q==",}
+        }
+         buttonimg = (from, caption, button) => {
+             po = client.prepareMessageFromContent(from, { "templateMessage": { "hydratedTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedFooterText": `u`,"hydratedButtons": button }, "hydratedFourRowTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedButtons": button }}}, {quoted: mek})
+            return client.relayWAMessage(po, {waitForAck: false})
+        }
+                 yyoy = [
+                    {
+                        "callButton": {
+                        "displayText": "Contact Owner",
+                        "phoneNumber": "6282245731529"
+                         }
+                   }
+                  ]
+                buttonimg(from, `Hi ${pushname}`, yyoy)
+                break
+                
+case 'y':
+ imagenya = (pepe) => {
+            return {"url": "https://mmg.whatsapp.net/d/f/AvQZ55ZsZZyrhpWSfc6GFCrUg_TlTwso3wqpy1SjPJZH.enc","mimetype": "image/jpeg","caption": pepe,"fileSha256": "xdlK3ZjzXpwVfX1iXqUZEtb15jlgehEWlEV9EN5oYVY=","fileLength": "10","mediaKey": "ieif+9HzutyExM+9j0R0/V1rCDENo8gfyoNqNGzNyyg=","fileEncSha256": "dzW87sgUZAVc30wa9TdJXBazTrpLRBzgeu2dU6fO82w=","jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAEgALQMBIgACEQEDEQH/xAAvAAACAwEAAAAAAAAAAAAAAAADBAACBQEBAAMBAQAAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADcoJaOhkuV0vY4uRZCScQNmQ6qjzE0AivlIwQKGrSCN/NVnLyOWlzLkWz2RGpjyE2HIKh5Cf/EACMQAAICAgIBBAMAAAAAAAAAAAECABEDEiExUQQjQWEQExT/2gAIAQEAAT8AOaocp+TU/r0NEEwepBgyk/EOUj4hBsGZjt0ZbxAS1kxTfRhPmOdUJiPZ7iITz2IRy1GYCRan8MNqE4TP9TEiKlL0Y+Ff2Uo+zGpMgHmbVwYzUa8x/TCuDzMAcKRcxuSzWJnR2pgOoW3i+7lHgRyAp8zAKUzTVzG6M0Y8pMQK0ZwzgGCkSKbY3MjUrxchW4jrUQHlpd0ZXuGeoYdCDEXUER8JQ7XEI1ingiOL67hwGvsxE1FT/8QAGBEAAgMAAAAAAAAAAAAAAAAAAREAECD/2gAIAQIBAT8AcZjOEaNnH//EABwRAAMAAwEBAQAAAAAAAAAAAAABAhEhMQMSEP/aAAgBAwEBPwCfOR+UHws8Fxk+lOh72VTVJIzukQ8jWW2SukYXRbn8+mf/2Q==",}
+        }
+         buttonimg = (from, caption, button) => {
+             po = client.prepareMessageFromContent(from, { "templateMessage": { "hydratedTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedFooterText": `u`,"hydratedButtons": button }, "hydratedFourRowTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedButtons": button }}}, {quoted:mek})
+            return client.relayWAMessage(po, {waitForAck: true})
+        }
+                 yyoy = [
+                    {
+                        "urlButton": {
+										"displayText": "Website",
+										"url": "https://hardianto.xyz"
+									},
+									"index": 0
+								},
+								{
+									"callButton": {
+										"displayText": "Developer",
+										"phoneNumber": "6285945151961@s.whatsapp.net"
+									},
+									"index": 1
+								},
+								{
+									"quickReplyButton": {
+										"displayText": "Owner",
+										"id": ".owner"
+									},
+									"index": 2
+								},
+								{
+									"quickReplyButton": {
+										"displayText": "Docs",
+										"id": ".docs"
+									},
+									"index": 3
+								},
+								{
+									"quickReplyButton": {
+										"displayText": "T  O  S",
+										"id": ".tos"
+									},
+                     }
+                  ]
+                buttonimg(from, `Hi ${pushname}`, yyoy)
+                break*/
+                
 case 'addprem':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
@@ -2788,7 +2856,7 @@ if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game at
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_hanya untuk owner_`)     
-bc = body.slice(3)
+bc = args.join(" ")
 if (args.length < 1) return reply('.......')
 anu = await client.chats.all()
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
@@ -3016,8 +3084,8 @@ randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
-contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -3037,8 +3105,8 @@ randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'DARKJOKES', imageMessage: imageMsg,
-contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -3058,8 +3126,8 @@ randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
-contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -3614,8 +3682,8 @@ b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
-contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
@@ -4013,7 +4081,12 @@ addSaldoId(sender)
 addBadwordId(sender)
 addLimitId(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks = `Success mendaftar! selamat kamu mendapatkan saldo awal sebesar Rp. 1000 dan limit berjumlah 10`
+teks = `◪ BERHASIL MENDAFTAR
+│
+└❏ Number: @${sender.split("@s.whatsapp.net")}
+   ❏ Free Limit: 10
+   ❏ Free Saldo: Rp. 1000
+  ----------------------------------`
 sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -4023,12 +4096,15 @@ case 'dompet':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 saldonya = getSaldoUser(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`💵 saldo : Rp. ${saldonya}
-🎁 limit : ${getLimitUser(sender)}
-🥇 emas : ${getEmasUser(sender)}
-🥈 perak : ${getPerakUser(sender)}
-📀 bijih emas : ${getBijihEmasUser(sender)}
-💿 bijih perak : ${getBijihPerakUser(sender)}`
+teks =`◪ IVENTORY KAMU
+│
+└❏ 💵 saldo : Rp. ${saldonya}
+   ❏ 🎁 limit : ${getLimitUser(sender)}
+   ❏ 🥇 emas : ${getEmasUser(sender)}
+   ❏ 🥈 perak : ${getPerakUser(sender)}
+   ❏ 📀 bijih emas : ${getBijihEmasUser(sender)}
+   ❏ 💿 bijih perak : ${getBijihPerakUser(sender)}
+  ----------------------------------`
 sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -4036,11 +4112,16 @@ case 'claim':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isClaim) return reply(`kamu telah mengambil hadiah ini coba sesaat lagi`)
 addSaldoUser(sender, 2000)
-addLimitUser(sender, 3)
+addLimitUser(sender, 5)
 claim.push(sender)
 fs.writeFileSync('./src/claim.json', JSON.stringify(claim))
 creator = "6285731261728@s.whatsapp.net"
-teks =`SALDO KAMU BERTAMBAH RP. 2000 DAN 3 LIMIT GRATIS`
+teks =`◪ BERHASIL CLAIM
+│
+└❏ Number: @${sender.split("@s.whatsapp.net")}
+   ❏ Free Limit: 5
+   ❏ Free Saldo: Rp. 2000
+  ----------------------------------`
 sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
@@ -4054,10 +4135,8 @@ break
 				 let anu = await imgbb("3b8594f4cb11895f4084291bc655e510", uuu)
 				 let teks = `${anu.display_url}`
 				 reply(teks)
-				url.push(teks)
-fs.writeFileSync('./src/url.json', JSON.stringify(url))
 				 } else {
-reply('Tag Media Yang Udah Dikirim')
+reply('Tag Foto Yang Udah Dikirim')
 }
 		addLimitUser(sender, -1)
 break
@@ -4752,192 +4831,193 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 📚 pengguna : ${_saldo.length} aktif
 
 
-  *PROFILE KAMU*
-• 📧 nama ${pushname}
-• 📋setatus ${premi}
-• 💵 saldo Rp. ${getSaldoUser(sender)}
-• 🎁 limit ${getLimitUser(sender)}
+╭─❒ *PROFILE KAMU*
+│📧 nama ${pushname}
+│📋setatus ${premi}
+│💵 saldo Rp. ${getSaldoUser(sender)}
+│🎁 limit ${getLimitUser(sender)}
+╰❒ 
 
+╭─❒ *SUMBER DAYA KAMU*
+│🥇 emas ${getEmasUser(sender)} batang
+│🥈 perak ${getPerakUser(sender)} batang
+│📀 bijih emas ${getBijihEmasUser(sender)}
+│💿 bijih perak ${getBijihPerakUser(sender)}
+╰❒ 
 
-  *SUMBER DAYA KAMU*
-• 🥇 emas ${getEmasUser(sender)} batang
-• 🥈 perak ${getPerakUser(sender)} batang
-• 📀 bijih emas ${getBijihEmasUser(sender)}
-• 💿 bijih perak ${getBijihPerakUser(sender)}
+╭─❒ *INFORMASI MENU*
+│🎟 ${prefix2}info
+│🎟 ${prefix2}iklan
+│🎟 ${prefix2}donasi
+│🎟 ${prefix2}request
+╰❒ 
 
+╭─❒ *BELANJA KEBUTUHAN*
+│🎟 ${prefix2}daftar
+│🎟 ${prefix2}dompet
+│🎟 ${prefix2}claim
+│🎟 ${prefix2}shop
+│🎟 ${prefix2}buy
+│🎟 ${prefix2}sell
+│🎟 ${prefix2}tukar
+│🎟 ${prefix2}nambang
+╰❒ 
 
-  *INFORMASI MENU*
-• 🐾 ${prefix2}info
-• 🐾 ${prefix2}iklan
-• 🐾 ${prefix2}donasi
-• 🐾 ${prefix2}request
+╭─❒ *EVENT GAMES BOT*
+│🎟 ${prefix2}carspeed
+│🎟 ${prefix2}lotre
+╰❒ 
 
+╭─❒ *URL TO MEDIA TYPE*
+│🎟 ${prefix2}urltoimg
+│🎟 ${prefix2}tourl
+╰❒ 
 
-  *BELANJA KEBUTUHAN*
-• 🐾 ${prefix2}daftar
-• 🐾 ${prefix2}dompet
-• 🐾 ${prefix2}claim
-• 🐾 ${prefix2}shop
-• 🐾 ${prefix2}buy
-• 🐾 ${prefix2}sell
-• 🐾 ${prefix2}tukar
-• 🐾 ${prefix2}nambang
+╭─❒ *PRODUK & VOTING*
+│🎟 ${prefix2}produk
+│🎟 ${prefix2}tambah
+│🎟 ${prefix2}votting
+│🎟 ${prefix2}vote
+│🎟 ${prefix2}dellvote
+╰❒ 
 
+╭─❒ *ULASAN & MUTUAL*
+│🎟 ${prefix2}ulasan
+│🎟 ${prefix2}komentar
+│🎟 ${prefix2}mutual
+│🎟 ${prefix2}save
+╰❒ 
 
-  *EVENT GAMES BOT*
-• 🐾 ${prefix2}carspeed
-• 🐾 ${prefix2}lotre
+╭─❒ *PRESENSI HADIR*
+│🎟 ${prefix2}absen
+│🎟 ${prefix2}absensi
+╰❒ 
 
+╭─❒ *GROUP MENU*
+│🎟 ${prefix2}afk
+│🎟 ${prefix2}undang
+│🎟 ${prefix2}enable
+│🎟 ${prefix2}disable
+│🎟 ${prefix2}bangrup
+│🎟 ${prefix2}unbangrup
+│🎟 ${prefix2}ban
+│🎟 ${prefix2}unban
+│🎟 ${prefix2}sider
+│🎟 ${prefix2}hidetag
+│🎟 ${prefix2}fitnah
+│🎟 ${prefix2}settings
+│🎟 ${prefix2}revoke
+│🎟 ${prefix2}add
+│🎟 ${prefix2}kick
+│🎟 ${prefix2}promote
+│🎟 ${prefix2}demote
+│🎟 ${prefix2}tagall
+│🎟 ${prefix2}antilink
+│🎟 ${prefix2}antitoxic
+│🎟 ${prefix2}welcome
+╰❒ 
 
-  *URL TO MEDIA TYPE*
-• 🐾 ${prefix2}urltoimg
-• 🐾 ${prefix2}tourl
+╭─❒ *ANIME MENU*
+│🎟 ${prefix2}neko
+│🎟 ${prefix2}waifu
+╰❒ 
 
+╭─❒ *GAMES MENU*
+│🎟 ${prefix2}dungeon
+│🎟 ${prefix2}slot
+│🎟 ${prefix2}truth
+│🎟 ${prefix2}dare
+│🎟 ${prefix2}tebakgambar
+╰❒ 
 
-  *PRODUK & VOTING*
-• 🐾 ${prefix2}produk
-• 🐾 ${prefix2}tambah
-• 🐾 ${prefix2}votting
-• 🐾 ${prefix2}vote
-• 🐾 ${prefix2}dellvote
+╭─❒ *IMAGE MENU*
+│🎟 ${prefix2}cogan
+│🎟 ${prefix2}cecan
+│🎟 ${prefix2}darkjokes
+│🎟 ${prefix2}pinterest
+│🎟 ${prefix2}ocr
+╰❒ 
 
+╭─❒ *RANDOM MENU*
+│🎟 ${prefix2}cerpen
+│🎟 ${prefix2}ceritahoror
+│🎟 ${prefix2}film
+│🎟 ${prefix2}fakedata
+│🎟 ${prefix2}news
+│🎟 ${prefix2}beasiswa
+│🎟 ${prefix2}ppcouple
+╰❒ 
 
-  *ULASAN & MUTUAL*
-• 🐾 ${prefix2}ulasan
-• 🐾 ${prefix2}komentar
-• 🐾 ${prefix2}mutual
-• 🐾 ${prefix2}save
+╭─❒ *STICKER MENU*
+│🎟 ${prefix2}sticker
+│🎟 ${prefix2}ttp
+│🎟 ${prefix2}attp
+│🎟 ${prefix2}wasted
+│🎟 ${prefix2}comrade
+│🎟 ${prefix2}jail
+│🎟 ${prefix2}passed
+│🎟 ${prefix2}trigger
+│🎟 ${prefix2}toimg
+╰❒ 
 
+╭─❒ *EDUCATION MENU*
+│🎟 ${prefix2}quiz
+│🎟 ${prefix2}nulis
+│🎟 ${prefix2}niatsholat
+│🎟 ${prefix2}doa
+│🎟 ${prefix2}hadist
+╰❒ 
 
-  *PRESENSI HADIR*
-• 🐾 ${prefix2}absen
-• 🐾 ${prefix2}absensi
+╭─❒ *AUDIO MENU*
+│🎟 ${prefix2}fast
+│🎟 ${prefix2}tupai
+│🎟 ${prefix2}gemuk
+│🎟 ${prefix2}slow
+│🎟 ${prefix2}tomp3
+╰❒ 
 
+╭─❒ *PREMIUM MENU*
+│🎫 ${prefix2}asupan
+│🎫 ${prefix2}upswtext
+│🎫 ${prefix2}upswimg
+│🎫 ${prefix2}upswvideo
+╰❒ 
 
-  *GROUP MENU*
-• 🐾 ${prefix2}afk
-• 🐾 ${prefix2}undang
-• 🐾 ${prefix2}enable
-• 🐾 ${prefix2}disable
-• 🐾 ${prefix2}bangrup
-• 🐾 ${prefix2}unbangrup
-• 🐾 ${prefix2}ban
-• 🐾 ${prefix2}unban
-• 🐾 ${prefix2}sider
-• 🐾 ${prefix2}hidetag
-• 🐾 ${prefix2}fitnah
-• 🐾 ${prefix2}settings
-• 🐾 ${prefix2}revoke
-• 🐾 ${prefix2}add
-• 🐾 ${prefix2}kick
-• 🐾 ${prefix2}promote
-• 🐾 ${prefix2}demote
-• 🐾 ${prefix2}tagall
-• 🐾 ${prefix2}antilink
-• 🐾 ${prefix2}antitoxic
-• 🐾 ${prefix2}welcome
+╭─❒ *OTHER MENU* 
+│🎟 ${prefix2}sharelock
+│🎟 ${prefix2}delete
+│🎟 ${prefix2}pesan
+│🎟 ${prefix2}owner
+│🎟 ${prefix2}report
+│🎟 ${prefix2}timer
+╰❒ 
 
+╭─❒ *OWNER MENU*
+│🎟 $
+│🎟 >
+│🎟 =>
+│🎟 ${prefix2}makegroup
+│🎟 ${prefix2}join
+│🎟 ${prefix2}kudet
+│🎟 ${prefix2}leave
+│🎟 ${prefix2}clone
+│🎟 ${prefix2}bc
+│🎟 ${prefix2}addprem
+│🎟 ${prefix2}dellprem
+│🎟 ${prefix2}bug
+╰❒ 
 
-  *ANIME MENU*
-• 🐾 ${prefix2}neko
-• 🐾 ${prefix2}waifu
-
-
-  *GAMES MENU*
-• 🐾 ${prefix2}dungeon
-• 🐾 ${prefix2}slot
-• 🐾 ${prefix2}truth
-• 🐾 ${prefix2}dare
-• 🐾 ${prefix2}tebakgambar
-
-
-  *IMAGE MENU*
-• 🐾 ${prefix2}cogan
-• 🐾 ${prefix2}cecan
-• 🐾 ${prefix2}darkjokes
-• 🐾 ${prefix2}pinterest
-• 🐾 ${prefix2}ocr
-
-
-  *RANDOM MENU*
-• 🐾 ${prefix2}cerpen
-• 🐾 ${prefix2}ceritahoror
-• 🐾 ${prefix2}film
-• 🐾 ${prefix2}fakedata
-• 🐾 ${prefix2}news
-• 🐾 ${prefix2}beasiswa
-• 🐾 ${prefix2}ppcouple
-
-
-  *STICKER MENU*
-• 🐾 ${prefix2}sticker
-• 🐾 ${prefix2}ttp
-• 🐾 ${prefix2}attp
-• 🐾 ${prefix2}wasted
-• 🐾 ${prefix2}comrade
-• 🐾 ${prefix2}jail
-• 🐾 ${prefix2}passed
-• 🐾 ${prefix2}trigger
-• 🐾 ${prefix2}toimg
-
-
-  *EDUCATION MENU*
-• 🐾 ${prefix2}quiz
-• 🐾 ${prefix2}nulis
-• 🐾 ${prefix2}niatsholat
-• 🐾 ${prefix2}doa
-• 🐾 ${prefix2}hadist
-
-
-  *AUDIO MENU*
-• 🐾 ${prefix2}fast
-• 🐾 ${prefix2}tupai
-• 🐾 ${prefix2}gemuk
-• 🐾 ${prefix2}slow
-• 🐾 ${prefix2}tomp3
-
-
-  *PREMIUM MENU*
-• 🐾 ${prefix2}asupan
-• 🐾 ${prefix2}upswtext
-• 🐾 ${prefix2}upswimg
-• 🐾 ${prefix2}upswvideo
-
-
-  *OTHER MENU* 
-• 🐾 ${prefix2}sharelock
-• 🐾 ${prefix2}delete
-• 🐾 ${prefix2}pesan
-• 🐾 ${prefix2}owner
-• 🐾 ${prefix2}report
-• 🐾 ${prefix2}timer
-
-
-  *OWNER MENU*
-• 🐾 $
-• 🐾 >
-• 🐾 =>
-• 🐾 ${prefix2}makegroup
-• 🐾 ${prefix2}join
-• 🐾 ${prefix2}kudet
-• 🐾 ${prefix2}leave
-• 🐾 ${prefix2}clone
-• 🐾 ${prefix2}bc
-• 🐾 ${prefix2}addprem
-• 🐾 ${prefix2}dellprem
-• 🐾 ${prefix2}bug
-
-
-  *THANKS TO*
-• 💻 mhankbarbar
-• 💻 mitsuhabotz
-• 💻 rimurubotz
-• 💻 dimxbotz
-• 💻 rurichan
-• 💻 zak06cheat
-• 💻 ridwan
-• 💻 hafizh
-`,{jpegThumbnail:fakeimage}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+╭─❒ *THANKS TO*
+│💻 mhankbarbar
+│💻 mitsuhabotz
+│💻 rimurubotz
+│💻 dimxbotz
+│💻 rurichan
+│💻 zak06cheat
+│💻 ridwan
+│💻 hafizh
+╰❒
+`,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 }
 
@@ -5082,7 +5162,7 @@ break
 - SEWA SATU BULAN - 10.000
 - SEWA PERMANENT - 15.000
 
-🛑 *CONTACT PERSON*:
+?? *CONTACT PERSON*:
 - owner - wa.me/6285731261728
 - bot - wa.me/62857312617285
 - payment - qris - gopay - dana
