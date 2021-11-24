@@ -3348,7 +3348,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
-fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.img))
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
@@ -6477,7 +6477,7 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
-fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.img))
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 ass 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
