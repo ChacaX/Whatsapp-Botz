@@ -62,6 +62,7 @@ ___________________*/
 
 const claim = JSON.parse(fs.readFileSync('./src/claim.json'))
 const _saldo = JSON.parse(fs.readFileSync('./src/saldo.json'))
+const _asrama = JSON.parse(fs.readFileSync('./src/asrama.json'))
 const _hewan = JSON.parse(fs.readFileSync('./src/pet.json'))
 const _badword = JSON.parse(fs.readFileSync('./src/badword.json'))
 const _limit = JSON.parse(fs.readFileSync('./src/limit.json'))
@@ -530,6 +531,137 @@ position = i
 if (position !== false) {
 _hewan[position].k += amount
 fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
+}
+}
+
+const getPersonilUser = (userid) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _asrama[position].p
+}
+}
+
+const addAsramaId = (userid) => {
+const oibiij = {id: userid, p:5, d:0, l:0, u:0, r:0}
+_asrama.push(oibiij)
+fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
+}
+
+const addPersonilUser = (userid, amount) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_asrama[position].p += amount
+fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
+}
+}
+
+const getLautUser = (userid) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _asrama[position].l
+}
+}
+
+const addLautUser = (userid, amount) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_asrama[position].l += amount
+fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
+}
+}
+
+const getDaratUser = (userid) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _asrama[position].d
+}
+}
+
+const addDaratUser = (userid, amount) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_asrama[position].d += amount
+fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
+}
+}
+
+const getUdaraUser = (userid) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _asrama[position].u
+}
+}
+
+const addUdaraUser = (userid, amount) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_asrama[position].u += amount
+fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
+}
+}
+
+const getRiwayatUser = (userid) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _asrama[position].r
+}
+}
+
+const addRiwayatUser = (userid, amount) => {
+let position = false
+Object.keys(_asrama).forEach((i) => {
+if (_asrama[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_asrama[position].r += amount
+fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
 }
 }
 
@@ -4279,6 +4411,43 @@ prepareDisappearingMessageSettingContent(0),
 addLimitUser(sender, -1)
 break
 
+case 'camp':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+reply(`*ASRAMA MILITARY USER*\n\n📜 NAMA ASRAMA : *${pushname}*\n\n*ARMADA PERANG*\n👮 JUMLAH PERSONIL : *${getPersonilUser(sender)}*\n🚔 ARMADA DARAT : *${getDaratUser(sender)}*\n🛩 ARMADA UDARA : *${getUdaraUser(sender)}*\n🛥 ARMADA LAUT : *${getLautUser(sender)}*\n\n*PENCAPAIAN*\n🏅 JUMLAH PERANG : *${getRiwayatUser(sender)}n\n*SUMBER DAYA*\n🥇 EMAS BATANGAN : *${getEmasUser(sender)}*\n🥈 PERAK BATANGAN : *${getPerakUser(sender)}*\n📀 BIJIH EMAS : *${getBijihEmasUser(sender)}*\n💿 BIJIH PERAK : *${getBijihPerakUser(sender)}*`)
+break
+
+case 'war':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getPersonilUser(sender) === 9) return reply(`_minimal personil yang kamu punya ada 10_`)
+if (!getDaratUser(sender) === 3) return reply(`_minimal armada darat yang kamu punya ada 4_`)
+if (!getLautUser(sender) === 3) return reply(`_minimal armada laut yang kamu punya ada 4_`)
+if (!getUdaraUser(sender) === 3) return reply(`_minimal armada udara yang kamu punya ada 4_`)
+if (!q) return reply(`penggunaan fitur dengan cara ${prefix2}war @tagmember\n\nnote: pastikan teman yang akan diajak war sudah mendaftar dengan bot`)
+ea = arga.join(" ")
+acak = [`${sender}`,`${ea.split("@")}`]
+const main = acak[Math.floor(Math.random() * acak.length)]
+yuiy = ["1","2","3","4","5","6","7","8","9"]
+const ten = yuiy[Math.floor(Math.random() * yuiy.length)]
+yuiiy = ["1","2","3"]
+const ten2 = yuiiy[Math.floor(Math.random() * yuiiy.length)]
+yuiiiy = ["1","2","3"]
+const ten3 = yuiiiy[Math.floor(Math.random() * yuiiiy.length)]
+yuiuiiy = ["1","2","3"]
+const ten4 = yuiuiiy[Math.floor(Math.random() * yuiuiiy.length)]
+p12 = ten * 1
+p13 = ten2 * 1
+p14 = ten3 * 1
+p15 = ten4 * 1
+addPersonilUser(main, -p12)
+addDaratUser(main, -p13)
+addUdaraUser(main, -p14)
+addLautUser(main, -p15)
+addRiwayatUser(sender, 1)
+reply(`*KEKALAHAN @${main}*\n\n👮 PERSONIL : - *${ten}*\n🚔 ARMADA DARAT : - *${ten2}*\n🛩 ARMADA UDARA : - *${ten3}*\n🛥 ARMADA LAUT : - *${ten4}*`)
+addLimitUser(sender, -1)
+break
+
 case 'voting':
 case 'votting':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
@@ -4334,6 +4503,7 @@ addSaldoId(sender)
 addBadwordId(sender)
 addLimitId(sender)
 addHewanId(sender)
+addAsramaId(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks = `◪ BERHASIL MENDAFTAR
 │
@@ -5183,7 +5353,7 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎟 ${prefix2}slot
 │🎟 ${prefix2}truth
 │🎟 ${prefix2}dare
-│?? ${prefix2}tebakgambar
+│🎟 ${prefix2}tebakgambar
 ╰❒ 
 
 ╭─❒ *IMAGE MENU*
