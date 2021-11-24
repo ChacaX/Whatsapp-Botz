@@ -62,6 +62,7 @@ ___________________*/
 
 const claim = JSON.parse(fs.readFileSync('./src/claim.json'))
 const _saldo = JSON.parse(fs.readFileSync('./src/saldo.json'))
+const _hewan = JSON.parse(fs.readFileSync('./src/pet.json'))
 const _badword = JSON.parse(fs.readFileSync('./src/badword.json'))
 const _limit = JSON.parse(fs.readFileSync('./src/limit.json'))
 const afk = JSON.parse(fs.readFileSync('./src/afk.json'))
@@ -400,6 +401,137 @@ if (position !== false) {
 return _saldo[position].box
 }
 }*/
+
+const getKucingUser = (userid) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _hewan[position].c
+}
+}
+
+const addHewanId = (userid) => {
+const oibj = {id: userid, c:0, a:0, r:0, k:0, e:0}
+_hewan.push(oibj)
+fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
+}
+
+const addKucingUser = (userid, amount) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_hewan[position].c += amount
+fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
+}
+}
+
+const getAnjingUser = (userid) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _hewan[position].a
+}
+}
+
+const addAnjingUser = (userid, amount) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_hewan[position].a += amount
+fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
+}
+}
+
+const getRubahUser = (userid) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _hewan[position].r
+}
+}
+
+const addRubahUser = (userid, amount) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_hewan[position].r += amount
+fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
+}
+}
+
+const getElangUser = (userid) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _hewan[position].e
+}
+}
+
+const addElangUser = (userid, amount) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_hewan[position].e += amount
+fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
+}
+}
+
+const getKelinciUser = (userid) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+return _hewan[position].k
+}
+}
+
+const addKelinciUser = (userid, amount) => {
+let position = false
+Object.keys(_hewan).forEach((i) => {
+if (_hewan[i].id === userid) {
+position = i
+}
+})
+if (position !== false) {
+_hewan[position].k += amount
+fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
+}
+}
 
 async function starts() {
 const client = new WAConnection()
@@ -1042,7 +1174,7 @@ ucapanWaktu = 'Selamat Malam!'
 const pencapaian = tingkatan.length
 var tingkat ='🏚️           🌳              🚗'
 if (pencapaian <= 1) {
-tingkat ='🏚️           🌳            🚗'
+tingkat ='🏚️           ??            🚗'
 } else if (pencapaian <= 2) {
 tingkat ='🏚️           🌳          🚗'
 } else if (pencapaian <= 3) {
@@ -1538,7 +1670,7 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │📀 bijih emas ${getBijihEmasUser(sender)}
 │💿 bijih perak ${getBijihPerakUser(sender)}
 ╰❒ 
-
+͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭─❒ *INFORMASI MENU*
 │🎟 ${prefix2}info
 │🎟 ${prefix2}iklan
@@ -1554,7 +1686,9 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎟 ${prefix2}buy
 │🎟 ${prefix2}sell
 │🎟 ${prefix2}tukar
+│🎟 ${prefix2}inv
 │🎟 ${prefix2}nambang
+│🎟 ${prefix2}hunt
 ╰❒ 
 
 ╭─❒ *EVENT GAMES BOT*
@@ -1717,6 +1851,40 @@ break
 /*_________________
 ALL FEATURE BOT
 ___________________*/
+
+case 'hunt':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)     
+yoi = ["0","1","0","0","1","1","1","0","1"]
+yoi4 = ["0","1","0","0","1","1","1","0","1"]
+yoi2 = ["0","0","1","0","0","1","0","0","1"]
+yoi3 = ["0","0","0","0","0","1","0","0","1"]
+yoi5 = ["0","0","0","0","0","0","0","0","1"]
+kya = yoi[Math.floor(Math.random() * yoi.length)]
+kyi = yoi2[Math.floor(Math.random() * yoi2.length)]
+kyr = yoi4[Math.floor(Math.random() * yoi4.length)]
+kyw = yoi5[Math.floor(Math.random() * yoi5.length)]
+kyit = yoi3[Math.floor(Math.random() * yoi3.length)]
+kye = kya * 1
+kyu = kyi * 1
+kyet = kyr * 1
+kiu = kyw * 1
+kia = kyit * 1
+payoutnye = 500 * 1
+if (getSaldoUser(sender) <= payoutnye) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan lebih banyak lagi`)
+if (getSaldoUser(sender) >= payoutnye) {
+addSaldoUser(sender, -500)
+addKucingUser(sender, kye)
+addAnjingUser(sender, kyu)
+addKelinciUser(sender, kyet)
+addRubahUser(sender, kiu)
+addElangUser(sender, kia)
+reply(`*HASIL BURUAN KAMU*\n\n======================\n*STANDAR*\n🐈 kucing = ${kye}\n🐕 anjing = ${kyu}\n======================\n*LANGKA*\n🐇 kelinci = ${kyet}\n🐺 rubah = ${kiu}\n======================\n*LEGENDARY*\n🦅 elang = ${kia}\n======================`)
+addLimitUser(sender, -1)
+}
+break
 
 case 'nambang':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
@@ -2438,7 +2606,82 @@ if (getLimitUser(sender) <= totalduit7) return reply(`Maaf limit kamu belum menc
 addSaldoUser(sender, totalduitt7)
 addLimitUser(sender, -payoutiu)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🎟 ${prefix2}sell premium\n• 🎟 ${prefix2}sell emas\n• 🎟 ${prefix2}sell perak\n• 🎟 ${prefix2}sell limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else if (args[0]=="kelinci") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payoutiu = ppp.split(" ")[1];
+duit7 = 1
+duity7 = 1500
+totalduit7 = duit7 * payoutiu
+totalduitt7= duity7 * payoutiu
+if (getKelinciUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
+addSaldoUser(sender, totalduitt7)
+addKelinciUser(sender, -payoutiu)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
+} else if (args[0]=="rubah") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payoutiu = ppp.split(" ")[1];
+duit7 = 1
+duity7 = 1500
+totalduit7 = duit7 * payoutiu
+totalduitt7= duity7 * payoutiu
+if (getRubahUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
+addSaldoUser(sender, totalduitt7)
+addRubahUser(sender, -payoutiu)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
+} else if (args[0]=="kucing") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payoutiu = ppp.split(" ")[1];
+duit7 = 1
+duity7 = 1000
+totalduit7 = duit7 * payoutiu
+totalduitt7= duity7 * payoutiu
+if (getKucingUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
+addSaldoUser(sender, totalduitt7)
+addKucingUser(sender, -payoutiu)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
+} else if (args[0]=="anjing") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payoutiu = ppp.split(" ")[1];
+duit7 = 1
+duity7 = 1000
+totalduit7 = duit7 * payoutiu
+totalduitt7= duity7 * payoutiu
+if (getAnjingUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
+addSaldoUser(sender, totalduitt7)
+addAnjingUser(sender, -payoutiu)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
+} else if (args[0]=="elang") {
+if (args.length < 2) return reply(`_example : ${prefix2}sell ${args[0]} 1_ (jumlah bebas)`)
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+ppp = `${args.join(' ')}`
+payoutiu = ppp.split(" ")[1];
+duit7 = 1
+duity7 = 2000
+totalduit7 = duit7 * payoutiu
+totalduitt7= duity7 * payoutiu
+if (getElangUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
+addSaldoUser(sender, totalduitt7)
+addElangUser(sender, -payoutiu)
+await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🎟 ${prefix2}sell premium\n• 🎟 ${prefix2}sell emas\n• 🎟 ${prefix2}sell perak\n• 🎟 ${prefix2}sell limit\n• 🎟 ${prefix2}sell kucing\n• 🎟 ${prefix2}sell anjing\n• 🎟 ${prefix2}sell kelinci\n• 🎟 ${prefix2}sell rubah\n• 🎟 ${prefix2}sell elang\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 addSaldoUser(sender, 50)
 break
 
@@ -3417,6 +3660,16 @@ addLimitUser(sender, 1)
 addSaldoUser(sender, 50)
 break
 
+case 'inv':
+case 'inventory':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+reply(`*INVENTORY SUMBER DAYA*\n\n======================\n*BATANGAN*\n🥇emas = ${getEmasUser(sender)}\n🥈perak = ${getPerakUser(sender)}\n======================\n*BIJI MATERIAL*\n📀 bijih emas ${getBijihEmasUser(sender)}\n💿 bijih perak ${getBijihPerakUser(sender)}\n======================\n\n*IVENTORY PET*\n\n======================\n*STANDAR*\n🐈 kucing = ${getKucingUser(sender)}\n🐕 anjing = ${getAnjingUser(sender)}\n======================\n*LANGKA*\n🐇 kelinci = ${getKelinciUser(sender)}\n🐺 rubah = ${getRubahUser(sender)}\n======================\n*LEGENDARY*\n🦅 elang = ${getElangUser(sender)}\n======================`)
+addSaldoUser(sender, 50)
+addLimitUser(sender, 1)
+break
+
 case 'slot':  
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
@@ -4080,6 +4333,7 @@ if (getSaldoId(sender)) return reply(`_kamu sudah daftar sebelumnya_`)
 addSaldoId(sender)
 addBadwordId(sender)
 addLimitId(sender)
+addHewanId(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks = `◪ BERHASIL MENDAFTAR
 │
@@ -4844,7 +5098,7 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │📀 bijih emas ${getBijihEmasUser(sender)}
 │💿 bijih perak ${getBijihPerakUser(sender)}
 ╰❒ 
-
+͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭─❒ *INFORMASI MENU*
 │🎟 ${prefix2}info
 │🎟 ${prefix2}iklan
@@ -4860,7 +5114,9 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎟 ${prefix2}buy
 │🎟 ${prefix2}sell
 │🎟 ${prefix2}tukar
+│🎟 ${prefix2}inv
 │🎟 ${prefix2}nambang
+│🎟 ${prefix2}hunt
 ╰❒ 
 
 ╭─❒ *EVENT GAMES BOT*
@@ -4927,7 +5183,7 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎟 ${prefix2}slot
 │🎟 ${prefix2}truth
 │🎟 ${prefix2}dare
-│🎟 ${prefix2}tebakgambar
+│?? ${prefix2}tebakgambar
 ╰❒ 
 
 ╭─❒ *IMAGE MENU*
