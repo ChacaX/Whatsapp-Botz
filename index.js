@@ -62,7 +62,6 @@ ___________________*/
 
 const claim = JSON.parse(fs.readFileSync('./src/claim.json'))
 const _saldo = JSON.parse(fs.readFileSync('./src/saldo.json'))
-const _asrama = JSON.parse(fs.readFileSync('./src/asrama.json'))
 const _hewan = JSON.parse(fs.readFileSync('./src/pet.json'))
 const _badword = JSON.parse(fs.readFileSync('./src/badword.json'))
 const _limit = JSON.parse(fs.readFileSync('./src/limit.json'))
@@ -531,137 +530,6 @@ position = i
 if (position !== false) {
 _hewan[position].k += amount
 fs.writeFileSync('./src/pet.json', JSON.stringify(_hewan))
-}
-}
-
-const getPersonilUser = (userid) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-return _asrama[position].p
-}
-}
-
-const addAsramaId = (userid) => {
-const oibiij = {id: userid, p:5, d:0, l:0, u:0, r:0}
-_asrama.push(oibiij)
-fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
-}
-
-const addPersonilUser = (userid, amount) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-_asrama[position].p += amount
-fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
-}
-}
-
-const getLautUser = (userid) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-return _asrama[position].l
-}
-}
-
-const addLautUser = (userid, amount) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-_asrama[position].l += amount
-fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
-}
-}
-
-const getDaratUser = (userid) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-return _asrama[position].d
-}
-}
-
-const addDaratUser = (userid, amount) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-_asrama[position].d += amount
-fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
-}
-}
-
-const getUdaraUser = (userid) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-return _asrama[position].u
-}
-}
-
-const addUdaraUser = (userid, amount) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-_asrama[position].u += amount
-fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
-}
-}
-
-const getRiwayatUser = (userid) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-return _asrama[position].r
-}
-}
-
-const addRiwayatUser = (userid, amount) => {
-let position = false
-Object.keys(_asrama).forEach((i) => {
-if (_asrama[i].id === userid) {
-position = i
-}
-})
-if (position !== false) {
-_asrama[position].r += amount
-fs.writeFileSync('./src/asrama.json', JSON.stringify(_asrama))
 }
 }
 
@@ -1711,14 +1579,14 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 
 
   *THANKS TO*
-• 💻 mhankbarbar
-• 💻 mitsuhabotz
-• 💻 rimurubotz
-• 💻 dimxbotz
-• 💻 rurichan
-• 💻 zak06cheat
-• 💻 ridwan
-• 💻 hafizh`,
+• 📜 mhankbarbar
+• 📜 mitsuhabotz
+• 📜 rimurubotz
+• 📜 dimxbotz
+• 📜 rurichan
+• 📜 zak06cheat
+• 📜 ridwan
+• 📜 hafizh`,
 buttons: gbutsanguy,
 headerType: 4
 }             
@@ -1880,6 +1748,9 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 ╭─❒ *ANIME MENU*
 │🎟 ${prefix2}neko
 │🎟 ${prefix2}waifu
+│🎟 ${prefix2}ass
+│🎟 ${prefix2}ero
+│🎟 ${prefix2}yuri
 ╰❒ 
 
 ╭─❒ *GAMES MENU*
@@ -1968,14 +1839,14 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 ╰❒ 
 
 ╭─❒ *THANKS TO*
-│💻 mhankbarbar
-│💻 mitsuhabotz
-│💻 rimurubotz
-│💻 dimxbotz
-│💻 rurichan
-│💻 zak06cheat
-│💻 ridwan
-│💻 hafizh
+│📜 mhankbarbar
+│📜 mitsuhabotz
+│📜 rimurubotz
+│📜 dimxbotz
+│📜 rurichan
+│📜 zak06cheat
+│📜 ridwan
+│📜 hafizh
 ╰❒
 `,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -3459,7 +3330,7 @@ randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
@@ -3467,6 +3338,69 @@ fs.unlinkSync(`./${sender}.jpeg`)
 addLimitUser(sender, -1)
 break
 
+case 'ass':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/ass.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.img))
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
+contentText:`*${command}*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+addLimitUser(sender, -1)
+break
+
+case 'yuri':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/yuri.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
+contentText:`*${command}*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+addLimitUser(sender, -1)
+break
+
+case 'ero':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/ero.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
+buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
+contentText:`*${command}*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+addLimitUser(sender, -1)
+break
+ 
 case 'darkjokes':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
@@ -3480,7 +3414,7 @@ randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
@@ -3501,7 +3435,7 @@ randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
@@ -4067,7 +4001,7 @@ b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutny*', imageMessage: imageMsg,
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
@@ -4411,43 +4345,6 @@ prepareDisappearingMessageSettingContent(0),
 addLimitUser(sender, -1)
 break
 
-case 'camp':
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-reply(`*ASRAMA MILITARY USER*\n\n📜 NAMA ASRAMA : *${pushname}*\n\n*ARMADA PERANG*\n👮 JUMLAH PERSONIL : *${getPersonilUser(sender)}*\n🚔 ARMADA DARAT : *${getDaratUser(sender)}*\n🛩 ARMADA UDARA : *${getUdaraUser(sender)}*\n🛥 ARMADA LAUT : *${getLautUser(sender)}*\n\n*PENCAPAIAN*\n🏅 JUMLAH PERANG : *${getRiwayatUser(sender)}n\n*SUMBER DAYA*\n🥇 EMAS BATANGAN : *${getEmasUser(sender)}*\n🥈 PERAK BATANGAN : *${getPerakUser(sender)}*\n📀 BIJIH EMAS : *${getBijihEmasUser(sender)}*\n💿 BIJIH PERAK : *${getBijihPerakUser(sender)}*`)
-break
-
-case 'war':
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (!getPersonilUser(sender) === 9) return reply(`_minimal personil yang kamu punya ada 10_`)
-if (!getDaratUser(sender) === 3) return reply(`_minimal armada darat yang kamu punya ada 4_`)
-if (!getLautUser(sender) === 3) return reply(`_minimal armada laut yang kamu punya ada 4_`)
-if (!getUdaraUser(sender) === 3) return reply(`_minimal armada udara yang kamu punya ada 4_`)
-if (!q) return reply(`penggunaan fitur dengan cara ${prefix2}war @tagmember\n\nnote: pastikan teman yang akan diajak war sudah mendaftar dengan bot`)
-ea = arga.join(" ")
-acak = [`${sender}`,`${ea.split("@")}`]
-const main = acak[Math.floor(Math.random() * acak.length)]
-yuiy = ["1","2","3","4","5","6","7","8","9"]
-const ten = yuiy[Math.floor(Math.random() * yuiy.length)]
-yuiiy = ["1","2","3"]
-const ten2 = yuiiy[Math.floor(Math.random() * yuiiy.length)]
-yuiiiy = ["1","2","3"]
-const ten3 = yuiiiy[Math.floor(Math.random() * yuiiiy.length)]
-yuiuiiy = ["1","2","3"]
-const ten4 = yuiuiiy[Math.floor(Math.random() * yuiuiiy.length)]
-p12 = ten * 1
-p13 = ten2 * 1
-p14 = ten3 * 1
-p15 = ten4 * 1
-addPersonilUser(main, -p12)
-addDaratUser(main, -p13)
-addUdaraUser(main, -p14)
-addLautUser(main, -p15)
-addRiwayatUser(sender, 1)
-reply(`*KEKALAHAN @${main}*\n\n👮 PERSONIL : - *${ten}*\n🚔 ARMADA DARAT : - *${ten2}*\n🛩 ARMADA UDARA : - *${ten3}*\n🛥 ARMADA LAUT : - *${ten4}*`)
-addLimitUser(sender, -1)
-break
-
 case 'voting':
 case 'votting':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
@@ -4503,7 +4400,6 @@ addSaldoId(sender)
 addBadwordId(sender)
 addLimitId(sender)
 addHewanId(sender)
-addAsramaId(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks = `◪ BERHASIL MENDAFTAR
 │
@@ -5346,6 +5242,9 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 ╭─❒ *ANIME MENU*
 │🎟 ${prefix2}neko
 │🎟 ${prefix2}waifu
+│🎟 ${prefix2}ass
+│🎟 ${prefix2}ero
+│🎟 ${prefix2}yuri
 ╰❒ 
 
 ╭─❒ *GAMES MENU*
@@ -5434,14 +5333,14 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 ╰❒ 
 
 ╭─❒ *THANKS TO*
-│💻 mhankbarbar
-│💻 mitsuhabotz
-│💻 rimurubotz
-│💻 dimxbotz
-│💻 rurichan
-│💻 zak06cheat
-│💻 ridwan
-│💻 hafizh
+│📜 mhankbarbar
+│📜 mitsuhabotz
+│📜 rimurubotz
+│📜 dimxbotz
+│📜 rurichan
+│📜 zak06cheat
+│📜 ridwan
+│📜 hafizh
 ╰❒
 `,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -6367,7 +6266,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 4 ){
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -6392,7 +6291,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 4 ){
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -6417,7 +6316,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 4 ){
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -6442,7 +6341,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 4 ){
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -6467,7 +6366,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 4 ){
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -6492,7 +6391,7 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) {
+if (i.badword > 4 ){
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
@@ -6517,13 +6416,76 @@ headerType: 1
 }, {quoted: floc2})
 await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
-if (i.badword === 5) { 
+if (i.badword > 4 ){
 if (!isAntiToxic) return
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
 client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
     }
 }
 break
+}
+
+if (buttonsR === `么 yuri 么`) {
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/yuri.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
+buttons = [{buttonId:`么 yuri 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
+contentText:`*yuri*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+addLimitUser(sender, -1)
+}
+
+if (buttonsR === `么 ero 么`) {
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/ero.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
+buttons = [{buttonId:`么 ero 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
+contentText:`*ero*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+addLimitUser(sender, -1)
+}
+
+if (buttonsR === `么 ass 么`) {
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
+if (isBan) return reply(`_kamu telah dibanned bot_`)
+data = fs.readFileSync('./lib/ass.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.img))
+buttons = [{buttonId:`么 ass 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
+contentText:`*ass*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+addLimitUser(sender, -1)
 }
 
 if (buttonsR === `${Soalnya.jawaban}`) {
