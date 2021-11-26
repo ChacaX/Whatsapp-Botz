@@ -173,7 +173,7 @@ return _saldo[position].saldo
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, saldo: 1000, emas: 0, perak: 0, bperak:0, bemas:0}
+const obj = {id: userid, balance: 1000, emas: 0, perak: 0, bperak:0, bemas:0}
 _saldo.push(obj)
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
@@ -959,7 +959,7 @@ const faketag4 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(fr
           
 const faketag5 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": `📩 PESAN INGFO MEMBER 📩`, "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/odc.jpeg')} } }
  
-const ftoko = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {}) }, message: { 'productMessage': { 'product': { 'productImage':{ 'mimetype': 'image/jpeg', 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg') }, 'title': `Mitsuha Bot Whatsapp\n▢ Rp. 10.000,00\nㅤㅤㅤㅤ\nㅤㅤㅤㅤ`, 'productImageCount': 9999 }, 'businessOwnerJid': `0@s.whatsapp.net`}}}
+const ftoko = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: 'status@broadcast' } : {}) }, message: { 'productMessage': { 'product': { 'productImage':{ 'mimetype': 'image/jpeg', 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg') }, 'title': `Mitsuha Bot Whatsapp\n▢ $10.000,00\nㅤㅤㅤㅤ\nㅤㅤㅤㅤ`, 'productImageCount': 9999 }, 'businessOwnerJid': `0@s.whatsapp.net`}}}
 			
 const fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `0@s.whatsapp.net` } : {}) }, message: { 'contactMessage': { 'displayName': `${ucapanFakereply}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ucapanFakereply},;;;\nFN:${ucapanFakereply},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./lib/odc.jpeg')}}}
 			
@@ -1304,7 +1304,7 @@ client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
 }
 }*/
 
-sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
+/*sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(from, kma, location)
 buttonMessages = {
@@ -1315,6 +1315,32 @@ buttons: but,
 headerType: 6
 }
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}*/
+
+sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
+kma = gam1
+mhan = await client.prepareMessage(from, kma, location)
+buttonMessages = {
+locationMessage: mhan.message.locationMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 6
+}
+client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, {
+thumbnail: fs.readFileSync('./lib/odc.jpeg'),
+caption: `Hello World 👋`,
+"contextInfo": {
+mentionedJid: [sender],
+"externalAdReply": {
+"title": `Simple Bot Whatsapp`,
+"body": `Time: ${time}`,
+"mediaType": 2,
+"previewType": `https://youtu.be/dQw4w9WgXcQ`,
+"thumbnail": fs.readFileSync('./lib/odc.jpeg'),
+"mediaUrl": `https://youtu.be/dQw4w9WgXcQ`,
+"sourceUrl": ""
+}}})
 }
 
 if (time >= '00:00:00' && time <= '23:59:00') {
@@ -1332,7 +1358,7 @@ reply(`_jangan tag dia kak, dia lagi afk_`)
 
 if (budy.includes(`${prefix2}join`)){
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
@@ -1405,15 +1431,15 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
   *PROFILE KAMU*
 • 📧 nama ${pushname}
 • 📋setatus ${premi}
-• 💵 saldo Rp. ${getSaldoUser(sender)}
+• 💵 balance $${getSaldoUser(sender)}
 • 🎁 limit ${getLimitUser(sender)}
 
 
   *SUMBER DAYA KAMU*
 • 🥇 emas ${getEmasUser(sender)} batang
 • 🥈 perak ${getPerakUser(sender)} batang
-• 📀 bijih emas ${getBijihEmasUser(sender)}
-• 💿 bijih perak ${getBijihPerakUser(sender)}
+• 📀 raw emas ${getBijihEmasUser(sender)}
+• 💿 raw perak ${getBijihPerakUser(sender)}
 
 
   *INFORMASI MENU*
@@ -1512,10 +1538,6 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
   *RANDOM MENU*
 • 🎟 ${prefix2}cerpen
 • 🎟 ${prefix2}ceritahoror
-• 🎟 ${prefix2}film
-• 🎟 ${prefix2}fakedata
-• 🎟 ${prefix2}news
-• 🎟 ${prefix2}beasiswa
 • 🎟 ${prefix2}ppcouple
 
 
@@ -1612,7 +1634,7 @@ break*/
 /*case perintah_help:
 case 'menu':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 uptime = process.uptime()
@@ -1651,204 +1673,200 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n`
-sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
-📚 dev : wa.me/6285731261728
-📚 jumlah hit : ${hit_today.length}
-📚 pengguna : ${_saldo.length} aktif
+sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
+- dev : wa.me/6285731261728
+- jumlah hit : ${hit_today.length}
+- pengguna : ${_saldo.length} aktif
 
 
 ╭─❒ *PROFILE KAMU*
-│📧 nama ${pushname}
-│📋setatus ${premi}
-│💵 saldo Rp. ${getSaldoUser(sender)}
-│🎁 limit ${getLimitUser(sender)}
+│- nama ${pushname}
+│- setatus ${premi}
+│- balance $${getSaldoUser(sender)}
+│- limit ${getLimitUser(sender)}
 ╰❒ 
 
 ╭─❒ *SUMBER DAYA KAMU*
-│🥇 emas ${getEmasUser(sender)} batang
-│🥈 perak ${getPerakUser(sender)} batang
-│📀 bijih emas ${getBijihEmasUser(sender)}
-│💿 bijih perak ${getBijihPerakUser(sender)}
+│- emas ${getEmasUser(sender)} batang
+│- perak ${getPerakUser(sender)} batang
+│- raw emas ${getBijihEmasUser(sender)}
+│- raw perak ${getBijihPerakUser(sender)}
 ╰❒ 
 ͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭─❒ *INFORMASI MENU*
-│🎟 ${prefix2}info
-│🎟 ${prefix2}iklan
-│🎟 ${prefix2}donasi
-│🎟 ${prefix2}request
+│- ${prefix2}info
+│- ${prefix2}iklan
+│- ${prefix2}donasi
+│- ${prefix2}request
 ╰❒ 
 
 ╭─❒ *BELANJA KEBUTUHAN*
-│🎟 ${prefix2}daftar
-│🎟 ${prefix2}dompet
-│🎟 ${prefix2}claim
-│🎟 ${prefix2}shop
-│🎟 ${prefix2}buy
-│🎟 ${prefix2}sell
-│🎟 ${prefix2}tukar
-│🎟 ${prefix2}inv
-│🎟 ${prefix2}nambang
-│🎟 ${prefix2}hunt
+│- ${prefix2}daftar
+│- ${prefix2}dompet
+│- ${prefix2}claim
+│- ${prefix2}shop
+│- ${prefix2}buy
+│- ${prefix2}sell
+│- ${prefix2}tukar
+│- ${prefix2}inv
+│- ${prefix2}nambang
+│- ${prefix2}hunt
 ╰❒ 
 
 ╭─❒ *EVENT GAMES BOT*
-│🎟 ${prefix2}carspeed
-│🎟 ${prefix2}lotre
+│- ${prefix2}carspeed
+│- ${prefix2}lotre
 ╰❒ 
 
 ╭─❒ *URL TO MEDIA TYPE*
-│🎟 ${prefix2}urltoimg
-│🎟 ${prefix2}tourl
+│- ${prefix2}urltoimg
+│- ${prefix2}tourl
 ╰❒ 
 
 ╭─❒ *PRODUK & VOTING*
-│🎟 ${prefix2}produk
-│🎟 ${prefix2}tambah
-│🎟 ${prefix2}votting
-│🎟 ${prefix2}vote
-│🎟 ${prefix2}dellvote
+│- ${prefix2}produk
+│- ${prefix2}tambah
+│- ${prefix2}votting
+│- ${prefix2}vote
+│- ${prefix2}dellvote
 ╰❒ 
 
 ╭─❒ *ULASAN & MUTUAL*
-│🎟 ${prefix2}ulasan
-│🎟 ${prefix2}komentar
-│🎟 ${prefix2}mutual
-│🎟 ${prefix2}save
+│- ${prefix2}ulasan
+│- ${prefix2}komentar
+│- ${prefix2}mutual
+│- ${prefix2}save
 ╰❒ 
 
 ╭─❒ *PRESENSI HADIR*
-│🎟 ${prefix2}absen
-│🎟 ${prefix2}absensi
+│- ${prefix2}absen
+│- ${prefix2}absensi
 ╰❒ 
 
 ╭─❒ *GROUP MENU*
-│🎟 ${prefix2}afk
-│🎟 ${prefix2}undang
-│🎟 ${prefix2}enable
-│🎟 ${prefix2}disable
-│🎟 ${prefix2}bangrup
-│🎟 ${prefix2}unbangrup
-│🎟 ${prefix2}ban
-│🎟 ${prefix2}unban
-│🎟 ${prefix2}sider
-│🎟 ${prefix2}hidetag
-│🎟 ${prefix2}fitnah
-│🎟 ${prefix2}settings
-│🎟 ${prefix2}revoke
-│🎟 ${prefix2}add
-│🎟 ${prefix2}kick
-│🎟 ${prefix2}promote
-│🎟 ${prefix2}demote
-│🎟 ${prefix2}tagall
-│🎟 ${prefix2}antilink
-│🎟 ${prefix2}antitoxic
-│🎟 ${prefix2}welcome
+│- ${prefix2}afk
+│- ${prefix2}undang
+│- ${prefix2}enable
+│- ${prefix2}disable
+│- ${prefix2}bangrup
+│- ${prefix2}unbangrup
+│- ${prefix2}ban
+│- ${prefix2}unban
+│- ${prefix2}sider
+│- ${prefix2}hidetag
+│- ${prefix2}fitnah
+│- ${prefix2}settings
+│- ${prefix2}revoke
+│- ${prefix2}add
+│- ${prefix2}kick
+│- ${prefix2}promote
+│- ${prefix2}demote
+│- ${prefix2}tagall
+│- ${prefix2}antilink
+│- ${prefix2}antitoxic
+│- ${prefix2}welcome
 ╰❒ 
 
 ╭─❒ *ANIME MENU*
-│🎟 ${prefix2}neko
-│🎟 ${prefix2}waifu
-│🎟 ${prefix2}ass
-│🎟 ${prefix2}ero
-│🎟 ${prefix2}yuri
+│- ${prefix2}neko
+│- ${prefix2}waifu
+│- ${prefix2}ass
+│- ${prefix2}ero
+│- ${prefix2}yuri
 ╰❒ 
 
 ╭─❒ *GAMES MENU*
-│🎟 ${prefix2}dungeon
-│🎟 ${prefix2}slot
-│🎟 ${prefix2}truth
-│🎟 ${prefix2}dare
-│🎟 ${prefix2}tebakgambar
+│- ${prefix2}dungeon
+│- ${prefix2}slot
+│- ${prefix2}truth
+│- ${prefix2}dare
+│- ${prefix2}tebakgambar
 ╰❒ 
 
 ╭─❒ *IMAGE MENU*
-│🎟 ${prefix2}cogan
-│🎟 ${prefix2}cecan
-│🎟 ${prefix2}darkjokes
-│🎟 ${prefix2}pinterest
-│🎟 ${prefix2}ocr
+│- ${prefix2}cogan
+│- ${prefix2}cecan
+│- ${prefix2}darkjokes
+│- ${prefix2}pinterest
+│- ${prefix2}ocr
 ╰❒ 
 
 ╭─❒ *RANDOM MENU*
-│🎟 ${prefix2}cerpen
-│🎟 ${prefix2}ceritahoror
-│🎟 ${prefix2}film
-│🎟 ${prefix2}fakedata
-│🎟 ${prefix2}news
-│🎟 ${prefix2}beasiswa
-│🎟 ${prefix2}ppcouple
+│- ${prefix2}cerpen
+│- ${prefix2}ceritahoror
+│- ${prefix2}ppcouple
 ╰❒ 
 
 ╭─❒ *STICKER MENU*
-│🎟 ${prefix2}sticker
-│🎟 ${prefix2}ttp
-│🎟 ${prefix2}attp
-│🎟 ${prefix2}wasted
-│🎟 ${prefix2}comrade
-│🎟 ${prefix2}jail
-│🎟 ${prefix2}passed
-│🎟 ${prefix2}trigger
-│🎟 ${prefix2}toimg
+│- ${prefix2}sticker
+│- ${prefix2}ttp
+│- ${prefix2}attp
+│- ${prefix2}wasted
+│- ${prefix2}comrade
+│- ${prefix2}jail
+│- ${prefix2}passed
+│- ${prefix2}trigger
+│- ${prefix2}toimg
 ╰❒ 
 
 ╭─❒ *EDUCATION MENU*
-│🎟 ${prefix2}quiz
-│🎟 ${prefix2}nulis
-│🎟 ${prefix2}niatsholat
-│🎟 ${prefix2}doa
-│🎟 ${prefix2}hadist
+│- ${prefix2}quiz
+│- ${prefix2}nulis
+│- ${prefix2}niatsholat
+│- ${prefix2}doa
+│- ${prefix2}hadist
 ╰❒ 
 
 ╭─❒ *AUDIO MENU*
-│🎟 ${prefix2}fast
-│🎟 ${prefix2}tupai
-│🎟 ${prefix2}gemuk
-│🎟 ${prefix2}slow
-│🎟 ${prefix2}tomp3
+│- ${prefix2}fast
+│- ${prefix2}tupai
+│- ${prefix2}gemuk
+│- ${prefix2}slow
+│- ${prefix2}tomp3
 ╰❒ 
 
 ╭─❒ *PREMIUM MENU*
-│🎫 ${prefix2}asupan
-│🎫 ${prefix2}upswtext
-│🎫 ${prefix2}upswimg
-│🎫 ${prefix2}upswvideo
-│🎫 ${prefix2}join
+│- ${prefix2}asupan
+│- ${prefix2}upswtext
+│- ${prefix2}upswimg
+│- ${prefix2}upswvideo
+│- ${prefix2}join
 ╰❒ 
 
 ╭─❒ *OTHER MENU* 
-│🎟 ${prefix2}sharelock
-│🎟 ${prefix2}delete
-│🎟 ${prefix2}pesan
-│🎟 ${prefix2}owner
-│🎟 ${prefix2}report
-│🎟 ${prefix2}timer
+│- ${prefix2}sharelock
+│- ${prefix2}delete
+│- ${prefix2}pesan
+│- ${prefix2}owner
+│- ${prefix2}report
+│- ${prefix2}timer
 ╰❒ 
 
 ╭─❒ *OWNER MENU*
-│🎟 $
-│🎟 >
-│🎟 =>
-│🎟 ${prefix2}makegroup
-│🎟 ${prefix2}kudet
-│🎟 ${prefix2}leave
-│🎟 ${prefix2}clone
-│🎟 ${prefix2}bc
-│🎟 ${prefix2}addprem
-│🎟 ${prefix2}dellprem
-│🎟 ${prefix2}bug
+│- $
+│- >
+│- =>
+│- ${prefix2}makegroup
+│- ${prefix2}kudet
+│- ${prefix2}leave
+│- ${prefix2}clone
+│- ${prefix2}bc
+│- ${prefix2}addprem
+│- ${prefix2}dellprem
+│- ${prefix2}bug
 ╰❒ 
 
 ╭─❒ *THANKS TO*
-│📜 mhankbarbar
-│📜 mitsuhabotz
-│📜 rimurubotz
-│📜 dimxbotz
-│📜 rurichan
-│📜 zak06cheat
-│📜 ridwan
-│📜 hafizh
+│- mhankbarbar
+│- mitsuhabotz
+│- rimurubotz
+│- dimxbotz
+│- rurichan
+│- zak06cheat
+│- ridwan
+│- hafizh
 ╰❒
-`,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+`,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}])
 break
 
 /*_________________
@@ -1857,7 +1875,7 @@ ___________________*/
 
 case 'hunt':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 yoi = ["0","1","0","0","1","1","1","0","1"]
@@ -1876,7 +1894,7 @@ kyet = kyr * 1
 kiu = kyw * 1
 kia = kyit * 1
 payoutnye = 500 * 1
-if (getSaldoUser(sender) <= payoutnye) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan lebih banyak lagi`)
+if (getSaldoUser(sender) <= payoutnye) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan lebih banyak lagi`)
 if (getSaldoUser(sender) >= payoutnye) {
 addSaldoUser(sender, -500)
 addKucingUser(sender, kye)
@@ -1891,7 +1909,7 @@ break
 
 case 'nambang':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 yoi = ["1","1","1","2","1","1","1","3","1"]
@@ -1902,7 +1920,7 @@ kye = kya * 1
 kyu = kyi * 1
 addBijihEmasUser(sender, kye)
 addBijihPerakUser(sender, kyu)
-reply(`kamu mendapatkan *${kya}* bijih emas dan *${kyi}* bijih perak\n\njika bijih yang kamu sudah kumpulkan mencampai 10 maka kamu bisa tukarkan dengan batangan`)
+reply(`kamu mendapatkan *${kya}* raw emas dan *${kyi}* raw perak\n\njika raw yang kamu sudah kumpulkan mencampai 10 maka kamu bisa tukarkan dengan batangan`)
 addSaldoUser(sender, -50)
 addLimitUser(sender, -1)
 break
@@ -1914,7 +1932,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args[0]=="emas") {
 if (args.length < 2) return reply(`_example : ${prefix2}tukar ${args[0]} 1_ (jumlah bebas)`)
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
@@ -1923,7 +1941,7 @@ duit5= 0
 duity5 = 10
 totalduit5 = duit5 * payout
 totalduitt5 = duity5 * payout
-if (getBijihEmasUser(sender) <= totalduitt5) return reply(`Maaf bijih emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih emas yang harus di tukarkan ada 10`)
+if (getBijihEmasUser(sender) <= totalduitt5) return reply(`Maaf raw emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal raw emas yang harus di tukarkan ada 10`)
 addBijihEmasUser(sender, -totalduitt5)
 payoutnye = payout * 1
 addEmasUser(sender, payoutnye)
@@ -1931,7 +1949,7 @@ await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : $
 } else if (args[0]=="perak") {
 if (args.length < 2) return reply(`_example : ${prefix2}tukar ${args[0]} 1_ (jumlah bebas)`)
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
@@ -1940,7 +1958,7 @@ duit5= 0
 duity5 = 10
 totalduit5 = duit5 * payout
 totalduitt5 = duity5 * payout
-if (getBijihPerakUser(sender) <= totalduitt5) return reply(`Maaf bijih perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal bijih perak yang harus di tukarkan ada 10`)
+if (getBijihPerakUser(sender) <= totalduitt5) return reply(`Maaf raw perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal raw perak yang harus di tukarkan ada 10`)
 addBijihPerakUser(sender, -totalduitt5)
 payoutnye = payout * 1
 addPerakUser(sender, payoutnye)
@@ -1951,7 +1969,7 @@ break
 
 case 'lotre':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isCar) return reply(`_kamu belum mendapatkan ticket silahkan mainkan event carspeed terlebih dahulu_`)
@@ -2039,7 +2057,7 @@ break
 case 'kudet':
 if (!isOwner) return reply(`_hanya untuk owner_`)     
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isBotGroupAdmins) return reply(`_error, jadikan bot admin_`)
@@ -2071,7 +2089,7 @@ break
 
 case 'revoke':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2083,7 +2101,7 @@ break
 
 case 'produk':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getSaldoUser(sender)) return reply(`_﹝??﹞saldo mu abis, maini game menu untuk dapetin saldo ya_`)
+if (!getSaldoUser(sender)) return reply(`_﹝??﹞saldo mu abis, maini game menu untuk dapetin balance ya_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 data = fs.readFileSync('./lib/produk.js');
@@ -2102,7 +2120,7 @@ break
 case '+tambah':
 case 'tambah':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
@@ -2128,7 +2146,7 @@ break
 
 case 'fitnah':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
@@ -2145,7 +2163,7 @@ break
 
 case 'quiz':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(Soalnya.gambar))
@@ -2161,7 +2179,7 @@ break
 					
 case 'hidetag':                 
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return  reply('Command ini tidak bisa digunakan di pribadi!\n\n*Harap gunakan di group!*')
@@ -2185,7 +2203,7 @@ break
 /*case 'close-grup':
 case 'close-grub':      
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2204,7 +2222,7 @@ break
 case 'open-grup':
 case 'open-grub':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2225,7 +2243,7 @@ case 'change':
 case 'settings':
 case 'setting':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2248,7 +2266,7 @@ break
 
 case 'timer':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 client.updatePresence(from, Presence.composing) 
@@ -2268,7 +2286,7 @@ break
       
 /*case 'welcome-enable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2283,9 +2301,9 @@ break
 						
 case 'welcome-disable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isSaldo(sender)) return reply(`_﹝??﹞saldo kamu abis, main kan game menu untuk mendapatkan saldo kembali_`)     
+if (isSaldo(sender)) return reply(`_﹝??﹞saldo kamu abis, main kan game menu untuk mendapatkan balance kembali_`)     
 if (isBan) return reply(`_kamu telah dibanned bot_`)    
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
@@ -2301,7 +2319,7 @@ case 'welcome':
 case 'welcome 1':
 case 'welcome 0':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2326,7 +2344,7 @@ case 'antilink':
 case 'antilink 1':
 case 'antilink 0':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2351,7 +2369,7 @@ case 'antitoxic':
 case 'antitoxic 1':
 case 'antitoxic 0':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
@@ -2375,7 +2393,7 @@ break
 case 'tagall':
 case 'tagall1':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2392,7 +2410,7 @@ break
           
 /*case 'antilink-enable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2407,7 +2425,7 @@ break
 					
 case 'antilink-disable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2423,7 +2441,7 @@ break
 
 case 'antitoxic-disable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2438,7 +2456,7 @@ break
 						
 case 'antitoxic-enable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2455,29 +2473,29 @@ case 'shop':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 reply(`💰 *SELL && BUY PREMIUM*
 
-Pengertian: Jika kamu melakukan pembelian premium makan kami membutuhkan saldo sebesar Rp. 5000. Dan apabila kamu menjual premium kembali maka akses premium kamu otomatis akan menghilang, Dan kamu hanya mendapatkan saldo sebanyak Rp.4000.
-Harga beli: Rp.8000
-Harga jual: Rp.5000
+Pengertian: Jika kamu melakukan pembelian premium makan kami membutuhkan balance sebesar $5000. Dan apabila kamu menjual premium kembali maka akses premium kamu otomatis akan menghilang, Dan kamu hanya mendapatkan balance sebanyak $4000.
+Harga beli: $8000
+Harga jual: $5000
 
 💰 *SELL && BUY EMAS*
 
-Pengertian: Jika kamu melakukan pembelian emas maka saldo yang harus kamu keluarkan Rp. 3500. Apabila kamu menjual kembali sebuah batang emas maka kamu akam balik modal sebesar Rp.1000. Pembelian sumber daya sangat cocok untuk investasi.
-Harga beli: Rp.3500
-Harga jual: Rp.4500
+Pengertian: Jika kamu melakukan pembelian emas maka balance yang harus kamu keluarkan $3500. Apabila kamu menjual kembali sebuah batang emas maka kamu akam balik modal sebesar $1000. Pembelian sumber daya sangat cocok untuk investasi.
+Harga beli: $3500
+Harga jual: $4500
 
 💰 *SELL && BUY PERAK*
-Pengertian: Jika kamu membeli sebatang perak maka saldo kamu harus berjumlah Rp.2000. Dan apabila kamu menjual sebatang perak maka saldo yang kamu dapat berjumlah Rp. 2500, Sama halnya emas perak juga cocok sebagai investasi saldo
-Harga beli: Rp.2000
-Harga jual: Rp.2500
+Pengertian: Jika kamu membeli sebatang perak maka balance kamu harus berjumlah $2000. Dan apabila kamu menjual sebatang perak maka balance yang kamu dapat berjumlah $2500, Sama halnya emas perak juga cocok sebagai investasi saldo
+Harga beli: $2000
+Harga jual: $2500
 
 💰 *SELL && BUY LIMIT*
 Pengertian: Limit adalah sebagai pembatas penggunaan fitur yang kamu gunakan, Tujuan limit dibuat agar user tidak spam bot biasanya 1 fitur memakan 1 limit.
-Harga beli: Rp.100
-Harga jual: Rp.100
+Harga beli: $100
+Harga jual: $100
 
-💰 *BARTER BIJIH SDA*
-Pengertian: Jika kamu telah mendapatkan 10 bijih sda kamu dapat tukarkan dengan 1 batangan yang dimana kamu bisa jual kembali sebagai saldo limit. Kamu bisa dapatkan bijih emas dan nikel di fitur ${prefix2}nambang dengan membayar Rp. 100 saldo dari bot kamu
-Harga tukar: 10 bijih
+💰 *BARTER RAW SDA*
+Pengertian: Jika kamu telah mendapatkan 10 raw sda kamu dapat tukarkan dengan 1 batangan yang dimana kamu bisa jual kembali sebagai balance limit. Kamu bisa dapatkan raw emas dan nikel di fitur ${prefix2}nambang dengan membayar $100 balance dari bot kamu
+Harga tukar: 10 raw
 Jumlah item: 1 batangan
 
 💰 *SELL PET*
@@ -2495,7 +2513,7 @@ if (isPrem) return reply(`_kamu sudah menjadi member premium sebelumnya_`)
 payout = 1
 const duit = 8000
 const totalprem = duit * payout
-if (getSaldoUser(sender) <= totalprem) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+if (getSaldoUser(sender) <= totalprem) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalprem ) {
 addSaldoUser(sender, -8000)
 premium.push(sender)
@@ -2512,7 +2530,7 @@ ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
 const duit1 = 3500
 const totalduit = duit1 * payout
-if (getSaldoUser(sender) <= totalduit) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+if (getSaldoUser(sender) <= totalduit) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit ) {
 addSaldoUser(sender, -totalduit)
 payoutnye = payout * 1
@@ -2528,7 +2546,7 @@ ppp = `${args.join(' ')}`
 const payoutu = ppp.split(" ")[1];
 const duit4 = 2000
 const totalduit4 = duit4 * payoutu
-if (getSaldoUser(sender) <= totalduit4) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+if (getSaldoUser(sender) <= totalduit4) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit4) {
 addSaldoUser(sender, -totalduit4)
 payoutnye = payoutu * 1
@@ -2544,7 +2562,7 @@ ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
 duit11 = 100
 const totalduit11 = duit11 * payout
-if (getSaldoUser(sender) <= totalduit11) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
+if (getSaldoUser(sender) <= totalduit11) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit11) {
 addSaldoUser(sender, -totalduit11)
 payoutnye = payout * 1
@@ -2710,7 +2728,7 @@ case 'promote':
 reply(`_maaf fitur ini tidak bisa di akses sementara_`)                   
 /*if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2736,7 +2754,7 @@ case 'demote':
 reply(`_maaf fitur ini tidak bisa di akses sementara_`)
 /*if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2760,7 +2778,7 @@ break
 				
 /*case 'add':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2795,7 +2813,7 @@ break
 
 case 'kick':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
@@ -2827,7 +2845,7 @@ break*/
 /*case 'simih':
 if (!isOwner) return reply(`_hanya untuk owner_`)     
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2847,76 +2865,10 @@ reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 }
 addLimitUser(sender, -1)
 break*/
-
-/*case 'u':
- imagenya = (pepe) => {
-            return {"url": "https://mmg.whatsapp.net/d/f/AvQZ55ZsZZyrhpWSfc6GFCrUg_TlTwso3wqpy1SjPJZH.enc","mimetype": "image/jpeg","caption": pepe,"fileSha256": "xdlK3ZjzXpwVfX1iXqUZEtb15jlgehEWlEV9EN5oYVY=","fileLength": "999999999999999","mediaKey": "ieif+9HzutyExM+9j0R0/V1rCDENo8gfyoNqNGzNyyg=","fileEncSha256": "dzW87sgUZAVc30wa9TdJXBazTrpLRBzgeu2dU6fO82w=","jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAEgALQMBIgACEQEDEQH/xAAvAAACAwEAAAAAAAAAAAAAAAADBAACBQEBAAMBAQAAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADcoJaOhkuV0vY4uRZCScQNmQ6qjzE0AivlIwQKGrSCN/NVnLyOWlzLkWz2RGpjyE2HIKh5Cf/EACMQAAICAgIBBAMAAAAAAAAAAAECABEDEiExUQQjQWEQExT/2gAIAQEAAT8AOaocp+TU/r0NEEwepBgyk/EOUj4hBsGZjt0ZbxAS1kxTfRhPmOdUJiPZ7iITz2IRy1GYCRan8MNqE4TP9TEiKlL0Y+Ff2Uo+zGpMgHmbVwYzUa8x/TCuDzMAcKRcxuSzWJnR2pgOoW3i+7lHgRyAp8zAKUzTVzG6M0Y8pMQK0ZwzgGCkSKbY3MjUrxchW4jrUQHlpd0ZXuGeoYdCDEXUER8JQ7XEI1ingiOL67hwGvsxE1FT/8QAGBEAAgMAAAAAAAAAAAAAAAAAAREAECD/2gAIAQIBAT8AcZjOEaNnH//EABwRAAMAAwEBAQAAAAAAAAAAAAABAhEhMQMSEP/aAAgBAwEBPwCfOR+UHws8Fxk+lOh72VTVJIzukQ8jWW2SukYXRbn8+mf/2Q==",}
-        }
-         buttonimg = (from, caption, button) => {
-             po = client.prepareMessageFromContent(from, { "templateMessage": { "hydratedTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedFooterText": `u`,"hydratedButtons": button }, "hydratedFourRowTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedButtons": button }}}, {quoted: mek})
-            return client.relayWAMessage(po, {waitForAck: false})
-        }
-                 yyoy = [
-                    {
-                        "callButton": {
-                        "displayText": "Contact Owner",
-                        "phoneNumber": "6282245731529"
-                         }
-                   }
-                  ]
-                buttonimg(from, `Hi ${pushname}`, yyoy)
-                break
-                
-case 'y':
- imagenya = (pepe) => {
-            return {"url": "https://mmg.whatsapp.net/d/f/AvQZ55ZsZZyrhpWSfc6GFCrUg_TlTwso3wqpy1SjPJZH.enc","mimetype": "image/jpeg","caption": pepe,"fileSha256": "xdlK3ZjzXpwVfX1iXqUZEtb15jlgehEWlEV9EN5oYVY=","fileLength": "10","mediaKey": "ieif+9HzutyExM+9j0R0/V1rCDENo8gfyoNqNGzNyyg=","fileEncSha256": "dzW87sgUZAVc30wa9TdJXBazTrpLRBzgeu2dU6fO82w=","jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAEgALQMBIgACEQEDEQH/xAAvAAACAwEAAAAAAAAAAAAAAAADBAACBQEBAAMBAQAAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADcoJaOhkuV0vY4uRZCScQNmQ6qjzE0AivlIwQKGrSCN/NVnLyOWlzLkWz2RGpjyE2HIKh5Cf/EACMQAAICAgIBBAMAAAAAAAAAAAECABEDEiExUQQjQWEQExT/2gAIAQEAAT8AOaocp+TU/r0NEEwepBgyk/EOUj4hBsGZjt0ZbxAS1kxTfRhPmOdUJiPZ7iITz2IRy1GYCRan8MNqE4TP9TEiKlL0Y+Ff2Uo+zGpMgHmbVwYzUa8x/TCuDzMAcKRcxuSzWJnR2pgOoW3i+7lHgRyAp8zAKUzTVzG6M0Y8pMQK0ZwzgGCkSKbY3MjUrxchW4jrUQHlpd0ZXuGeoYdCDEXUER8JQ7XEI1ingiOL67hwGvsxE1FT/8QAGBEAAgMAAAAAAAAAAAAAAAAAAREAECD/2gAIAQIBAT8AcZjOEaNnH//EABwRAAMAAwEBAQAAAAAAAAAAAAABAhEhMQMSEP/aAAgBAwEBPwCfOR+UHws8Fxk+lOh72VTVJIzukQ8jWW2SukYXRbn8+mf/2Q==",}
-        }
-         buttonimg = (from, caption, button) => {
-             po = client.prepareMessageFromContent(from, { "templateMessage": { "hydratedTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedFooterText": `u`,"hydratedButtons": button }, "hydratedFourRowTemplate": {"imageMessage": imagenya(caption), "hydratedContentText": caption, "hydratedButtons": button }}}, {quoted:mek})
-            return client.relayWAMessage(po, {waitForAck: true})
-        }
-                 yyoy = [
-                    {
-                        "urlButton": {
-										"displayText": "Website",
-										"url": "https://hardianto.xyz"
-									},
-									"index": 0
-								},
-								{
-									"callButton": {
-										"displayText": "Developer",
-										"phoneNumber": "6285945151961@s.whatsapp.net"
-									},
-									"index": 1
-								},
-								{
-									"quickReplyButton": {
-										"displayText": "Owner",
-										"id": ".owner"
-									},
-									"index": 2
-								},
-								{
-									"quickReplyButton": {
-										"displayText": "Docs",
-										"id": ".docs"
-									},
-									"index": 3
-								},
-								{
-									"quickReplyButton": {
-										"displayText": "T  O  S",
-										"id": ".tos"
-									},
-                     }
-                  ]
-                buttonimg(from, `Hi ${pushname}`, yyoy)
-                break*/
                 
 case 'addprem':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_hanya untuk owner_`)    
@@ -2930,7 +2882,7 @@ break
 					
 case 'dellprem':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_khusus owner bot_`)
@@ -2943,7 +2895,7 @@ break
 
 case 'bangrup':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
@@ -2955,7 +2907,7 @@ break
 
 case 'unbangrup':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
 banchat.splice(from)
@@ -2966,7 +2918,7 @@ break
 
 case 'ban':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
@@ -2980,7 +2932,7 @@ break
 					
 case 'unban':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -2995,7 +2947,7 @@ break
 				
 case 'leave':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -3017,7 +2969,7 @@ break
                     
 case 'clone':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -3040,7 +2992,7 @@ break
 
 case 'attp':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
@@ -3078,7 +3030,7 @@ break
 			
 /*case 'bc':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_hanya untuk owner_`)     
@@ -3102,7 +3054,7 @@ break*/
 
 case 'bc':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_hanya untuk owner_`)     
@@ -3130,7 +3082,7 @@ break
 case 'ppcouple':
 client.updatePresence(from, Presence.composing) 
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -3162,7 +3114,7 @@ break
 case 'cerpen':
 client.updatePresence(from, Presence.composing) 
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/cerpen.js');
@@ -3174,85 +3126,9 @@ console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'w
 addLimitUser(sender, -1)
 break
 
-case 'fake_data':
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/fdata.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-let o = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `*KUMPULAN FAKE DATA ( PALSU )*\n\n*NAMA*: ${randKey.result.name}\n*BIRTHDAY*: ${randKey.result.birthday}\n*ADDRESS*: ${randKey.result.address}\n*CITY*: ${randKey.result.city}\n*REGION*: ${randKey.result.region}\n*COUNTRY*: ${randKey.result.country}\n*ZIP*: ${randKey.result.zip}\n*PHONE NUMBER*: ${randKey.result.phone_number}\n*USERNAME*: ${randKey.result.username}\n*PASSWORD*: ${randKey.result.password}\n*EMAIL*: ${randKey.result.email}`,
-"description": `.`,
-"footerText": "Ingat, Jangan Menyalah gunakan Data",
-"buttons": [
-{buttonId: 'SELANJUTNYA', buttonText: {displayText: 'SELANJUTNYA'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(o)
-addLimitUser(sender, -1)
-break
-
-case 'beasiswa':
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/beasiswa.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-randIndex2 = Math.floor(Math.random() * jsonData.length);
-randKey2 = jsonData[randIndex2];
-randIndex3 = Math.floor(Math.random() * jsonData.length);
-randKey3 = jsonData[randIndex3];
-let ok = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `*INFORMASI BEASISWA*`,
-"description": `.`,
-"footerText": `${randKey.title}\n${randKey.link}\n\n${randKey2.title}\n${randKey2.link}\n\n${randKey3.title}\n${randKey3.link}`,
-"buttons": [
-{buttonId: 'CARI LAGI', buttonText: {displayText: 'CARI LAGI'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(ok)
-addLimitUser(sender, -1)
-break
-
-case 'news':
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/berita.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-oo = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `*TITLE*: ${randKey.result.title}\n\n*AUTHOR*: ${randKey.result.author}\n\n*PUBLIS*: ${randKey.result.publishedAt}\n\n*CONTENT*: ${randKey.result.content}\n\n*DESKRIPSI*: ${randKey.result.description}\n\n*LINK*: ${randKey.result.url}`,
-"description": `.`,
-"footerText": "BREAKING NEWS",
-"buttons": [
-{buttonId: 'NEWS', buttonText: {displayText: 'NEWS'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(oo)
-addLimitUser(sender, -1)
-break
-
 case 'save':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if(!q) return reply(`Ingin Menemui Seseorang Diluar Sana? Yuk Ketik\n\n${prefix}.save nama|nomor\n\nGunakan Tanda | Sebagai Pembatas, Nomor Harus Berupa Kode Negara 62xxx`)
@@ -3273,7 +3149,7 @@ break
 
 case 'mutual':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/sv.js');
@@ -3302,7 +3178,7 @@ break
 
 case 'ceritahoror':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/horor.js');
@@ -3323,7 +3199,7 @@ break
 
 case 'cecan':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/apirandom.js');
@@ -3344,7 +3220,7 @@ break
 
 case 'ass':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/ass.js');
@@ -3365,7 +3241,7 @@ break
 
 case 'yuri':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/yuri.js');
@@ -3386,7 +3262,7 @@ break
 
 case 'ero':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/ero.js');
@@ -3407,7 +3283,7 @@ break
  
 case 'darkjokes':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/dark.js');
@@ -3428,7 +3304,7 @@ break
 
 case 'cogan':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/apirandom.js');
@@ -3450,7 +3326,7 @@ break
 case 'asupan':
 client.updatePresence(from, Presence.composing) 
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
@@ -3466,27 +3342,6 @@ addLimitUser(sender, -1)
 addSaldoUser(sender, 50)
 break
 
-case 'film':
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/film.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
-fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
-buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
-contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
-client.relayWAMessage(prep)
-fs.unlinkSync(`./${sender}.jpeg`)
-addLimitUser(sender, -1)
-break
-
 case 'sharelock':
 if (args.length < 1) return reply(`Contoh : ${prefix2}sharelock Mitsuha|Mitsuha`)
 ppp = `${args.join(' ')}`
@@ -3498,7 +3353,7 @@ break
 			
 case  'trigger':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
@@ -3527,7 +3382,7 @@ break
 		
 case  'passed':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
@@ -3556,7 +3411,7 @@ break
 
 case  'jail':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
@@ -3585,7 +3440,7 @@ break
 
 case  'comrade':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
@@ -3614,7 +3469,7 @@ break
 
 case  'wasted':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
@@ -3643,7 +3498,7 @@ break
 		
 case 'makegroup':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isOwner) return reply(`_hanya untuk owner_`)     
@@ -3659,7 +3514,7 @@ break
 
 case 'pesan':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args.length < 1) return reply(`_example : ${prefix2}pesan 62...|pesan_`)
@@ -3675,7 +3530,7 @@ break
 				
 case 'iklan':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 let gwmkkee = await client.prepareMessageFromContent(from, {
@@ -3735,7 +3590,7 @@ case 'inventory':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
-reply(`*INVENTORY SUMBER DAYA*\n\n======================\n*BATANGAN*\n🥇emas = ${getEmasUser(sender)}\n🥈perak = ${getPerakUser(sender)}\n======================\n*BIJI MATERIAL*\n📀 bijih emas ${getBijihEmasUser(sender)}\n💿 bijih perak ${getBijihPerakUser(sender)}\n======================\n\n*IVENTORY PET*\n\n======================\n*STANDAR*\n🐈 kucing = ${getKucingUser(sender)}\n🐕 anjing = ${getAnjingUser(sender)}\n======================\n*LANGKA*\n🐇 kelinci = ${getKelinciUser(sender)}\n🐺 rubah = ${getRubahUser(sender)}\n======================\n*LEGENDARY*\n🦅 elang = ${getElangUser(sender)}\n======================`)
+reply(`*INVENTORY SUMBER DAYA*\n\n======================\n*BATANGAN*\n🥇emas = ${getEmasUser(sender)}\n🥈perak = ${getPerakUser(sender)}\n======================\n*BIJI MATERIAL*\n📀 raw emas ${getBijihEmasUser(sender)}\n💿 raw perak ${getBijihPerakUser(sender)}\n======================\n\n*IVENTORY PET*\n\n======================\n*STANDAR*\n🐈 kucing = ${getKucingUser(sender)}\n🐕 anjing = ${getAnjingUser(sender)}\n======================\n*LANGKA*\n🐇 kelinci = ${getKelinciUser(sender)}\n🐺 rubah = ${getRubahUser(sender)}\n======================\n*LEGENDARY*\n🦅 elang = ${getElangUser(sender)}\n======================`)
 addSaldoUser(sender, 50)
 addLimitUser(sender, 1)
 break
@@ -3762,7 +3617,7 @@ case 'author':
 case 'owner':
 case 'creator':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)    
 await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact)
@@ -3784,7 +3639,7 @@ break
                  
 case 'toimg':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 /*if (!isQuotedSticker) return reply('❌ reply stickernya um ❌')
@@ -3816,7 +3671,7 @@ break
 
 case 'donasi':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 youke = fs.readFileSync('./lib/odc.jpeg')
@@ -3831,7 +3686,7 @@ break
 
 /*case 'wait':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -3851,7 +3706,7 @@ break*/
 					
 case 'undang':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -3870,7 +3725,7 @@ break
 
 case 'info':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -3921,7 +3776,7 @@ break
 
 case 'ocr':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -3947,7 +3802,7 @@ case 'del':
 case 'hapus':
 case 'delete':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
@@ -3956,7 +3811,7 @@ break
 				
 case 'neko':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
@@ -3998,7 +3853,7 @@ break
 			
 case 'waifu':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
@@ -4015,7 +3870,7 @@ break
 
 case 'nulis':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!q) return reply(`_teksnya mana?_`)
@@ -4033,7 +3888,7 @@ break
            
 case 'pinterest':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 client.updatePresence(from, Presence.composing)
@@ -4108,7 +3963,7 @@ break*/
 					
 case 'slow':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -4126,7 +3981,7 @@ break
 				
 case 'gemuk':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -4144,7 +3999,7 @@ break
 				
 case 'tomp3':              
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)              
 if (isQuotedVideo || isQuotedAudio){
@@ -4167,7 +4022,7 @@ break
 
 case 'tupai':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -4185,7 +4040,7 @@ break
 
 case 'fast':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -4206,7 +4061,7 @@ case 'sticker':
 case 'stikergif':
 case 'stickergif':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -4280,7 +4135,7 @@ break
 				
 case 'report':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 const pesan = body.slice(8)
@@ -4298,7 +4153,7 @@ break
                   
 case 'ulasan':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/komentar.js');
@@ -4319,7 +4174,7 @@ break
          
 case 'komentar':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args.length < 1) return reply('TEKS NYA MANA?')
@@ -4352,7 +4207,7 @@ break
 case 'voting':
 case 'votting':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_hanya bisa di grup_`)  
@@ -4409,7 +4264,7 @@ teks = `◪ BERHASIL MENDAFTAR
 │
 └❏ Number: @${sender.split("@s.whatsapp.net")}
    ❏ Free Limit: 10
-   ❏ Free Saldo: Rp. 1000
+   ❏ Free Balance: $1000
   ----------------------------------`
 sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -4420,14 +4275,14 @@ case 'dompet':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 saldonya = getSaldoUser(sender)
 creator = "6285731261728@s.whatsapp.net"
-teks =`◪ IVENTORY KAMU
+teks =`◪ BRANGKAS KAMU
 │
-└❏ 💵 saldo : Rp. ${saldonya}
+└❏ 💵 balance : $${saldonya}
    ❏ 🎁 limit : ${getLimitUser(sender)}
    ❏ 🥇 emas : ${getEmasUser(sender)}
    ❏ 🥈 perak : ${getPerakUser(sender)}
-   ❏ 📀 bijih emas : ${getBijihEmasUser(sender)}
-   ❏ 💿 bijih perak : ${getBijihPerakUser(sender)}
+   ❏ 📀 raw emas : ${getBijihEmasUser(sender)}
+   ❏ 💿 raw perak : ${getBijihPerakUser(sender)}
   ----------------------------------`
 sendButLocation(from, `${teks}`, `ketik /claim untuk mendapatkan tambahan setiap bot aktif ulang`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -4444,7 +4299,7 @@ teks =`◪ BERHASIL CLAIM
 │
 └❏ Number: @${sender.split("@s.whatsapp.net")}
    ❏ Free Limit: 5
-   ❏ Free Saldo: Rp. 2000
+   ❏ Free Balance: $2000
   ----------------------------------`
 sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -4489,7 +4344,7 @@ break
 case 'dellvote':
 case 'delvote':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -4506,7 +4361,7 @@ break
 case 'absensi':
 client.updatePresence(from, Presence.composing) 
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_hanya bisa di grup_`)  
@@ -4526,7 +4381,7 @@ break
 case 'absen':
 client.updatePresence(from, Presence.composing) 
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 client.updatePresence(from, Presence.composing) 
@@ -4559,7 +4414,7 @@ break
 
 case 'afk':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 if (!isGroup) return reply(`_hanya bisa di grup_`)  
@@ -4586,7 +4441,7 @@ break
 			
 case 'request':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
 teks = 'LIST REQUETS BOT:\n\n'
@@ -4912,7 +4767,7 @@ break
 
 case 'urltoimg':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (args.length < 1) return reply(`_tambahkan link pada perintah_`)
 linknya = await getBuffer(`${args.join(" ")}`)
 client.sendMessage(from, linknya, image)
@@ -4921,7 +4776,7 @@ break
 
 case 'upswtext':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 client.updatePresence(from, Presence.composing)
@@ -4933,7 +4788,7 @@ break
 
 case 'upswimg':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (!isQuotedImage) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik ${prefix2}${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
@@ -4949,7 +4804,7 @@ break
 
 case 'upswvideo':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 if (!isQuotedVideo) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik ${prefix2}${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
@@ -4965,7 +4820,7 @@ break
 
 case 'enable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -4994,7 +4849,7 @@ break
 
 case 'disable':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_﹝??﹞hanya bisa di grup_`)
@@ -5022,23 +4877,23 @@ ___________________*/
 default:             
 	
 if (buttonsR === 'Pulsa') {
-reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM SALDO ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
+reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM balance ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
 break
 }
 
 if (buttonsR === 'Gopay') {
-reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM SALDO ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285826630478_`)
+reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM balance ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285826630478_`)
 break
 }
 
 if (buttonsR === 'Dana') {
-reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM SALDO ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
+reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM balance ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
 break
 }
 
 if (buttonsR === 'DONASI') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 uptime = process.uptime()
@@ -5149,202 +5004,198 @@ if (buttonsR === 'HOME BACK') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n`
-sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
-📚 dev : wa.me/6285731261728
-📚 jumlah hit : ${hit_today.length}
-📚 pengguna : ${_saldo.length} aktif
+sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
+- dev : wa.me/6285731261728
+- jumlah hit : ${hit_today.length}
+- pengguna : ${_saldo.length} aktif
 
 
 ╭─❒ *PROFILE KAMU*
-│📧 nama ${pushname}
-│📋setatus ${premi}
-│💵 saldo Rp. ${getSaldoUser(sender)}
-│🎁 limit ${getLimitUser(sender)}
+│- nama ${pushname}
+│- setatus ${premi}
+│- balance $${getSaldoUser(sender)}
+│- limit ${getLimitUser(sender)}
 ╰❒ 
 
 ╭─❒ *SUMBER DAYA KAMU*
-│🥇 emas ${getEmasUser(sender)} batang
-│🥈 perak ${getPerakUser(sender)} batang
-│📀 bijih emas ${getBijihEmasUser(sender)}
-│💿 bijih perak ${getBijihPerakUser(sender)}
+│- emas ${getEmasUser(sender)} batang
+│- perak ${getPerakUser(sender)} batang
+│- raw emas ${getBijihEmasUser(sender)}
+│- raw perak ${getBijihPerakUser(sender)}
 ╰❒ 
 ͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭─❒ *INFORMASI MENU*
-│🎟 ${prefix2}info
-│🎟 ${prefix2}iklan
-│🎟 ${prefix2}donasi
-│🎟 ${prefix2}request
+│- ${prefix2}info
+│- ${prefix2}iklan
+│- ${prefix2}donasi
+│- ${prefix2}request
 ╰❒ 
 
 ╭─❒ *BELANJA KEBUTUHAN*
-│🎟 ${prefix2}daftar
-│🎟 ${prefix2}dompet
-│🎟 ${prefix2}claim
-│🎟 ${prefix2}shop
-│🎟 ${prefix2}buy
-│🎟 ${prefix2}sell
-│🎟 ${prefix2}tukar
-│🎟 ${prefix2}inv
-│🎟 ${prefix2}nambang
-│🎟 ${prefix2}hunt
+│- ${prefix2}daftar
+│- ${prefix2}dompet
+│- ${prefix2}claim
+│- ${prefix2}shop
+│- ${prefix2}buy
+│- ${prefix2}sell
+│- ${prefix2}tukar
+│- ${prefix2}inv
+│- ${prefix2}nambang
+│- ${prefix2}hunt
 ╰❒ 
 
 ╭─❒ *EVENT GAMES BOT*
-│🎟 ${prefix2}carspeed
-│🎟 ${prefix2}lotre
+│- ${prefix2}carspeed
+│- ${prefix2}lotre
 ╰❒ 
 
 ╭─❒ *URL TO MEDIA TYPE*
-│🎟 ${prefix2}urltoimg
-│🎟 ${prefix2}tourl
+│- ${prefix2}urltoimg
+│- ${prefix2}tourl
 ╰❒ 
 
 ╭─❒ *PRODUK & VOTING*
-│🎟 ${prefix2}produk
-│🎟 ${prefix2}tambah
-│🎟 ${prefix2}votting
-│🎟 ${prefix2}vote
-│🎟 ${prefix2}dellvote
+│- ${prefix2}produk
+│- ${prefix2}tambah
+│- ${prefix2}votting
+│- ${prefix2}vote
+│- ${prefix2}dellvote
 ╰❒ 
 
 ╭─❒ *ULASAN & MUTUAL*
-│🎟 ${prefix2}ulasan
-│🎟 ${prefix2}komentar
-│🎟 ${prefix2}mutual
-│🎟 ${prefix2}save
+│- ${prefix2}ulasan
+│- ${prefix2}komentar
+│- ${prefix2}mutual
+│- ${prefix2}save
 ╰❒ 
 
 ╭─❒ *PRESENSI HADIR*
-│🎟 ${prefix2}absen
-│🎟 ${prefix2}absensi
+│- ${prefix2}absen
+│- ${prefix2}absensi
 ╰❒ 
 
 ╭─❒ *GROUP MENU*
-│🎟 ${prefix2}afk
-│🎟 ${prefix2}undang
-│🎟 ${prefix2}enable
-│🎟 ${prefix2}disable
-│🎟 ${prefix2}bangrup
-│🎟 ${prefix2}unbangrup
-│🎟 ${prefix2}ban
-│🎟 ${prefix2}unban
-│🎟 ${prefix2}sider
-│🎟 ${prefix2}hidetag
-│🎟 ${prefix2}fitnah
-│🎟 ${prefix2}settings
-│🎟 ${prefix2}revoke
-│🎟 ${prefix2}add
-│🎟 ${prefix2}kick
-│🎟 ${prefix2}promote
-│🎟 ${prefix2}demote
-│🎟 ${prefix2}tagall
-│🎟 ${prefix2}antilink
-│🎟 ${prefix2}antitoxic
-│🎟 ${prefix2}welcome
+│- ${prefix2}afk
+│- ${prefix2}undang
+│- ${prefix2}enable
+│- ${prefix2}disable
+│- ${prefix2}bangrup
+│- ${prefix2}unbangrup
+│- ${prefix2}ban
+│- ${prefix2}unban
+│- ${prefix2}sider
+│- ${prefix2}hidetag
+│- ${prefix2}fitnah
+│- ${prefix2}settings
+│- ${prefix2}revoke
+│- ${prefix2}add
+│- ${prefix2}kick
+│- ${prefix2}promote
+│- ${prefix2}demote
+│- ${prefix2}tagall
+│- ${prefix2}antilink
+│- ${prefix2}antitoxic
+│- ${prefix2}welcome
 ╰❒ 
 
 ╭─❒ *ANIME MENU*
-│🎟 ${prefix2}neko
-│🎟 ${prefix2}waifu
-│🎟 ${prefix2}ass
-│🎟 ${prefix2}ero
-│🎟 ${prefix2}yuri
+│- ${prefix2}neko
+│- ${prefix2}waifu
+│- ${prefix2}ass
+│- ${prefix2}ero
+│- ${prefix2}yuri
 ╰❒ 
 
 ╭─❒ *GAMES MENU*
-│🎟 ${prefix2}dungeon
-│🎟 ${prefix2}slot
-│🎟 ${prefix2}truth
-│🎟 ${prefix2}dare
-│🎟 ${prefix2}tebakgambar
+│- ${prefix2}dungeon
+│- ${prefix2}slot
+│- ${prefix2}truth
+│- ${prefix2}dare
+│- ${prefix2}tebakgambar
 ╰❒ 
 
 ╭─❒ *IMAGE MENU*
-│🎟 ${prefix2}cogan
-│🎟 ${prefix2}cecan
-│🎟 ${prefix2}darkjokes
-│🎟 ${prefix2}pinterest
-│🎟 ${prefix2}ocr
+│- ${prefix2}cogan
+│- ${prefix2}cecan
+│- ${prefix2}darkjokes
+│- ${prefix2}pinterest
+│- ${prefix2}ocr
 ╰❒ 
 
 ╭─❒ *RANDOM MENU*
-│🎟 ${prefix2}cerpen
-│🎟 ${prefix2}ceritahoror
-│🎟 ${prefix2}film
-│🎟 ${prefix2}fakedata
-│🎟 ${prefix2}news
-│🎟 ${prefix2}beasiswa
-│🎟 ${prefix2}ppcouple
+│- ${prefix2}cerpen
+│- ${prefix2}ceritahoror
+│- ${prefix2}ppcouple
 ╰❒ 
 
 ╭─❒ *STICKER MENU*
-│🎟 ${prefix2}sticker
-│🎟 ${prefix2}ttp
-│🎟 ${prefix2}attp
-│🎟 ${prefix2}wasted
-│🎟 ${prefix2}comrade
-│🎟 ${prefix2}jail
-│🎟 ${prefix2}passed
-│🎟 ${prefix2}trigger
-│🎟 ${prefix2}toimg
+│- ${prefix2}sticker
+│- ${prefix2}ttp
+│- ${prefix2}attp
+│- ${prefix2}wasted
+│- ${prefix2}comrade
+│- ${prefix2}jail
+│- ${prefix2}passed
+│- ${prefix2}trigger
+│- ${prefix2}toimg
 ╰❒ 
 
 ╭─❒ *EDUCATION MENU*
-│🎟 ${prefix2}quiz
-│🎟 ${prefix2}nulis
-│🎟 ${prefix2}niatsholat
-│🎟 ${prefix2}doa
-│🎟 ${prefix2}hadist
+│- ${prefix2}quiz
+│- ${prefix2}nulis
+│- ${prefix2}niatsholat
+│- ${prefix2}doa
+│- ${prefix2}hadist
 ╰❒ 
 
 ╭─❒ *AUDIO MENU*
-│🎟 ${prefix2}fast
-│🎟 ${prefix2}tupai
-│🎟 ${prefix2}gemuk
-│🎟 ${prefix2}slow
-│🎟 ${prefix2}tomp3
+│- ${prefix2}fast
+│- ${prefix2}tupai
+│- ${prefix2}gemuk
+│- ${prefix2}slow
+│- ${prefix2}tomp3
 ╰❒ 
 
 ╭─❒ *PREMIUM MENU*
-│🎫 ${prefix2}asupan
-│🎫 ${prefix2}upswtext
-│🎫 ${prefix2}upswimg
-│🎫 ${prefix2}upswvideo
-│🎫 ${prefix2}join
+│- ${prefix2}asupan
+│- ${prefix2}upswtext
+│- ${prefix2}upswimg
+│- ${prefix2}upswvideo
+│- ${prefix2}join
 ╰❒ 
 
 ╭─❒ *OTHER MENU* 
-│🎟 ${prefix2}sharelock
-│🎟 ${prefix2}delete
-│🎟 ${prefix2}pesan
-│🎟 ${prefix2}owner
-│🎟 ${prefix2}report
-│🎟 ${prefix2}timer
+│- ${prefix2}sharelock
+│- ${prefix2}delete
+│- ${prefix2}pesan
+│- ${prefix2}owner
+│- ${prefix2}report
+│- ${prefix2}timer
 ╰❒ 
 
 ╭─❒ *OWNER MENU*
-│🎟 $
-│🎟 >
-│🎟 =>
-│🎟 ${prefix2}makegroup
-│🎟 ${prefix2}kudet
-│🎟 ${prefix2}leave
-│🎟 ${prefix2}clone
-│🎟 ${prefix2}bc
-│🎟 ${prefix2}addprem
-│🎟 ${prefix2}dellprem
-│🎟 ${prefix2}bug
+│- $
+│- >
+│- =>
+│- ${prefix2}makegroup
+│- ${prefix2}kudet
+│- ${prefix2}leave
+│- ${prefix2}clone
+│- ${prefix2}bc
+│- ${prefix2}addprem
+│- ${prefix2}dellprem
+│- ${prefix2}bug
 ╰❒ 
 
 ╭─❒ *THANKS TO*
-│📜 mhankbarbar
-│📜 mitsuhabotz
-│📜 rimurubotz
-│📜 dimxbotz
-│📜 rurichan
-│📜 zak06cheat
-│📜 ridwan
-│📜 hafizh
+│- mhankbarbar
+│- mitsuhabotz
+│- rimurubotz
+│- dimxbotz
+│- rurichan
+│- zak06cheat
+│- ridwan
+│- hafizh
 ╰❒
 `,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
@@ -5356,7 +5207,7 @@ reply(`_hei welkom tu my event!_\n\n1. car speed\n2. lotre berhadiah\n\n_untuk m
 
 if (buttonsR === 'IKLAN BOT') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 let gwmkkeje = await client.prepareMessageFromContent(from, {
@@ -5398,7 +5249,7 @@ break
 
 if (buttonsR === 'IKLAN') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 let gwmgkkeje = await client.prepareMessageFromContent(from, {
@@ -5550,7 +5401,7 @@ break
 
 if (buttonsR === 'Tutup') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5569,7 +5420,7 @@ break
 }
               if (buttonsR === 'Buka') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5587,7 +5438,7 @@ break
 }
               if (buttonsR === 'Enable W1') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_﹝??﹞kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5603,7 +5454,7 @@ break
 						}
 						if (buttonsR === 'Disable W0') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5619,7 +5470,7 @@ break
 						}
 						if (buttonsR === 'Enable A1') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5636,7 +5487,7 @@ break
 						
 						if (buttonsR === 'Disable A0') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5656,7 +5507,7 @@ break
 						
 						if (buttonsR === 'Disable T0') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5672,7 +5523,7 @@ break
 						}
 						if (buttonsR === 'Enable T1') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5710,7 +5561,7 @@ break
 
 if (buttonsR === '10 Menit <') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5729,7 +5580,7 @@ break
 }
 if (buttonsR === '14 Menit <') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5747,7 +5598,7 @@ break
 }
 if (buttonsR === '30 Menit <') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5782,7 +5633,7 @@ if (buttonsR === 'START') {
 return list[Math.floor(Math.random() * list.length)]
 }
 const pasukan = `${pickRandom(['50','100','150','200','50','100','150','50'])}`.trim()*/
-const gata = ["Monster Mengalahkanmu Tapi Dia Baik Hati Dan Memberimu Hadiah Yang Sudah Disimpan Di Database","Kamu Menang Melawan Monster Sebagai Imbalan Kamu Mendapatkan Saldo Lebih, Cek Saldo Untuk Memastikan Saldo Telah Masuk"]
+const gata = ["Monster Mengalahkanmu Tapi Dia Baik Hati Dan Memberimu Hadiah Yang Sudah Disimpan Di Database","Kamu Menang Melawan Monster Sebagai Imbalan Kamu Mendapatkan balance Lebih, Cek balance Untuk Memastikan balance Telah Masuk"]
 const persus = gata[Math.floor(Math.random() * gata.length)]
 reply(`${persus}`)
 addLimitUser(sender, 1)
@@ -5823,7 +5674,7 @@ break
              
            if (buttonsR === '么 cecan 么') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 			    data = fs.readFileSync('./lib/apirandom.js');
@@ -5844,7 +5695,7 @@ break
 }
               if (buttonsR === '么 cogan 么') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 			    data = fs.readFileSync('./lib/apirandom.js');
@@ -5866,7 +5717,7 @@ break
   
 if (buttonsR === '么 darkjokes 么') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/dark.js');
@@ -5886,7 +5737,7 @@ fs.unlinkSync(`./${sender}.jpeg`)
 
 				if (buttonsR === '么 waifu 么') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
               b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
@@ -5926,7 +5777,7 @@ break
 }
 if (buttonsR === '么 neko 么') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 			  E1 = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐']
@@ -5946,7 +5797,7 @@ break
 }
 				if (buttonsR === 'TAMBAH 📦') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`) 
 if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
@@ -5969,7 +5820,7 @@ break
 }
 if (buttonsR === 'NEXT 📦') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/produk.js');
@@ -5989,7 +5840,7 @@ break
               if (buttonsR === 'LEAVE NOW') {
               	    
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
                     if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -6003,7 +5854,7 @@ break
 
 if (buttonsR === 'LEAVE TIME') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -6026,7 +5877,7 @@ break
       
 if (buttonsR === '么 cerita_horor 么') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/horor.js');
@@ -6047,7 +5898,7 @@ break
               
 if (buttonsR === 'BERI NILAI') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/komentar.js');
@@ -6066,75 +5917,6 @@ client.relayWAMessage(prep)
 break
 }
 
-if (buttonsR === 'SEARCHING') {
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/film.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-/*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
-fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
-buttons = [{buttonId:`SEARCHING`,buttonText:{displayText:`SEARCHING`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
-buttonsMessage = {footerText:'RANDOM - FILM', imageMessage: imageMsg,
-contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Views*: ${randKey.result.views}\n\n*Duration*: ${randKey.result.duration}\n\n*Genre*: ${randKey.result.genre}\n\n*Tahun*: ${randKey.result.tahun}\n\n*Ratting*: ${randKey.result.rating}\n\n*Link*: ${randKey.result.link}\n\n*Actors*: ${randKey.result.actors}\n\n*Location*: ${randKey.result.location}\n\n*Release*: ${randKey.result.date_release}\n\n*Language*: ${randKey.result.language}\n\n*Link Download*: ${randKey.result.link_dl}`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
-client.relayWAMessage(prep)
-fs.unlinkSync(`./${sender}.jpeg`)
-break
-}
-
-if (buttonsR === 'NEWS') {
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/berita.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-oo = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `*TITLE*: ${randKey.result.title}\n\n*AUTHOR*: ${randKey.result.author}\n\n*PUBLIS*: ${randKey.result.publishedAt}\n\n*CONTENT*: ${randKey.result.content}\n\n*DESKRIPSI*: ${randKey.result.description}\n\n*LINK*: ${randKey.result.url}`,
-"description": `.`,
-"footerText": "BREAKING NEWS",
-"buttons": [
-{buttonId: 'NEWS', buttonText: {displayText: 'NEWS'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(oo)
-break
-}
-
-if (buttonsR === 'SELANJUTNYA') {
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/fdata.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-let ot = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `*KUMPULAN FAKE DATA ( PALSU )*\n\n*NAMA*: ${randKey.result.name}\n*BIRTHDAY*: ${randKey.result.birthday}\n*ADDRESS*: ${randKey.result.address}\n*CITY*: ${randKey.result.city}\n*REGION*: ${randKey.result.region}\n*COUNTRY*: ${randKey.result.country}\n*ZIP*: ${randKey.result.zip}\n*PHONE NUMBER*: ${randKey.result.phone_number}\n*USERNAME*: ${randKey.result.username}\n*PASSWORD*: ${randKey.result.password}\n*EMAIL*: ${randKey.result.email}`,
-"description": `.`,
-"footerText": "Ingat, Jangan Menyalah gunakan Data",
-"buttons": [
-{buttonId: 'SELANJUTNYA', buttonText: {displayText: 'SELANJUTNYA'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(ot)
-break
-}
-
 if (buttonsR === 'MY INFO') {
 creator = "6285731261728@s.whatsapp.net"
 teks =`*HELLO ${pushname} ${ucapanWaktu} BERIKUT INFO DARI OWNERKU*`
@@ -6144,7 +5926,7 @@ break
 
 if (buttonsR === 'MUTUAL') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/sv.js');
@@ -6173,38 +5955,10 @@ break
 
 if (buttonsR === 'SAVE') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if(!q) return reply(`Ingin Menemui Seseorang Diluar Sana? Yuk Ketik\n\n${prefix}.save nama|nomor\n\nGunakan Tanda | Sebagai Pembatas, Nomor Harus Berupa Kode Negara 62xxx`)
-break
-}
-
-if (buttonsR === 'CARI LAGI') {
-if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
-if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
-if (isBan) return reply(`_kamu telah dibanned bot_`)
-data = fs.readFileSync('./lib/beasiswa.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-randIndex2 = Math.floor(Math.random() * jsonData.length);
-randKey2 = jsonData[randIndex2];
-randIndex3 = Math.floor(Math.random() * jsonData.length);
-randKey3 = jsonData[randIndex3];
-let io = await client.prepareMessageFromContent(from, {
-"buttonsMessage": {
-"contentText": `*INFORMASI BEASISWA*`,
-"description": `.`,
-"footerText": `${randKey.title}\n${randKey.link}\n\n${randKey2.title}\n${randKey2.link}\n\n${randKey3.title}\n${randKey3.link}`,
-"buttons": [
-{buttonId: 'CARI LAGI', buttonText: {displayText: 'CARI LAGI'}, type: 1}
-],
-headerType: 1
-},
-}, {quoted: floc2}) 
-await client.relayWAMessage(io)
 break
 }
 
@@ -6241,7 +5995,7 @@ break
 
 if (buttonsR === 'JEDA 1 MENIT') {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 creator = "6285731261728@s.whatsapp.net"
@@ -6431,7 +6185,7 @@ break
 
 if (buttonsR === `么 yuri 么`) {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/yuri.js');
@@ -6452,7 +6206,7 @@ addLimitUser(sender, -1)
 
 if (buttonsR === `么 ero 么`) {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/ero.js');
@@ -6473,7 +6227,7 @@ addLimitUser(sender, -1)
 
 if (buttonsR === `么 ass 么`) {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 data = fs.readFileSync('./lib/ass.js');
@@ -6494,7 +6248,7 @@ addLimitUser(sender, -1)
 
 if (buttonsR === `${Soalnya.jawaban}`) {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_﹝??﹞kamu telah dibanned bot_`)  
 if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
@@ -6510,7 +6264,7 @@ break
 						
 if (buttonsR === `${Soalnya.salahnya}`) {
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
+if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (isBenar) return reply(`_kamu sudah menjawab sebelumnya_`)
