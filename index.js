@@ -173,7 +173,7 @@ return _saldo[position].saldo
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, balance: 1000, emas: 0, perak: 0, bperak:0, bemas:0}
+const obj = {id: userid, b: 1000, e: 0, p: 0, rp:0, re:0}
 _saldo.push(obj)
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
@@ -341,7 +341,7 @@ return _badword[position].badword
 }
 
 const addBadwordId = (userid) => {
-const obj = {id: userid, badword: 0}
+const obj = {id: userid, b: 0}
 _badword.push(obj)
 fs.writeFileSync('./src/badword.json', JSON.stringify(_badword))
 }
@@ -698,8 +698,8 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
-teks =`🍃 *WELCOME MESSAGES* 🍃`
-sendButLocation(mdata.id, `${teks}`, `Hello ${num.split("@")[0]} selamat datang di group ini semoga kamu betah dan tenang ya. Patuhi rules yang berlaku di grup ya 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
+teks =`📜 *WELCOME MESSAGES*`
+sendButLocation(mdata.id, `${teks}`, `Hai @${num.split("@s.whatsapp.net")[0]},\nselamat datang di group ${mdata.groupName}`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
 hai = `WELCOME @${num.split('@')[0]}`
@@ -740,8 +740,8 @@ headerType: 6
 client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
-teks =`🍃 *LEAVE MESSAGES* 🍃`
-sendButLocation(mdata.id, `${teks}`, `Selamat tinggal ${num.split("@")[0]} dari group ini semoga kamu sehat dan tetap bernafas ya. Jangan balik lagi ke group ini yo 😊 nomor pemilik bot ini wa.me/6285731261728 jangan spam ya`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
+teks =`📜 *LEAVE MESSAGES*`
+sendButLocation(mdata.id, `${teks}`, `@${num.split("@s.whatsapp.net")[0]} Chinese Sialan Gak Asik Dia Cuk`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
 hai = `BYE @${num.split('@')[0]}`
@@ -1851,6 +1851,7 @@ sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
 │- ${prefix2}leave
 │- ${prefix2}clone
 │- ${prefix2}bc
+│- ${prefix2}bcs
 │- ${prefix2}addprem
 │- ${prefix2}dellprem
 │- ${prefix2}bug
@@ -2391,19 +2392,20 @@ addLimitUser(sender, -1)
 break
 
 case 'tagall':
-case 'tagall1':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
 members_id = []
-teks = (args.length > 1) ? body.slice(8).trim() : ''
-teks += '\n\n'
+eai = args.join(" ")
+teks = (args.length > 1) ? eai.trim() : ''
+teks += '\n\n╭─❒ *TAGALL*\n'
 for (let mem of groupMembers) {
-teks += `*-->* @${mem.jid.split('@')[0]}\n`
+teks += `│-  @${mem.jid.split('@')[0]}\n`
 members_id.push(mem.jid)
 }
+teks += `╰❒`
 mentions(teks, members_id, true, {quoted: floc2})
 addLimitUser(sender, -1)
 break
@@ -3028,13 +3030,14 @@ case 'ttp':
 addLimitUser(sender, -1)
 break
 			
-/*case 'bc':
+case 'bcs':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isOwner) return reply(`_hanya untuk owner_`)     
 if (args.length < 1) return reply('.......')
+loveme = args.join(" ")
 anu = await client.chats.all()
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -3045,12 +3048,12 @@ client.sendMessage(_.jid, buff, MessageType.image, {caption: `${body.slice(4)}\n
 reply('Suksess broadcast ')
 } else {
 for (let _ of anu) {
-sendMess(_.jid, `${body.slice(4)}\n\n_*BROADCAST*_`)
+sendMess(_.jid, `${loveme}\n\n_*BROADCAST SIMPLE*_`)
 }
-reply('Suksess broadcast ')
+reply('Suksess broadcast')
 }
 addLimitUser(sender, -1)
-break*/
+break
 
 case 'bc':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
@@ -4166,7 +4169,7 @@ youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `👎`,buttonText:{displayText: `👎`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
-contentText:`            *TENTANG BOT INI*\n\n📚 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
+contentText:`            *TENTANG BOT INI*\n\n📚 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n?? ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 addLimitUser(sender, -1)
@@ -4930,7 +4933,7 @@ await client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.
 break
 }
 
-if (budy.includes(`bot`)) {      	
+if (budy.includes(`Bot`)) {      	
 let gwkee = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `Ya saya bot ada yang bisa dibantu?`,
@@ -5182,6 +5185,7 @@ sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
 │- ${prefix2}leave
 │- ${prefix2}clone
 │- ${prefix2}bc
+│- ${prefix2}bcs
 │- ${prefix2}addprem
 │- ${prefix2}dellprem
 │- ${prefix2}bug
