@@ -173,7 +173,7 @@ return _saldo[position].b
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, b: 10, e: 0, p: 0, rp:0, re:0}
+const obj = {id: userid, b: 5, e: 0, p: 0, rp:0, re:0}
 _saldo.push(obj)
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
@@ -4285,7 +4285,7 @@ teks = `◪ BERHASIL MENDAFTAR
 │
 └❏ Number: @${sender.split("@s.whatsapp.net")}
    ❏ Free Limit: 5
-   ❏ Free Balance: $10
+   ❏ Free Balance: $5
   ----------------------------------`
 sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/odc.jpeg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
