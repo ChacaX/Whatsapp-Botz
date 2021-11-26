@@ -168,7 +168,7 @@ position = i
 }
 })
 if (position !== false) {
-return _saldo[position].saldo
+return _saldo[position].b
 }
 }
 
@@ -186,7 +186,7 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].saldo += amount
+_saldo[position].b += amount
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
 }
@@ -199,7 +199,7 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].emas += amount
+_saldo[position].e += amount
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
 }
@@ -212,7 +212,7 @@ position = i
 }
 })
 if (position !== false) {
-return _saldo[position].emas
+return _saldo[position].e
 }
 }
 
@@ -224,7 +224,7 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].perak += amount
+_saldo[position].p += amount
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
 }
@@ -237,7 +237,7 @@ position = i
 }
 })
 if (position !== false) {
-return _saldo[position].perak
+return _saldo[position].p
 }
 }
 
@@ -249,7 +249,7 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].bperak += amount
+_saldo[position].rp += amount
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
 }
@@ -262,7 +262,7 @@ position = i
 }
 })
 if (position !== false) {
-_saldo[position].bemas += amount
+_saldo[position].re += amount
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
 }
@@ -275,7 +275,7 @@ position = i
 }
 })
 if (position !== false) {
-return _saldo[position].bemas
+return _saldo[position].re
 }
 }
 
@@ -287,7 +287,7 @@ position = i
 }
 })
 if (position !== false) {
-return _saldo[position].bperak
+return _saldo[position].rp
 }
 }
 
