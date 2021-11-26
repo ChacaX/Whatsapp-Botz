@@ -173,7 +173,7 @@ return _saldo[position].b
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, b: 1000, e: 0, p: 0, rp:0, re:0}
+const obj = {id: userid, b: 10, e: 0, p: 0, rp:0, re:0}
 _saldo.push(obj)
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
@@ -347,7 +347,7 @@ fs.writeFileSync('./src/badword.json', JSON.stringify(_badword))
 }
 
 const addLimitId = (userid) => {
-const iobj = {id: userid, limit:10}
+const iobj = {id: userid, limit:5}
 _limit.push(iobj)
 fs.writeFileSync('./src/limit.json', JSON.stringify(_limit))
 }
@@ -1879,7 +1879,22 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
-yoi = ["0","1","0","0","1","1","1","0","1"]
+payoutnye = 2 * 1
+if (getSaldoUser(sender) <= payoutnye) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan lebih banyak lagi`)
+if (getSaldoUser(sender) >= payoutnye) {
+data = fs.readFileSync('./lib/pet.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.url))
+buttons = [{buttonId:`Selamat Ya`,buttonText:{displayText:`Selamat Ya`},type:1}]
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+buttonsMessage = {footerText:`Nama: ${randKey.result.nama}\nStatus: ${randKey.result.status}\nNilai: ${randKey.result.nilai}`, imageMessage: imageMsg,
+contentText: `*Hunter Infromation*`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
+client.relayWAMessage(prep)
+fs.unlinkSync(`./${sender}.jpeg`)
+/*yoi = ["0","1","0","0","1","1","1","0","1"]
 yoi4 = ["0","1","0","0","1","1","1","0","1"]
 yoi2 = ["0","0","1","0","0","1","0","0","1"]
 yoi3 = ["0","0","0","0","0","1","0","0","1"]
@@ -1894,16 +1909,20 @@ kyu = kyi * 1
 kyet = kyr * 1
 kiu = kyw * 1
 kia = kyit * 1
-payoutnye = 500 * 1
+payoutnye = 2 * 1
 if (getSaldoUser(sender) <= payoutnye) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan lebih banyak lagi`)
 if (getSaldoUser(sender) >= payoutnye) {
-addSaldoUser(sender, -500)
+addSaldoUser(sender, -2)
 addKucingUser(sender, kye)
 addAnjingUser(sender, kyu)
 addKelinciUser(sender, kyet)
 addRubahUser(sender, kiu)
 addElangUser(sender, kia)
 reply(`*HASIL BURUAN KAMU*\n\n======================\n*STANDAR*\n🐈 kucing = ${kye}\n🐕 anjing = ${kyu}\n======================\n*LANGKA*\n🐇 kelinci = ${kyet}\n🐺 rubah = ${kiu}\n======================\n*LEGENDARY*\n🦅 elang = ${kia}\n======================`)
+addLimitUser(sender, -1)
+}*/
+return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t'),text, {quoted: mek})
+addSaldoUser(sender, -2)
 addLimitUser(sender, -1)
 }
 break
@@ -1922,7 +1941,7 @@ kyu = kyi * 1
 addBijihEmasUser(sender, kye)
 addBijihPerakUser(sender, kyu)
 reply(`kamu mendapatkan *${kya}* raw emas dan *${kyi}* raw perak\n\njika raw yang kamu sudah kumpulkan mencampai 10 maka kamu bisa tukarkan dengan batangan`)
-addSaldoUser(sender, -50)
+addSaldoUser(sender, -1)
 addLimitUser(sender, -1)
 break
 
@@ -1965,7 +1984,7 @@ payoutnye = payout * 1
 addPerakUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga tukar* : ${totalduitt5}`)
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu tukar dengan batangan1_\n\n• 🎟 ${prefix2}tukar emas\n• 🎟 ${prefix2}tukar perak\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 
 case 'lotre':
@@ -2052,7 +2071,7 @@ lotre9 = ini
 reply(`zonk`)
 } else {return reply(`${lotre1}${lotre2}${lotre3}\n${lotre4}${lotre5}${lotre6}\n${lotre7}${lotre8}${lotre9}\n\n_jika ingin mengambil undian silahkan pilih ${prefix2}lotre 1 sampai 9_`)}
 addLimitUser(sender, 1)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 
 case 'kudet':
@@ -2397,6 +2416,7 @@ if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game at
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if (!isGroup) return reply(`_hanya bisa di grup_`)
+if (!isGroupAdmins) return reply(`_hanya untuk admin grup_`)     
 members_id = []
 eai = args.join(" ")
 teks = (args.length > 1) ? eai.trim() : ''
@@ -2476,24 +2496,24 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 reply(`💰 *SELL && BUY PREMIUM*
 
 Pengertian: Jika kamu melakukan pembelian premium makan kami membutuhkan balance sebesar $5000. Dan apabila kamu menjual premium kembali maka akses premium kamu otomatis akan menghilang, Dan kamu hanya mendapatkan balance sebanyak $4000.
-Harga beli: $8000
-Harga jual: $5000
+Harga beli: $15
+Harga jual: $10
 
 💰 *SELL && BUY EMAS*
 
 Pengertian: Jika kamu melakukan pembelian emas maka balance yang harus kamu keluarkan $3500. Apabila kamu menjual kembali sebuah batang emas maka kamu akam balik modal sebesar $1000. Pembelian sumber daya sangat cocok untuk investasi.
-Harga beli: $3500
-Harga jual: $4500
+Harga beli: $8
+Harga jual: $9
 
 💰 *SELL && BUY PERAK*
 Pengertian: Jika kamu membeli sebatang perak maka balance kamu harus berjumlah $2000. Dan apabila kamu menjual sebatang perak maka balance yang kamu dapat berjumlah $2500, Sama halnya emas perak juga cocok sebagai investasi saldo
-Harga beli: $2000
-Harga jual: $2500
+Harga beli: $6
+Harga jual: $7
 
 💰 *SELL && BUY LIMIT*
 Pengertian: Limit adalah sebagai pembatas penggunaan fitur yang kamu gunakan, Tujuan limit dibuat agar user tidak spam bot biasanya 1 fitur memakan 1 limit.
-Harga beli: $100
-Harga jual: $100
+Harga beli: $2
+Harga jual: $2
 
 💰 *BARTER RAW SDA*
 Pengertian: Jika kamu telah mendapatkan 10 raw sda kamu dapat tukarkan dengan 1 batangan yang dimana kamu bisa jual kembali sebagai balance limit. Kamu bisa dapatkan raw emas dan nikel di fitur ${prefix2}nambang dengan membayar $100 balance dari bot kamu
@@ -2502,7 +2522,7 @@ Jumlah item: 1 batangan
 
 💰 *SELL PET*
 Pengertian: Menjual pet sama dengan kamu menjual hewan hasil buruanmu selama ini, Harga pet tergantung status kelangkaanya
-Harga jual: standar = 1000, langka = 1500, legendary = 2000
+Harga jual: standar = $2, langka = $3, legendary = $4
 `)
 break
 
@@ -2513,11 +2533,11 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args[0]=="premium") {
 if (isPrem) return reply(`_kamu sudah menjadi member premium sebelumnya_`)
 payout = 1
-const duit = 8000
+const duit = 15
 const totalprem = duit * payout
 if (getSaldoUser(sender) <= totalprem) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalprem ) {
-addSaldoUser(sender, -8000)
+addSaldoUser(sender, -15)
 premium.push(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`)
@@ -2530,7 +2550,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
-const duit1 = 3500
+const duit1 = 8
 const totalduit = duit1 * payout
 if (getSaldoUser(sender) <= totalduit) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit ) {
@@ -2546,7 +2566,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 const payoutu = ppp.split(" ")[1];
-const duit4 = 2000
+const duit4 = 6
 const totalduit4 = duit4 * payoutu
 if (getSaldoUser(sender) <= totalduit4) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit4) {
@@ -2562,7 +2582,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
-duit11 = 100
+duit11 = 2
 const totalduit11 = duit11 * payout
 if (getSaldoUser(sender) <= totalduit11) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit11) {
@@ -2572,7 +2592,6 @@ addLimitUser(sender, payoutnye)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga limit* : ${totalduit11}`)
 }
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu beli_\n\n• 🎟 ${prefix2}buy premium\n• 🎟 ${prefix2}buy emas\n• 🎟 ${prefix2}buy perak\n• 🎟 ${prefix2}buy limit\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
-addSaldoUser(sender, 50)
 break
 
 case 'sell':
@@ -2587,7 +2606,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
 const duit2 = 1
-const duity2 = 4500
+const duity2 = 9
 const totalduit2 = duit2 * payout
 const totalduitt2 = duity2 * payout
 if (getEmasUser(sender) <= totalduit2) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal emas yang harus di tukarkan ada 1`)
@@ -2599,7 +2618,7 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isPrem) return reply(`_kamu harus menjadi member premium terlebih dahulu_`)
-addSaldoUser(sender, 5000)
+addSaldoUser(sender, 10)
 premium.splice(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : 4000`)
@@ -2611,7 +2630,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 const payouti = ppp.split(" ")[1];
 const duit3 = 1
-const duity3 = 2500
+const duity3 = 7
 const totalduit3 = duit3 * payouti
 const totalduitt3= duity3 * payouti
 if (getPerakUser(sender) <= totalduit3) return reply(`Maaf perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
@@ -2626,7 +2645,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 1
-duity7 = 100
+duity7 = 2
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
 if (getLimitUser(sender) <= totalduit7) return reply(`Maaf limit kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal limit yang harus di tukarkan ada 1`)
@@ -2641,7 +2660,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 1
-duity7 = 1500
+duity7 = 3
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
 if (getKelinciUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
@@ -2656,7 +2675,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 1
-duity7 = 1500
+duity7 = 3
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
 if (getRubahUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
@@ -2671,7 +2690,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 1
-duity7 = 1000
+duity7 = 2
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
 if (getKucingUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
@@ -2686,7 +2705,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 1
-duity7 = 1000
+duity7 = 2
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
 if (getAnjingUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
@@ -2701,7 +2720,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 1
-duity7 = 2000
+duity7 = 4
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
 if (getElangUser(sender) <= totalduit7) return reply(`Maaf pet kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal pet yang harus di tukarkan ada 1`)
@@ -2709,7 +2728,6 @@ addSaldoUser(sender, totalduitt7)
 addElangUser(sender, -payoutiu)
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payoutiu}\n*Harga jual* : ${totalduitt7}`)
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu jual kembali_\n\n• 🎟 ${prefix2}sell premium\n• 🎟 ${prefix2}sell emas\n• 🎟 ${prefix2}sell perak\n• 🎟 ${prefix2}sell limit\n• 🎟 ${prefix2}sell kucing\n• 🎟 ${prefix2}sell anjing\n• 🎟 ${prefix2}sell kelinci\n• 🎟 ${prefix2}sell rubah\n• 🎟 ${prefix2}sell elang\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
-addSaldoUser(sender, 50)
 break
 
 case 'sider':
@@ -3009,7 +3027,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 						client.sendMessage(from, buffer, sticker)
 						fs.unlinkSync(rano)
 					})
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 addLimitUser(sender, -1)
 break
 			
@@ -3026,7 +3044,7 @@ case 'ttp':
 						client.sendMessage(from, buffer, sticker)
 						fs.unlinkSync(rano)
 					})
-			addSaldoUser(sender, 50)
+			addSaldoUser(sender, 1)
 addLimitUser(sender, -1)
 break
 			
@@ -3111,7 +3129,7 @@ client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 addLimitUser(sender, -1)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 
 case 'cerpen':
@@ -3342,7 +3360,7 @@ buff = await getBuffer(randKey.url)
 client.sendMessage(from, buff, video, { caption: `Farming Dosa?:v`})
 console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 addLimitUser(sender, -1)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 
 case 'sharelock':
@@ -3570,7 +3588,7 @@ headerType: 1
 },
 }, {quoted: floc2})
 await client.relayWAMessage(gwmkkee)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
             
 case 'dungeon':
@@ -3585,7 +3603,7 @@ contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
 addLimitUser(sender, 1)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 
 case 'inv':
@@ -3593,8 +3611,8 @@ case 'inventory':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
-reply(`*INVENTORY SUMBER DAYA*\n\n======================\n*BATANGAN*\n🥇emas = ${getEmasUser(sender)}\n🥈perak = ${getPerakUser(sender)}\n======================\n*BIJI MATERIAL*\n📀 raw emas ${getBijihEmasUser(sender)}\n💿 raw perak ${getBijihPerakUser(sender)}\n======================\n\n*IVENTORY PET*\n\n======================\n*STANDAR*\n🐈 kucing = ${getKucingUser(sender)}\n🐕 anjing = ${getAnjingUser(sender)}\n======================\n*LANGKA*\n🐇 kelinci = ${getKelinciUser(sender)}\n🐺 rubah = ${getRubahUser(sender)}\n======================\n*LEGENDARY*\n🦅 elang = ${getElangUser(sender)}\n======================`)
-addSaldoUser(sender, 50)
+reply(`╭─❒ *MATERIAL*\n│- emas = ${getEmasUser(sender)}\n│- perak = ${getPerakUser(sender)}\n│- raw emas = ${getBijihEmasUser(sender)}\n│- raw perak = ${getBijihPerakUser(sender)}\n╰❒\n\n╭─❒ *SIMPANAN PET*\n│- kucing = ${getKucingUser(sender)} *(standar)*\n│- anjing = ${getAnjingUser(sender)} *(standar)*\n│- kelinci = ${getKelinciUser(sender)} *(langka)*\n│- rubah = ${getRubahUser(sender)} *(langka)*\n│- elang = ${getElangUser(sender)} *(legendary)*\n╰❒`)
+addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
 
@@ -3613,7 +3631,7 @@ buttonsMessage = {footerText:`Tanggal ${date}\n*_© Mitsuha Official_*`, imageMe
 contentText:`[  🎰 | SLOTS ]\n-----------------\n${p}\n${p2}<=====\n${p3}\n[ 🎟 | SLOTS ]\n\nKeterangan : Jika anda Mendapatkan 3 Binatang Sama Berarti Kamu Win\n\nContoh : 🦂 : 🦂 : 🦂<=====`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {"contextInfo": {text: 'HelloWorld',"forwardingScore": 3,isForwarded: true,sendEphemeral: true,mentionedJid: [sender],"externalAdReply": {"title": `whatsappボット`,"body": ``,"previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": thumb,"sourceUrl": "https://youtube.com/channel/UC-fcNjQQ5LXV50sSV6s2eXg"}},quoted: floc2})
 client.relayWAMessage(prep)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 
 case 'author':
@@ -3774,7 +3792,7 @@ teks =`*INFO MITSUHA WHATSAPP*
 - url : https://chat.whatsapp.com/${linkgc}`
 sendButLocation(from, `${teks}`, `INFO BOT - INFO GROUP`,{jpegThumbnail:ppnya}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 addLimitUser(sender, -1)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 
 case 'ocr':
@@ -4133,7 +4151,7 @@ fs.unlinkSync(ran)
 reply(`Kirim gambar dengan caption ${prefix2}sticker atau tag gambar yang sudah dikirim`)
 }
 addLimitUser(sender, -1)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 break
 				
 case 'report':
@@ -4266,10 +4284,10 @@ creator = "6285731261728@s.whatsapp.net"
 teks = `◪ BERHASIL MENDAFTAR
 │
 └❏ Number: @${sender.split("@s.whatsapp.net")}
-   ❏ Free Limit: 10
-   ❏ Free Balance: $1000
+   ❏ Free Limit: 5
+   ❏ Free Balance: $10
   ----------------------------------`
-sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/daftar.jpg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `success registered`,{jpegThumbnail: fs.readFileSync('./lib/odc.jpeg')}, [{buttonId:`SUKSES DAFTAR`,buttonText:{displayText:'SUKSES DAFTAR'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 case 'saldo':
@@ -4293,18 +4311,18 @@ break
 case 'claim':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isClaim) return reply(`kamu telah mengambil hadiah ini coba sesaat lagi`)
-addSaldoUser(sender, 2000)
-addLimitUser(sender, 5)
+addSaldoUser(sender, 5)
+addLimitUser(sender, 3)
 claim.push(sender)
 fs.writeFileSync('./src/claim.json', JSON.stringify(claim))
 creator = "6285731261728@s.whatsapp.net"
 teks =`◪ BERHASIL CLAIM
 │
 └❏ Number: @${sender.split("@s.whatsapp.net")}
-   ❏ Free Limit: 5
-   ❏ Free Balance: $2000
+   ❏ Free Limit: 3
+   ❏ Free Balance: $5
   ----------------------------------`
-sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/claim.jpg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+sendButLocation(from, `${teks}`, `success claim saldo`,{jpegThumbnail: fs.readFileSync('./lib/odc.jpeg')}, [{buttonId:`OMEDETOU`,buttonText:{displayText:'OMEDETOU'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 break
 
 					case 'tourl':
@@ -4533,7 +4551,7 @@ for (let i of bacasholat) {
 reply(`${i.result8.name}\n\n*${i.result8.arabic}*\n\n${i.result8.latin}\n\n${i.result8.terjemahan}`) 
 }
 } else {return reply(`_hi kaka silahkan pilih query yang telah di sediakan_\n\n1. Bacaan Iftitah\n2. Al Fatihah\n3. Bacaan Ruku\n4. Bacaan Sujud\n5. Bacaan Duduk Diantara Dua Sujud\n6. Duduk Tasyahud Awal\n7. Duduk Tasyahud Akhir\n8. Salam\n\n_silahkan pilih ${prefix2}niatsholat 1 sampai 8_`)}
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
 
@@ -4764,7 +4782,7 @@ for (let i of hadist) {
 reply(`${i.result20.message}\n\n*${i.result20.arabic}*\n\n${i.result20.id}`) 
 } 
 } else {return reply(`_silahkan pilih ${prefix2}hadist 1 sampai 20_`)}
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
 
@@ -4785,7 +4803,7 @@ if (args.length < 1) return reply(`_tambahkan teks pada perintah_`)
 client.updatePresence(from, Presence.composing)
 client.sendMessage('status@broadcast', `*UPDATE STATUS*\n\n${args.join(" ")}`, extendedText, {quoted: floc2})
 reply(`Berhasil Membuat Status`)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
 
@@ -4801,7 +4819,7 @@ sweb = await client.downloadMediaMessage(swew)
 client.sendMessage('status@broadcast', sweb, image, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
 }
 reply(`Berhasil Membuat Status`)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
 
@@ -4817,7 +4835,7 @@ sweb = await client.downloadMediaMessage(swew)
 client.sendMessage('status@broadcast', sweb, video, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
 }
 reply(`Berhasil Membuat Status`)
-addSaldoUser(sender, 50)
+addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
 
@@ -5641,7 +5659,7 @@ const gata = ["Monster Mengalahkanmu Tapi Dia Baik Hati Dan Memberimu Hadiah Yan
 const persus = gata[Math.floor(Math.random() * gata.length)]
 reply(`${persus}`)
 addLimitUser(sender, 1)
-addSaldoUser(sender, 100)
+addSaldoUser(sender, 1)
 break
 }
               
@@ -5912,7 +5930,7 @@ randKey = jsonData[randIndex];
 randIndex2 = Math.floor(Math.random() * jsonData.length);
 randKey2 = jsonData[randIndex2];
 youke = fs.readFileSync('./lib/odc.jpeg')
-buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `👎`,buttonText:{displayText: `👎`},type:1}]
+buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `??`,buttonText:{displayText: `👎`},type:1}]
 imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📚 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
