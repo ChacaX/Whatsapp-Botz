@@ -699,7 +699,7 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
 teks =`📜 *WELCOME MESSAGES*`
-sendButLocation(mdata.id, `${teks}`, `Hai @${num.split("@s.whatsapp.net")[0]},\nselamat datang di group ${mdata.groupName}`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
+sendButLocation(mdata.id, `${teks}`, `Hai @${num.split("@s.whatsapp.net")[0]},\nselamat datang di group`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
 hai = `WELCOME @${num.split('@')[0]}`
