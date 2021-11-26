@@ -1335,7 +1335,7 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan saldo di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)   
-if (!isOwner) return reply(`_hanya untuk owner_`) 
+if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna premium saja_`)
 await client.query({json:["action", "invite", `${args[0].replace('https://chat.whatsapp.com/','')}`]})
 reply(`_succes join_`)
 }
@@ -1812,6 +1812,7 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎫 ${prefix2}upswtext
 │🎫 ${prefix2}upswimg
 │🎫 ${prefix2}upswvideo
+│🎫 ${prefix2}join
 ╰❒ 
 
 ╭─❒ *OTHER MENU* 
@@ -1828,7 +1829,6 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎟 >
 │🎟 =>
 │🎟 ${prefix2}makegroup
-│🎟 ${prefix2}join
 │🎟 ${prefix2}kudet
 │🎟 ${prefix2}leave
 │🎟 ${prefix2}clone
@@ -2456,8 +2456,8 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 reply(`💰 *SELL && BUY PREMIUM*
 
 Pengertian: Jika kamu melakukan pembelian premium makan kami membutuhkan saldo sebesar Rp. 5000. Dan apabila kamu menjual premium kembali maka akses premium kamu otomatis akan menghilang, Dan kamu hanya mendapatkan saldo sebanyak Rp.4000.
-Harga beli: Rp.5000
-Harga jual: Rp.4000
+Harga beli: Rp.8000
+Harga jual: Rp.5000
 
 💰 *SELL && BUY EMAS*
 
@@ -2479,6 +2479,10 @@ Harga jual: Rp.100
 Pengertian: Jika kamu telah mendapatkan 10 bijih sda kamu dapat tukarkan dengan 1 batangan yang dimana kamu bisa jual kembali sebagai saldo limit. Kamu bisa dapatkan bijih emas dan nikel di fitur ${prefix2}nambang dengan membayar Rp. 100 saldo dari bot kamu
 Harga tukar: 10 bijih
 Jumlah item: 1 batangan
+
+💰 *SELL PET*
+Pengertian: Menjual pet sama dengan kamu menjual hewan hasil buruanmu selama ini, Harga pet tergantung status kelangkaanya
+Harga jual: standar = 1000, langka = 1500, legendary = 2000
 `)
 break
 
@@ -2489,11 +2493,11 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args[0]=="premium") {
 if (isPrem) return reply(`_kamu sudah menjadi member premium sebelumnya_`)
 payout = 1
-const duit = 5000
+const duit = 8000
 const totalprem = duit * payout
 if (getSaldoUser(sender) <= totalprem) return reply(`Maaf saldo kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalprem ) {
-addSaldoUser(sender, -5000)
+addSaldoUser(sender, -8000)
 premium.push(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`)
@@ -2575,7 +2579,7 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isPrem) return reply(`_kamu harus menjadi member premium terlebih dahulu_`)
-addSaldoUser(sender, 4000)
+addSaldoUser(sender, 5000)
 premium.splice(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : 4000`)
@@ -5306,6 +5310,7 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎫 ${prefix2}upswtext
 │🎫 ${prefix2}upswimg
 │🎫 ${prefix2}upswvideo
+│🎫 ${prefix2}join
 ╰❒ 
 
 ╭─❒ *OTHER MENU* 
@@ -5322,7 +5327,6 @@ sendButLocation(from, `${teks}`, `📚 runtime : ${kyun(uptime)}
 │🎟 >
 │🎟 =>
 │🎟 ${prefix2}makegroup
-│🎟 ${prefix2}join
 │🎟 ${prefix2}kudet
 │🎟 ${prefix2}leave
 │🎟 ${prefix2}clone
