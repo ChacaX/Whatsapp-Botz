@@ -3746,7 +3746,8 @@ data = fs.readFileSync('./lib/box.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
-reply(`${randKey.result.hadiah}`)
+pu = `${randKey.result.hadiah}`
+client.sendMessage(from, pu, text, { quoted: mek })
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add2),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add3),null,'\t'),text, {quoted: mek})
@@ -3754,12 +3755,13 @@ addBoxUser(sender, -1)
 } else if (args[0]=="box_epic") {
 duit7 = 1
 totalduiti = duit7 * 1
-if (getBoxEpicUser(sender) <= totalduit7) return reply(`_box yang kamu miliki belum mencukupi_`)
+if (getBoxEpicUser(sender) <= totalduiti) return reply(`_box yang kamu miliki belum mencukupi_`)
 data = fs.readFileSync('./lib/box2.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
-reply(`${randKey.result.hadiah}`)
+pu = `${randKey.result.hadiah}`
+client.sendMessage(from, pu, text, { quoted: mek })
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add2),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add3),null,'\t'),text, {quoted: mek})
@@ -4450,7 +4452,7 @@ case 'saldo':
 case 'limit':
 case 'dompet':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-reply(`saldo: $${getSaldoUser(sender)}\nlimit: ${getLimitUser(sender)}`)
+reply(`balance: $${getSaldoUser(sender)}\nlimit: ${getLimitUser(sender)}`)
 break
 
 case 'claim':
