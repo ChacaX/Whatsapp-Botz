@@ -3749,7 +3749,7 @@ return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add2),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add3),null,'\t'),text, {quoted: mek})
 addBoxUser(sender, -1)
-if (args[0]=="box_epic") {
+} else if (args[0]=="box_epic") {
 if (getBoxEpicUser(sender)) return reply(`_box yang kamu miliki belum mencukupi_`)
 data = fs.readFileSync('./lib/box2.js');
 jsonData = JSON.parse(data);
