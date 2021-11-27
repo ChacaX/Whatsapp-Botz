@@ -3739,7 +3739,9 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args[0]=="box_standar") {
-if (getBoxUser(sender)) return reply(`_box yang kamu miliki belum mencukupi_`)
+duit7 = 1
+totalduiti = duit7 * 1
+if (getBoxUser(sender) <= totalduiti ) return reply(`_box yang kamu miliki belum mencukupi_`)
 data = fs.readFileSync('./lib/box.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -3750,7 +3752,9 @@ return client.sendMessage(from, JSON.stringify(eval(randKey.result.add2),null,'\
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add3),null,'\t'),text, {quoted: mek})
 addBoxUser(sender, -1)
 } else if (args[0]=="box_epic") {
-if (getBoxEpicUser(sender)) return reply(`_box yang kamu miliki belum mencukupi_`)
+duit7 = 1
+totalduiti = duit7 * 1
+if (getBoxEpicUser(sender) <= totalduit7) return reply(`_box yang kamu miliki belum mencukupi_`)
 data = fs.readFileSync('./lib/box2.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
@@ -3760,7 +3764,7 @@ return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add2),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add3),null,'\t'),text, {quoted: mek})
 addBoxEpicUser(sender, -1)
-} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu buka\n\n• 🎟 ${prefix2}buka box_standar\n• 🎟 ${prefix2}buka box_epic\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
+} else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu buka_\n\n• 🎟 ${prefix2}buka box_standar\n• 🎟 ${prefix2}buka box_epic\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
 
 case 'inv':
