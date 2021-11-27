@@ -1071,7 +1071,7 @@ message: {
 }
         
 const sendMess = (hehe, teks) => {
-client.sendMessage(hehe, teks, text, {quoted: falfa})
+client.sendMessage(hehe, teks, text)
 }
 			
 const mentions = (teks, memberr, id) => {
@@ -3066,7 +3066,7 @@ client.sendMessage(_.jid, buff, MessageType.image, {caption: `${body.slice(4)}\n
 reply('Suksess broadcast ')
 } else {
 for (let _ of anu) {
-client.sendMessage(_.jid, `${loveme}\n\n_*BROADCAST SIMPLE*_`)
+sendMess(_.jid, `${loveme}\n\n_*BROADCAST SIMPLE*_`)
 }
 reply('Suksess broadcast')
 }
