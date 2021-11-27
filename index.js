@@ -3785,9 +3785,8 @@ data = fs.readFileSync('./lib/slot.js');
 jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
-reply(`🎰 *SLOTS VIRTUAL* 🎰
-${randKey.result.item}
-*${randKey.result.penentu}*`)
+p = `🎰 *SLOTS VIRTUAL* 🎰\n${randKey.result.item}\n\n*${randKey.result.penentu}*`
+client.sendMessage(from, p, text, { quoted: mek })
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t'),text, {quoted: mek})
 break
 
