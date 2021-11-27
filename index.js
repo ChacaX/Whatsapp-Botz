@@ -2495,28 +2495,28 @@ case 'shop':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 reply(`💰 *SELL && BUY PREMIUM*
 
-Pengertian: Jika kamu melakukan pembelian premium makan kami membutuhkan balance sebesar $5000. Dan apabila kamu menjual premium kembali maka akses premium kamu otomatis akan menghilang, Dan kamu hanya mendapatkan balance sebanyak $4000.
-Harga beli: $15
-Harga jual: $10
+Pengertian: Jika kamu melakukan pembelian premium makan kami membutuhkan balance sebesar $15. Dan apabila kamu menjual premium kembali maka akses premium kamu otomatis akan menghilang, Dan kamu hanya mendapatkan balance sebanyak $10.
+Harga beli: $30
+Harga jual: $20
 
 💰 *SELL && BUY EMAS*
 
-Pengertian: Jika kamu melakukan pembelian emas maka balance yang harus kamu keluarkan $3500. Apabila kamu menjual kembali sebuah batang emas maka kamu akam balik modal sebesar $1000. Pembelian sumber daya sangat cocok untuk investasi.
+Pengertian: Jika kamu melakukan pembelian emas maka balance yang harus kamu keluarkan $8. Apabila kamu menjual kembali sebuah batang emas maka kamu akan balik modal sebesar $9. Pembelian sumber daya sangat cocok untuk investasi.
+Harga beli: $15
+Harga jual: $16
+
+💰 *SELL && BUY PERAK*
+Pengertian: Jika kamu membeli sebatang perak maka balance kamu harus berjumlah $6. Dan apabila kamu menjual sebatang perak maka balance yang kamu dapat berjumlah $7, Sama halnya emas perak juga cocok sebagai investasi balance
 Harga beli: $8
 Harga jual: $9
 
-💰 *SELL && BUY PERAK*
-Pengertian: Jika kamu membeli sebatang perak maka balance kamu harus berjumlah $2000. Dan apabila kamu menjual sebatang perak maka balance yang kamu dapat berjumlah $2500, Sama halnya emas perak juga cocok sebagai investasi saldo
-Harga beli: $6
-Harga jual: $7
-
 💰 *SELL && BUY LIMIT*
 Pengertian: Limit adalah sebagai pembatas penggunaan fitur yang kamu gunakan, Tujuan limit dibuat agar user tidak spam bot biasanya 1 fitur memakan 1 limit.
-Harga beli: $2
-Harga jual: $2
+Harga beli: $1
+Harga jual: $1
 
 💰 *BARTER RAW SDA*
-Pengertian: Jika kamu telah mendapatkan 10 raw sda kamu dapat tukarkan dengan 1 batangan yang dimana kamu bisa jual kembali sebagai balance limit. Kamu bisa dapatkan raw emas dan nikel di fitur ${prefix2}nambang dengan membayar $100 balance dari bot kamu
+Pengertian: Jika kamu telah mendapatkan 10 raw sda kamu dapat tukarkan dengan 1 batangan yang dimana kamu bisa jual kembali sebagai balance limit. Kamu bisa dapatkan raw emas dan raw perak di fitur ${prefix2}nambang dengan membayar $1 balance dari bot kamu
 Harga tukar: 10 raw
 Jumlah item: 1 batangan
 
@@ -2533,11 +2533,11 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (args[0]=="premium") {
 if (isPrem) return reply(`_kamu sudah menjadi member premium sebelumnya_`)
 payout = 1
-const duit = 15
+const duit = 30
 const totalprem = duit * payout
 if (getSaldoUser(sender) <= totalprem) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalprem ) {
-addSaldoUser(sender, -15)
+addSaldoUser(sender, -30)
 premium.push(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : ${payout} \n*Harga premium* : ${duit}`)
@@ -2550,7 +2550,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
-const duit1 = 8
+const duit1 = 15
 const totalduit = duit1 * payout
 if (getSaldoUser(sender) <= totalduit) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit ) {
@@ -2566,7 +2566,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 const payoutu = ppp.split(" ")[1];
-const duit4 = 6
+const duit4 = 8
 const totalduit4 = duit4 * payoutu
 if (getSaldoUser(sender) <= totalduit4) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit4) {
@@ -2582,7 +2582,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
-duit11 = 2
+duit11 = 1
 const totalduit11 = duit11 * payout
 if (getSaldoUser(sender) <= totalduit11) return reply(`Maaf balance kamu belum mencukupi. silahkan kumpulkan dan beli nanti`)
 if (getSaldoUser(sender) >= totalduit11) {
@@ -2606,7 +2606,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payout = ppp.split(" ")[1];
 const duit2 = 1
-const duity2 = 9
+const duity2 = 16
 const totalduit2 = duit2 * payout
 const totalduitt2 = duity2 * payout
 if (getEmasUser(sender) <= totalduit2) return reply(`Maaf emas kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal emas yang harus di tukarkan ada 1`)
@@ -2618,7 +2618,7 @@ if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if (!isPrem) return reply(`_kamu harus menjadi member premium terlebih dahulu_`)
-addSaldoUser(sender, 10)
+addSaldoUser(sender, 20)
 premium.splice(sender)
 fs.writeFileSync('./src/premium.json', JSON.stringify(premium))
 await reply(`*「 PEMBAYARAN BERHASIL 」*\n\n*Pengirim* : Admin\n*Penerima* : ${pushname}\n*Nominal pembelian* : 1\n*Harga jual* : 4000`)
@@ -2630,7 +2630,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 const payouti = ppp.split(" ")[1];
 const duit3 = 1
-const duity3 = 7
+const duity3 = 9
 const totalduit3 = duit3 * payouti
 const totalduitt3= duity3 * payouti
 if (getPerakUser(sender) <= totalduit3) return reply(`Maaf perak kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal perak yang harus di tukarkan ada 1`)
@@ -2645,7 +2645,7 @@ if (isBan) return reply(`_kamu telah dibanned bot_`)
 ppp = `${args.join(' ')}`
 payoutiu = ppp.split(" ")[1];
 duit7 = 1
-duity7 = 2
+duity7 = 1
 totalduit7 = duit7 * payoutiu
 totalduitt7= duity7 * payoutiu
 if (getLimitUser(sender) <= totalduit7) return reply(`Maaf limit kamu belum mencukupi. silahkan kumpulkan dan jual nanti\n\nMinimal limit yang harus di tukarkan ada 1`)
@@ -3066,7 +3066,7 @@ client.sendMessage(_.jid, buff, MessageType.image, {caption: `${body.slice(4)}\n
 reply('Suksess broadcast ')
 } else {
 for (let _ of anu) {
-sendMess(_.jid, `${loveme}\n\n_*BROADCAST SIMPLE*_`)
+client.sendMessage(_.jid, `${loveme}\n\n_*BROADCAST SIMPLE*_`)
 }
 reply('Suksess broadcast')
 }
@@ -3602,8 +3602,6 @@ buttonsMessage = {footerText:`Menyambungkan Server...`, imageMessage: imageMsg,
 contentText:`*DUNGEON ISEKAI*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
-addLimitUser(sender, 1)
-addSaldoUser(sender, 1)
 break
 
 case 'inv':
@@ -5651,15 +5649,13 @@ break
 }
   
 if (buttonsR === 'START') {
-/*function pickRandom(list) {
-return list[Math.floor(Math.random() * list.length)]
-}
-const pasukan = `${pickRandom(['50','100','150','200','50','100','150','50'])}`.trim()*/
-const gata = ["Monster Mengalahkanmu Tapi Dia Baik Hati Dan Memberimu Hadiah Yang Sudah Disimpan Di Database","Kamu Menang Melawan Monster Sebagai Imbalan Kamu Mendapatkan balance Lebih, Cek balance Untuk Memastikan balance Telah Masuk"]
-const persus = gata[Math.floor(Math.random() * gata.length)]
-reply(`${persus}`)
+data = fs.readFileSync('./lib/dungeon.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+reply(`${randKey.result.cerita}`)
+return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t'),text, {quoted: mek})
 addLimitUser(sender, 1)
-addSaldoUser(sender, 1)
 break
 }
               
