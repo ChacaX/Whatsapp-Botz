@@ -3747,11 +3747,11 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 pu = `${randKey.result.hadiah}`
+addBoxUser(sender, -1)
 client.sendMessage(from, pu, text, { quoted: mek })
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add2),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add3),null,'\t'),text, {quoted: mek})
-addBoxUser(sender, -1)
 } else if (args[0]=="box_epic") {
 duit7 = 1
 totalduiti = duit7 * 1
@@ -3761,11 +3761,11 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 pu = `${randKey.result.hadiah}`
+addBoxEpicUser(sender, -1)
 client.sendMessage(from, pu, text, { quoted: mek })
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add2),null,'\t'),text, {quoted: mek})
 return client.sendMessage(from, JSON.stringify(eval(randKey.result.add3),null,'\t'),text, {quoted: mek})
-addBoxEpicUser(sender, -1)
 } else {return reply(`_lihat list dibawah untuk melihat barang apa saja yang bisa kamu buka_\n\n• 🎟 ${prefix2}buka box_standar\n• 🎟 ${prefix2}buka box_epic\n\n_jika ada yang tidak paham bisa langsung ketik ${prefix2}shop untuk melihat keterangan_`)}
 break
 
