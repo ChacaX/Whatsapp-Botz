@@ -744,7 +744,7 @@ message: {
 }
 const acaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
 const bulan = acaBulan[moment().format('MM') - 1]        
-const { text, extendedText, contact, location, liveLocation, image, video, gif, sticker, document, audio, product } = MessageType
+const { text, extendedText, contact, location, liveLocation, image, video, gif, sticker, document, pdf, docx, audio, product } = MessageType
 
 client.on('group-participants-update', async (anu) => {
 if (!welkom.includes(anu.jid)) return
@@ -760,7 +760,23 @@ ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.u
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
 buffer = await getBuffer(ppimg)
-sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
+const sendButDocument3 = async(id, text3, desc3, media, doc3, but = [], options = {}) => {
+kma = doc3
+mhan = await client.prepareMessage(mdata.id, media, document, kma)
+buttonMessages = {
+documentMessage: mhan.message.documentMessage,
+contentText: text3,
+footerText: desc3,
+buttons: but,
+headerType: "DOCUMENT"
+}
+client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+
+teks =`@${num.split('@')[0]} hello`
+sendButDocument3(mdata.id, `${teks}`, `selamat datang\ndi grup ini :)`, fs.readFileSync(`./lib/odc.jpeg`), {mimetype: Mimetype.pdf, thumbnail:buffer, filename: `Pesan Sambutan Masuk`}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HEI 👋`,buttonText:{displayText:'HEI 👋'},type:1}])
+
+/*sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(mdata.id, kma, location)
 buttonMessages = {
@@ -774,7 +790,7 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
 teks =`📜 *WELCOME MESSAGES*`
-sendButLocation(mdata.id, `${teks}`, `Hai @${num.split('@')[0]},\nselamat datang\ndi group ini :)`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
+sendButLocation(mdata.id, `${teks}`, `Hai @${num.split('@')[0]},\nselamat datang\ndi group ini :)`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HELLO 👋`,buttonText:{displayText:'HELLO 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})*/
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
 hai = `WELCOME @${num.split('@')[0]}`
@@ -802,7 +818,24 @@ ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.u
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
 buffer = await getBuffer(ppimg)
-sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
+
+const sendButDocument2 = async(id, text2, desc2, media, doc2, but = [], options = {}) => {
+kma = doc2
+mhan = await client.prepareMessage(mdata.id, media, document, kma)
+buttonMessages = {
+documentMessage: mhan.message.documentMessage,
+contentText: text2,
+footerText: desc2,
+buttons: but,
+headerType: "DOCUMENT"
+}
+client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+
+teks =`@${num.split('@')[0]} awok`
+sendButDocument2(mdata.id, `${teks}`, `yang keluar\npacarnya ragil`, fs.readFileSync(`./lib/odc.jpeg`), {mimetype: Mimetype.pdf, thumbnail:buffer, filename: `Pesan Sambutan Keluar`}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}])
+
+/*sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(mdata.id, kma, location)
 buttonMessages = {
@@ -816,7 +849,7 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 creator = "6285731261728@s.whatsapp.net"
 teks =`📜 *LEAVE MESSAGES*`
-sendButLocation(mdata.id, `${teks}`, `@${num.split('@')[0]} awok\nyang out pacarnya ragil`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})
+sendButLocation(mdata.id, `${teks}`, `@${num.split('@')[0]} awok\nyang out pacarnya ragil`, {jpegThumbnail:buffer}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator]}})*/
 
 /*num = `${num.split("@")[0]}@s.whatsapp.net`
 hai = `BYE @${num.split('@')[0]}`
@@ -1379,19 +1412,6 @@ client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
 }
 }*/
 
-/*sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
-kma = gam1
-mhan = await client.prepareMessage(from, kma, location)
-buttonMessages = {
-locationMessage: mhan.message.locationMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 6
-}
-client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-}*/
-
 sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
 mhan = await client.prepareMessage(from, kma, location)
@@ -1402,20 +1422,20 @@ footerText: desc1,
 buttons: but,
 headerType: 6
 }
-client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, {
-thumbnail: fs.readFileSync('./lib/odc.jpeg'),
-caption: `Hello World 👋`,
-"contextInfo": {
-mentionedJid: [sender],
-"externalAdReply": {
-"title": `Simple Bot Whatsapp`,
-"body": `Time: ${time}`,
-"mediaType": 2,
-"previewType": `https://youtu.be/dQw4w9WgXcQ`,
-"thumbnail": fs.readFileSync('./lib/odc.jpeg'),
-"mediaUrl": `https://youtu.be/dQw4w9WgXcQ`,
-"sourceUrl": ""
-}}})
+client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+
+const sendButDocument = async(id, text1, desc1, media, doc1, but = [], options = {}) => {
+kma = doc1
+mhan = await client.prepareMessage(from, media, document, kma)
+buttonMessages = {
+documentMessage: mhan.message.documentMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: "DOCUMENT"
+}
+client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
 if (time >= '00:00:00' && time <= '23:59:00') {
@@ -1486,6 +1506,210 @@ teks =`Hai ${pushname} ${ucapanWaktu} saya mitsuha bot whatsapp akan membantu un
 sendButLocation(from, `${teks}`, `*_© Mitsuha Official_* Whatsapp`, {jpegThumbnail:fakeimage}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`LIST MENU`,buttonText:{displayText:'LIST MENU'},type:1},{buttonId:`PLAY GAME`,buttonText:{displayText:'PLAY GAME'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
 addLimitUser(sender, -1)
 break*/
+
+case 'menu':
+case 'help':
+if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
+uptime = process.uptime()
+creator = "6285731261728@s.whatsapp.net"
+teks =`*M I T S U H A - W A B O T*\n`
+sendButDocument(from, `${teks}`, `- runtime : ${kyun(uptime)}
+- dev : wa.me/6285731261728
+- jumlah hit : ${hit_today.length}
+- pengguna : ${_saldo.length} aktif
+
+
+╭─❒ *PROFILE KAMU*
+│- nama ${pushname}
+│- setatus ${premi}
+│- balance $${getSaldoUser(sender)}
+│- limit ${getLimitUser(sender)}
+╰❒ 
+
+╭─❒ *SUMBER DAYA KAMU*
+│- emas ${getEmasUser(sender)} batang
+│- perak ${getPerakUser(sender)} batang
+│- raw emas ${getBijihEmasUser(sender)}
+│- raw perak ${getBijihPerakUser(sender)}
+╰❒ 
+͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
+╭─❒ *INFORMASI MENU*
+│- ${prefix2}info
+│- ${prefix2}iklan
+│- ${prefix2}donasi
+│- ${prefix2}request
+╰❒ 
+
+╭─❒ *BELANJA KEBUTUHAN*
+│- ${prefix2}daftar
+│- ${prefix2}dompet
+│- ${prefix2}claim
+│- ${prefix2}shop
+│- ${prefix2}buy
+│- ${prefix2}sell
+│- ${prefix2}buka
+│- ${prefix2}tukar
+│- ${prefix2}inv
+│- ${prefix2}nambang
+│- ${prefix2}hunt
+╰❒ 
+
+╭─❒ *EVENT GAMES BOT*
+│- ${prefix2}carspeed
+│- ${prefix2}lotre
+╰❒ 
+
+╭─❒ *URL TO MEDIA TYPE*
+│- ${prefix2}urltoimg
+│- ${prefix2}tourl
+╰❒ 
+
+╭─❒ *PRODUK & VOTING*
+│- ${prefix2}produk
+│- ${prefix2}tambah
+│- ${prefix2}votting
+│- ${prefix2}vote
+│- ${prefix2}dellvote
+╰❒ 
+
+╭─❒ *ULASAN & MUTUAL*
+│- ${prefix2}ulasan
+│- ${prefix2}komentar
+│- ${prefix2}mutual
+│- ${prefix2}save
+╰❒ 
+
+╭─❒ *PRESENSI HADIR*
+│- ${prefix2}absen
+│- ${prefix2}absensi
+╰❒ 
+
+╭─❒ *GROUP MENU*
+│- ${prefix2}afk
+│- ${prefix2}undang
+│- ${prefix2}enable
+│- ${prefix2}disable
+│- ${prefix2}bangrup
+│- ${prefix2}unbangrup
+│- ${prefix2}ban
+│- ${prefix2}unban
+│- ${prefix2}sider
+│- ${prefix2}hidetag
+│- ${prefix2}fitnah
+│- ${prefix2}settings
+│- ${prefix2}revoke
+│- ${prefix2}add
+│- ${prefix2}kick
+│- ${prefix2}promote
+│- ${prefix2}demote
+│- ${prefix2}tagall
+│- ${prefix2}antilink
+│- ${prefix2}antitoxic
+│- ${prefix2}welcome
+╰❒ 
+
+╭─❒ *ANIME MENU*
+│- ${prefix2}neko
+│- ${prefix2}waifu
+│- ${prefix2}ass
+│- ${prefix2}ero
+│- ${prefix2}yuri
+╰❒ 
+
+╭─❒ *GAMES MENU*
+│- ${prefix2}dungeon
+│- ${prefix2}slot
+│- ${prefix2}truth
+│- ${prefix2}dare
+│- ${prefix2}tebakgambar
+╰❒ 
+
+╭─❒ *IMAGE MENU*
+│- ${prefix2}cogan
+│- ${prefix2}cecan
+│- ${prefix2}darkjokes
+│- ${prefix2}pinterest
+│- ${prefix2}ocr
+╰❒ 
+
+╭─❒ *RANDOM MENU*
+│- ${prefix2}cerpen
+│- ${prefix2}ceritahoror
+│- ${prefix2}ppcouple
+╰❒ 
+
+╭─❒ *STICKER MENU*
+│- ${prefix2}sticker
+│- ${prefix2}ttp
+│- ${prefix2}attp
+│- ${prefix2}wasted
+│- ${prefix2}comrade
+│- ${prefix2}jail
+│- ${prefix2}passed
+│- ${prefix2}trigger
+│- ${prefix2}toimg
+╰❒ 
+
+╭─❒ *EDUCATION MENU*
+│- ${prefix2}quiz
+│- ${prefix2}nulis
+│- ${prefix2}niatsholat
+│- ${prefix2}doa
+│- ${prefix2}hadist
+╰❒ 
+
+╭─❒ *AUDIO MENU*
+│- ${prefix2}fast
+│- ${prefix2}tupai
+│- ${prefix2}gemuk
+│- ${prefix2}slow
+│- ${prefix2}tomp3
+╰❒ 
+
+╭─❒ *PREMIUM MENU*
+│- ${prefix2}asupan
+│- ${prefix2}upswtext
+│- ${prefix2}upswimg
+│- ${prefix2}upswvideo
+│- ${prefix2}join
+╰❒ 
+
+╭─❒ *OTHER MENU* 
+│- ${prefix2}sharelock
+│- ${prefix2}delete
+│- ${prefix2}pesan
+│- ${prefix2}owner
+│- ${prefix2}report
+│- ${prefix2}timer
+╰❒ 
+
+╭─❒ *OWNER MENU*
+│- $
+│- >
+│- =>
+│- ${prefix2}makegroup
+│- ${prefix2}kudet
+│- ${prefix2}leave
+│- ${prefix2}clone
+│- ${prefix2}bc
+│- ${prefix2}bcs
+│- ${prefix2}addprem
+│- ${prefix2}dellprem
+│- ${prefix2}bug
+╰❒ 
+
+╭─❒ *THANKS TO*
+│- mhankbarbar
+│- mitsuhabotz
+│- rimurubotz
+│- dimxbotz
+│- rurichan
+│- zak06cheat
+│- ridwan
+│- hafizh
+╰❒
+`, fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), {mimetype: Mimetype.pdf, thumbnail:fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), filename: `MITSUHA BOT BETA 🦈`}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`PANDUAN`,buttonText:{displayText:'PANDUAN'},type:1}])
+break
 
 /*case 'menu':
 case 'help':
@@ -1742,7 +1966,7 @@ fs.unlinkSync(`./${sender}.jpeg`)
 addLimitUser(sender, -1)
 break*/
 
-case 'help':
+/*case 'help':
 case 'menu':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 uptime = process.uptime()
@@ -1944,7 +2168,7 @@ sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
 │- hafizh
 ╰❒
 `,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}])
-break
+break*/
 
 /*_________________
 ALL FEATURE BOT
@@ -4441,7 +4665,7 @@ addHewanId(sender)
 creator = "6285731261728@s.whatsapp.net"
 teks = `◪ BERHASIL MENDAFTAR
 │
-└❏ Number: @${sender.split("@s.whatsapp.net")}
+└❏ Num: @${sender.split("@s.whatsapp.net")}
    ❏ Free Limit: 5
    ❏ Free Balance: $5
   ----------------------------------`
@@ -5146,7 +5370,7 @@ await client.relayWAMessage(gwee)
 break
 }
 							
-if (buttonsR === '⋮☰ PANDUAN') {
+if (buttonsR === 'PANDUAN') {
 let gwkee = await client.prepareMessageFromContent(from, {
 "buttonsMessage": {
 "contentText": `Hai Saya Mitsuha Akan Membantu Memecahkan Masalah Anda Silahkan Pilih Salah Satu Di Dibawah ⬇ `,
@@ -5172,7 +5396,7 @@ if (buttonsR === 'HOME BACK') {
 uptime = process.uptime()
 creator = "6285731261728@s.whatsapp.net"
 teks =`*M I T S U H A - W A B O T*\n`
-sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
+sendButDocument(from, `${teks}`, `- runtime : ${kyun(uptime)}
 - dev : wa.me/6285731261728
 - jumlah hit : ${hit_today.length}
 - pengguna : ${_saldo.length} aktif
@@ -5367,7 +5591,7 @@ sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
 │- ridwan
 │- hafizh
 ╰❒
-`,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [creator,creator,creator,sender]}})
+`, fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), {mimetype: Mimetype.pdf, thumbnail:fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), filename: `MITSUHA BOT BETA 🦈`}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`PANDUAN`,buttonText:{displayText:'PANDUAN'},type:1}])
 break
 }
 
