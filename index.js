@@ -1409,13 +1409,6 @@ client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
 }
 }*/
 
-if (isCmd && getSaldoId){
-
-addSaldoId(sender)
-addBadwordId(sender)
-addLimitId(sender)
-addHewanId(sender)
-        }
 
 sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
