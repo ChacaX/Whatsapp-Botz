@@ -173,7 +173,7 @@ return _saldo[position].b
 }
 
 const addSaldoId = (userid) => {
-const obj = {id: userid, b: 5, e: 0, p: 0, rp:0, re:0}
+const obj = {id: userid, b: 5, e: 0, p: 0, rp:0, re:0, bx:0, be: 0}
 _saldo.push(obj)
 fs.writeFileSync('./src/saldo.json', JSON.stringify(_saldo))
 }
