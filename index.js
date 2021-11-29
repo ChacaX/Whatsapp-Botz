@@ -3424,7 +3424,7 @@ if (args.length < 1) return reply('.......')
 loveme = args.join(" ")
 anu = await client.chats.all()
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 buff = await client.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 client.sendMessage(_.jid, buff, MessageType.image, {caption: `${body.slice(4)}\n\n_*BROADCAST*_`})
@@ -3449,7 +3449,7 @@ bc = args.join(" ")
 if (args.length < 1) return reply('.......')
 anu = await client.chats.all()
 if (isMedia && !mek.message.videoMessage || isQuotedImage) {
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 buff = await client.downloadMediaMessage(encmedia)
 for (let _ of anu) {
 client.sendMessage(_.jid, buff, MessageType.image, {caption: `${body.slice(4)}\n\n_*BROADCAST*_`})
@@ -3745,7 +3745,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak 
+ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
@@ -3774,7 +3774,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak 
+ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
@@ -3803,7 +3803,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak 
+ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
@@ -3832,7 +3832,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak 
+ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
@@ -3861,7 +3861,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak 
+ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
@@ -4106,7 +4106,7 @@ if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 reply(mess.wait)
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 media = await client.downloadMediaMessage(encmedia)
 await wait(media).then(res => {
 client.sendMessage(from, res.video, video, { caption: res.teks.trim()})
@@ -4195,7 +4195,7 @@ if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game at
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)     
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 const media = await client.downloadAndSaveMediaMessage(encmedia)
 reply(mess.wait)
 await recognize(media, {lang: 'eng+ind', oem: 1, psm: 3})
@@ -4480,7 +4480,7 @@ if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game at
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
 if (isBan) return reply(`_kamu telah dibanned bot_`)
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak
+const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 const media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.webp')
 await ffmpeg(`./${media}`)
@@ -4510,7 +4510,7 @@ fs.unlinkSync(ran)
 .toFormat('webp')
 .save(ran)
 } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
-const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak
+const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 const media = await client.downloadAndSaveMediaMessage(encmedia)
 ran = getRandom('.webp')
 reply(`_sedang di proses_`)
@@ -4711,7 +4711,7 @@ break
 					case 'tourl':
 				console.log(color('[COMMAND]', 'blue'), color(command, 'yellow'), color(time, 'white'), color('Name:', 'yellow'), color(pushname, 'cyan'), color('Number:', 'yellow'), color(sender.split('@')[0], 'cyan'))
 				 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-				 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : fkontak
+				 ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 				 reply(`_wait proses_`)
 				 var imgbb = require('imgbb-uploader')
 				 let uuu = await client.downloadAndSaveMediaMessage(ger)
@@ -5197,7 +5197,7 @@ if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna prem
 if (!isQuotedImage) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik ${prefix2}${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
 if (isQuotedImage) {
-swew = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : fkontak
+swew = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 sweb = await client.downloadMediaMessage(swew)
 client.sendMessage('status@broadcast', sweb, image, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
 }
@@ -5213,7 +5213,7 @@ if (!isPrem) return reply(`_perintah ini hanya bisa digunakan oleh pengguna prem
 if (!isQuotedVideo) return reply(`_tag foto yang sudah dikirim sebelumnya lalu ketik ${prefix2}${command} dengan caption_`)
 client.updatePresence(from, Presence.composing)
 if (isQuotedVideo) {
-swew = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : fkontak
+swew = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 sweb = await client.downloadMediaMessage(swew)
 client.sendMessage('status@broadcast', sweb, video, {caption: `*UPDATE STATUS*: ${args.join(" ")}`})
 }
