@@ -1582,8 +1582,8 @@ sendButDocument(from, `${teks}`, `- runtime : ${kyun(uptime)}
 │- ${prefix2}undang
 │- ${prefix2}enable
 │- ${prefix2}disable
-│- ${prefix2}bangrup
-│- ${prefix2}unbangrup
+│- ${prefix2}mute
+│- ${prefix2}unmute
 │- ${prefix2}ban
 │- ${prefix2}unban
 │- ${prefix2}sider
@@ -1785,8 +1785,8 @@ footerText: `🏖️ runtime : ${kyun(uptime)}
 • 🎟 ${prefix2}undang
 • 🎟 ${prefix2}enable
 • 🎟 ${prefix2}disable
-• 🎟 ${prefix2}bangrup
-• 🎟 ${prefix2}unbangrup
+• 🎟 ${prefix2}mute
+• 🎟 ${prefix2}unmute
 • 🎟 ${prefix2}ban
 • 🎟 ${prefix2}unban
 • 🎟 ${prefix2}sider
@@ -2038,8 +2038,8 @@ sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
 │- ${prefix2}undang
 │- ${prefix2}enable
 │- ${prefix2}disable
-│- ${prefix2}bangrup
-│- ${prefix2}unbangrup
+│- ${prefix2}mute
+│- ${prefix2}unmute
 │- ${prefix2}ban
 │- ${prefix2}unban
 │- ${prefix2}sider
@@ -2721,7 +2721,7 @@ antilink.splice(ini, 1)
 fs.writeFileSync('./src/antilink.json', JSON.stringify(antilink))
 reply('_berhasil di matikan_')
 addLimitUser(sender, -1)
-break
+break*/
 
 case 'shop':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
@@ -3199,7 +3199,7 @@ reply(`Berhasil Menghapus ${din02} Dari Daftar Premium`)
 addLimitUser(sender, -1)
 break
 
-case 'bangrup':
+case 'mute':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return reply(`_grup ini telah dibanned bot_`)
@@ -3211,7 +3211,7 @@ reply(`Berhasil Membanned ${groupName}`)
 addLimitUser(sender, -1)
 break
 
-case 'unbangrup':
+case 'unmute':
 if (!getSaldoId(sender)) return reply(`_access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`_limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (!isGroup) return reply(`_hanya bisa di grup_`)
@@ -5394,8 +5394,8 @@ sendButDocument(from, `${teks}`, `- runtime : ${kyun(uptime)}
 │- ${prefix2}undang
 │- ${prefix2}enable
 │- ${prefix2}disable
-│- ${prefix2}bangrup
-│- ${prefix2}unbangrup
+│- ${prefix2}mute
+│- ${prefix2}unmute
 │- ${prefix2}ban
 │- ${prefix2}unban
 │- ${prefix2}sider
