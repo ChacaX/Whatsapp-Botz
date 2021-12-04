@@ -5555,7 +5555,6 @@ break
 
 if (buttonsR === 'IKLAN') {
 if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-if (!getLimitUser(sender)) return reply(`❎ _limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return 
 if (isBan) return 
 let gwmgkkeje = await client.prepareMessageFromContent(from, {
