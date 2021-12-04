@@ -623,7 +623,7 @@ start('2', 'ㅤ')
 })
 	
 client.on('open', () => {
-success('2', `success conect...`, 'yellow')
+success('2', `tersambung`, 'yellow')
 })
 await client.connect({timeoutMs: 1000*1000})
 fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
@@ -2430,7 +2430,7 @@ if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${pref
 if (!getLimitUser(sender)) return reply(`❎ _limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return 
 if (isBan) return 
-if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if (!isQuotedImage) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
@@ -4053,6 +4053,7 @@ addLimitUser(sender, -1)
 break
 
 case 'info':
+case 'runtime':
 if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (!getLimitUser(sender)) return reply(`❎ _limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return 
@@ -6052,7 +6053,7 @@ if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${pref
 if (!getLimitUser(sender)) return reply(`❎ _limit kamu telah abis! mainkan game atau beli limit menggunakan balance di ${prefix2}buy limit_`)
 if (isBanChat) return 
 if (isBan) return 
-if (!isQuotedImage) return reply('tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas')
+if (!isQuotedImage) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 if(!q) return reply(`tag foto yang sudah dikirim sebelumnya lalu ketik\n${prefix2}tambah nama|nomor|deskripsi\n\ngunakan tanda | untuk pembatas`)
 nmapro = q.split('|')[0]
 nmorpro = q.split('|')[1]
@@ -6261,6 +6262,7 @@ break
 }
 
 /*if (budy.includes(`Asu`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6277,13 +6279,14 @@ await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.b > 2 ){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 }
 break
 }
 
 if (budy.includes(`memek`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6300,13 +6303,14 @@ await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.b > 2 ){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 }
 break
 }
 
 if (budy.includes(`Memek`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6323,13 +6327,14 @@ await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.b > 2 ){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 }
 break
 }
 
 if (budy.includes(`ngent`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6346,13 +6351,14 @@ await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.b > 2 ){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 }
 break
 }
 
 if (budy.includes(`Ngento`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6369,13 +6375,14 @@ await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.b > 2 ){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 }
 break
 }
 
 if (budy.includes(`kontol`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6392,13 +6399,14 @@ await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.b > 2 ){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 }
 break
 }
 		 
 if (budy.includes(`Konto`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6415,7 +6423,7 @@ await client.relayWAMessage(gwekkhkj1e)
 for (let i of _badword) {
 if (i.b > 2 ){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 }
 break
@@ -6563,6 +6571,7 @@ return reply(bang)
 }
 
 if (budy.includes(`Asu`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6578,12 +6587,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`tempek`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6599,12 +6609,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`gontol`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6620,12 +6631,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`ancuk`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6641,12 +6653,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`anj`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6662,12 +6675,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`acot`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6683,12 +6697,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`angsat`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6704,12 +6719,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`memek`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6725,12 +6741,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`Memek`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6746,12 +6763,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`ngent`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6767,12 +6785,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`Ngento`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6788,12 +6807,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 
 if (budy.includes(`kontol`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6809,12 +6829,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
 		 
 if (budy.includes(`Konto`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6830,12 +6851,13 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 } 
 
 if (budy.includes(`gewe`)) {
+if (!isGroup) return
 if (!getSaldoId(sender)) return
 addBadwordUser(sender, 1)
 gwekkhkj1e = await client.prepareMessageFromContent(from, {
@@ -6851,7 +6873,7 @@ headerType: 1
 await client.relayWAMessage(gwekkhkj1e)
 if (getBadwordUser(sender) > 2){
 kic = `${sender.split("@")[0]}@s.whatsapp.net`
-client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+client.groupRemove(from, [kic]).catch((e)=>{reply(`_error, jadikan bot admin_`)})
     }
 break
 }
