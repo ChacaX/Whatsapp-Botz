@@ -3419,8 +3419,8 @@ break
 case '111':
 youke = fs.readFileSync('./lib/VID-20211205-WA0258.mp4')
 buttons = [{buttonId: `CREDIT SC`,buttonText:{displayText: `CREDIT SC`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/VID-20211205-WA0258.mp4`), 'videoMessage', {thumbnail: fs.readFileSync('./lib/VID-20211205-WA0258.mp4')})).message.videoMessage
-buttonsMessage = {footerText:`orewa`, imageMessage: imageMsg,
+videoMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/VID-20211205-WA0258.mp4`), 'videoMessage', {thumbnail: fs.readFileSync('./lib/VID-20211205-WA0258.mp4')})).message.videoMessage
+buttonsMessage = {footerText:`orewa`, videoMessage: videoMsg,
 contentText:`massaka`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
 client.relayWAMessage(prep)
