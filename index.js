@@ -5186,6 +5186,11 @@ BATAS DEFAULT
 ___________________*/
 
 default:             
+
+if (buttonsR === `CREDIT SC`) {
+reply(`「 *PENYUSUN SCRIPT* 」\nmhankbarbar/base && mitsuha/chacha && rimuru/nayla && dimx botz/dimas && ruri chan/amel && zak06 cheat/zaky && ridwan/partner && imam hafiz/partner && atak bot/partner && yuda xwer/partner`)
+break
+}
 	
 if (buttonsR === 'Pulsa') {
 reply(`INGIN DONASI BOT AGAR TETAP ON? KALIAN BISA KIRIM balance ATAU LAINYA KE NOMOR BOT YA.\nNOMOR : _+6285731261728_`)
@@ -6243,11 +6248,6 @@ no.splice(ini, 1)
 fs.writeFileSync('./src/no.json', JSON.stringify(no))
 reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}vote untuk memvoting dan ${prefix2}delvote untuk menghapus vote kamu`)
 }
-break
-}
-
-if (buttonsR === 'CREDIT SC') {
-reply(`「 *PENYUSUN SCRIPT* 」\nmhankbarbar/base && mitsuha/chacha && rimuru/nayla && dimx botz/dimas && ruri chan/amel && zak06 cheat/zaky && ridwan/partner && imam hafiz/partner && atak bot/partner && yuda xwer/partner`)
 break
 }
 	
