@@ -5188,7 +5188,7 @@ ___________________*/
 default:             
 
 if (buttonsR === `CREDIT SC`) {
-reply(`「 *PENYUSUN SCRIPT* 」\nmhankbarbar/base && mitsuha/chacha && rimuru/nayla && dimx botz/dimas && ruri chan/amel && zak06 cheat/zaky && ridwan/partner && imam hafiz/partner && atak bot/partner && yuda xwer/partner`)
+reply(`「 *PENYUSUN SCRIPT* 」\n\nmhankbarbar || mitsuha || rimuru || dimx botz || ruri chan || zak06 cheat || ridwan || imam hafiz || atak bot || yuda xwer`)
 break
 }
 	
