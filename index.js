@@ -3416,16 +3416,6 @@ addLimitUser(sender, -1)
 addSaldoUser(sender, 1)
 break
 
-case '111':
-youke = fs.readFileSync('./lib/VID-20211205-WA0258.mp4')
-buttons = [{buttonId: `CREDIT SC`,buttonText:{displayText: `CREDIT SC`},type:1}]
-videoMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/VID-20211205-WA0258.mp4`), 'videoMessage', {thumbnail: fs.readFileSync('./lib/VID-20211205-WA0258.mp4')})).message.videoMessage
-buttonsMessage = {footerText:`orewa`, videoMessage: videoMsg,
-contentText:`massaka`,buttons,headerType:4}
-prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
-client.relayWAMessage(prep)
-break
-
 case 'cerpen':
 client.updatePresence(from, Presence.composing) 
 if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
