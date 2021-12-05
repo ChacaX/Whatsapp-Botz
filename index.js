@@ -1527,179 +1527,181 @@ sendButDocument(from, `${teks}`, `- runtime : ${kyun(uptime)}
 ╰❒ 
 ͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭─❒ *INFORMASI MENU*
-│- ${prefix2}info
-│- ${prefix2}iklan
-│- ${prefix2}donasi
-│- ${prefix2}request
+│  - ${prefix2}info
+│  - ${prefix2}iklan
+│  - ${prefix2}donasi
+│  - ${prefix2}request
 ╰❒ 
 
 ╭─❒ *BELANJA KEBUTUHAN*
-│- ${prefix2}daftar
-│- ${prefix2}dompet
-│- ${prefix2}claim
-│- ${prefix2}shop
-│- ${prefix2}buy
-│- ${prefix2}sell
-│- ${prefix2}buka
-│- ${prefix2}tukar
-│- ${prefix2}inv
-│- ${prefix2}nambang
-│- ${prefix2}hunt
+│  - ${prefix2}daftar
+│  - ${prefix2}dompet
+│  - ${prefix2}claim
+│  - ${prefix2}shop
+│  - ${prefix2}buy
+│  - ${prefix2}sell
+│  - ${prefix2}buka
+│  - ${prefix2}tukar
+│  - ${prefix2}inv
+│  - ${prefix2}nambang
+│  - ${prefix2}hunt
 ╰❒ 
 
 ╭─❒ *EVENT GAMES BOT*
-│- ${prefix2}carspeed
-│- ${prefix2}lotre
+│  - ${prefix2}carspeed
+│  - ${prefix2}lotre
 ╰❒ 
 
 ╭─❒ *URL TO MEDIA TYPE*
-│- ${prefix2}urltoimg
-│- ${prefix2}tourl
+│  - ${prefix2}urltoimg
+│  - ${prefix2}tourl
 ╰❒ 
 
 ╭─❒ *PRODUK & VOTING*
-│- ${prefix2}produk
-│- ${prefix2}tambah
-│- ${prefix2}votting
-│- ${prefix2}vote
-│- ${prefix2}dellvote
+│  - ${prefix2}produk
+│  - ${prefix2}tambah
+│  - ${prefix2}votting
+│  - ${prefix2}vote
+│  - ${prefix2}dellvote
 ╰❒ 
 
 ╭─❒ *ULASAN & MUTUAL*
-│- ${prefix2}ulasan
-│- ${prefix2}komentar
-│- ${prefix2}mutual
-│- ${prefix2}save
+│  - ${prefix2}ulasan
+│  - ${prefix2}komentar
+│  - ${prefix2}mutual
+│  - ${prefix2}save
 ╰❒ 
 
 ╭─❒ *PRESENSI HADIR*
-│- ${prefix2}absen
-│- ${prefix2}absensi
+│  - ${prefix2}absen
+│  - ${prefix2}absensi
 ╰❒ 
 
 ╭─❒ *GROUP MENU*
-│- ${prefix2}afk
-│- ${prefix2}undang
-│- ${prefix2}enable
-│- ${prefix2}disable
-│- ${prefix2}mute
-│- ${prefix2}unmute
-│- ${prefix2}ban
-│- ${prefix2}unban
-│- ${prefix2}sider
-│- ${prefix2}hidetag
-│- ${prefix2}fitnah
-│- ${prefix2}settings
-│- ${prefix2}revoke
-│- ${prefix2}add
-│- ${prefix2}kick
-│- ${prefix2}promote
-│- ${prefix2}demote
-│- ${prefix2}tagall
-│- ${prefix2}antilink
-│- ${prefix2}welcome
+│  - ${prefix2}afk
+│  - ${prefix2}undang
+│  - ${prefix2}enable
+│  - ${prefix2}disable
+│  - ${prefix2}mute
+│  - ${prefix2}unmute
+│  - ${prefix2}ban
+│  - ${prefix2}unban
+│  - ${prefix2}sider
+│  - ${prefix2}hidetag
+│  - ${prefix2}fitnah
+│  - ${prefix2}settings
+│  - ${prefix2}revoke
+│  - ${prefix2}add
+│  - ${prefix2}kick
+│  - ${prefix2}promote
+│  - ${prefix2}demote
+│  - ${prefix2}tagall
+│  - ${prefix2}antilink
+│  - ${prefix2}welcome
 ╰❒ 
 
 ╭─❒ *ANIME MENU*
-│- ${prefix2}neko
-│- ${prefix2}waifu
-│- ${prefix2}ass
-│- ${prefix2}ero
-│- ${prefix2}yuri
+│  - ${prefix2}neko
+│  - ${prefix2}waifu
+│  - ${prefix2}ass
+│  - ${prefix2}ero
+│  - ${prefix2}yuri
 ╰❒ 
 
 ╭─❒ *GAMES MENU*
-│- ${prefix2}dungeon
-│- ${prefix2}slot
-│- ${prefix2}truth
-│- ${prefix2}dare
-│- ${prefix2}tebakgambar
+│  - ${prefix2}dungeon
+│  - ${prefix2}slot
+│  - ${prefix2}truth
+│  - ${prefix2}dare
+│  - ${prefix2}tebakgambar
 ╰❒ 
 
 ╭─❒ *IMAGE MENU*
-│- ${prefix2}cogan
-│- ${prefix2}cecan
-│- ${prefix2}darkjokes
-│- ${prefix2}pinterest
+│  - ${prefix2}cogan
+│  - ${prefix2}cecan
+│  - ${prefix2}darkjokes
+│  - ${prefix2}pinterest
 ╰❒ 
 
 ╭─❒ *RANDOM MENU*
-│- ${prefix2}cerpen
-│- ${prefix2}ceritahoror
-│- ${prefix2}ppcouple
+│  - ${prefix2}cerpen
+│  - ${prefix2}ceritahoror
+│  - ${prefix2}ppcouple
 ╰❒ 
 
 ╭─❒ *STICKER MENU*
-│- ${prefix2}sticker
-│- ${prefix2}ttp
-│- ${prefix2}attp
-│- ${prefix2}wasted
-│- ${prefix2}comrade
-│- ${prefix2}jail
-│- ${prefix2}passed
-│- ${prefix2}trigger
-│- ${prefix2}toimg
+│  - ${prefix2}sticker
+│  - ${prefix2}ttp
+│  - ${prefix2}attp
+│  - ${prefix2}wasted
+│  - ${prefix2}comrade
+│  - ${prefix2}jail
+│  - ${prefix2}passed
+│  - ${prefix2}trigger
+│  - ${prefix2}toimg
 ╰❒ 
 
 ╭─❒ *EDUCATION MENU*
-│- ${prefix2}quiz
-│- ${prefix2}nulis
-│- ${prefix2}niatsholat
-│- ${prefix2}doa
-│- ${prefix2}hadist
+│  - ${prefix2}quiz
+│  - ${prefix2}nulis
+│  - ${prefix2}niatsholat
+│  - ${prefix2}doa
+│  - ${prefix2}hadist
 ╰❒ 
 
 ╭─❒ *AUDIO MENU*
-│- ${prefix2}fast
-│- ${prefix2}tupai
-│- ${prefix2}gemuk
-│- ${prefix2}slow
-│- ${prefix2}tomp3
+│  - ${prefix2}fast
+│  - ${prefix2}tupai
+│  - ${prefix2}gemuk
+│  - ${prefix2}slow
+│  - ${prefix2}tomp3
 ╰❒ 
 
 ╭─❒ *PREMIUM MENU*
-│- ${prefix2}asupan
-│- ${prefix2}upswtext
-│- ${prefix2}upswimg
-│- ${prefix2}upswvideo
-│- ${prefix2}join
+│  - ${prefix2}asupan
+│  - ${prefix2}upswtext
+│  - ${prefix2}upswimg
+│  - ${prefix2}upswvideo
+│  - ${prefix2}join
 ╰❒ 
 
 ╭─❒ *OTHER MENU* 
-│- ${prefix2}sharelock
-│- ${prefix2}delete
-│- ${prefix2}pesan
-│- ${prefix2}owner
-│- ${prefix2}report
-│- ${prefix2}timer
+│  - ${prefix2}sharelock
+│  - ${prefix2}delete
+│  - ${prefix2}pesan
+│  - ${prefix2}owner
+│  - ${prefix2}report
+│  - ${prefix2}timer
 ╰❒ 
 
 ╭─❒ *OWNER MENU*
-│- $
-│- >
-│- =>
-│- ${prefix2}makegroup
-│- ${prefix2}kudet
-│- ${prefix2}leave
-│- ${prefix2}clone
-│- ${prefix2}bc
-│- ${prefix2}bcs
-│- ${prefix2}addprem
-│- ${prefix2}dellprem
-│- ${prefix2}bug
+│  - $
+│  - >
+│  - =>
+│  - ${prefix2}makegroup
+│  - ${prefix2}kudet
+│  - ${prefix2}leave
+│  - ${prefix2}clone
+│  - ${prefix2}bc
+│  - ${prefix2}bcs
+│  - ${prefix2}addprem
+│  - ${prefix2}dellprem
+│  - ${prefix2}bug
 ╰❒ 
 
 ╭─❒ *THANKS TO*
-│- mhankbarbar
-│- mitsuhabotz
-│- rimurubotz
-│- dimxbotz
-│- rurichan
-│- zak06cheat
-│- ridwan
-│- hafizh
+│  - mhankbarbar/base
+│  - mitsuha/chacha
+│  - rimuru/nayla
+│  - dimx botz/dimas
+│  - ruri chan/amel
+│  - zak06 cheat/zaky
+│  - ridwan/partner
+│  - imam hafiz/partner
+│  - atak bot/partner
+│  - yuda xwer/partner
 ╰❒
-`, fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), {mimetype: Mimetype.pdf, thumbnail:fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), filename: `MITSUHA BOT BETA 🦈`}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1}])
+`, fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), {mimetype: Mimetype.pdf, thumbnail:fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), filename: `MITSUHA BOT BETA 🦈`}, [{buttonId:`CREDIT SC`,buttonText:{displayText:'CREDIT SC'},type:1}])
 break
 
 /*case 'menu':
@@ -1983,176 +1985,178 @@ sendButLocation(from, `${teks}`, `- runtime : ${kyun(uptime)}
 ╰❒ 
 ͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭─❒ *INFORMASI MENU*
-│- ${prefix2}info
-│- ${prefix2}iklan
-│- ${prefix2}donasi
-│- ${prefix2}request
+│  - ${prefix2}info
+│  - ${prefix2}iklan
+│  - ${prefix2}donasi
+│  - ${prefix2}request
 ╰❒ 
 
 ╭─❒ *BELANJA KEBUTUHAN*
-│- ${prefix2}daftar
-│- ${prefix2}dompet
-│- ${prefix2}claim
-│- ${prefix2}shop
-│- ${prefix2}buy
-│- ${prefix2}sell
-│- ${prefix2}buka
-│- ${prefix2}tukar
-│- ${prefix2}inv
-│- ${prefix2}nambang
-│- ${prefix2}hunt
+│  - ${prefix2}daftar
+│  - ${prefix2}dompet
+│  - ${prefix2}claim
+│  - ${prefix2}shop
+│  - ${prefix2}buy
+│  - ${prefix2}sell
+│  - ${prefix2}buka
+│  - ${prefix2}tukar
+│  - ${prefix2}inv
+│  - ${prefix2}nambang
+│  - ${prefix2}hunt
 ╰❒ 
 
 ╭─❒ *EVENT GAMES BOT*
-│- ${prefix2}carspeed
-│- ${prefix2}lotre
+│  - ${prefix2}carspeed
+│  - ${prefix2}lotre
 ╰❒ 
 
 ╭─❒ *URL TO MEDIA TYPE*
-│- ${prefix2}urltoimg
-│- ${prefix2}tourl
+│  - ${prefix2}urltoimg
+│  - ${prefix2}tourl
 ╰❒ 
 
 ╭─❒ *PRODUK & VOTING*
-│- ${prefix2}produk
-│- ${prefix2}tambah
-│- ${prefix2}votting
-│- ${prefix2}vote
-│- ${prefix2}dellvote
+│  - ${prefix2}produk
+│  - ${prefix2}tambah
+│  - ${prefix2}votting
+│  - ${prefix2}vote
+│  - ${prefix2}dellvote
 ╰❒ 
 
 ╭─❒ *ULASAN & MUTUAL*
-│- ${prefix2}ulasan
-│- ${prefix2}komentar
-│- ${prefix2}mutual
-│- ${prefix2}save
+│  - ${prefix2}ulasan
+│  - ${prefix2}komentar
+│  - ${prefix2}mutual
+│  - ${prefix2}save
 ╰❒ 
 
 ╭─❒ *PRESENSI HADIR*
-│- ${prefix2}absen
-│- ${prefix2}absensi
+│  - ${prefix2}absen
+│  - ${prefix2}absensi
 ╰❒ 
 
 ╭─❒ *GROUP MENU*
-│- ${prefix2}afk
-│- ${prefix2}undang
-│- ${prefix2}enable
-│- ${prefix2}disable
-│- ${prefix2}mute
-│- ${prefix2}unmute
-│- ${prefix2}ban
-│- ${prefix2}unban
-│- ${prefix2}sider
-│- ${prefix2}hidetag
-│- ${prefix2}fitnah
-│- ${prefix2}settings
-│- ${prefix2}revoke
-│- ${prefix2}add
-│- ${prefix2}kick
-│- ${prefix2}promote
-│- ${prefix2}demote
-│- ${prefix2}tagall
-│- ${prefix2}antilink
-│- ${prefix2}welcome
+│  - ${prefix2}afk
+│  - ${prefix2}undang
+│  - ${prefix2}enable
+│  - ${prefix2}disable
+│  - ${prefix2}mute
+│  - ${prefix2}unmute
+│  - ${prefix2}ban
+│  - ${prefix2}unban
+│  - ${prefix2}sider
+│  - ${prefix2}hidetag
+│  - ${prefix2}fitnah
+│  - ${prefix2}settings
+│  - ${prefix2}revoke
+│  - ${prefix2}add
+│  - ${prefix2}kick
+│  - ${prefix2}promote
+│  - ${prefix2}demote
+│  - ${prefix2}tagall
+│  - ${prefix2}antilink
+│  - ${prefix2}welcome
 ╰❒ 
 
 ╭─❒ *ANIME MENU*
-│- ${prefix2}neko
-│- ${prefix2}waifu
-│- ${prefix2}ass
-│- ${prefix2}ero
-│- ${prefix2}yuri
+│  - ${prefix2}neko
+│  - ${prefix2}waifu
+│  - ${prefix2}ass
+│  - ${prefix2}ero
+│  - ${prefix2}yuri
 ╰❒ 
 
 ╭─❒ *GAMES MENU*
-│- ${prefix2}dungeon
-│- ${prefix2}slot
-│- ${prefix2}truth
-│- ${prefix2}dare
-│- ${prefix2}tebakgambar
+│  - ${prefix2}dungeon
+│  - ${prefix2}slot
+│  - ${prefix2}truth
+│  - ${prefix2}dare
+│  - ${prefix2}tebakgambar
 ╰❒ 
 
 ╭─❒ *IMAGE MENU*
-│- ${prefix2}cogan
-│- ${prefix2}cecan
-│- ${prefix2}darkjokes
-│- ${prefix2}pinterest
+│  - ${prefix2}cogan
+│  - ${prefix2}cecan
+│  - ${prefix2}darkjokes
+│  - ${prefix2}pinterest
 ╰❒ 
 
 ╭─❒ *RANDOM MENU*
-│- ${prefix2}cerpen
-│- ${prefix2}ceritahoror
-│- ${prefix2}ppcouple
+│  - ${prefix2}cerpen
+│  - ${prefix2}ceritahoror
+│  - ${prefix2}ppcouple
 ╰❒ 
 
 ╭─❒ *STICKER MENU*
-│- ${prefix2}sticker
-│- ${prefix2}ttp
-│- ${prefix2}attp
-│- ${prefix2}wasted
-│- ${prefix2}comrade
-│- ${prefix2}jail
-│- ${prefix2}passed
-│- ${prefix2}trigger
-│- ${prefix2}toimg
+│  - ${prefix2}sticker
+│  - ${prefix2}ttp
+│  - ${prefix2}attp
+│  - ${prefix2}wasted
+│  - ${prefix2}comrade
+│  - ${prefix2}jail
+│  - ${prefix2}passed
+│  - ${prefix2}trigger
+│  - ${prefix2}toimg
 ╰❒ 
 
 ╭─❒ *EDUCATION MENU*
-│- ${prefix2}quiz
-│- ${prefix2}nulis
-│- ${prefix2}niatsholat
-│- ${prefix2}doa
-│- ${prefix2}hadist
+│  - ${prefix2}quiz
+│  - ${prefix2}nulis
+│  - ${prefix2}niatsholat
+│  - ${prefix2}doa
+│  - ${prefix2}hadist
 ╰❒ 
 
 ╭─❒ *AUDIO MENU*
-│- ${prefix2}fast
-│- ${prefix2}tupai
-│- ${prefix2}gemuk
-│- ${prefix2}slow
-│- ${prefix2}tomp3
+│  - ${prefix2}fast
+│  - ${prefix2}tupai
+│  - ${prefix2}gemuk
+│  - ${prefix2}slow
+│  - ${prefix2}tomp3
 ╰❒ 
 
 ╭─❒ *PREMIUM MENU*
-│- ${prefix2}asupan
-│- ${prefix2}upswtext
-│- ${prefix2}upswimg
-│- ${prefix2}upswvideo
-│- ${prefix2}join
+│  - ${prefix2}asupan
+│  - ${prefix2}upswtext
+│  - ${prefix2}upswimg
+│  - ${prefix2}upswvideo
+│  - ${prefix2}join
 ╰❒ 
 
 ╭─❒ *OTHER MENU* 
-│- ${prefix2}sharelock
-│- ${prefix2}delete
-│- ${prefix2}owner
-│- ${prefix2}report
-│- ${prefix2}timer
+│  - ${prefix2}sharelock
+│  - ${prefix2}delete
+│  - ${prefix2}owner
+│  - ${prefix2}report
+│  - ${prefix2}timer
 ╰❒ 
 
 ╭─❒ *OWNER MENU*
-│- $
-│- >
-│- =>
-│- ${prefix2}makegroup
-│- ${prefix2}kudet
-│- ${prefix2}leave
-│- ${prefix2}clone
-│- ${prefix2}bc
-│- ${prefix2}bcs
-│- ${prefix2}addprem
-│- ${prefix2}dellprem
-│- ${prefix2}bug
+│  - $
+│  - >
+│  - =>
+│  - ${prefix2}makegroup
+│  - ${prefix2}kudet
+│  - ${prefix2}leave
+│  - ${prefix2}clone
+│  - ${prefix2}bc
+│  - ${prefix2}bcs
+│  - ${prefix2}addprem
+│  - ${prefix2}dellprem
+│  - ${prefix2}bug
 ╰❒ 
 
 ╭─❒ *THANKS TO*
-│- mhankbarbar
-│- mitsuhabotz
-│- rimurubotz
-│- dimxbotz
-│- rurichan
-│- zak06cheat
-│- ridwan
-│- hafizh
+│  - mhankbarbar/base
+│  - mitsuha/chacha
+│  - rimuru/nayla
+│  - dimx botz/dimas
+│  - ruri chan/amel
+│  - zak06 cheat/zaky
+│  - ridwan/partner
+│  - imam hafiz/partner
+│  - atak bot/partner
+│  - yuda xwer/partner
 ╰❒
 `,{jpegThumbnail:tch}, [{buttonId:`IKLAN`,buttonText:{displayText:'IKLAN'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}])
 break*/
@@ -3924,7 +3928,7 @@ case 'inventory':
 if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isBanChat) return 
 if (isBan) return 
-reply(`*CRATE STORAGE*\nbox standar :   ${getBoxUser(sender)}\nbox epic :   ${getBoxEpicUser(sender)}\n\n*MATERIAL STORAGE*\nemas :   ${getEmasUser(sender)}\nperak :   ${getPerakUser(sender)}\nraw emas :   ${getBijihEmasUser(sender)}\nraw perak :   ${getBijihPerakUser(sender)}\n\n*SIMPANAN PET*\nkucing :   ${getKucingUser(sender)}\nanjing :   ${getAnjingUser(sender)}\nkelinci :   ${getKelinciUser(sender)}\nrubah :   ${getRubahUser(sender)}\nelang :   ${getElangUser(sender)}\nberuang :   ${getBeruangUser(sender)}\n`)
+reply(`*CRATE STORAGE*\nbox standar :   ${getBoxUser(sender)}\nbox epic :   ${getBoxEpicUser(sender)}\n\n\n*MATERIAL STORAGE*\nemas :   ${getEmasUser(sender)}\nperak :   ${getPerakUser(sender)}\nraw emas :   ${getBijihEmasUser(sender)}\nraw perak :   ${getBijihPerakUser(sender)}\n\n\n*SIMPANAN PET*\nkucing :   ${getKucingUser(sender)}\nanjing :   ${getAnjingUser(sender)}\nkelinci :   ${getKelinciUser(sender)}\nrubah :   ${getRubahUser(sender)}\nelang :   ${getElangUser(sender)}\nberuang :   ${getBeruangUser(sender)}\n`)
 addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
@@ -5332,178 +5336,180 @@ sendButDocument(from, `${teks}`, `- runtime : ${kyun(uptime)}
 ╰❒ 
 ͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭─❒ *INFORMASI MENU*
-│- ${prefix2}info
-│- ${prefix2}iklan
-│- ${prefix2}donasi
-│- ${prefix2}request
+│  - ${prefix2}info
+│  - ${prefix2}iklan
+│  - ${prefix2}donasi
+│  - ${prefix2}request
 ╰❒ 
 
 ╭─❒ *BELANJA KEBUTUHAN*
-│- ${prefix2}daftar
-│- ${prefix2}dompet
-│- ${prefix2}claim
-│- ${prefix2}shop
-│- ${prefix2}buy
-│- ${prefix2}sell
-│- ${prefix2}buka
-│- ${prefix2}tukar
-│- ${prefix2}inv
-│- ${prefix2}nambang
-│- ${prefix2}hunt
+│  - ${prefix2}daftar
+│  - ${prefix2}dompet
+│  - ${prefix2}claim
+│  - ${prefix2}shop
+│  - ${prefix2}buy
+│  - ${prefix2}sell
+│  - ${prefix2}buka
+│  - ${prefix2}tukar
+│  - ${prefix2}inv
+│  - ${prefix2}nambang
+│  - ${prefix2}hunt
 ╰❒ 
 
 ╭─❒ *EVENT GAMES BOT*
-│- ${prefix2}carspeed
-│- ${prefix2}lotre
+│  - ${prefix2}carspeed
+│  - ${prefix2}lotre
 ╰❒ 
 
 ╭─❒ *URL TO MEDIA TYPE*
-│- ${prefix2}urltoimg
-│- ${prefix2}tourl
+│  - ${prefix2}urltoimg
+│  - ${prefix2}tourl
 ╰❒ 
 
 ╭─❒ *PRODUK & VOTING*
-│- ${prefix2}produk
-│- ${prefix2}tambah
-│- ${prefix2}votting
-│- ${prefix2}vote
-│- ${prefix2}dellvote
+│  - ${prefix2}produk
+│  - ${prefix2}tambah
+│  - ${prefix2}votting
+│  - ${prefix2}vote
+│  - ${prefix2}dellvote
 ╰❒ 
 
 ╭─❒ *ULASAN & MUTUAL*
-│- ${prefix2}ulasan
-│- ${prefix2}komentar
-│- ${prefix2}mutual
-│- ${prefix2}save
+│  - ${prefix2}ulasan
+│  - ${prefix2}komentar
+│  - ${prefix2}mutual
+│  - ${prefix2}save
 ╰❒ 
 
 ╭─❒ *PRESENSI HADIR*
-│- ${prefix2}absen
-│- ${prefix2}absensi
+│  - ${prefix2}absen
+│  - ${prefix2}absensi
 ╰❒ 
 
 ╭─❒ *GROUP MENU*
-│- ${prefix2}afk
-│- ${prefix2}undang
-│- ${prefix2}enable
-│- ${prefix2}disable
-│- ${prefix2}mute
-│- ${prefix2}unmute
-│- ${prefix2}ban
-│- ${prefix2}unban
-│- ${prefix2}sider
-│- ${prefix2}hidetag
-│- ${prefix2}fitnah
-│- ${prefix2}settings
-│- ${prefix2}revoke
-│- ${prefix2}add
-│- ${prefix2}kick
-│- ${prefix2}promote
-│- ${prefix2}demote
-│- ${prefix2}tagall
-│- ${prefix2}antilink
-│- ${prefix2}welcome
+│  - ${prefix2}afk
+│  - ${prefix2}undang
+│  - ${prefix2}enable
+│  - ${prefix2}disable
+│  - ${prefix2}mute
+│  - ${prefix2}unmute
+│  - ${prefix2}ban
+│  - ${prefix2}unban
+│  - ${prefix2}sider
+│  - ${prefix2}hidetag
+│  - ${prefix2}fitnah
+│  - ${prefix2}settings
+│  - ${prefix2}revoke
+│  - ${prefix2}add
+│  - ${prefix2}kick
+│  - ${prefix2}promote
+│  - ${prefix2}demote
+│  - ${prefix2}tagall
+│  - ${prefix2}antilink
+│  - ${prefix2}welcome
 ╰❒ 
 
 ╭─❒ *ANIME MENU*
-│- ${prefix2}neko
-│- ${prefix2}waifu
-│- ${prefix2}ass
-│- ${prefix2}ero
-│- ${prefix2}yuri
+│  - ${prefix2}neko
+│  - ${prefix2}waifu
+│  - ${prefix2}ass
+│  - ${prefix2}ero
+│  - ${prefix2}yuri
 ╰❒ 
 
 ╭─❒ *GAMES MENU*
-│- ${prefix2}dungeon
-│- ${prefix2}slot
-│- ${prefix2}truth
-│- ${prefix2}dare
-│- ${prefix2}tebakgambar
+│  - ${prefix2}dungeon
+│  - ${prefix2}slot
+│  - ${prefix2}truth
+│  - ${prefix2}dare
+│  - ${prefix2}tebakgambar
 ╰❒ 
 
 ╭─❒ *IMAGE MENU*
-│- ${prefix2}cogan
-│- ${prefix2}cecan
-│- ${prefix2}darkjokes
-│- ${prefix2}pinterest
+│  - ${prefix2}cogan
+│  - ${prefix2}cecan
+│  - ${prefix2}darkjokes
+│  - ${prefix2}pinterest
 ╰❒ 
 
 ╭─❒ *RANDOM MENU*
-│- ${prefix2}cerpen
-│- ${prefix2}ceritahoror
-│- ${prefix2}ppcouple
+│  - ${prefix2}cerpen
+│  - ${prefix2}ceritahoror
+│  - ${prefix2}ppcouple
 ╰❒ 
 
 ╭─❒ *STICKER MENU*
-│- ${prefix2}sticker
-│- ${prefix2}ttp
-│- ${prefix2}attp
-│- ${prefix2}wasted
-│- ${prefix2}comrade
-│- ${prefix2}jail
-│- ${prefix2}passed
-│- ${prefix2}trigger
-│- ${prefix2}toimg
+│  - ${prefix2}sticker
+│  - ${prefix2}ttp
+│  - ${prefix2}attp
+│  - ${prefix2}wasted
+│  - ${prefix2}comrade
+│  - ${prefix2}jail
+│  - ${prefix2}passed
+│  - ${prefix2}trigger
+│  - ${prefix2}toimg
 ╰❒ 
 
 ╭─❒ *EDUCATION MENU*
-│- ${prefix2}quiz
-│- ${prefix2}nulis
-│- ${prefix2}niatsholat
-│- ${prefix2}doa
-│- ${prefix2}hadist
+│  - ${prefix2}quiz
+│  - ${prefix2}nulis
+│  - ${prefix2}niatsholat
+│  - ${prefix2}doa
+│  - ${prefix2}hadist
 ╰❒ 
 
 ╭─❒ *AUDIO MENU*
-│- ${prefix2}fast
-│- ${prefix2}tupai
-│- ${prefix2}gemuk
-│- ${prefix2}slow
-│- ${prefix2}tomp3
+│  - ${prefix2}fast
+│  - ${prefix2}tupai
+│  - ${prefix2}gemuk
+│  - ${prefix2}slow
+│  - ${prefix2}tomp3
 ╰❒ 
 
 ╭─❒ *PREMIUM MENU*
-│- ${prefix2}asupan
-│- ${prefix2}upswtext
-│- ${prefix2}upswimg
-│- ${prefix2}upswvideo
-│- ${prefix2}join
+│  - ${prefix2}asupan
+│  - ${prefix2}upswtext
+│  - ${prefix2}upswimg
+│  - ${prefix2}upswvideo
+│  - ${prefix2}join
 ╰❒ 
 
 ╭─❒ *OTHER MENU* 
-│- ${prefix2}sharelock
-│- ${prefix2}delete
-│- ${prefix2}owner
-│- ${prefix2}report
-│- ${prefix2}timer
+│  - ${prefix2}sharelock
+│  - ${prefix2}delete
+│  - ${prefix2}owner
+│  - ${prefix2}report
+│  - ${prefix2}timer
 ╰❒ 
 
 ╭─❒ *OWNER MENU*
-│- $
-│- >
-│- =>
-│- ${prefix2}makegroup
-│- ${prefix2}kudet
-│- ${prefix2}leave
-│- ${prefix2}clone
-│- ${prefix2}bc
-│- ${prefix2}bcs
-│- ${prefix2}addprem
-│- ${prefix2}dellprem
-│- ${prefix2}bug
+│  - $
+│  - >
+│  - =>
+│  - ${prefix2}makegroup
+│  - ${prefix2}kudet
+│  - ${prefix2}leave
+│  - ${prefix2}clone
+│  - ${prefix2}bc
+│  - ${prefix2}bcs
+│  - ${prefix2}addprem
+│  - ${prefix2}dellprem
+│  - ${prefix2}bug
 ╰❒ 
 
 ╭─❒ *THANKS TO*
-│- mhankbarbar
-│- mitsuhabotz
-│- rimurubotz
-│- dimxbotz
-│- rurichan
-│- zak06cheat
-│- ridwan
-│- hafizh
+│  - mhankbarbar/base
+│  - mitsuha/chacha
+│  - rimuru/nayla
+│  - dimx botz/dimas
+│  - ruri chan/amel
+│  - zak06 cheat/zaky
+│  - ridwan/partner
+│  - imam hafiz/partner
+│  - atak bot/partner
+│  - yuda xwer/partner
 ╰❒
-`, fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), {mimetype: Mimetype.pdf, thumbnail:fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), filename: `MITSUHA BOT BETA 🦈`}, [{buttonId:`IKLAN BOT`,buttonText:{displayText:'IKLAN BOT'},type:1},{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1}])
+`, fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), {mimetype: Mimetype.pdf, thumbnail:fs.readFileSync(`./lib/enjoy-rain-anime-girl.jpg`), filename: `MITSUHA BOT BETA 🦈`}, [{buttonId:`CREDIT SC`,buttonText:{displayText:'CREDIT SC'},type:1}])
 break
 }
 
@@ -6240,6 +6246,11 @@ reply(`${i}\n\n✅ ${yes.length}\n❎ ${no.length}\n\nKetik perintah ${prefix2}v
 break
 }
 
+if (buttonsR === 'CREDIT SC') {
+reply(`「 *PENYUSUN SCRIPT* 」\nmhankbarbar/base && mitsuha/chacha && rimuru/nayla && dimx botz/dimas && ruri chan/amel && zak06 cheat/zaky && ridwan/partner && imam hafiz/partner && atak bot/partner && yuda xwer/partner`)
+break
+}
+	
 if (buttonsR === 'MATIKAN') {
 reply('TIMER dimatikan_')
 break
