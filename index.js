@@ -1949,7 +1949,7 @@ uptime = process.uptime()
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, fs.readFileSync('./lib/odc.jpeg'))
 buttons = [{buttonId:`MENU`,buttonText:{displayText:'MENU'},type:1},{buttonId:`OWNER`,buttonText:{displayText:'OWNER'},type:1}] 
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`support by meta`, imageMessage: imageMsg,
 contentText:`\`\`\`Whatsapp Bot 🍺\`\`\``,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -2179,7 +2179,7 @@ randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.url))
 buttons = [{buttonId:`Selamat Ya`,buttonText:{displayText:`Selamat Ya`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`Nama: ${randKey.result.nama}\nStatus: ${randKey.result.status}\nNilai: ${randKey.result.nilai}`, imageMessage: imageMsg,
 contentText: `*Hunter Infromation*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -2479,7 +2479,7 @@ if (isBanChat) return
 if (isBan) return 
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(Soalnya.gambar))
 buttons = [{buttonId:`BENAR`,buttonText:{displayText:`BENAR`},type:1},{buttonId:`SALAH`,buttonText:{displayText:`SALAH`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`JAWABAN BENAR ${benar.length}\nJAWABAN SALAH ${salah.length}\n\n${materi}`, imageMessage: imageMsg,
 contentText:`*QUIZ HARIAN BERHADIAH*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3397,7 +3397,7 @@ randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.male))
 buttons = [{buttonId:`NIH COWOK`,buttonText:{displayText:`NIH COWOK`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3405,7 +3405,7 @@ client.relayWAMessage(prep)
 fs.unlinkSync(`./${sender}.jpeg`)
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.female))
 buttons = [{buttonId:`NIH CEWEK`,buttonText:{displayText:`NIH CEWEK`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`NI BRO PP COPLE BUAT SEPASANG BEKATAN PEBUCIN HAMDAL V:`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3493,7 +3493,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3514,7 +3514,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3535,7 +3535,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3556,7 +3556,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3577,7 +3577,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3598,7 +3598,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3619,7 +3619,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -3667,7 +3667,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("928104594b3e8357f302d80b1077a9c3", owgi)
+anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3696,7 +3696,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("928104594b3e8357f302d80b1077a9c3", owgi)
+anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3725,7 +3725,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("928104594b3e8357f302d80b1077a9c3", owgi)
+anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3754,7 +3754,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("928104594b3e8357f302d80b1077a9c3", owgi)
+anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3783,7 +3783,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("928104594b3e8357f302d80b1077a9c3", owgi)
+anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3928,7 +3928,9 @@ case 'inventory':
 if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isBanChat) return 
 if (isBan) return 
-reply(`RANDOM STORAGE\nbox standar ${getBoxUser(sender)}\nbox epic ${getBoxEpicUser(sender)}\n\n\nMATERIAL STORAGE\nemas ${getEmasUser(sender)}\nperak ${getPerakUser(sender)}\nraw emas ${getBijihEmasUser(sender)}\nraw perak ${getBijihPerakUser(sender)}\n\n\nSIMPANAN PET\nkucing ${getKucingUser(sender)}\nanjing ${getAnjingUser(sender)}\nkelinci ${getKelinciUser(sender)}\nrubah ${getRubahUser(sender)}\nelang ${getElangUser(sender)}\nberuang ${getBeruangUser(sender)}\n`)
+gifnya = await getBuffer('https://telegra.ph/file/960ad9adab10d7f28fdb0.jpg')
+anu =`RANDOM STORAGE\nbox standar ${getBoxUser(sender)}\nbox epic ${getBoxEpicUser(sender)}\n\n\nMATERIAL STORAGE\nemas ${getEmasUser(sender)}\nperak ${getPerakUser(sender)}\nraw emas ${getBijihEmasUser(sender)}\nraw perak ${getBijihPerakUser(sender)}\n\n\nPET STORAGE\nkucing ${getKucingUser(sender)}\nanjing ${getAnjingUser(sender)}\nkelinci ${getKelinciUser(sender)}\nrubah ${getRubahUser(sender)}\nelang ${getElangUser(sender)}\nberuang ${getBeruangUser(sender)}\n`
+await client.sendMessage(from, gifnya, MessageType.video, {mimetype : 'video/gif', quoted: floc2, thumbnail: gifnya, caption: anu})
 addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
@@ -4009,7 +4011,7 @@ if (isBanChat) return
 if (isBan) return 
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -4152,7 +4154,7 @@ reply(`_wait proses_`)
 B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2, thumbnail: thumb})
@@ -4191,7 +4193,7 @@ if (isBan) return
 b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 buttons = [{buttonId:`么 ${command} 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*${command}*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -4209,7 +4211,7 @@ if (!q) return reply(`❎ _teksnya mana?_`)
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(`https://api.zeks.xyz/api/nulis?text=${body.slice(7)}&apikey=apikeyaine`))
 buttons = [{buttonId:`么`,buttonText:{displayText:`么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
 contentText:`_Dah Jadi Stah_`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -4496,7 +4498,7 @@ randIndex2 = Math.floor(Math.random() * jsonData.length);
 randKey2 = jsonData[randIndex2];
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `👎`,buttonText:{displayText: `👎`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📚 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n?? ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -4605,7 +4607,9 @@ case 'saldo':
 case 'limit':
 case 'dompet':
 if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
-reply(`balance: $${getSaldoUser(sender)}\nlimit: ${getLimitUser(sender)}`)
+gifnya = await getBuffer('https://telegra.ph/file/960ad9adab10d7f28fdb0.jpg')
+anu =`balance: $${getSaldoUser(sender)}\nlimit: ${getLimitUser(sender)}`
+await client.sendMessage(from, gifnya, MessageType.video, {mimetype : 'video/gif', quoted: floc2, thumbnail: gifnya, caption: anu})
 break
 
 case 'claim':
@@ -4632,11 +4636,11 @@ break
 				 reply(`_wait proses_`)
 				 var imgbb = require('imgbb-uploader')
 				 let uuu = await client.downloadAndSaveMediaMessage(ger)
-				 let anu = await imgbb("928104594b3e8357f302d80b1077a9c3", uuu)
+				 let anu = await imgbb("3b8594f4cb11895f4084291bc655e510", uuu)
 				 let teks = `${anu.display_url}`
 				 reply(teks)
 				 } else {
-reply('Tag Foto Yang Udah Dikirim')
+reply('Tag Foto/Video Yang Udah Dikirim')
 }
 		addLimitUser(sender, -1)
 break
@@ -5215,7 +5219,7 @@ if (isBan) return
 uptime = process.uptime()
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `Pulsa`,buttonText:{displayText: `Pulsa`},type:1},{buttonId:`Dana`,buttonText:{displayText:'Dana'},type:1},{buttonId:`Gopay`,buttonText:{displayText:'Gopay'},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
 contentText:`INGIN DONASI MELALUI SAWERIA? LANGSUNG CEK WEBSITE INI YUK!! https://www.saweria.co/MitsuhaBot`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -5947,7 +5951,7 @@ if (isBan) return
               /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cecan))
 		      buttons = [{buttonId:`么 cecan 么`,buttonText:{displayText:`么 cecan 么`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
               buttonsMessage = {footerText:'CEWEK CANTIK', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -5968,7 +5972,7 @@ if (isBan) return
               /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.cogan))
 		      buttons = [{buttonId:`么 cogan 么`,buttonText:{displayText:`么 cogan 么`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
               buttonsMessage = {footerText:'COWOK GANTENG', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -5990,7 +5994,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result))
 buttons = [{buttonId:`么 darkjokes 么`,buttonText:{displayText:`么 darkjokes 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'DARKJOKES', imageMessage: imageMsg,
 contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -6006,7 +6010,7 @@ if (isBan) return
               b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(b.url))
 		      buttons = [{buttonId:`么 waifu 么`,buttonText:{displayText:`么 waifu 么`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
               buttonsMessage = {footerText:'*_© Mitsuha Official_*', imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -6049,7 +6053,7 @@ if (isBan) return
 			  B10 = (await fetchJson(`https://nekos.life/api/v2/img/neko`))
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(B10.url))
 		      buttons = [{buttonId:`么 neko 么`,buttonText:{displayText:`么 neko 么`},type:1}]
-              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+              imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
               buttonsMessage = {footerText:`*_© Mitsuha Official_*`, imageMessage: imageMsg,
               contentText:`Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya`,buttons,headerType:4}
               prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc2, thumbnail: thumb})
@@ -6150,7 +6154,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey.result.thumbnail))
 buttons = [{buttonId:`么 cerita_horor 么`,buttonText:{displayText:`么 cerita_horor 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'CERITA - HOROR', imageMessage: imageMsg,
 contentText:`*Title*: ${randKey.result.title}\n\n*Desc*: ${randKey.result.desc}\n\n*Story*: ${randKey.result.story}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -6172,7 +6176,7 @@ randIndex2 = Math.floor(Math.random() * jsonData.length);
 randKey2 = jsonData[randIndex2];
 youke = fs.readFileSync('./lib/odc.jpeg')
 buttons = [{buttonId: `👍`,buttonText:{displayText: `👍`},type:1},{buttonId: `??`,buttonText:{displayText: `👎`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./lib/odc.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
 contentText:`            *TENTANG BOT INI*\n\n📚 Beri Nilai Pada Kualitas Bot Ini\n📑 Dukung Bot Agar Update Ya\n\n               *TOTAL RATING*\n\n❤ Jumlah Suka ${like.length}\n🖤 Jumlah Tidak Suka ${dislike.length}\n\n                  *KOMENTAR*\n\n👤 ${randKey.Pengguna}\n⌚ ${randKey.Time}\n💌 ${randKey.Komen}\n\n👤 ${randKey2.Pengguna}\n⌚ ${randKey2.Time}\n💌 ${randKey2.Komen}`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -6458,7 +6462,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 yuri 么`,buttonText:{displayText:`么 ${command} 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*yuri*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -6479,7 +6483,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 ero 么`,buttonText:{displayText:`么 ero 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*ero*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
@@ -6500,7 +6504,7 @@ randKey = jsonData[randIndex];
 /*b = (await fetchJson(`https://waifu.pics/api/sfw/waifu`))*/
 fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(randKey))
 buttons = [{buttonId:`么 ass 么`,buttonText:{displayText:`么 ass 么`},type:1}]
-imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./lib/odc.jpeg')})).message.imageMessage
+imageMsg = ( await client.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage')).message.imageMessage
 buttonsMessage = {footerText:'Klick Tombol Dibawah Untuk Menampilkan Gambar Berikutnya', imageMessage: imageMsg,
 contentText:`*ass*`,buttons,headerType:4}
 prep = await client.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc2})
