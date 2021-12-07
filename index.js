@@ -4655,7 +4655,7 @@ break
 				 let teks = `${anu.display_url}`
 				 reply(teks)
 				 } else {
-reply('Tag Foto/Video Yang Udah Dikirim')
+reply('Tag Foto Yang Udah Dikirim')
 }
 		addLimitUser(sender, -1)
 break
