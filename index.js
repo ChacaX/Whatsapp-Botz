@@ -3667,7 +3667,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3696,7 +3696,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3725,7 +3725,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3754,7 +3754,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3783,7 +3783,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("3b8594f4cb11895f4084291bc655e510", owgi)
+anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -4636,7 +4636,7 @@ break
 				 reply(`_wait proses_`)
 				 var imgbb = require('imgbb-uploader')
 				 let uuu = await client.downloadAndSaveMediaMessage(ger)
-				 let anu = await imgbb("3b8594f4cb11895f4084291bc655e510", uuu)
+				 let anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", uuu)
 				 let teks = `${anu.display_url}`
 				 reply(teks)
 				 } else {
