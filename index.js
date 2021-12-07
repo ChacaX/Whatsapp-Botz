@@ -3928,7 +3928,7 @@ case 'inventory':
 if (!getSaldoId(sender)) return reply(`❎ _access ditolak silahkan ketik ${prefix2}daftar untuk memasukan data kamu kedalam database_`)
 if (isBanChat) return 
 if (isBan) return 
-reply(`*CRATE STORAGE*\nbox standar :   ${getBoxUser(sender)}\nbox epic :   ${getBoxEpicUser(sender)}\n\n\n*MATERIAL STORAGE*\nemas :   ${getEmasUser(sender)}\nperak :   ${getPerakUser(sender)}\nraw emas :   ${getBijihEmasUser(sender)}\nraw perak :   ${getBijihPerakUser(sender)}\n\n\n*SIMPANAN PET*\nkucing :   ${getKucingUser(sender)}\nanjing :   ${getAnjingUser(sender)}\nkelinci :   ${getKelinciUser(sender)}\nrubah :   ${getRubahUser(sender)}\nelang :   ${getElangUser(sender)}\nberuang :   ${getBeruangUser(sender)}\n`)
+reply(`RANDOM STORAGE\nbox standar ${getBoxUser(sender)}\nbox epic ${getBoxEpicUser(sender)}\n\n\nMATERIAL STORAGE\nemas ${getEmasUser(sender)}\nperak ${getPerakUser(sender)}\nraw emas ${getBijihEmasUser(sender)}\nraw perak ${getBijihPerakUser(sender)}\n\n\nSIMPANAN PET\nkucing ${getKucingUser(sender)}\nanjing ${getAnjingUser(sender)}\nkelinci ${getKelinciUser(sender)}\nrubah ${getRubahUser(sender)}\nelang ${getElangUser(sender)}\nberuang ${getBeruangUser(sender)}\n`)
 addSaldoUser(sender, 1)
 addLimitUser(sender, 1)
 break
