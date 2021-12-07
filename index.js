@@ -732,7 +732,15 @@ ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.u
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
 buffer = await getBuffer(ppimg)
-const sendButDocument3 = async(id, text3, desc3, media, doc3, but = [], options = {}) => {
+
+buttons = [{buttonId: `DESC`,buttonText:{displayText: `DESC\n\n${mdata.desc}`},type:1}]
+imageMsg = ( await client.prepareMessage(mdata.id, buffer, 'imageMessage')).message.imageMessage
+buttonsMessage = {footerText:`Whatsapp Messages`, imageMessage: imageMsg,
+contentText:`Akun @${num.split('@')[0]} telah memasuki grup dan selamat datang`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(mdata.id,{buttonsMessage}, {quoted: falfa})
+client.relayWAMessage(prep)
+
+/*const sendButDocument3 = async(id, text3, desc3, media, doc3, but = [], options = {}) => {
 kma = doc3
 mhan = await client.prepareMessage(mdata.id, media, document, kma)
 buttonMessages = {
@@ -746,7 +754,7 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
 teks =`@${num.split('@')[0]} hello`
-sendButDocument3(mdata.id, `${teks}`, `selamat datang\ndi grup ini :)`, fs.readFileSync(`./lib/odc.jpeg`), {mimetype: Mimetype.pdf, thumbnail:buffer, filename: `Pesan Sambutan Masuk`}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HEI 👋`,buttonText:{displayText:'HEI 👋'},type:1}])
+sendButDocument3(mdata.id, `${teks}`, `selamat datang\ndi grup ini :)`, fs.readFileSync(`./lib/odc.jpeg`), {mimetype: Mimetype.pdf, thumbnail:buffer, filename: `Pesan Sambutan Masuk`}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`HEI 👋`,buttonText:{displayText:'HEI 👋'},type:1}])*/
 
 /*sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
@@ -791,7 +799,14 @@ ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gamb
 }
 buffer = await getBuffer(ppimg)
 
-const sendButDocument2 = async(id, text2, desc2, media, doc2, but = [], options = {}) => {
+buttons = [{buttonId: `Good Dog`,buttonText:{displayText: `Good Dog`},type:1}]
+imageMsg = ( await client.prepareMessage(mdata.id, buffer, 'imageMessage')).message.imageMessage
+buttonsMessage = {footerText:`Whatsapp Messages`, imageMessage: imageMsg,
+contentText:`Akun @${num.split('@')[0]} telah meninggalkan grup dan sampai jumpa`,buttons,headerType:4}
+prep = await client.prepareMessageFromContent(mdata.id,{buttonsMessage}, {quoted: falfa})
+client.relayWAMessage(prep)
+
+/*const sendButDocument2 = async(id, text2, desc2, media, doc2, but = [], options = {}) => {
 kma = doc2
 mhan = await client.prepareMessage(mdata.id, media, document, kma)
 buttonMessages = {
@@ -805,7 +820,7 @@ client.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
 teks =`@${num.split('@')[0]} awok`
-sendButDocument2(mdata.id, `${teks}`, `yang keluar\npacarnya ragil`, fs.readFileSync(`./lib/odc.jpeg`), {mimetype: Mimetype.pdf, thumbnail:buffer, filename: `Pesan Sambutan Keluar`}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}])
+sendButDocument2(mdata.id, `${teks}`, `yang keluar\npacarnya ragil`, fs.readFileSync(`./lib/odc.jpeg`), {mimetype: Mimetype.pdf, thumbnail:buffer, filename: `Pesan Sambutan Keluar`}, [{buttonId:`OWNER BOT`,buttonText:{displayText:'OWNER BOT'},type:1},{buttonId:`BYE 👋`,buttonText:{displayText:'BYE 👋'},type:1}])*/
 
 /*sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
@@ -3667,7 +3682,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+anu = await imgbb("aa63cc7a430b90cf6c3951505e1e3385", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3696,7 +3711,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+anu = await imgbb("aa63cc7a430b90cf6c3951505e1e3385", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3725,7 +3740,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+anu = await imgbb("aa63cc7a430b90cf6c3951505e1e3385", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3754,7 +3769,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+anu = await imgbb("aa63cc7a430b90cf6c3951505e1e3385", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -3783,7 +3798,7 @@ ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).mes
 reply(`_wait proses_`)
 console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
 owgi = await  client.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
+anu = await imgbb("aa63cc7a430b90cf6c3951505e1e3385", owgi)
 teks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
@@ -4636,7 +4651,7 @@ break
 				 reply(`_wait proses_`)
 				 var imgbb = require('imgbb-uploader')
 				 let uuu = await client.downloadAndSaveMediaMessage(ger)
-				 let anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", uuu)
+				 let anu = await imgbb("aa63cc7a430b90cf6c3951505e1e3385", uuu)
 				 let teks = `${anu.display_url}`
 				 reply(teks)
 				 } else {
